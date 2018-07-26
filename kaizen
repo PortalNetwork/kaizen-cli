@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const creatrDapp = require("./CreateDapp");
+const creatrDapp = require(".//lib/CreateDapp");
 const argv = require('yargs').command('dapp', 'create a file', (yargs)=> {
     return yargs
         .option('name', {
@@ -23,7 +23,3 @@ const argv = require('yargs').command('dapp', 'create a file', (yargs)=> {
         creatrDapp({name, type});
     }
 ).argv;
-
-// console.log(argv);
-// kaizen  -help  //列出項目
-// kaizen dapp <package name>  //git close package name
