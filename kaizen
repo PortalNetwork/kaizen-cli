@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+const creatrDapp = require("./CreateDapp");
+const argv = require('yargs').command('dapp', 'create a file', (yargs)=> {
+    return yargs
+        .option('name', {
+            alias: 'n',
+            describe: 'clone a file'
+        })
+        .option('type', {
+            alias: 't',
+            describe: 'f2e framework type vue or react',
+            choices: ['vue', 'react'],
+            default: 'vue'
+        })
+        .demandOption(['name'], '請輸入創建文件名字')
+        .example(
+            'kaizen dapp -n <package name> -t <vue or react>',
+            'git clone 模板'
+        )
+    },
+    (argv)=> {
+        const {name, type} = argv;
+        creatrDapp({name, type});
+    }
+).argv;
+
+// console.log(argv);
+// kaizen  -help  //列出項目
+// kaizen dapp <package name>  //git close package name

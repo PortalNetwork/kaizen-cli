@@ -1,0 +1,37 @@
+{
+  "name": "kaizen-cli",
+  "bin": {
+    "kaizen": "kaizen"
+  },
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "del": "^3.0.0",
+    "yargs": "^12.0.0"
+  },
+  "devDependencies": {
+    "chalk": "^2.4.1",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "configstore": "^3.1.2",
+    "figlet": "^1.2.0",
+    "inquirer": "^6.0.0",
+    "minimist": "^1.2.0",
+    "node-cmd": "^3.0.0",
+    "shelljs": "^0.8.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PortalNetwork/kaizen-cli.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PortalNetwork/kaizen-cli/issues"
+  },
+  "homepage": "https://github.com/PortalNetwork/kaizen-cli#readme"
+}
