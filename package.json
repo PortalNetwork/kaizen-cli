@@ -4,7 +4,7 @@
     "kaizen": "kaizen"
   },
   "version": "0.0.1",
-  "description": "",
+  "description": "kaizen-cli",
   "main": "index.js",
   "dependencies": {
     "del": "^3.0.0",
