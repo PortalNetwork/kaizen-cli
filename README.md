@@ -5,6 +5,12 @@
 npm i kaizen-cli -g
 ```
 
+## Command Topics
+
+- `kaizen dapp` - 
+- `kaizen config` - 
+- `kaizen build` -
+- `kaizen publish` - 
 
 - Create a project:
 ```
