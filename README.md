@@ -4,7 +4,7 @@
 
 
 <p align=center>
-<h1 align=center>Kaizen-cli</h1>
+<h1 align=center>KAIZEN CLI</h1>
 </p>
 
 <a target="_blank" href="https://github.com/PortalNetwork/nifty-game/pulls" title="PRs Welcome"><img src="https://img.shields.io/badge/PRs-welcome-blue.svg"></a>
