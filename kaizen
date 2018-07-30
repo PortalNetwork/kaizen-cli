@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const creatrDapp = require(".//lib/CreateDapp");
+const creatrDapp = require("./lib/CreateDapp");
 const fs = require("fs");
 const clear = require('clear');
 const chalk = require('chalk');
@@ -8,27 +8,29 @@ clear();
 console.log('\n');
 console.log(
   chalk.yellow(
-    figlet.textSync('KAIZEN', { horizontalLayout: 'fitted' })
+    figlet.textSync('KAIZEN', { 
+      horizontalLayout: 'full',
+      verticalLayout: 'full' 
+    })
   )
 );
 const argv = require('yargs')
 .usage('Kaizen v0.0.1 - a dapp framework for Blockchain\n\nUsage: $0 <command> [options]')
-.command('dapp', 'create a dapp', (yargs) => {
+.command('new', 'create a dapp with boilerplate', (yargs) => {
   return yargs
-    .option('name', {
-      alias: 'n',
+    .option('n', {
+      alias: 'name',
       describe: 'clone a file'
     })
-    .option('type', {
-      alias: 't',
-      describe: 'f2e framework type vue or react',
+    .option('b', {
+      alias: 'boilerplate',
+      describe: 'dapp boilerplate of vue or react',
       choices: ['vue', 'react'],
       default: 'vue'
     })
     .demandOption(['name'], 'Please enter your project name')
     .example(
-      'kaizen dapp -n <package name> -t <vue or react>',
-      'git clone boilerplate'
+      'kaizen new -n <package name> -b <vue or react>'
     )
 }, (argv) => {
     const { name, type } = argv;
@@ -37,25 +39,24 @@ const argv = require('yargs')
 )
 .command('config', 'environment variables of dapps')
 .command('build', 'scripts used to pack dapp')
+.command('plugin', 'list all the plugin to dapp')
+.command('plugin:add', 'attach an plugin to dapp', (yargs) => {
+  return yargs
+    .demandOption(['name'], 'Please enter a plugin name')
+    .example(
+      'kaizen plugin:add <plugin name>'
+    )
+})
+.command('plugin:remove', 'remove an plugin to dapp', (yargs) => {
+  return yargs 
+    .demandOption(['name'], 'Please enter a plugin name')
+    .example(
+      'kaizen plugin:remove <plugin name>'
+    )
+})
 .command('publish', 'scripts used to publish dapp')
 .demandCommand(1, 'You need at least one command before moving on')
 .options({
-  'c': {
-    alias: 'config',
-    describe: 'setting config',
-  },
-  'r': {
-    alias: 'run',
-    describe: 'run your program',
-  },
-  'p': {
-    alias: 'path',
-    describe: 'provide a path to file',
-  },
-  's': {
-    alias: 'spec',
-    describe: 'program specifications'
-  },
   'v': {
     alias: 'version',
     describe: 'that displays the version number '
@@ -65,9 +66,5 @@ const argv = require('yargs')
     describe: 'that displays the version number '
   }
 })
-.config('c', (configPath)=> {
-    return JSON.parse(fs.readFileSync(configPath, 'utf-8'))
-})
-.help('h')
 .epilog('copyright Portal Network 2018')
 .argv;
