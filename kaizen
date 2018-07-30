@@ -54,7 +54,13 @@ const argv = require('yargs')
       'kaizen plugin:remove <plugin name>'
     )
 })
-.command('publish', 'scripts used to publish dapp')
+.command('publish', 'scripts used to publish dapp', (yargs) => {
+  return yargs
+    .demandCommand(['storage'], 'Please enter a file storage')
+    .example(
+      'kaizen publish '
+    )
+})
 .demandCommand(1, 'You need at least one command before moving on')
 .options({
   'v': {
