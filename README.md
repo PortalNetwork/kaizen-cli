@@ -27,8 +27,11 @@ npm install -g kaizen-cli
 
 ## 🔨 Command Topics
 
-- `kaizen dapp` - create a dapp template from remote git repository
+- `kaizen new` - create a dapp template from remote git repository
 - `kaizen config` - environment variables of dapps
+- `kaizen plugin` - list all the plugin to dapp
+- `kaizen plugin:add` - attach an plugin to dapp
+- `kaizen plugin:remove` - remove an plugin to dapp
 - `kaizen build` - scripts used to pack dapp
 - `kaizen publish` - scripts used to publish dapp
 
