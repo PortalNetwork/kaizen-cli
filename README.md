@@ -40,7 +40,7 @@ npm install -g kaizen-cli
 #### Create a dapp project
 
 ```
-kaizen dapp -n <name> -t <vue|react>
+kaizen new -n <name> -b <vue|react>
 ```
 
 ## 📣 Contributing
