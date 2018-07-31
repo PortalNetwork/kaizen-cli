@@ -37,6 +37,8 @@ npm install -g kaizen-cli
 
 ## 🏗 Usage
 
+![kaizen-cli](./assets/kaizen-cli.png)
+
 #### Create a dapp project
 
 ```

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-const creatrDapp = require("./lib/CreateDapp");
+
+const newDapp = require("./lib/NewDapp");
 const fs = require("fs");
 const clear = require('clear');
 const chalk = require('chalk');
@@ -8,69 +9,68 @@ clear();
 console.log('\n');
 console.log(
   chalk.yellow(
-    figlet.textSync('KAIZEN', { 
+    figlet.textSync('KAIZEN', {
       horizontalLayout: 'full',
-      verticalLayout: 'full' 
+      verticalLayout: 'full'
     })
   )
 );
 const argv = require('yargs')
-.usage('Kaizen v0.0.1 - a dapp framework for Blockchain\n\nUsage: $0 <command> [options]')
-.command('new', 'create a dapp with boilerplate', (yargs) => {
-  return yargs
-    .option('n', {
-      alias: 'name',
-      describe: 'clone a file'
-    })
-    .option('b', {
-      alias: 'boilerplate',
-      describe: 'dapp boilerplate of vue or react',
-      choices: ['vue', 'react'],
-      default: 'vue'
-    })
-    .demandOption(['name'], 'Please enter your project name')
-    .example(
-      'kaizen new -n <package name> -b <vue or react>'
-    )
-}, (argv) => {
-    const { name, type } = argv;
-    creatrDapp({ name, type });
-  }
-)
-.command('config', 'environment variables of dapps')
-.command('build', 'scripts used to pack dapp')
-.command('plugin', 'list all the plugin to dapp')
-.command('plugin:add', 'attach an plugin to dapp', (yargs) => {
-  return yargs
-    .demandOption(['name'], 'Please enter a plugin name')
-    .example(
-      'kaizen plugin:add <plugin name>'
-    )
-})
-.command('plugin:remove', 'remove an plugin to dapp', (yargs) => {
-  return yargs 
-    .demandOption(['name'], 'Please enter a plugin name')
-    .example(
-      'kaizen plugin:remove <plugin name>'
-    )
-})
-.command('publish', 'scripts used to publish dapp', (yargs) => {
-  return yargs
-    .demandCommand(['storage'], 'Please enter a file storage')
-    .example(
-      'kaizen publish '
-    )
-})
-.demandCommand(1, 'You need at least one command before moving on')
-.options({
-  'v': {
-    alias: 'version',
-    describe: 'that displays the version number '
-  },
-  'h': {
-    alias: 'help',
-    describe: 'that displays the version number '
-  }
-})
-.epilog('copyright Portal Network 2018')
-.argv;
+  .usage('Kaizen v0.0.1 - a dapp framework for Blockchain\n\nUsage: $0 <command> [options]')
+  .command('new', 'create a dapp with boilerplate', (yargs) => {
+    return yargs
+      .option('n', {
+        alias: 'name',
+        describe: 'clone a file'
+      })
+      .option('b', {
+        alias: 'boilerplate',
+        describe: 'dapp boilerplate of vue or react',
+        choices: ['vue', 'react'],
+        default: 'vue'
+      })
+      .demandOption(['name'], 'Please enter your project name')
+      .example(
+        'kaizen new -n <package name> -b <vue or react>'
+      )
+  }, (argv) => {
+    const { name, boilerplate } = argv;
+    newDapp({ name, boilerplate });
+  })
+  .command('config', 'environment variables of dapps')
+  .command('build', 'scripts used to pack dapp')
+  .command('plugin', 'list all the plugin to dapp')
+  .command('plugin:add', 'attach an plugin to dapp', (yargs) => {
+    return yargs
+      .demandOption(['name'], 'Please enter a plugin name')
+      .example(
+        'kaizen plugin:add <plugin name>'
+      )
+  })
+  .command('plugin:remove', 'remove an plugin to dapp', (yargs) => {
+    return yargs
+      .demandOption(['name'], 'Please enter a plugin name')
+      .example(
+        'kaizen plugin:remove <plugin name>'
+      )
+  })
+  .command('publish', 'scripts used to publish dapp', (yargs) => {
+    return yargs
+      .demandCommand(['storage'], 'Please enter a file storage')
+      .example(
+        'kaizen publish '
+      )
+  })
+  .demandCommand(1, 'You need at least one command before moving on')
+  .options({
+    'v': {
+      alias: 'version',
+      describe: 'that displays the version number '
+    },
+    'h': {
+      alias: 'help',
+      describe: 'that displays the version number '
+    }
+  })
+  .epilog('copyright Portal Network 2018')
+  .argv;
