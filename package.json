@@ -19,8 +19,7 @@
     "node-cmd": "^3.0.0",
     "shelljs": "^0.8.2"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
