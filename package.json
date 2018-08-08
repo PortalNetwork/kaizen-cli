@@ -28,10 +28,16 @@
     "type": "git",
     "url": "git+https://github.com/PortalNetwork/kaizen-cli.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Phyrex Tsai",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/PortalNetwork/kaizen-cli/issues"
   },
-  "homepage": "https://github.com/PortalNetwork/kaizen-cli#readme"
+  "homepage": "https://github.com/PortalNetwork/kaizen-cli#readme",
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [
+    "blockchain"
+  ]
 }
