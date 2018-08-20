@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'KAIZEN'
-copyright = '2018, Phyrex Tsai'
-author = 'Phyrex Tsai'
+copyright = '2018, Portal Network'
+author = 'Portal Network'
 
 # The short X.Y version
 version = '0.1'
