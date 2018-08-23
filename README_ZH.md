@@ -11,6 +11,7 @@
 <img src="https://img.shields.io/hackage-deps/v/lens.svg"/>
 <a target="_blank" href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"/></a>
 
+| [English](./README.md) | [한국어](./README_KR.md) | [中文](./README_ZH.md) |
 
 > Kaizen是為dapp和dweb開發人員的一站式解決方案。
 
