@@ -11,9 +11,9 @@
 <img src="https://img.shields.io/hackage-deps/v/lens.svg"/>
 <a target="_blank" href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"/></a>
 
-| [English](./README.md) | [한국어](./README_KR.md) | [中文](./README_ZH.md) |
-
 > dapp 개발자들을 위한 원 스톱 솔루션
+
+| [English](./README.md) | [한국어](./README_KR.md) | [中文](./README_ZH.md) |
 
 ## 🚀 개요
 카이잔 (Kaizen)은 dapp 및 dweb 개발자들을 위한 원 스톱 솔루션 입니다. 카이잔은 다음과 같은 옵션들이 포함되있습니다:
