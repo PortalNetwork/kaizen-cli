@@ -11,7 +11,7 @@
 #### `$ kaizen plugin`
 > To install plugin via kaizen 
 ##### Parameters:
-1. `add noia`: kaizen will install NOIA SDK in your project.
+1. `add noia`: kaizen will install NOIA SDK for you in your project.
 *the project should be used `kaizen new` to created*
 
 ##### Output:
