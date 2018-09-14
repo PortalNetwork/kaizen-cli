@@ -16,7 +16,7 @@ console.log(
   )
 );
 const argv = require('yargs')
-  .usage('Kaizen v0.0.1 - a dapp framework for Blockchain\n\nUsage: $0 <command> [options]')
+  .usage('Kaizen - a dapp framework for Blockchain\n\nUsage: $0 <command> [options]')
   .command('new', 'create a dapp with boilerplate', (yargs) => {
     return yargs
       .option('n', {
