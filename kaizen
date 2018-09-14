@@ -1,11 +1,17 @@
 #!/usr/bin/env node
 
-const newDapp = require("./lib/NewDapp");
-const fs = require("fs");
 const clear = require('clear');
 const chalk = require('chalk');
 const figlet = require('figlet');
+const newDapp = require("./lib/NewDapp");
+const { 
+  add: pluginAdd, 
+} = require('./lib/plugin');
+
+// to clear terminal screen
 clear();
+
+// to print KAIZEN logo
 console.log('\n');
 console.log(
   chalk.yellow(
@@ -15,6 +21,7 @@ console.log(
     })
   )
 );
+
 const argv = require('yargs')
   .usage('Kaizen - a dapp framework for Blockchain\n\nUsage: $0 <command> [options]')
   .command('new', 'create a dapp with boilerplate', (yargs) => {
@@ -40,13 +47,7 @@ const argv = require('yargs')
   .command('config', 'environment variables of dapps')
   .command('build', 'scripts used to pack dapp')
   .command('plugin', 'list all the plugin to dapp')
-  .command('plugin:add', 'attach an plugin to dapp', (yargs) => {
-    return yargs
-      .demandOption(['name'], 'Please enter a plugin name')
-      .example(
-        'kaizen plugin:add <plugin name>'
-      )
-  })
+  .command('plugin add [plugin-name]', pluginAdd.description, (yargs) => pluginAdd.yargs(yargs), (argv) => pluginAdd.argv(argv))
   .command('plugin:remove', 'remove an plugin to dapp', (yargs) => {
     return yargs
       .demandOption(['name'], 'Please enter a plugin name')
