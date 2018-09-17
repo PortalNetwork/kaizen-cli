@@ -7,10 +7,9 @@
 <h1 align=center>KAIZEN CLI</h1>
 </p>
 
-<a target="_blank" href="https://circleci.com/gh/PhyrexTsai/kaizen-cli" title="CircleCI">
-<img src="https://circleci.com/gh/PhyrexTsai/kaizen-cli/tree/master.svg?style=shield"/></a>
+<a target="_blank" href="https://circleci.com/gh/PhyrexTsai/kaizen-cli" title="CircleCI"><img src="https://circleci.com/gh/PhyrexTsai/kaizen-cli/tree/master.svg?style=shield"></a>
 <a target="_blank" href="https://github.com/PortalNetwork/nifty-game/pulls" title="PRs Welcome"><img src="https://img.shields.io/badge/PRs-welcome-blue.svg"></a>
-<img src="https://img.shields.io/hackage-deps/v/lens.svg"/>
+<a href="#"><img src="https://img.shields.io/hackage-deps/v/lens.svg"/></a>
 <a target="_blank" href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"/></a>
 
 > One stop solution for dapp developers
