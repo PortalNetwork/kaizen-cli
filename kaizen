@@ -7,6 +7,7 @@ const newDapp = require("./lib/NewDapp");
 const { 
   add: pluginAdd, 
   build: build,
+  ipfsPublish: ipfsPublish,
 } = require('./lib/plugin');
 
 // to clear terminal screen
@@ -57,11 +58,7 @@ const argv = require('yargs')
       )
   })
   .command('publish', 'scripts used to publish dapp', (yargs) => {
-    return yargs
-      .demandCommand(['storage'], 'Please enter a file storage')
-      .example(
-        'kaizen publish '
-      )
+    ipfsPublish.ipfsPublish(yargs);
   })
   .command('build', 'build dapp package', (yargs) => {
     build.build(yargs);
