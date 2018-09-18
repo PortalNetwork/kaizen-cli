@@ -12,6 +12,7 @@ Welcome to KAIZEN's documentation!
 
    introduction
    quickstart
+   tutorial
 
 
 
