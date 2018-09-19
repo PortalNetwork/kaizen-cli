@@ -8,6 +8,7 @@ const {
   add: pluginAdd, 
   build: build,
   ipfsPublish: ipfsPublish,
+  init: init
 } = require('./lib/plugin');
 
 // to clear terminal screen
@@ -26,6 +27,9 @@ console.log(
 
 const argv = require('yargs')
   .usage('Kaizen - a dapp framework for Blockchain\n\nUsage: $0 <command> [options]')
+  .command('init', 'Initialization environment', (yargs) => {
+    init.init();
+  })
   .command('new', 'create a dapp with boilerplate', (yargs) => {
     return yargs
       .option('n', {
@@ -47,7 +51,6 @@ const argv = require('yargs')
     newDapp({ name, boilerplate });
   })
   .command('config', 'environment variables of dapps')
-  // .command('build', 'scripts used to pack dapp')
   .command('plugin', 'list all the plugin to dapp')
   .command('plugin add [plugin-name]', pluginAdd.description, (yargs) => pluginAdd.yargs(yargs), (argv) => pluginAdd.argv(argv))
   .command('plugin:remove', 'remove an plugin to dapp', (yargs) => {
