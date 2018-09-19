@@ -43,5 +43,15 @@ __
   -b [vue|react]: choose the front-end boilerplate you want, default is vue.
   
 **Usage**
-
-.. image:: https://user-images.githubusercontent.com/11625554/45680786-6fb91f80-bb6e-11e8-82f9-6dd4de9352fc.png
+  - react
+  
+    In react, bluzelle's sdk will wrapped and pass down through component property.
+  
+    .. image:: https://user-images.githubusercontent.com/11625554/45680786-6fb91f80-bb6e-11e8-82f9-6dd4de9352fc.png
+  
+  - vue
+  
+    In vue, bluzelle's sdk were wrapped into an object. Once you initialize bluzelle, it will be returned.
+    Yout can use object spread syntax to replace them into your components, or just use them like a normal object.
+  
+    .. image:: https://user-images.githubusercontent.com/11625554/45738864-17445980-bc24-11e8-912b-eedf4a97b3c6.png
