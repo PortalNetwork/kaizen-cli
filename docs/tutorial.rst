@@ -55,3 +55,25 @@ __
     Yout can use object spread syntax to replace them into your components, or just use them like a normal object.
   
     .. image:: https://user-images.githubusercontent.com/11625554/45738864-17445980-bc24-11e8-912b-eedf4a97b3c6.png
+    
+----------------
+``kaizen build``
+----------------
+
+  To build the kaizen's dapp, and the built code will be output into the build folder
+  
+---------------
+``kaizen init``
+---------------
+
+  To setup the configuration you need, like IPFS provider.
+  
+----------------
+``kaizen publish``
+----------------
+
+  To upload your dapp to the IPFS. You shall execute `kaizen build` before publish
+
+
+
+  
