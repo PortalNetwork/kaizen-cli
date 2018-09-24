@@ -3,11 +3,11 @@
 const clear = require('clear');
 const chalk = require('chalk');
 const figlet = require('figlet');
-const newDapp = require("./lib/NewDapp");
-const { 
-  add: pluginAdd, 
-  build: build,
-} = require('./lib/plugin');
+const plugin = require('./lib/plugin');
+const initialization = require('./lib/initialization');
+const build = require('./lib/build');
+const ipfs = require('./lib/ipfs');
+const kaizenNew = require('./lib/new');
 
 // to clear terminal screen
 clear();
@@ -25,47 +25,11 @@ console.log(
 
 const argv = require('yargs')
   .usage('Kaizen - a dapp framework for Blockchain\n\nUsage: $0 <command> [options]')
-  .command('new', 'create a dapp with boilerplate', (yargs) => {
-    return yargs
-      .option('n', {
-        alias: 'name',
-        describe: 'clone a file'
-      })
-      .option('b', {
-        alias: 'boilerplate',
-        describe: 'dapp boilerplate of vue or react',
-        choices: ['vue', 'react'],
-        default: 'vue'
-      })
-      .demandOption(['name'], 'Please enter your project name')
-      .example(
-        'kaizen new -n <package name> -b <vue or react>'
-      )
-  }, (argv) => {
-    const { name, boilerplate } = argv;
-    newDapp({ name, boilerplate });
-  })
-  .command('config', 'environment variables of dapps')
-  // .command('build', 'scripts used to pack dapp')
-  .command('plugin', 'list all the plugin to dapp')
-  .command('plugin add [plugin-name]', pluginAdd.description, (yargs) => pluginAdd.yargs(yargs), (argv) => pluginAdd.argv(argv))
-  .command('plugin:remove', 'remove an plugin to dapp', (yargs) => {
-    return yargs
-      .demandOption(['name'], 'Please enter a plugin name')
-      .example(
-        'kaizen plugin:remove <plugin name>'
-      )
-  })
-  .command('publish', 'scripts used to publish dapp', (yargs) => {
-    return yargs
-      .demandCommand(['storage'], 'Please enter a file storage')
-      .example(
-        'kaizen publish '
-      )
-  })
-  .command('build', 'build dapp package', (yargs) => {
-    build.build(yargs);
-  })
+  .command('init', initialization.init.description, initialization.init.yargs, initialization.init.argv)
+  .command('new', kaizenNew.create.description, kaizenNew.create.yargs, kaizenNew.create.argv)
+  .command('plugin add [plugin-name]', plugin.add.description, plugin.add.yargs, plugin.add.argv)
+  .command('publish', ipfs.publish.description, ipfs.publish.yargs)
+  .command('build', build.description, build.yargs, build.argv)
   .demandCommand(1, 'You need at least one command before moving on')
   .options({
     'v': {
@@ -79,3 +43,12 @@ const argv = require('yargs')
   })
   .epilog('copyright Portal Network 2018')
   .argv;
+
+
+
+  /**
+   * TODO: kaizen new with choose blockchain e.g. ethereum, wanchain
+   */
+
+
+
