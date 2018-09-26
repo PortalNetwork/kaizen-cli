@@ -17,7 +17,7 @@ exports.argv = function (argv) {
     return;
   }
 
-  const sourcePath = path.resolve(__dirname, '../../config/', KAIZEN_CONFIG_FILE);
+  const sourcePath = path.resolve(__dirname, '../../../config/', KAIZEN_CONFIG_FILE);
   const sourceConfig = JSON.parse(fs.readFileSync(sourcePath));
   const targetConfig = JSON.parse(fs.readFileSync(targetPath));
   const newConfig = Object.assign({}, targetConfig, sourceConfig);

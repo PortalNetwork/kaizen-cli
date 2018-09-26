@@ -37,15 +37,15 @@ exports.argv = function (argv) {
   }
 }
 
-function packageChecker(package) {
+function packageChecker(kaizenConfig) {
   const kaizenProjectType = [
     'React',
     'vue',
   ];
 
   return ({
-    package,
-    isValid: kaizenProjectType.includes(package.type),
+    kaizenConfig,
+    isValid: kaizenProjectType.includes(kaizenConfig.type),
   });
 }
 
@@ -63,7 +63,7 @@ function handleError(error) {
 }
 
 function reactMixBluzelle(kaizenConfig) {
-  const sourceFolder = path.resolve(__dirname, '../../templates');
+  const sourceFolder = path.resolve(__dirname, '../../../templates');
   const targetFolder = path.resolve('./', 'node_modules/pn-react-bluzelle');
 
   if (!fs.existsSync(targetFolder)) {
@@ -77,7 +77,7 @@ function reactMixBluzelle(kaizenConfig) {
 }
 
 function vueMixBluzelle(kaizenConfig) {
-  const sourceFolder = path.resolve(__dirname, '../../templates');
+  const sourceFolder = path.resolve(__dirname, '../../../templates');
   const targetFolder = path.resolve('./', 'node_modules/pn-vue-bluzelle');
 
   if (!fs.existsSync(targetFolder)) {

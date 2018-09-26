@@ -3,11 +3,13 @@
 const clear = require('clear');
 const chalk = require('chalk');
 const figlet = require('figlet');
-const plugin = require('./lib/plugin');
-const initialization = require('./lib/initialization');
-const build = require('./lib/build');
-const ipfs = require('./lib/ipfs');
-const kaizenNew = require('./lib/new');
+const { 
+  build, 
+  initialization, 
+  ipfs, 
+  new: kaizenNew, 
+  plugin, 
+} = require('./build');
 
 // to clear terminal screen
 clear();
@@ -44,12 +46,4 @@ const argv = require('yargs')
   })
   .epilog('copyright Portal Network 2018')
   .argv;
-
-
-
-  /**
-   * TODO: kaizen new with choose blockchain e.g. ethereum, wanchain
-   */
-
-
-
+  
