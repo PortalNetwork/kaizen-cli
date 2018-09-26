@@ -57,9 +57,9 @@ exports.yargs = function (yargs) {
       const files = loopFilesInFolder(targetPath, []).map(item => getIPFSContentObject(item, targetPath));
       const hashes = await ipfs.files.add(files, { recursive: false });
       const { hash, } = hashes[hashes.length - 1];
-      const iphsUrl = `https://ipfs.infura.io/ipfs/${hash}`;
-      openBrowser(iphsUrl);
-      Log.SuccessLog(`ipfs url => ${iphsUrl}`)
+      const ipfsUrl = `https://ipfs.infura.io/ipfs/${hash}`;
+      openBrowser(ipfsUrl);
+      Log.SuccessLog(`ipfs url => ${ipfsUrl}`)
       process.exit();
     })(yargs, targetPath);
   } catch (err) {
