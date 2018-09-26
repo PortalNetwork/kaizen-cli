@@ -67,7 +67,7 @@ exports.yargs = function (yargs) {
       var _ref = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee(yargs, targetPath) {
-        var kaizenConfig, ipfs, files, hashes, hash, iphsUrl;
+        var kaizenConfig, ipfs, files, hashes, hash, ipfsUrl;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -90,9 +90,9 @@ exports.yargs = function (yargs) {
               case 8:
                 hashes = _context.sent;
                 hash = hashes[hashes.length - 1].hash;
-                iphsUrl = "https://ipfs.infura.io/ipfs/".concat(hash);
-                openBrowser(iphsUrl);
-                Log.SuccessLog("ipfs url => ".concat(iphsUrl));
+                ipfsUrl = "https://ipfs.infura.io/ipfs/".concat(hash);
+                openBrowser(ipfsUrl);
+                Log.SuccessLog("ipfs url => ".concat(ipfsUrl));
                 process.exit();
 
               case 14:

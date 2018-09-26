@@ -33,7 +33,7 @@ exports.argv = function (argv) {
       break;
 
     case 'bluzelle':
-      removeBluzelle(configPath, kaizenConfig, ['pn-vue-bluzelle', 'pn-react-bluzelle', 'pn-vue-bluzelle']);
+      removeBluzelle(configPath, kaizenConfig, ['pn-react-bluzelle', 'pn-vue-bluzelle']);
       break;
 
     default:

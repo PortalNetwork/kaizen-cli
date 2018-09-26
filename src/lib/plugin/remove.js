@@ -25,7 +25,7 @@ exports.argv = function(argv) {
       removeNOIA(configPath, kaizenConfig, ['NOIA']);
       break;
     case 'bluzelle':
-      removeBluzelle(configPath, kaizenConfig, ['pn-vue-bluzelle', 'pn-react-bluzelle', 'pn-vue-bluzelle']);
+      removeBluzelle(configPath, kaizenConfig, ['pn-react-bluzelle', 'pn-vue-bluzelle']);
       break;
     default:
       console.log(`there is no plugin named ${pluginName} in this project`);
