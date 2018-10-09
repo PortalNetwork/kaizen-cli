@@ -34,6 +34,9 @@ exports.argv = function (argv) {
     case 'bluzelle':
       handleBluzelle(kaizenConfig, boilerplate);
       break;
+    case 'nkn':
+      handleNKN(kaizenConfig);
+      break;
   }
 }
 
@@ -170,3 +173,26 @@ function handleBluzelle(kaizenConfig, boilerplate) {
   }
 }
 
+function handleNKN(kaizenConfig) {
+  try {
+    const checkResult = packageChecker(kaizenConfig);
+    if (checkResult.isValid === false) {
+      console.error('[ERROR]: please use kaizen new to create new project first');
+      return;
+    }
+
+    console.log('kaizen: installing nkn sdk...');
+
+    cmd.get('npm install nkn-client', function (error) {
+      if (error) {
+        handleError(error);
+        return;
+      }
+
+      updateConfig(kaizenConfig, 'NKN');
+    });
+
+  } catch (error) {
+    handleError(error);
+  }
+}
