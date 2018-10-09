@@ -12,7 +12,7 @@ exports.yargs = function(yargs) {
 
 exports.argv = function(argv) {
   const { pluginName, } = argv;
-  
+
   const configPath = path.resolve('./', 'kaizen.json');
   if(fsHelper.existsSync(configPath) === false) {
     console.log('[ERROR]: please use kaizen new to create new project first.')
@@ -26,6 +26,9 @@ exports.argv = function(argv) {
       break;
     case 'bluzelle':
       removeBluzelle(configPath, kaizenConfig, ['pn-react-bluzelle', 'pn-vue-bluzelle']);
+      break;
+    case 'nkn':
+      removeNKN(configPath, kaizenConfig, ['NKN']);
       break;
     default:
       console.log(`there is no plugin named ${pluginName} in this project`);
@@ -59,4 +62,21 @@ function removeBluzelle(configPath, kaizenConfig, pluginKeywords) {
 
   fsHelper.updateFileSync(configPath, JSON.stringify(newKaizenConfig));
   console.log('plugin removed');
+}
+
+function removeNKN(configPath, kaizenConfig, pluginKeywords) {
+  const newKaizenConfig = {
+    ...kaizenConfig,
+    plugins: kaizenConfig.plugins.filter(x => pluginKeywords.includes(x) === false),
+  };
+
+  cmd.get('npm uninstall nkn-client', function (error) {
+    if (error) {
+      console.error('[ERROR]:', error);
+      return;
+    }
+
+    fsHelper.updateFileSync(configPath, JSON.stringify(newKaizenConfig));
+    console.log('plugin removed');
+  });
 }
