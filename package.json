@@ -3,7 +3,7 @@
   "bin": {
     "kaizen": "kaizen"
   },
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "kaizen-cli",
   "main": "index.js",
   "dependencies": {
