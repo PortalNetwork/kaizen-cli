@@ -36,6 +36,10 @@ exports.argv = function (argv) {
       removeBluzelle(configPath, kaizenConfig, ['pn-react-bluzelle', 'pn-vue-bluzelle']);
       break;
 
+    case 'nkn':
+      removeNKN(configPath, kaizenConfig, ['NKN']);
+      break;
+
     default:
       console.log("there is no plugin named ".concat(pluginName, " in this project"));
       break;
@@ -72,4 +76,22 @@ function removeBluzelle(configPath, kaizenConfig, pluginKeywords) {
   });
   fsHelper.updateFileSync(configPath, JSON.stringify(newKaizenConfig));
   console.log('plugin removed');
+}
+
+function removeNKN(configPath, kaizenConfig, pluginKeywords) {
+  var newKaizenConfig = _objectSpread({}, kaizenConfig, {
+    plugins: kaizenConfig.plugins.filter(function (x) {
+      return pluginKeywords.includes(x) === false;
+    })
+  });
+
+  cmd.get('npm uninstall nkn-client', function (error) {
+    if (error) {
+      console.error('[ERROR]:', error);
+      return;
+    }
+
+    fsHelper.updateFileSync(configPath, JSON.stringify(newKaizenConfig));
+    console.log('plugin removed');
+  });
 }
