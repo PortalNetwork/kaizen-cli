@@ -33,6 +33,9 @@ npm install -g kaizen-cli
 - `kaizen config` - environment variables of dapps
 - `kaizen plugin list` - list all the plugin to dapp
 - `kaizen plugin add` - attach an plugin to dapp
+    - [Bluzelle](https://www.npmjs.com/package/bluzelle)
+    - [NOIA](https://www.npmjs.com/package/@noia-network/sdk-react)
+    - [NKN](https://www.npmjs.com/package/nkn-client)
 - `kaizen plugin remove` - remove an plugin to dapp
 - `kaizen build` - scripts used to pack dapp
 - `kaizen publish` - scripts used to publish dapp
