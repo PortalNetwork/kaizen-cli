@@ -31,7 +31,6 @@ npm install -g kaizen-cli
 
 - `kaizen new` - 원격 저장소에서 dapp 템플릿을 만들기
 - `kaizen config` - dapp의 환경 변수
-- `kaizen plugin list` - dapp에 모든 플러그인을 나열
 - `kaizen plugin:add` - dapp에 플러그인 첨부
     - [Bluzelle](https://www.npmjs.com/package/bluzelle)
     - [NOIA](https://www.npmjs.com/package/@noia-network/sdk-react)
