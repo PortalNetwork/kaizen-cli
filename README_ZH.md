@@ -31,9 +31,11 @@ npm install -g kaizen-cli
 
 - `kaizen new` - 從遠端git存儲庫創建一個dapp模板
 - `kaizen config` - dapp的環境變數
-- `kaizen plugin list` - 列出dapp的所有插件
-- `kaizen plugin add` - 將插件加至dapp
-- `kaizen plugin remove` - 將插件從dapp移除
+- `kaizen plugin:add` - 將插件加至dapp
+    - [Bluzelle](https://www.npmjs.com/package/bluzelle)
+    - [NOIA](https://www.npmjs.com/package/@noia-network/sdk-react)
+    - [NKN](https://www.npmjs.com/package/nkn-client)
+- `kaizen plugin:remove` - 將插件從dapp移除
 - `kaizen build` - 用於打包dapp的腳本
 - `kaizen publish` - 用於發布dapp的腳本
 
