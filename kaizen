@@ -3,13 +3,7 @@
 const clear = require('clear');
 const chalk = require('chalk');
 const figlet = require('figlet');
-const { 
-  build, 
-  initialization, 
-  ipfs, 
-  new: kaizenNew, 
-  plugin, 
-} = require('./build');
+const myYargs = require('./build/components');
 
 // to clear terminal screen
 clear();
@@ -25,25 +19,4 @@ console.log(
   )
 );
 
-const argv = require('yargs')
-  .usage('Kaizen - a dapp framework for Blockchain\n\nUsage: $0 <command> [options]')
-  .command('init', initialization.init.description, initialization.init.yargs, initialization.init.argv)
-  .command('new', kaizenNew.create.description, kaizenNew.create.yargs, kaizenNew.create.argv)
-  .command('plugin:add [plugin-name]', plugin.add.description, plugin.add.yargs, plugin.add.argv)
-  .command('plugin:remove [plugin-name]', plugin.remove.description, plugin.remove.yargs, plugin.remove.argv)
-  .command('publish', ipfs.publish.description, ipfs.publish.yargs)
-  .command('build', build.description, build.yargs, build.argv)
-  .demandCommand(1, 'You need at least one command before moving on')
-  .options({
-    'v': {
-      alias: 'version',
-      describe: 'that displays the version number '
-    },
-    'h': {
-      alias: 'help',
-      describe: 'that displays the version number '
-    }
-  })
-  .epilog('copyright Portal Network 2018')
-  .argv;
-  
+const argv = myYargs.argv;
