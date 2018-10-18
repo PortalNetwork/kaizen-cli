@@ -55,7 +55,7 @@ function _handler() {
 
           case 9:
             _context.next = 11;
-            return cloneProjectFromGithub('https://github.com/PortalNetwork/react-truffle-metamask.git', projectName);
+            return cloneProjectFromGithub('https://github.com/PortalNetwork/react-truffle.git', projectName);
 
           case 11:
             return _context.abrupt("break", 12);

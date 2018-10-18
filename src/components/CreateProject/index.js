@@ -30,7 +30,7 @@ async function handler(argv) {
         break;
       case 'react':
       default:
-        await cloneProjectFromGithub('https://github.com/PortalNetwork/react-truffle-metamask.git', projectName);
+        await cloneProjectFromGithub('https://github.com/PortalNetwork/react-truffle.git', projectName);
         break;
     }
     fsx.removeSync(`./${projectName}/.git`);
