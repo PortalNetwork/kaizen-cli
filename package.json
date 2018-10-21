@@ -8,12 +8,14 @@
   "main": "index.js",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "bluzelle": "^0.2.105",
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
     "configstore": "^3.1.2",
     "del": "^3.0.0",
+    "eslint": "^5.7.0",
     "figlet": "^1.2.0",
     "fs-extra": "^7.0.0",
     "inquirer": "^6.0.0",
@@ -29,11 +31,34 @@
     "yargs": "^12.0.0"
   },
   "scripts": {
-    "build": "babel src --out-dir build"
+    "build": "babel src --out-dir build",
+    "test": "eslint src/*"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PortalNetwork/kaizen-cli.git"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "arrow-body-style": [
+        "warn",
+        "always"
+      ],
+      "comma-dangle": [
+        "warn",
+        "never"
+      ],
+      "no-console": 0,
+      "no-unused-vars": [
+        "warn"
+      ]
+    }
   },
   "author": "Phyrex Tsai",
   "license": "MIT",
