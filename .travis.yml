@@ -1,6 +1,21 @@
 language: node_js
-node_js:
-    - "9"
-    - "8"
-    - "7"
-    - "6"
+jobs:
+  include:
+    - stage: test
+      node_js: 6
+    - stage: test
+      node_js: 7
+    - stage: test
+      node_js: 8
+    - stage: test
+      node_js: 9
+    - stage: deploy
+      node_js: 6
+      script:  
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+            chmod +x release.sh
+            ./release.sh
+          else
+            echo "Not PR merge trigger"
+          fi
