@@ -32,7 +32,8 @@
     "parser": "babel-eslint",
     "env": {
       "browser": true,
-      "node": true
+      "node": true,
+      "es6": true
     },
     "extends": "eslint:recommended",
     "rules": {
@@ -66,6 +67,8 @@
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.1.0"
+    "@babel/preset-env": "^7.1.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.7.0"
   }
 }
