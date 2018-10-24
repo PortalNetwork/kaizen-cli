@@ -1,1 +1,0 @@
-exports.publish = require('./publish.js');
