@@ -8,9 +8,11 @@
   "main": "index.js",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
     "configstore": "^4.0.0",
+    "eslint": "^5.7.0",
     "figlet": "^1.2.0",
     "fs-extra": "^7.0.0",
     "inquirer": "^6.0.0",
@@ -31,8 +33,9 @@
   "eslintConfig": {
     "parser": "babel-eslint",
     "env": {
-      "browser": true,
-      "node": true
+      "browser": false,
+      "node": true,
+      "es6": true
     },
     "extends": "eslint:recommended",
     "rules": {
