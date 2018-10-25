@@ -16,6 +16,9 @@
 
 | [English](./README.md) | [한국어](./README_KR.md) | [中文](./README_ZH.md) |
 
+## 📚 Documentation
+Visit [DOCS](https://kaizen-cli.readthedocs.io/) for more detail about KAIZEN.
+
 ## 🚀 Overview
 Kaizen is an one stop solution for dapp and dweb developer. With Kaizen, you get:
 - Built-in smart contract compilation, linking, deployment and  management.
