@@ -6,5 +6,6 @@ require('./RemovePlugin')(yargs);
 require('./CreateProject')(yargs);
 require('./BuildProject')(yargs);
 require('./IPFSUpload')(yargs);
+require('./TestContracts')(yargs);
 
 module.exports = yargs;
