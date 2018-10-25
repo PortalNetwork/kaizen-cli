@@ -1,5 +1,9 @@
 {
     "issued": "PortalNetwork",
+    "bluzelle": {
+      "ws": "ws://testnet.bluzelle.com:51010",
+      "uuid": "45498479–2447–47a6–8c36-efa5d251a283"
+    },
     "provider": {
         "host": "ipfs.infura.io",
         "port": 5001,
