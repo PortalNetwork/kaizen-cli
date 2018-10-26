@@ -30,7 +30,7 @@ function _handler() {
             _context.prev = 0;
             Spinner.start();
             _context.next = 4;
-            return ExecuteCommand('npm run compile-contracts');
+            return ExecuteCommand('./node_modules/.bin/truffle compile');
 
           case 4:
             result = _context.sent;

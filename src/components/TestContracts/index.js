@@ -9,7 +9,7 @@ function builder(yargs) {
 async function handler(argv) {
   try {
     Spinner.start();
-    const result = await ExecuteCommand('npm run test-contracts');
+    const result = await ExecuteCommand('./node_modules/.bin/ganache-cli & node ./contracts/__test__/index.js');
     console.log(result);
     Spinner.stop();
   } catch (error) {

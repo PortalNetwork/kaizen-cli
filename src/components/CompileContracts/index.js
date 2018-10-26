@@ -9,7 +9,7 @@ function builder(yargs) {
 async function handler(argv) {
   try {
     Spinner.start();
-    const result = await ExecuteCommand('npm run compile-contracts');
+    const result = await ExecuteCommand('./node_modules/.bin/truffle compile');
     console.log(result);
     Spinner.stop();
   } catch (error) {
