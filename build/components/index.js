@@ -18,4 +18,6 @@ require('./TestContracts')(yargs);
 
 require('./CompileContracts')(yargs);
 
+require('./DeployContracts')(yargs);
+
 module.exports = yargs;
