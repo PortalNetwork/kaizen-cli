@@ -16,8 +16,12 @@
 
 | [English](./README.md) | [한국어](./README_KR.md) | [中文](./README_ZH.md) |
 
+## 📚 Documentation
+Visit [DOCS](https://kaizen-cli.readthedocs.io/) for more detail about KAIZEN.
+
 ## 🚀 Overview
-Kaizen is an one stop solution for dapp and dweb developer. With Kaizen, you get:
+KAIZEN is an one stop solution for dapp and dweb developer. With KAIZEN, you get:
+
 - Built-in smart contract compilation, linking, deployment and  management.
 - Automated code testing with Mocha and Chai.
 - Configurable with support technologies for custom build processes.
@@ -31,9 +35,11 @@ npm install -g kaizen-cli
 
 - `kaizen new` - create a dapp template from remote git repository
 - `kaizen config` - environment variables of dapps
-- `kaizen plugin list` - list all the plugin to dapp
-- `kaizen plugin add` - attach an plugin to dapp
-- `kaizen plugin remove` - remove an plugin to dapp
+- `kaizen plugin:add` - attach an plugin to dapp
+    - [Bluzelle](https://www.npmjs.com/package/bluzelle)
+    - [NOIA](https://www.npmjs.com/package/@noia-network/sdk-react)
+    - [NKN](https://www.npmjs.com/package/nkn-client)
+- `kaizen plugin:remove` - remove an plugin to dapp
 - `kaizen build` - scripts used to pack dapp
 - `kaizen publish` - scripts used to publish dapp
 
