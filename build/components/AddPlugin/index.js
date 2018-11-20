@@ -17,12 +17,12 @@ var bluzelleHandler = require('./bluzelle.js');
 var nknHandler = require('./nkn.js');
 
 function builder(yargs) {
-  return yargs.option('package', {
+  return yargs.positional('package', {
     alias: 'p',
     type: 'string',
     describe: 'plugin name',
     require: true
-  }).example('kaizen add --package bluzelle');
+  }).example('kaizen add bluzelle').example('kaizen add nkn');
 }
 
 function handler(_x) {
@@ -93,7 +93,7 @@ function _handler() {
 }
 
 module.exports = function (yargs) {
-  var command = 'add';
-  var commandDescription = 'To install kaizen plugin in your project';
+  var command = 'add <package>';
+  var commandDescription = 'To install kaizen package in your project';
   yargs.command(command, commandDescription, builder, handler);
 };

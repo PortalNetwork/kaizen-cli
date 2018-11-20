@@ -29,7 +29,7 @@ module.exports =
 _asyncToGenerator(
 /*#__PURE__*/
 regeneratorRuntime.mark(function _callee() {
-  var sourceConfig, userConfig;
+  var configPath, sourceConfig, userConfig;
   return regeneratorRuntime.wrap(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -43,8 +43,9 @@ regeneratorRuntime.mark(function _callee() {
 
         case 4:
           // update user's kaizen config
+          configPath = path.resolve('./', 'kaizen.json');
           sourceConfig = fsx.readJsonSync(path.resolve(__dirname, '../../../config', 'kaizen.json'));
-          userConfig = fsx.readJsonSync(path.resolve('./', 'kaizen.json'));
+          userConfig = fsx.existsSync(configPath) ? fsx.readJsonSync(configPath) : {};
           userConfig.bluzelle = sourceConfig.bluzelle;
 
           if (!userConfig.plugins) {
@@ -57,7 +58,7 @@ regeneratorRuntime.mark(function _callee() {
 
           fsx.outputJsonSync(path.resolve('./', 'kaizen.json'), userConfig);
 
-        case 10:
+        case 11:
         case "end":
           return _context.stop();
       }

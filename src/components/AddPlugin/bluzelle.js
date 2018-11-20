@@ -21,8 +21,9 @@ module.exports = async function() {
   await installPNBluzelle();
 
   // update user's kaizen config
+  const configPath = path.resolve('./', 'kaizen.json');
   const sourceConfig = fsx.readJsonSync(path.resolve(__dirname, '../../../config', 'kaizen.json')); 
-  const userConfig = fsx.readJsonSync(path.resolve('./', 'kaizen.json')); 
+  const userConfig = fsx.existsSync(configPath) ? fsx.readJsonSync(configPath) : {}; 
   
   userConfig.bluzelle = sourceConfig.bluzelle;
 

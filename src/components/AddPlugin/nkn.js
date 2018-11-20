@@ -6,7 +6,8 @@ module.exports = async function() {
   await ExecuteCommand('npm install nkn-client');
 
   // update user's kaizen config
-  const userConfig = fsx.readJsonSync(path.resolve('./', 'kaizen.json')); 
+  const configPath = path.resolve('./', 'kaizen.json');
+  const userConfig = fsx.existsSync(configPath) ? fsx.readJsonSync(configPath) : {}; 
 
   if(!userConfig.plugins) {
     userConfig.plugins = [];

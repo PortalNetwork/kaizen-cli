@@ -7,18 +7,19 @@ const nknHandler = require('./nkn.js');
 
 function builder(yargs) {
   return yargs
-    .option('package', {
+    .positional('package', {
       alias: 'p',
       type: 'string',
       describe: 'plugin name',
-      require: true,
+      require: true
     })
-    .example('kaizen add --package bluzelle');
+    .example('kaizen add bluzelle')
+    .example('kaizen add nkn');
 }
 
 async function handler(argv) {
   try {
-    const { package: packageName, } = argv;
+    const { package: packageName } = argv;
 
     if(fs.existsSync(path.resolve('./', 'package.json')) === false) {
       Log.ErrorLog('should run "npm init" first');
@@ -44,7 +45,7 @@ async function handler(argv) {
 }
 
 module.exports = function (yargs) {
-  const command = 'add';
-  const commandDescription = 'To install kaizen plugin in your project';
+  const command = 'add <package>';
+  const commandDescription = 'To install kaizen package in your project';
   yargs.command(command, commandDescription, builder, handler);
 }
