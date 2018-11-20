@@ -9,5 +9,6 @@ require('./IPFSUpload')(yargs);
 require('./TestContracts')(yargs);
 require('./CompileContracts')(yargs);
 require('./DeployContracts')(yargs);
+require('./Settings')(yargs);
 
 module.exports = yargs;
