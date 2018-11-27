@@ -21,7 +21,7 @@ function builder(yargs) {
     alias: 'b',
     type: 'string',
     describe: 'your DApp will build on specific boilerplate',
-    choices: ['vue', 'react'],
+    choices: ['vue', 'react', 'dchat'],
     default: 'react'
   }).demandOption(['name'], 'Please enter your project name');
 }
@@ -43,43 +43,50 @@ function _handler() {
             Spinner.start();
             projectName = argv.name, boilerplate = argv.boilerplate;
             _context.t0 = boilerplate;
-            _context.next = _context.t0 === 'vue' ? 6 : _context.t0 === 'react' ? 9 : 9;
+            _context.next = _context.t0 === 'dchat' ? 6 : _context.t0 === 'vue' ? 9 : _context.t0 === 'react' ? 12 : 12;
             break;
 
           case 6:
             _context.next = 8;
-            return cloneProjectFromGithub('https://github.com/PortalNetwork/vue-truffle.git', projectName);
+            return cloneProjectFromGithub('https://github.com/web3infra/dchat.git', projectName);
 
           case 8:
-            return _context.abrupt("break", 12);
+            return _context.abrupt("break", 15);
 
           case 9:
             _context.next = 11;
-            return cloneProjectFromGithub('https://github.com/PortalNetwork/react-truffle.git', projectName);
+            return cloneProjectFromGithub('https://github.com/PortalNetwork/vue-truffle.git', projectName);
 
           case 11:
-            return _context.abrupt("break", 12);
+            return _context.abrupt("break", 15);
 
           case 12:
+            _context.next = 14;
+            return cloneProjectFromGithub('https://github.com/PortalNetwork/react-truffle.git', projectName);
+
+          case 14:
+            return _context.abrupt("break", 15);
+
+          case 15:
             fsx.removeSync("./".concat(projectName, "/.git"));
             Spinner.stop();
             Log.SuccessLog("==== Create ".concat(projectName, " Successfully ===="));
-            _context.next = 22;
+            _context.next = 25;
             break;
 
-          case 17:
-            _context.prev = 17;
+          case 20:
+            _context.prev = 20;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 22:
+          case 25:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 17]]);
+    }, _callee, this, [[0, 20]]);
   }));
   return _handler.apply(this, arguments);
 }
