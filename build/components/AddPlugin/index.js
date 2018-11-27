@@ -16,6 +16,8 @@ var bluzelleHandler = require('./bluzelle.js');
 
 var nknHandler = require('./nkn.js');
 
+var noiaHandler = require('./noia.js');
+
 function builder(yargs) {
   return yargs.option('package', {
     alias: 'p',
@@ -52,7 +54,7 @@ function _handler() {
           case 5:
             Spinner.start();
             _context.t0 = packageName;
-            _context.next = _context.t0 === 'bluzelle' ? 9 : _context.t0 === 'nkn' ? 12 : 15;
+            _context.next = _context.t0 === 'bluzelle' ? 9 : _context.t0 === 'nkn' ? 12 : _context.t0 === 'noia' ? 15 : 18;
             break;
 
           case 9:
@@ -60,34 +62,41 @@ function _handler() {
             return bluzelleHandler();
 
           case 11:
-            return _context.abrupt("break", 15);
+            return _context.abrupt("break", 18);
 
           case 12:
             _context.next = 14;
             return nknHandler();
 
           case 14:
-            return _context.abrupt("break", 15);
+            return _context.abrupt("break", 18);
 
           case 15:
+            _context.next = 17;
+            return noiaHandler();
+
+          case 17:
+            return _context.abrupt("break", 18);
+
+          case 18:
             Spinner.stop();
             Log.SuccessLog("==== Install package ".concat(packageName, " Successfully ===="));
-            _context.next = 24;
+            _context.next = 27;
             break;
 
-          case 19:
-            _context.prev = 19;
+          case 22:
+            _context.prev = 22;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 24:
+          case 27:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 19]]);
+    }, _callee, this, [[0, 22]]);
   }));
   return _handler.apply(this, arguments);
 }
