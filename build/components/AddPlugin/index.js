@@ -16,12 +16,21 @@ var bluzelleHandler = require('./bluzelle.js');
 
 var nknHandler = require('./nkn.js');
 
+var boilerplateHandler = require('./boilerplate.js');
+
 function builder(yargs) {
   return yargs.positional('package', {
     alias: 'p',
     type: 'string',
     describe: 'plugin name',
     require: true
+  }).option('name', {
+    alias: 'n',
+    type: 'string',
+    describe: 'your name of project'
+  }).option('library', {
+    type: 'string',
+    describe: 'react or vue, or simple without any libraries'
   }).example('kaizen add bluzelle').example('kaizen add nkn');
 }
 
@@ -33,15 +42,15 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var packageName;
+    var packageName, name, library;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            packageName = argv.package;
+            packageName = argv.package, name = argv.name, library = argv.library;
 
-            if (!(fs.existsSync(path.resolve('./', 'package.json')) === false)) {
+            if (!(fs.existsSync(path.resolve('./', 'package.json')) === false && packageName != 'boilerplate')) {
               _context.next = 5;
               break;
             }
@@ -52,7 +61,7 @@ function _handler() {
           case 5:
             Spinner.start();
             _context.t0 = packageName;
-            _context.next = _context.t0 === 'bluzelle' ? 9 : _context.t0 === 'nkn' ? 12 : 15;
+            _context.next = _context.t0 === 'bluzelle' ? 9 : _context.t0 === 'nkn' ? 12 : _context.t0 === 'boilerplate' ? 15 : 18;
             break;
 
           case 9:
@@ -60,34 +69,41 @@ function _handler() {
             return bluzelleHandler();
 
           case 11:
-            return _context.abrupt("break", 15);
+            return _context.abrupt("break", 18);
 
           case 12:
             _context.next = 14;
             return nknHandler();
 
           case 14:
-            return _context.abrupt("break", 15);
+            return _context.abrupt("break", 18);
 
           case 15:
+            _context.next = 17;
+            return boilerplateHandler(name, library);
+
+          case 17:
+            return _context.abrupt("break", 18);
+
+          case 18:
             Spinner.stop();
             Log.SuccessLog("==== Install package ".concat(packageName, " Successfully ===="));
-            _context.next = 24;
+            _context.next = 27;
             break;
 
-          case 19:
-            _context.prev = 19;
+          case 22:
+            _context.prev = 22;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 24:
+          case 27:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 19]]);
+    }, _callee, this, [[0, 22]]);
   }));
   return _handler.apply(this, arguments);
 }

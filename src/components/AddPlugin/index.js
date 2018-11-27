@@ -4,6 +4,7 @@ const Log = require('../../lib/Log');
 const Spinner = require('../../lib/Spinner');
 const bluzelleHandler = require('./bluzelle.js');
 const nknHandler = require('./nkn.js');
+const boilerplateHandler = require('./boilerplate.js');
 
 function builder(yargs) {
   return yargs
@@ -13,26 +14,38 @@ function builder(yargs) {
       describe: 'plugin name',
       require: true
     })
+    .option('name', {
+      alias: 'n',
+      type: 'string',
+      describe: 'your name of project'
+    })
+    .option('library', {
+      type: 'string',
+      describe: 'react or vue, or simple without any libraries'
+    })
     .example('kaizen add bluzelle')
     .example('kaizen add nkn');
 }
 
 async function handler(argv) {
   try {
-    const { package: packageName } = argv;
+    const { package: packageName, name, library, } = argv;
 
-    if(fs.existsSync(path.resolve('./', 'package.json')) === false) {
+    if (fs.existsSync(path.resolve('./', 'package.json')) === false && packageName != 'boilerplate') {
       Log.ErrorLog('should run "npm init" first');
       return;
     }
 
     Spinner.start();
-    switch(packageName) {
+    switch (packageName) {
       case 'bluzelle':
         await bluzelleHandler();
         break;
       case 'nkn':
         await nknHandler();
+        break;
+      case 'boilerplate':
+        await boilerplateHandler(name, library);
         break;
     }
     Spinner.stop();

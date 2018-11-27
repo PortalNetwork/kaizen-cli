@@ -1,0 +1,4 @@
+node_modules/*
+**/vendor/*.js
+webpack.config.js
+truffle.js
