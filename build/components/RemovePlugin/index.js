@@ -20,6 +20,8 @@ var bluzelleHandler = require('./bluzelle.js');
 
 var nknHandler = require('./nkn.js');
 
+var noiaHandler = require('./noia.js');
+
 function builder(yargs) {
   return yargs.option('package', {
     alias: 'p',
@@ -51,7 +53,7 @@ function _handler() {
             kaizenJson = _context.sent;
             Spinner.start();
             _context.t0 = packageName;
-            _context.next = _context.t0 === 'bluzelle' ? 9 : _context.t0 === 'nkn' ? 13 : 17;
+            _context.next = _context.t0 === 'bluzelle' ? 9 : _context.t0 === 'nkn' ? 13 : _context.t0 === 'noia' ? 17 : 21;
             break;
 
           case 9:
@@ -60,7 +62,7 @@ function _handler() {
 
           case 11:
             updateKaizenJson(kaizenJson, 'bluzelle');
-            return _context.abrupt("break", 17);
+            return _context.abrupt("break", 21);
 
           case 13:
             _context.next = 15;
@@ -68,27 +70,35 @@ function _handler() {
 
           case 15:
             updateKaizenJson(kaizenJson, 'nkn');
-            return _context.abrupt("break", 17);
+            return _context.abrupt("break", 21);
 
           case 17:
-            Spinner.stop();
-            Log.SuccessLog("==== Remove package ".concat(packageName, " Successfully ===="));
-            _context.next = 26;
-            break;
+            _context.next = 19;
+            return noiaHandler();
+
+          case 19:
+            updateKaizenJson(kaizenJson, 'noia');
+            return _context.abrupt("break", 21);
 
           case 21:
-            _context.prev = 21;
+            Spinner.stop();
+            Log.SuccessLog("==== Remove package ".concat(packageName, " Successfully ===="));
+            _context.next = 30;
+            break;
+
+          case 25:
+            _context.prev = 25;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 26:
+          case 30:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 21]]);
+    }, _callee, this, [[0, 25]]);
   }));
   return _handler.apply(this, arguments);
 }

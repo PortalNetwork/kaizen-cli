@@ -4,16 +4,17 @@ const Log = require('../../lib/Log');
 const Spinner = require('../../lib/Spinner');
 const bluzelleHandler = require('./bluzelle.js');
 const nknHandler = require('./nkn.js');
+const noiaHandler = require('./noia.js');
 
 function builder(yargs) {
   return yargs
-  .option('package', {
-    alias: 'p',
-    type: 'string',
-    describe: 'plugin name',
-    require: true,
-  })
-  .example('kaizen remove --package bluzelle');
+    .option('package', {
+      alias: 'p',
+      type: 'string',
+      describe: 'plugin name',
+      require: true,
+    })
+    .example('kaizen remove --package bluzelle');
 }
 
 async function handler(argv) {
@@ -21,7 +22,7 @@ async function handler(argv) {
     const { package: packageName, } = argv;
     const kaizenJson = await readKaizenJson();
     Spinner.start();
-    switch(packageName) {
+    switch (packageName) {
       case 'bluzelle':
         await bluzelleHandler();
         updateKaizenJson(kaizenJson, 'bluzelle');
@@ -29,6 +30,10 @@ async function handler(argv) {
       case 'nkn':
         await nknHandler();
         updateKaizenJson(kaizenJson, 'nkn');
+        break;
+      case 'noia':
+        await noiaHandler();
+        updateKaizenJson(kaizenJson, 'noia');
         break;
     }
     Spinner.stop();
@@ -41,9 +46,9 @@ async function handler(argv) {
 }
 
 function readKaizenJson() {
-  return new Promise(function(resolve, reject) {
-    fsx.readJson(path.resolve('./', 'kaizen.json'), function(error, data) {
-      if(error) {
+  return new Promise(function (resolve, reject) {
+    fsx.readJson(path.resolve('./', 'kaizen.json'), function (error, data) {
+      if (error) {
         reject(error);
       } else {
         resolve(data);
