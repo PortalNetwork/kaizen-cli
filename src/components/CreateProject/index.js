@@ -14,7 +14,7 @@ function builder(yargs) {
       alias: 'b',
       type: 'string',
       describe: 'your DApp will build on specific boilerplate',
-      choices: ['vue', 'react'],
+      choices: ['vue', 'react', 'dchat'],
       default: 'react',
     })
     .demandOption(['name'], 'Please enter your project name');
@@ -25,6 +25,9 @@ async function handler(argv) {
     Spinner.start();
     const { name: projectName, boilerplate, } = argv;
     switch (boilerplate) {
+      case 'dchat':
+        await cloneProjectFromGithub('https://github.com/web3infra/dchat.git', projectName);
+        break;
       case 'vue':
         await cloneProjectFromGithub('https://github.com/PortalNetwork/vue-truffle.git', projectName);
         break;
