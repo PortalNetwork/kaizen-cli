@@ -4,6 +4,7 @@ const Log = require('../../lib/Log');
 const Spinner = require('../../lib/Spinner');
 const bluzelleHandler = require('./bluzelle.js');
 const nknHandler = require('./nkn.js');
+const noiaHandler = require('./noia.js');
 
 function builder(yargs) {
   return yargs
@@ -20,18 +21,21 @@ async function handler(argv) {
   try {
     const { package: packageName, } = argv;
 
-    if(fs.existsSync(path.resolve('./', 'package.json')) === false) {
+    if (fs.existsSync(path.resolve('./', 'package.json')) === false) {
       Log.ErrorLog('should run "npm init" first');
       return;
     }
 
     Spinner.start();
-    switch(packageName) {
+    switch (packageName) {
       case 'bluzelle':
         await bluzelleHandler();
         break;
       case 'nkn':
         await nknHandler();
+        break;
+      case 'noia':
+        await noiaHandler();
         break;
     }
     Spinner.stop();
