@@ -35,7 +35,7 @@ npm install -g kaizen-cli
 
 - `kaizen new` - create a dapp template from remote git repository
 - `kaizen config` - environment variables of dapps
-- `kaizen plugin:add` - attach an plugin to dapp
+- `kaizen add --package` - attach an plugin to dapp
     - [Bluzelle](https://www.npmjs.com/package/bluzelle)
     - [NOIA](https://www.npmjs.com/package/@noia-network/sdk-react)
     - [NKN](https://www.npmjs.com/package/nkn-client)
