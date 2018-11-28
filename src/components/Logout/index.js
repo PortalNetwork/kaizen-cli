@@ -2,9 +2,7 @@ const path = require('path');
 const fsx = require('fs-extra');
 const Log = require('../../lib/Log');
 const Spinner = require('../../lib/Spinner');
-const axios = require('axios');
-const LOGOUT_API = 'https://api.portal.network/user/v1/signOut';
-
+const { apiLogout } = require('../../lib/apis');
 
 function builder(yargs) {
   return yargs.example('kaizen logout');
@@ -20,7 +18,7 @@ async function handler(argv) {
     }
 
     Spinner.start();
-    const response = await postLogout(config.idToken);    
+    const response = await apiLogout(config.idToken);    
 
     fsx.writeJsonSync(path.resolve(__dirname, '../../../.kaizenrc'), {
       accessToken: '',
@@ -39,15 +37,6 @@ async function handler(argv) {
     console.error(error);
   }
 }
-
-function postLogout(idToken) {
-  return axios.post(LOGOUT_API, null, {
-    headers: { 
-      Authorization: idToken
-    }
-  });
-}
-
 
 module.exports = function (yargs) {
   const command = 'logout';

@@ -3,8 +3,7 @@ const fsx = require('fs-extra');
 const prompt = require('prompt');
 const Log = require('../../lib/Log');
 const Spinner = require('../../lib/Spinner');
-const axios = require('axios');
-const LOGIN_API = 'https://api.portal.network/user/v1/signIn';
+const { apiLogin } = require('../../lib/apis');
 
 function builder(yargs) {
   return yargs
@@ -18,7 +17,7 @@ async function handler(argv) {
     Spinner.start();
 
     try {
-      const response = await postLogin(email, password);
+      const response = await apiLogin(email, password);
       const {
         accessToken,
         refreshToken,
@@ -71,13 +70,6 @@ function inputEmailAndPassword() {
     })
   });
 
-}
-
-function postLogin(email, password) {
-  return axios.post(LOGIN_API, {
-    email,
-    password
-  });
 }
 
 module.exports = function (yargs) {

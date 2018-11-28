@@ -14,9 +14,8 @@ var Log = require('../../lib/Log');
 
 var Spinner = require('../../lib/Spinner');
 
-var axios = require('axios');
-
-var LOGIN_API = 'https://api.portal.network/user/v1/signIn';
+var _require = require('../../lib/apis'),
+    apiLogin = _require.apiLogin;
 
 function builder(yargs) {
   return yargs.example('kaizen login');
@@ -47,7 +46,7 @@ function _handler() {
             Spinner.start();
             _context.prev = 7;
             _context.next = 10;
-            return postLogin(email, password);
+            return apiLogin(email, password);
 
           case 10:
             response = _context.sent;
@@ -111,13 +110,6 @@ function inputEmailAndPassword() {
         resolve(result);
       }
     });
-  });
-}
-
-function postLogin(email, password) {
-  return axios.post(LOGIN_API, {
-    email: email,
-    password: password
   });
 }
 

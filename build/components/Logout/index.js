@@ -12,9 +12,8 @@ var Log = require('../../lib/Log');
 
 var Spinner = require('../../lib/Spinner');
 
-var axios = require('axios');
-
-var LOGOUT_API = 'https://api.portal.network/user/v1/signOut';
+var _require = require('../../lib/apis'),
+    apiLogout = _require.apiLogout;
 
 function builder(yargs) {
   return yargs.example('kaizen logout');
@@ -47,7 +46,7 @@ function _handler() {
           case 5:
             Spinner.start();
             _context.next = 8;
-            return postLogout(config.idToken);
+            return apiLogout(config.idToken);
 
           case 8:
             response = _context.sent;
@@ -78,14 +77,6 @@ function _handler() {
     }, _callee, this, [[0, 14]]);
   }));
   return _handler.apply(this, arguments);
-}
-
-function postLogout(idToken) {
-  return axios.post(LOGOUT_API, null, {
-    headers: {
-      Authorization: idToken
-    }
-  });
 }
 
 module.exports = function (yargs) {
