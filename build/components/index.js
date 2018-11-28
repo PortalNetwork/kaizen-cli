@@ -22,4 +22,6 @@ require('./DeployContracts')(yargs);
 
 require('./Login')(yargs);
 
+require('./Logout')(yargs);
+
 module.exports = yargs;
