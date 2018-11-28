@@ -58,7 +58,8 @@ function _handler() {
               refreshToken: refreshToken,
               idToken: idToken,
               expiresIn: expiresIn,
-              name: name
+              name: name,
+              loginOn: new Date()
             });
             Log.SuccessLog("Welcome ".concat(name));
             _context.next = 20;

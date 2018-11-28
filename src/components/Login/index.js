@@ -33,7 +33,8 @@ async function handler(argv) {
         refreshToken,
         idToken,
         expiresIn,
-        name
+        name,
+        loginOn: new Date()
       });
       Log.SuccessLog(`Welcome ${name}`);
     } catch (loginError) {
