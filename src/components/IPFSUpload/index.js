@@ -43,7 +43,7 @@ async function handler(argv) {
       return;
     }
 
-    if(!fs.existsSync(targetPath)) {
+    if (!fs.existsSync(targetPath)) {
       Spinner.stop();
       Log.ErrorLog('The path that you specify is not exist');
       return;
@@ -57,16 +57,12 @@ async function handler(argv) {
 
     const ipfs = IPFS_API(host, port, { protocol });
 
-    if (fs.lstatSync(targetPath).isDirectory()) {
-      const files = recursiveFetchFilePath(targetPath).map(file => getIPFSContentObject(file, targetPath));
-      const hashes = await ipfs.files.add(files);
-      fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
-    } else {
-      const hashes = await ipfs.files.add(fs.readFileSync(targetPath));
-      fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
-    }
-
+    const filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
+    const hashes = await ipfs.files.add(filesReadyToIPFS);
+    fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
+    const hashObj = hashes.length === 0 ?  hashes[0] : hashes[hashes.length - 1];
     Spinner.stop();
+    console.log(`\nFile/Folder hash: ${hashObj.hash}`);
     Log.SuccessLog(`==== Upload your files to IPFS Successfully ====`);
   } catch (error) {
     Spinner.stop();
@@ -120,6 +116,13 @@ function getIPFSContentObject(filePath, targetPath) {
   });
 }
 
+function getFilesReadyToIPFS(targetPath) {
+  if (fs.lstatSync(targetPath).isDirectory()) {
+    return recursiveFetchFilePath(targetPath).map(file => getIPFSContentObject(file, targetPath));
+  } else {
+    return fs.readFileSync(targetPath);
+  }
+}
 
 module.exports = function (yargs) {
   const command = 'ipfs upload [path]';

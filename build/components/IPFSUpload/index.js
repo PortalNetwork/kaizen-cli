@@ -34,7 +34,7 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var targetPath, result, configPath, kaizenConfig, _kaizenConfig$ipfs, host, port, protocol, ipfs, files, hashes, _hashes;
+    var targetPath, result, configPath, kaizenConfig, _kaizenConfig$ipfs, host, port, protocol, ipfs, filesReadyToIPFS, hashes, hashObj;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -96,51 +96,41 @@ function _handler() {
             ipfs = IPFS_API(host, port, {
               protocol: protocol
             });
+            filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
+            _context.next = 28;
+            return ipfs.files.add(filesReadyToIPFS);
 
-            if (!fs.lstatSync(targetPath).isDirectory()) {
-              _context.next = 33;
-              break;
-            }
-
-            files = recursiveFetchFilePath(targetPath).map(function (file) {
-              return getIPFSContentObject(file, targetPath);
-            });
-            _context.next = 29;
-            return ipfs.files.add(files);
-
-          case 29:
+          case 28:
             hashes = _context.sent;
             fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
-            _context.next = 37;
-            break;
+            hashObj = hashes.length === 0 ? hashes[0] : hashes[hashes.length - 1]; // if (fs.lstatSync(targetPath).isDirectory()) {
+            //   const files = recursiveFetchFilePath(targetPath).map(file => getIPFSContentObject(file, targetPath));
+            //   const hashes = await ipfs.files.add(files);
+            //   fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
+            // } else {
+            //   const hashes = await ipfs.files.add(fs.readFileSync(targetPath));
+            //   fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
+            // }
 
-          case 33:
-            _context.next = 35;
-            return ipfs.files.add(fs.readFileSync(targetPath));
-
-          case 35:
-            _hashes = _context.sent;
-            fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(_hashes));
-
-          case 37:
             Spinner.stop();
+            console.log("\nFile/Folder hash: ".concat(hashObj.hash));
             Log.SuccessLog("==== Upload your files to IPFS Successfully ====");
-            _context.next = 46;
+            _context.next = 41;
             break;
 
-          case 41:
-            _context.prev = 41;
+          case 36:
+            _context.prev = 36;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t0);
 
-          case 46:
+          case 41:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 41]]);
+    }, _callee, this, [[0, 36]]);
   }));
   return _handler.apply(this, arguments);
 }
@@ -190,6 +180,16 @@ function getIPFSContentObject(filePath, targetPath) {
     path: "public".concat(filePath.replace(targetPath, '')),
     content: fs.readFileSync(filePath)
   };
+}
+
+function getFilesReadyToIPFS(targetPath) {
+  if (fs.lstatSync(targetPath).isDirectory()) {
+    return recursiveFetchFilePath(targetPath).map(function (file) {
+      return getIPFSContentObject(file, targetPath);
+    });
+  } else {
+    return fs.readFileSync(targetPath);
+  }
 }
 
 module.exports = function (yargs) {
