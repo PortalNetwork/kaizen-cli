@@ -1,11 +1,8 @@
 const cmd = require('node-cmd');
-const path = require('path');
 const fsx = require('fs-extra');
 
 module.exports = async function (name, library) {
   const projectName = name || 'new-boilerplate';
-  const sourcePath = path.resolve(__dirname, '../../../assets/boilerplate');
-  const targetPath = path.resolve('./', projectName);
 
   switch (library) {
     case 'vue':
@@ -17,7 +14,8 @@ module.exports = async function (name, library) {
       fsx.removeSync(`./${projectName}/.git`);
       break;
     default:
-      fsx.copySync(sourcePath, targetPath);
+      await cloneProjectFromGithub('https://github.com/PortalNetwork/kaizen-boilerplate.git', projectName);
+      fsx.removeSync(`./${projectName}/.git`);
       break;
   }
 }
