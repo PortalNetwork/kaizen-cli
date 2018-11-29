@@ -16,8 +16,7 @@ function builder(yargs) {
     })
     .option('port', {
       type: 'string',
-      describe: 'port',
-      require: true
+      describe: 'port'
     })
     .example('kaizen set-ethereum --network <net work id> --provider <provider> --port <port>');
 }
