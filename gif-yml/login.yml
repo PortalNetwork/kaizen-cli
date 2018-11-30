@@ -1,0 +1,327 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/jacky/Desktop/work/demo/kaizen-cli/_
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 142
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 25
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 458
+    content: "\e[?1034hchenjianmingde-MacBook-Pro:_ jacky$ "
+  - delay: 3843
+    content: .
+  - delay: 135
+    content: .
+  - delay: 195
+    content: /
+  - delay: 341
+    content: k
+  - delay: 107
+    content: a
+  - delay: 104
+    content: i
+  - delay: 531
+    content: z
+  - delay: 90
+    content: e
+  - delay: 90
+    content: 'n'
+  - delay: 357
+    content: ' '
+  - delay: 951
+    content: l
+  - delay: 149
+    content: o
+  - delay: 99
+    content: g
+  - delay: 159
+    content: i
+  - delay: 86
+    content: 'n'
+  - delay: 242
+    content: "\r\n"
+  - delay: 408
+    content: "\e[2J\e[0f\r\n\r\n"
+  - delay: 5
+    content: "\e[33m  _  __     _      ___   _____  _____   _   _ \e[39m\r\n\e[33m | |/ /    / \\    |_ _| |__  / | ____| | \\ | |\e[39m\r\n\e[33m | ' /    / _ \\    | |    / /  |  _|   |  \\| |\e[39m\r\n\e[33m | . \\   / ___ \\   | |   / /_  | |___  | |\\  |\e[39m\r\n\e[33m |_|\\_\\ /_/   \\_\\ |___| /____| |_____| |_| \\_|\e[39m\r\n\e[33m                                              \e[39m\r\n"
+  - delay: 53
+    content: "\e[1G\e[0Jprompt: \e[90memail\e[39m\e[90m: \e[39m \e[17G"
+  - delay: 1191
+    content: b
+  - delay: 122
+    content: i
+  - delay: 227
+    content: l
+  - delay: 121
+    content: l
+  - delay: 398
+    content: '@'
+  - delay: 257
+    content: p
+  - delay: 138
+    content: o
+  - delay: 123
+    content: r
+  - delay: 181
+    content: t
+  - delay: 92
+    content: a
+  - delay: 168
+    content: l
+  - delay: 188
+    content: .
+  - delay: 196
+    content: 'n'
+  - delay: 132
+    content: e
+  - delay: 485
+    content: t
+  - delay: 741
+    content: w
+  - delay: 101
+    content: o
+  - delay: 141
+    content: r
+  - delay: 154
+    content: k
+  - delay: 330
+    content: "\r\r\n"
+  - delay: 5
+    content: "\e[1G\e[0Jprompt: \e[90mpassword\e[39m\e[90m: \e[39m \e[20G"
+  - delay: 3593
+    content: "\r\r\n"
+  - delay: 53
+    content: "\r\\"
+  - delay: 50
+    content: "\r|"
+  - delay: 55
+    content: "\r/"
+  - delay: 51
+    content: "\r-"
+  - delay: 53
+    content: "\r\\"
+  - delay: 54
+    content: "\r|"
+  - delay: 53
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 56
+    content: "\r\\"
+  - delay: 55
+    content: "\r|"
+  - delay: 55
+    content: "\r/"
+  - delay: 51
+    content: "\r-"
+  - delay: 56
+    content: "\r\\"
+  - delay: 54
+    content: "\r|"
+  - delay: 51
+    content: "\r/"
+  - delay: 50
+    content: "\r-"
+  - delay: 50
+    content: "\r\\"
+  - delay: 54
+    content: "\r|"
+  - delay: 50
+    content: "\r/"
+  - delay: 54
+    content: "\r-"
+  - delay: 53
+    content: "\r\\"
+  - delay: 55
+    content: "\r|"
+  - delay: 50
+    content: "\r/"
+  - delay: 56
+    content: "\r-"
+  - delay: 55
+    content: "\r\\"
+  - delay: 54
+    content: "\r|"
+  - delay: 50
+    content: "\r/"
+  - delay: 52
+    content: "\r-"
+  - delay: 51
+    content: "\r\\"
+  - delay: 55
+    content: "\r|"
+  - delay: 55
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 50
+    content: "\r\\"
+  - delay: 51
+    content: "\r|"
+  - delay: 54
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 51
+    content: "\r\\"
+  - delay: 52
+    content: "\r|"
+  - delay: 50
+    content: "\r/"
+  - delay: 53
+    content: "\r-"
+  - delay: 54
+    content: "\r\\"
+  - delay: 51
+    content: "\r|"
+  - delay: 50
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 54
+    content: "\r\\"
+  - delay: 53
+    content: "\r|"
+  - delay: 51
+    content: "\r/"
+  - delay: 54
+    content: "\r-"
+  - delay: 53
+    content: "\r\\"
+  - delay: 53
+    content: "\r|"
+  - delay: 54
+    content: "\r/"
+  - delay: 50
+    content: "\r-"
+  - delay: 50
+    content: "\r\\"
+  - delay: 53
+    content: "\r|"
+  - delay: 55
+    content: "\r/"
+  - delay: 50
+    content: "\r-"
+  - delay: 55
+    content: "\r\\"
+  - delay: 52
+    content: "\r|"
+  - delay: 56
+    content: "\r/"
+  - delay: 51
+    content: "\r-"
+  - delay: 55
+    content: "\r\\"
+  - delay: 55
+    content: "\r|"
+  - delay: 51
+    content: "\r/"
+  - delay: 50
+    content: "\r-"
+  - delay: 26
+    content: "\e[32m\e[1mWelcome Iam a test\e[22m\e[39m\r\n"
