@@ -53,6 +53,7 @@ function _handler() {
             _response$data = response.data, accessToken = _response$data.accessToken, refreshToken = _response$data.refreshToken, idToken = _response$data.idToken, expiresIn = _response$data.expiresIn, name = _response$data.name;
             Spinner.stop();
             fsx.writeJsonSync(path.resolve(__dirname, '../../../.kaizenrc'), {
+              email: email,
               accessToken: accessToken,
               refreshToken: refreshToken,
               idToken: idToken,

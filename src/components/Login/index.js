@@ -28,6 +28,7 @@ async function handler(argv) {
       
       Spinner.stop();
       fsx.writeJsonSync(path.resolve(__dirname, '../../../.kaizenrc'), {
+        email,
         accessToken,
         refreshToken,
         idToken,

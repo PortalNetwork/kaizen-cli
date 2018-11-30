@@ -16,3 +16,10 @@ exports.apiLogout = function apiLogout(idToken) {
     }
   });
 };
+
+exports.apiRefreshToken = function (refreshToken, email) {
+  return axios.post('https://api.portal.network/user/v1/refresh', {
+    refreshToken: refreshToken,
+    email: email
+  });
+};

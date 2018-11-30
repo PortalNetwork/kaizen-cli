@@ -11,5 +11,6 @@ require('./CompileContracts')(yargs);
 require('./DeployContracts')(yargs);
 require('./Login')(yargs);
 require('./Logout')(yargs);
+require('./RefreshToken')(yargs);
 
 module.exports = yargs;
