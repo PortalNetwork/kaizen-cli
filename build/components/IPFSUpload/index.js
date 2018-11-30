@@ -103,15 +103,7 @@ function _handler() {
           case 28:
             hashes = _context.sent;
             fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
-            hashObj = hashes.length === 0 ? hashes[0] : hashes[hashes.length - 1]; // if (fs.lstatSync(targetPath).isDirectory()) {
-            //   const files = recursiveFetchFilePath(targetPath).map(file => getIPFSContentObject(file, targetPath));
-            //   const hashes = await ipfs.files.add(files);
-            //   fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
-            // } else {
-            //   const hashes = await ipfs.files.add(fs.readFileSync(targetPath));
-            //   fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
-            // }
-
+            hashObj = hashes.length === 0 ? hashes[0] : hashes[hashes.length - 1];
             Spinner.stop();
             console.log("\nFile/Folder hash: ".concat(hashObj.hash));
             Log.SuccessLog("==== Upload your files to IPFS Successfully ====");
