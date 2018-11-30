@@ -26,4 +26,6 @@ require('./Logout')(yargs);
 
 require('./RefreshToken')(yargs);
 
+require('./Settings')(yargs);
+
 module.exports = yargs;

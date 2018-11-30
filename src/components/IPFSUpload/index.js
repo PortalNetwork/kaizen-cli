@@ -1,45 +1,68 @@
 const IPFS_API = require('ipfs-api');
 const path = require('path');
 const fs = require('fs');
+const fsx = require('fs-extra');
 const prompt = require('prompt');
 const Log = require('../../lib/Log');
 const Spinner = require('../../lib/Spinner');
 
 function builder(yargs) {
   return yargs
-    .option('host', {
+    .positional('path', {
       type: 'string',
-      describe: 'IPFS daemon API server host',
-      default: 'ipfs.infura.io',
+      describe: 'the path of the file or the folder which you want to upload to IPFS',
+      default: '.'
     })
-    .option('port', {
-      type: 'string',
-      describe: 'IPFS daemon API server port',
-      default: '5001',
-    })
-    .option('protocol', {
-      type: 'string',
-      describe: 'IPFS daemon API server protocol',
-      default: 'https',
-    });
+    .example('kaizen ipfs upload . => to upload the current folder')
+    .example('kaizen ipfs upload ./build => to upload the build folder in the current folder')
 }
 
 async function handler(argv) {
   try {
-    const result = await confirmUploadDialog();
+    const targetPath = path.resolve('./', argv.path);
+    const result = await confirmUploadDialog(targetPath);
     if (/^yes|y$/i.test(result.confirm) === false) {
       Log.SuccessLog(`==== Cancel Upload ====`);
       return;
     }
 
     Spinner.start();
-    const { protocol, host, port, } = argv;
-    const ipfs = IPFS_API(host, port, { protocol, });
-    const targetPath = path.resolve('./');
-    const files = recursiveFetchFilePath(targetPath).map(file => getIPFSContentObject(file, targetPath));
-    const hashes = await ipfs.files.add(files);
+
+    const configPath = path.resolve('./', 'kaizen.json');
+    if (fsx.existsSync(configPath) === false) {
+      Spinner.stop();
+      Log.ErrorLog('Missing kaizen.json, you should use「kaizen set-ipfs」command to setting IPFS configuration');
+      return;
+    }
+
+
+    const kaizenConfig = fsx.readJsonSync(configPath);
+    if (!kaizenConfig.ipfs) {
+      Spinner.stop();
+      Log.ErrorLog('Missing kaizen.json, you should use「kaizen set-ipfs」command to setting IPFS configuration');
+      return;
+    }
+
+    if (!fs.existsSync(targetPath)) {
+      Spinner.stop();
+      Log.ErrorLog('The path that you specify is not exist');
+      return;
+    }
+
+    const {
+      host,
+      port,
+      protocol
+    } = kaizenConfig.ipfs;
+
+    const ipfs = IPFS_API(host, port, { protocol });
+
+    const filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
+    const hashes = await ipfs.files.add(filesReadyToIPFS);
     fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
+    const hashObj = hashes.length === 0 ?  hashes[0] : hashes[hashes.length - 1];
     Spinner.stop();
+    console.log(`\nFile/Folder hash: ${hashObj.hash}`);
     Log.SuccessLog(`==== Upload your files to IPFS Successfully ====`);
   } catch (error) {
     Spinner.stop();
@@ -48,11 +71,11 @@ async function handler(argv) {
   }
 }
 
-function confirmUploadDialog() {
+function confirmUploadDialog(targetPath) {
   const promptSchema = {
     properties: {
       confirm: {
-        message: 'Please ensure you will upload files in current folder to the IPFS (yes/no)',
+        message: `Please ensure you will upload 「${targetPath}」 to the IPFS (yes/no)`,
         required: true
       },
     }
@@ -93,9 +116,16 @@ function getIPFSContentObject(filePath, targetPath) {
   });
 }
 
+function getFilesReadyToIPFS(targetPath) {
+  if (fs.lstatSync(targetPath).isDirectory()) {
+    return recursiveFetchFilePath(targetPath).map(file => getIPFSContentObject(file, targetPath));
+  } else {
+    return fs.readFileSync(targetPath);
+  }
+}
 
 module.exports = function (yargs) {
-  const command = 'ipfs upload';
-  const commandDescription = 'To upload files in folder where the terminal currently in to IPFS';
+  const command = 'ipfs upload [path]';
+  const commandDescription = 'To upload file or folder to IPFS';
   yargs.command(command, commandDescription, builder, handler);
 }

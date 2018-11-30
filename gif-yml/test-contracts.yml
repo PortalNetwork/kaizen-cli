@@ -1,0 +1,367 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/jacky/Desktop/work/demo/kaizen-cli/new-boilerplate
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 142
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 25
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 648
+    content: "\e[?1034hchenjianmingde-MacBook-Pro:new-boilerplate jacky$ "
+  - delay: 2486
+    content: .
+  - delay: 127
+    content: .
+  - delay: 153
+    content: /
+  - delay: 1043
+    content: k
+  - delay: 327
+    content: a
+  - delay: 113
+    content: i
+  - delay: 78
+    content: z
+  - delay: 112
+    content: e
+  - delay: 150
+    content: 'n'
+  - delay: 328
+    content: ' '
+  - delay: 211
+    content: t
+  - delay: 79
+    content: e
+  - delay: 196
+    content: s
+  - delay: 106
+    content: t
+  - delay: 145
+    content: '-'
+  - delay: 255
+    content: c
+  - delay: 280
+    content: "\b\e[K"
+  - delay: 106
+    content: "\b\e[K"
+  - delay: 114
+    content: ' '
+  - delay: 132
+    content: c
+  - delay: 102
+    content: o
+  - delay: 94
+    content: 'n'
+  - delay: 145
+    content: t
+  - delay: 126
+    content: r
+  - delay: 96
+    content: a
+  - delay: 188
+    content: c
+  - delay: 260
+    content: t
+  - delay: 150
+    content: s
+  - delay: 124
+    content: "\r\n"
+  - delay: 281
+    content: "\e[2J\e[0f\r\n\r\n\e[33m  _  __     _      ___   _____  _____   _   _ \e[39m\r\n\e[33m | |/ /    / \\    |_ _| |__  / | ____| | \\ | |\e[39m\r\n\e[33m | ' /    / _ \\    | |    / /  |  _|   |  \\| |\e[39m\r\n\e[33m | . \\   / ___ \\   | |   / /_  | |___  | |\\  |\e[39m\r\n\e[33m |_|\\_\\ /_/   \\_\\ |___| /____| |_____| |_| \\_|\e[39m\r\n\e[33m                                              \e[39m\r\n"
+  - delay: 73
+    content: "\r\\"
+  - delay: 54
+    content: "\r|"
+  - delay: 55
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 50
+    content: "\r\\"
+  - delay: 53
+    content: "\r|"
+  - delay: 55
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 55
+    content: "\r\\"
+  - delay: 50
+    content: "\r|"
+  - delay: 51
+    content: "\r/"
+  - delay: 51
+    content: "\r-"
+  - delay: 51
+    content: "\r\\"
+  - delay: 55
+    content: "\r|"
+  - delay: 50
+    content: "\r/"
+  - delay: 51
+    content: "\r-"
+  - delay: 53
+    content: "\r\\"
+  - delay: 48
+    content: "\r|"
+  - delay: 52
+    content: "\r/"
+  - delay: 54
+    content: "\r-"
+  - delay: 50
+    content: "\r\\"
+  - delay: 50
+    content: "\r|"
+  - delay: 53
+    content: "\r/"
+  - delay: 52
+    content: "\r-"
+  - delay: 52
+    content: "\r\\"
+  - delay: 54
+    content: "\r|"
+  - delay: 55
+    content: "\r/"
+  - delay: 52
+    content: "\r-"
+  - delay: 51
+    content: "\r\\"
+  - delay: 55
+    content: "\r|"
+  - delay: 52
+    content: "\r/"
+  - delay: 51
+    content: "\r-"
+  - delay: 55
+    content: "\r\\"
+  - delay: 51
+    content: "\r|"
+  - delay: 51
+    content: "\r/"
+  - delay: 53
+    content: "\r-"
+  - delay: 55
+    content: "\r\\"
+  - delay: 51
+    content: "\r|"
+  - delay: 50
+    content: "\r/"
+  - delay: 51
+    content: "\r-"
+  - delay: 55
+    content: "\r\\"
+  - delay: 50
+    content: "\r|"
+  - delay: 55
+    content: "\r/"
+  - delay: 51
+    content: "\r-"
+  - delay: 56
+    content: "\r\\"
+  - delay: 55
+    content: "\r|"
+  - delay: 54
+    content: "\r/"
+  - delay: 51
+    content: "\r-"
+  - delay: 55
+    content: "\r\\"
+  - delay: 50
+    content: "\r|"
+  - delay: 51
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 50
+    content: "\r\\"
+  - delay: 51
+    content: "\r|"
+  - delay: 50
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 52
+    content: "\r\\"
+  - delay: 55
+    content: "\r|"
+  - delay: 53
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 52
+    content: "\r\\"
+  - delay: 53
+    content: "\r|"
+  - delay: 51
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 52
+    content: "\r\\"
+  - delay: 50
+    content: "\r|"
+  - delay: 51
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 54
+    content: "\r\\"
+  - delay: 56
+    content: "\r|"
+  - delay: 55
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 51
+    content: "\r\\"
+  - delay: 54
+    content: "\r|"
+  - delay: 51
+    content: "\r/"
+  - delay: 50
+    content: "\r-"
+  - delay: 54
+    content: "\r\\"
+  - delay: 55
+    content: "\r|"
+  - delay: 51
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 54
+    content: "\r\\"
+  - delay: 55
+    content: "\r|"
+  - delay: 53
+    content: "\r/"
+  - delay: 52
+    content: "\r-"
+  - delay: 50
+    content: "\r\\"
+  - delay: 56
+    content: "\r|"
+  - delay: 55
+    content: "\r/"
+  - delay: 55
+    content: "\r-"
+  - delay: 50
+    content: "\r\\"
+  - delay: 51
+    content: "\r|"
+  - delay: 50
+    content: "\r/"
+  - delay: 52
+    content: "\r-"
+  - delay: 50
+    content: "\r\\"
+  - delay: 52
+    content: "\r|"
+  - delay: 50
+    content: "\r/"
+  - delay: 23
+    content: "Ganache CLI v6.2.3 (ganache-core: 2.3.1)\r\n\r\nAvailable Accounts\r\n==================\r\n(0) 0x2e4c6087af2b35dbdcc3d4de839d2a60610cbbb4 (~100 ETH)\r\n(1) 0x142d768ca467e7025b2cb7e36fcfe96c326d96ca (~100 ETH)\r\n(2) 0x69b48d83a273cba69a993878a09c62f0b4ed4cca (~100 ETH)\r\n(3) 0xfbff2f0ee15223796f0c7c7041bff0d2b09f6c2c (~100 ETH)\r\n(4) 0xfcebff37d8d448149d72bc8538da1772dded5fe8 (~100 ETH)\r\n(5) 0x360e0d3b9aa908e1b35eb674651ede1efee42544 (~100 ETH)\r\n(6) 0x20a9fc81e5c2f2d8d13b06f903f3b36271218881 (~100 ETH)\r\n(7) 0x8458b85005cba22fff149959c1a8399045f70dce (~100 ETH)\r\n(8) 0x3b3c281a213b4191711e61e3b1c691c9bca045d9 (~100 ETH)\r\n(9) 0xffd5dc39b7a9f6318f9c61e19fa502aea8f1a6a6 (~100 ETH)\r\n\r\nPrivate Keys\r\n==================\r\n(0) 0x523c19fd7c010f703861162f61c2c94bc916aa7721c77844ffd6794bdd615eee\r\n(1) 0xeaddaf11bf59e670995dcf894951152d5ad561855cd348e5b91fb58fa06823a8\r\n(2) 0x5c8bdc02cd42fa987a2ec571268fc5658a7845c2920bbd0d02aeab5f47a320af\r\n(3) 0x17788c172ee493538f5bb3ddd72f3cb2539639856dbbdd8ca2b7471c02e2c258\r\n(4) 0x6e94815838abc402349b5dc98624bada92cc8024dedd24d07563709197e163c1\r\n(5) 0xa8e592ecd798c046a0b4a7803ffe876e69051d7b973e74a253ada78e26bd9f22\r\n(6) 0x586a15fc0f0ea47f63c48e59bc8d12fdf13f9fab83ce557d6028662380d32b4e\r\n(7) 0xdc4bad923603742f81dc66e083f8eb64e1689ef20cce415a30f0d204fc7176e6\r\n(8) 0x344ccb014ccbb19daf6317e673f4b81c77d44136ea2f74ab99cfd5866691037b\r\n(9) 0xfc7bccebbcc7bf2411461e61169fce279c6105dbbbabcdeb1c3cfaeac1b6184a\r\n\r\nHD Wallet\r\n==================\r\nMnemonic:      magic fly category call elephant gold abandon gas file sponsor long trophy\r\nBase HD Path:  m/44'/60'/0'/0/{account_index}\r\n\r\nGas Price\r\n==================\r\n20000000000\r\n\r\nGas Limit\r\n==================\r\n6721975\r\n\r\nListening on 127.0.0.1:8545\r\nnet_version\r\neth_accounts\r\neth_accounts\r\neth_accounts\r\nnet_version\r\nnet_version\r\neth_sendTransaction\r\n\r\n  Transaction: 0x2d736cb4c93d0cb827bf4bea42408b6d2661597322b3e583fdbc95b9f12fdcb4\r\n  Contract created: 0xac0c8a9275d7c6699614e06df7a0acde6b2359cb\r\n  Gas usage: 277462\r\n  Block Number: 1\r\n  Block Time: Fri Nov 30 2018 14:34:00 GMT+0800 (CST)\r\n\r\neth_newBlockFilter\r\neth_getFilterChanges\r\neth_getTransactionReceipt\r\neth_getCode\r\neth_uninstallFilter\r\neth_accounts\r\nnet_version\r\nnet_version\r\neth_sendTransaction\r\n\r\n  Transaction: 0x60aaaf26e793f398209d99107fc92490318eacc6bd2daeed828923583ac1774b\r\n  Contract created: 0xd5bf461e5e8306cfac3b43fedf7928c4e95e1fd3\r\n  Gas usage: 136299\r\n  Block Number: 2\r\n  Block Time: Fri Nov 30 2018 14:34:00 GMT+0800 (CST)\r\n\r\neth_newBlockFilter\r\neth_getFilterChanges\r\neth_getTransactionReceipt\r\neth_getCode\r\neth_uninstallFilter\r\nevm_snapshot\r\nSaved snapshot #1\r\neth_blockNumber\r\neth_sendTransaction\r\n\r\n  Transaction: 0x78c1eed5db0a57f3cbe16cc8836a308f868a404600114746c4ffa927f0085888\r\n  Contract created: 0x9bb12456de4341205a71b61ed2ed24296e46cdc1\r\n  Gas usage: 136299\r\n  Block Number: 3\r\n  Block Time: Fri Nov 30 2018 14:34:00 GMT+0800 (CST)\r\n\r\neth_newBlockFilter\r\neth_getFilterChanges\r\neth_getTransactionReceipt\r\neth_getCode\r\neth_uninstallFilter\r\neth_call\r\nCompiling ./contracts/HelloWorld.sol...\r\nCompiling ./contracts/Migrations.sol...\r\n\r\n\e[0m\e[0m\r\n\e[0m  Contract: HelloWorld\e[0m\r\n  \e[32m  ✓\e[0m\e[90m should say Hello World\e[0m\r\n\r\n\r\n\e[92m \e[0m\e[32m 1 passing\e[0m\e[90m (85ms)\e[0m\r\n\r\n\r\n\r\nchenjianmingde-MacBook-Pro:new-boilerplate jacky$ "

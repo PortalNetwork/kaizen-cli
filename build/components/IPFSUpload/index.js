@@ -10,6 +10,8 @@ var path = require('path');
 
 var fs = require('fs');
 
+var fsx = require('fs-extra');
+
 var prompt = require('prompt');
 
 var Log = require('../../lib/Log');
@@ -17,19 +19,11 @@ var Log = require('../../lib/Log');
 var Spinner = require('../../lib/Spinner');
 
 function builder(yargs) {
-  return yargs.option('host', {
+  return yargs.positional('path', {
     type: 'string',
-    describe: 'IPFS daemon API server host',
-    default: 'ipfs.infura.io'
-  }).option('port', {
-    type: 'string',
-    describe: 'IPFS daemon API server port',
-    default: '5001'
-  }).option('protocol', {
-    type: 'string',
-    describe: 'IPFS daemon API server protocol',
-    default: 'https'
-  });
+    describe: 'the path of the file or the folder which you want to upload to IPFS',
+    default: '.'
+  }).example('kaizen ipfs upload . => to upload the current folder').example('kaizen ipfs upload ./build => to upload the build folder in the current folder');
 }
 
 function handler(_x) {
@@ -40,69 +34,112 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var result, protocol, host, port, ipfs, targetPath, files, hashes;
+    var targetPath, result, configPath, kaizenConfig, _kaizenConfig$ipfs, host, port, protocol, ipfs, filesReadyToIPFS, hashes, hashObj;
+
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            _context.next = 3;
-            return confirmUploadDialog();
+            targetPath = path.resolve('./', argv.path);
+            _context.next = 4;
+            return confirmUploadDialog(targetPath);
 
-          case 3:
+          case 4:
             result = _context.sent;
 
             if (!(/^yes|y$/i.test(result.confirm) === false)) {
-              _context.next = 7;
+              _context.next = 8;
               break;
             }
 
             Log.SuccessLog("==== Cancel Upload ====");
             return _context.abrupt("return");
 
-          case 7:
+          case 8:
             Spinner.start();
-            protocol = argv.protocol, host = argv.host, port = argv.port;
+            configPath = path.resolve('./', 'kaizen.json');
+
+            if (!(fsx.existsSync(configPath) === false)) {
+              _context.next = 14;
+              break;
+            }
+
+            Spinner.stop();
+            Log.ErrorLog('Missing kaizen.json, you should use「kaizen set-ipfs」command to setting IPFS configuration');
+            return _context.abrupt("return");
+
+          case 14:
+            kaizenConfig = fsx.readJsonSync(configPath);
+
+            if (kaizenConfig.ipfs) {
+              _context.next = 19;
+              break;
+            }
+
+            Spinner.stop();
+            Log.ErrorLog('Missing kaizen.json, you should use「kaizen set-ipfs」command to setting IPFS configuration');
+            return _context.abrupt("return");
+
+          case 19:
+            if (fs.existsSync(targetPath)) {
+              _context.next = 23;
+              break;
+            }
+
+            Spinner.stop();
+            Log.ErrorLog('The path that you specify is not exist');
+            return _context.abrupt("return");
+
+          case 23:
+            _kaizenConfig$ipfs = kaizenConfig.ipfs, host = _kaizenConfig$ipfs.host, port = _kaizenConfig$ipfs.port, protocol = _kaizenConfig$ipfs.protocol;
             ipfs = IPFS_API(host, port, {
               protocol: protocol
             });
-            targetPath = path.resolve('./');
-            files = recursiveFetchFilePath(targetPath).map(function (file) {
-              return getIPFSContentObject(file, targetPath);
-            });
-            _context.next = 14;
-            return ipfs.files.add(files);
+            filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
+            _context.next = 28;
+            return ipfs.files.add(filesReadyToIPFS);
 
-          case 14:
+          case 28:
             hashes = _context.sent;
             fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
+            hashObj = hashes.length === 0 ? hashes[0] : hashes[hashes.length - 1]; // if (fs.lstatSync(targetPath).isDirectory()) {
+            //   const files = recursiveFetchFilePath(targetPath).map(file => getIPFSContentObject(file, targetPath));
+            //   const hashes = await ipfs.files.add(files);
+            //   fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
+            // } else {
+            //   const hashes = await ipfs.files.add(fs.readFileSync(targetPath));
+            //   fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
+            // }
+
             Spinner.stop();
+            console.log("\nFile/Folder hash: ".concat(hashObj.hash));
             Log.SuccessLog("==== Upload your files to IPFS Successfully ====");
-            _context.next = 25;
+            _context.next = 41;
             break;
 
-          case 20:
-            _context.prev = 20;
+          case 36:
+            _context.prev = 36;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t0);
 
-          case 25:
+          case 41:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 20]]);
+    }, _callee, this, [[0, 36]]);
   }));
   return _handler.apply(this, arguments);
 }
 
-function confirmUploadDialog() {
+function confirmUploadDialog(targetPath) {
   var promptSchema = {
     properties: {
       confirm: {
-        message: 'Please ensure you will upload files in current folder to the IPFS (yes/no)',
+        message: "Please ensure you will upload \u300C".concat(targetPath, "\u300D to the IPFS (yes/no)"),
         required: true
       }
     }
@@ -145,8 +182,18 @@ function getIPFSContentObject(filePath, targetPath) {
   };
 }
 
+function getFilesReadyToIPFS(targetPath) {
+  if (fs.lstatSync(targetPath).isDirectory()) {
+    return recursiveFetchFilePath(targetPath).map(function (file) {
+      return getIPFSContentObject(file, targetPath);
+    });
+  } else {
+    return fs.readFileSync(targetPath);
+  }
+}
+
 module.exports = function (yargs) {
-  var command = 'ipfs upload';
-  var commandDescription = 'To upload files in folder where the terminal currently in to IPFS';
+  var command = 'ipfs upload [path]';
+  var commandDescription = 'To upload file or folder to IPFS';
   yargs.command(command, commandDescription, builder, handler);
 };
