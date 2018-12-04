@@ -17,13 +17,15 @@ function builder(yargs) {
       choices: ['vue', 'react'],
       default: 'react',
     })
-    .demandOption(['name'], 'Please enter your project name');
+    .demandOption(['name'], 'Please enter your project name')
+    .example('kaizen create -t react -n myproject');
 }
 
 async function handler(argv) {
   try {
     Spinner.start();
     const { name: projectName, template, } = argv;
+    Log.NormalLog(`Downloading project, please wait a second`);
     switch (template) {
       case 'vue':
         await cloneProjectFromGithub('https://github.com/PortalNetwork/vue-truffle.git', projectName);
@@ -35,7 +37,7 @@ async function handler(argv) {
     }
     fsx.removeSync(`./${projectName}/.git`);
     Spinner.stop();
-    Log.SuccessLog(`==== Create ${projectName} Successfully ====`);
+    Log.SuccessLog(`\n==== Create ${projectName} Successfully ====`);
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');

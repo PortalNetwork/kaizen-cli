@@ -30,9 +30,7 @@ require('./Contract/Deploy')(yargs);
 
 require('./Platform/Login')(yargs);
 
-require('./Platform/Logout')(yargs);
-
-require('./Platform/RefreshToken')(yargs); //require('./AddPlugin')(yargs);
+require('./Platform/Logout')(yargs); //require('./AddPlugin')(yargs);
 //require('./RemovePlugin')(yargs);
 //require('./CreateProject')(yargs);
 //require('./BuildProject')(yargs);

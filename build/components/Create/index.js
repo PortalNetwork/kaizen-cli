@@ -24,7 +24,7 @@ function builder(yargs) {
     // TODO add template list
     choices: ['vue', 'react'],
     default: 'react'
-  }).demandOption(['name'], 'Please enter your project name');
+  }).demandOption(['name'], 'Please enter your project name').example('kaizen create -t react -n myproject');
 }
 
 function handler(_x) {
@@ -43,44 +43,45 @@ function _handler() {
             _context.prev = 0;
             Spinner.start();
             projectName = argv.name, template = argv.template;
+            Log.NormalLog("Downloading project, please wait a second");
             _context.t0 = template;
-            _context.next = _context.t0 === 'vue' ? 6 : _context.t0 === 'react' ? 9 : 9;
+            _context.next = _context.t0 === 'vue' ? 7 : _context.t0 === 'react' ? 10 : 10;
             break;
 
-          case 6:
-            _context.next = 8;
+          case 7:
+            _context.next = 9;
             return cloneProjectFromGithub('https://github.com/PortalNetwork/vue-truffle.git', projectName);
 
-          case 8:
-            return _context.abrupt("break", 12);
-
           case 9:
-            _context.next = 11;
+            return _context.abrupt("break", 13);
+
+          case 10:
+            _context.next = 12;
             return cloneProjectFromGithub('https://github.com/PortalNetwork/react-truffle.git', projectName);
 
-          case 11:
-            return _context.abrupt("break", 12);
-
           case 12:
+            return _context.abrupt("break", 13);
+
+          case 13:
             fsx.removeSync("./".concat(projectName, "/.git"));
             Spinner.stop();
-            Log.SuccessLog("==== Create ".concat(projectName, " Successfully ===="));
-            _context.next = 22;
+            Log.SuccessLog("\n==== Create ".concat(projectName, " Successfully ===="));
+            _context.next = 23;
             break;
 
-          case 17:
-            _context.prev = 17;
+          case 18:
+            _context.prev = 18;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 22:
+          case 23:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 17]]);
+    }, _callee, this, [[0, 18]]);
   }));
   return _handler.apply(this, arguments);
 }
