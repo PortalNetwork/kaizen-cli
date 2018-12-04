@@ -38,35 +38,34 @@ function _handler() {
             url = argv.url; // TODO check url format
 
             _context.next = 5;
-            return cloneProjectFromGithub(url, projectName);
+            return cloneProjectFromGithub(url);
 
           case 5:
-            fsx.removeSync("./".concat(projectName, "/.git"));
             Spinner.stop();
-            Log.SuccessLog("==== Create ".concat(projectName, " Successfully ===="));
-            _context.next = 15;
+            Log.SuccessLog("==== Install from ".concat(url, " Successfully ===="));
+            _context.next = 14;
             break;
 
-          case 10:
-            _context.prev = 10;
+          case 9:
+            _context.prev = 9;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t0);
 
-          case 15:
+          case 14:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 10]]);
+    }, _callee, this, [[0, 9]]);
   }));
   return _handler.apply(this, arguments);
 }
 
-function cloneProjectFromGithub(repoURL, projectName) {
+function cloneProjectFromGithub(repoURL) {
   return new Promise(function (resolve, reject) {
-    cmd.get("git clone ".concat(repoURL, " ").concat(projectName), function (error) {
+    cmd.get("git clone ".concat(repoURL), function (error) {
       if (error) {
         reject(error);
       } else {

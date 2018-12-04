@@ -18,10 +18,9 @@ async function handler(argv) {
     Spinner.start();
     const { url } = argv;
     // TODO check url format
-    await cloneProjectFromGithub(url, projectName);
-    fsx.removeSync(`./${projectName}/.git`);
+    await cloneProjectFromGithub(url);
     Spinner.stop();
-    Log.SuccessLog(`==== Create ${projectName} Successfully ====`);
+    Log.SuccessLog(`==== Install from ${url} Successfully ====`);
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');
@@ -29,9 +28,9 @@ async function handler(argv) {
   }
 }
 
-function cloneProjectFromGithub(repoURL, projectName) {
+function cloneProjectFromGithub(repoURL) {
   return new Promise(function (resolve, reject) {
-    cmd.get(`git clone ${repoURL} ${projectName}`, function (error) {
+    cmd.get(`git clone ${repoURL}`, function (error) {
       if (error) {
         reject(error);
       } else {
