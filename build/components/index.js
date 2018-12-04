@@ -16,11 +16,11 @@ require('./Install');
 
 require('./Plugin');
 
-require('./Plugin/PluginInstall');
+require('./Plugin/Install');
 
-require('./Plugin/PluginUninstall');
+require('./Plugin/Uninstall');
 
-require('./Plugin/PluginList');
+require('./Plugin/List');
 /** Contract Management **/
 
 

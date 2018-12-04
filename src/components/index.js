@@ -9,9 +9,9 @@ require('./Install');
 
 /** Plugin Management **/
 require('./Plugin');
-require('./Plugin/PluginInstall');
-require('./Plugin/PluginUninstall');
-require('./Plugin/PluginList');
+require('./Plugin/Install');
+require('./Plugin/Uninstall');
+require('./Plugin/List');
 
 /** Contract Management **/
 require('./Contract/Deploy');
