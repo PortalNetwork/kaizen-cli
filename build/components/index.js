@@ -4,27 +4,27 @@ require("@babel/polyfill");
 
 var yargs = require('yargs');
 
-require('./Config');
+require('./Config')(yargs);
 
-require('./Create'); //require('./Deploy');
+require('./Create')(yargs); //require('./Deploy');
 //require('./Info');
 
 
-require('./Install');
+require('./Install')(yargs);
 /** Plugin Management **/
 
 
-require('./Plugin');
+require('./Plugin')(yargs);
 
-require('./Plugin/Install');
+require('./Plugin/Install')(yargs);
 
-require('./Plugin/Uninstall');
+require('./Plugin/Uninstall')(yargs);
 
-require('./Plugin/List');
+require('./Plugin/List')(yargs);
 /** Contract Management **/
 
 
-require('./Contract/Deploy');
+require('./Contract/Deploy')(yargs);
 /** Platform Management **/
 
 

@@ -1,15 +1,14 @@
 const path = require('path');
 const fsx = require('fs-extra');
-const Log = require('../../lib/Log');
-const Spinner = require('../../lib/Spinner');
-const { apiRefreshToken } = require('../../lib/apis');
+const Log = require('../../../lib/Log');
+const { apiRefreshToken } = require('../../../lib/apis');
 
 function builder(yargs) {
   return yargs.example('kaizen refresh token')
 }
 
 async function handler(argv) {
-  const kaizenrc = fsx.readJsonSync(path.resolve(__dirname, '../../../.kaizenrc'));
+  const kaizenrc = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
   if(!kaizenrc.email || !kaizenrc.refreshToken) {
     Log.ErrorLog(`You haven't logged in yet`);
     return;
@@ -32,7 +31,7 @@ async function handler(argv) {
     loginOn: new Date()
   };
 
-  fsx.writeJsonSync(path.resolve(__dirname, '../../../.kaizenrc'), configuration);
+  fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), configuration);
   Log.SuccessLog('=== Refresh Successfully ===')
 }
 

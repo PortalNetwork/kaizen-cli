@@ -12,11 +12,9 @@ var path = require('path');
 
 var fsx = require('fs-extra');
 
-var Log = require('../../lib/Log');
+var Log = require('../../../lib/Log');
 
-var Spinner = require('../../lib/Spinner');
-
-var _require = require('../../lib/apis'),
+var _require = require('../../../lib/apis'),
     apiRefreshToken = _require.apiRefreshToken;
 
 function builder(yargs) {
@@ -37,7 +35,7 @@ function _handler() {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            kaizenrc = fsx.readJsonSync(path.resolve(__dirname, '../../../.kaizenrc'));
+            kaizenrc = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
 
             if (!(!kaizenrc.email || !kaizenrc.refreshToken)) {
               _context.next = 4;
@@ -61,7 +59,7 @@ function _handler() {
               expiresIn: expiresIn,
               loginOn: new Date()
             });
-            fsx.writeJsonSync(path.resolve(__dirname, '../../../.kaizenrc'), configuration);
+            fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), configuration);
             Log.SuccessLog('=== Refresh Successfully ===');
 
           case 11:

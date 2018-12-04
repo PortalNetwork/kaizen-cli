@@ -10,11 +10,11 @@ var fsx = require('fs-extra');
 
 var prompt = require('prompt');
 
-var Log = require('../../lib/Log');
+var Log = require('../../../lib/Log');
 
-var Spinner = require('../../lib/Spinner');
+var Spinner = require('../../../lib/Spinner');
 
-var _require = require('../../lib/apis'),
+var _require = require('../../../lib/apis'),
     apiLogin = _require.apiLogin;
 
 function builder(yargs) {
@@ -52,7 +52,7 @@ function _handler() {
             response = _context.sent;
             _response$data = response.data, accessToken = _response$data.accessToken, refreshToken = _response$data.refreshToken, idToken = _response$data.idToken, expiresIn = _response$data.expiresIn, name = _response$data.name;
             Spinner.stop();
-            fsx.writeJsonSync(path.resolve(__dirname, '../../../.kaizenrc'), {
+            fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), {
               email: email,
               accessToken: accessToken,
               refreshToken: refreshToken,

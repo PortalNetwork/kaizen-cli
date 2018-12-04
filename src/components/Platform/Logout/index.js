@@ -1,8 +1,8 @@
 const path = require('path');
 const fsx = require('fs-extra');
-const Log = require('../../lib/Log');
-const Spinner = require('../../lib/Spinner');
-const { apiLogout } = require('../../lib/apis');
+const Log = require('../../../lib/Log');
+const Spinner = require('../../../lib/Spinner');
+const { apiLogout } = require('../../../lib/apis');
 
 function builder(yargs) {
   return yargs.example('kaizen logout');
@@ -11,7 +11,7 @@ function builder(yargs) {
 
 async function handler(argv) {
   try {
-    const config = fsx.readJsonSync(path.resolve(__dirname, '../../../.kaizenrc'));
+    const config = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
     if (!config.idToken) {
       Log.ErrorLog('not yet login');
       return;
@@ -20,7 +20,7 @@ async function handler(argv) {
     Spinner.start();
     const response = await apiLogout(config.idToken);    
 
-    fsx.writeJsonSync(path.resolve(__dirname, '../../../.kaizenrc'), {
+    fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), {
       accessToken: '',
       refreshToken: '',
       idToken: '',

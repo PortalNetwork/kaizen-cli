@@ -1,9 +1,9 @@
 const path = require('path');
 const fsx = require('fs-extra');
 const prompt = require('prompt');
-const Log = require('../../lib/Log');
-const Spinner = require('../../lib/Spinner');
-const { apiLogin } = require('../../lib/apis');
+const Log = require('../../../lib/Log');
+const Spinner = require('../../../lib/Spinner');
+const { apiLogin } = require('../../../lib/apis');
 
 function builder(yargs) {
   return yargs
@@ -27,7 +27,7 @@ async function handler(argv) {
       } = response.data;
       
       Spinner.stop();
-      fsx.writeJsonSync(path.resolve(__dirname, '../../../.kaizenrc'), {
+      fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), {
         email,
         accessToken,
         refreshToken,

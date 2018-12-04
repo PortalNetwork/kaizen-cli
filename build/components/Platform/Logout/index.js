@@ -8,11 +8,11 @@ var path = require('path');
 
 var fsx = require('fs-extra');
 
-var Log = require('../../lib/Log');
+var Log = require('../../../lib/Log');
 
-var Spinner = require('../../lib/Spinner');
+var Spinner = require('../../../lib/Spinner');
 
-var _require = require('../../lib/apis'),
+var _require = require('../../../lib/apis'),
     apiLogout = _require.apiLogout;
 
 function builder(yargs) {
@@ -33,7 +33,7 @@ function _handler() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            config = fsx.readJsonSync(path.resolve(__dirname, '../../../.kaizenrc'));
+            config = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
 
             if (config.idToken) {
               _context.next = 5;
@@ -50,7 +50,7 @@ function _handler() {
 
           case 8:
             response = _context.sent;
-            fsx.writeJsonSync(path.resolve(__dirname, '../../../.kaizenrc'), {
+            fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), {
               accessToken: '',
               refreshToken: '',
               idToken: '',
