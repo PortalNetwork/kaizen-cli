@@ -4,29 +4,44 @@ require("@babel/polyfill");
 
 var yargs = require('yargs');
 
-require('./AddPlugin')(yargs);
+require('./Config');
 
-require('./RemovePlugin')(yargs);
+require('./Create'); //require('./Deploy');
+//require('./Info');
 
-require('./CreateProject')(yargs);
 
-require('./BuildProject')(yargs);
+require('./Install');
+/** Plugin Management **/
 
-require('./IPFSUpload')(yargs);
 
-require('./TestContracts')(yargs);
+require('./Plugin');
 
-require('./CompileContracts')(yargs);
+require('./Plugin/PluginInstall');
 
-require('./DeployContracts')(yargs);
+require('./Plugin/PluginUninstall');
 
-require('./Login')(yargs);
+require('./Plugin/PluginList');
+/** Contract Management **/
 
-require('./Logout')(yargs);
 
-require('./RefreshToken')(yargs);
+require('./Contract/Deploy');
+/** Platform Management **/
 
-require('./Settings')(yargs);
+
+require('./Platform/Login')(yargs);
+
+require('./Platform/Logout')(yargs);
+
+require('./Platform/RefreshToken')(yargs); //require('./AddPlugin')(yargs);
+//require('./RemovePlugin')(yargs);
+//require('./CreateProject')(yargs);
+//require('./BuildProject')(yargs);
+//require('./IPFSUpload')(yargs);
+//require('./TestContracts')(yargs);
+//require('./CompileContracts')(yargs);
+//require('./DeployContracts')(yargs);
+//require('./Settings')(yargs);
+
 
 yargs.demandCommand();
 module.exports = yargs;
