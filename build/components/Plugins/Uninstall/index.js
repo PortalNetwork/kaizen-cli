@@ -20,6 +20,8 @@ var bluzelleHandler = require('./bluzelle.js');
 
 var nknHandler = require('./nkn.js');
 
+var noiaHandler = require('./noia.js');
+
 function builder(yargs) {
   return yargs.positional('plugin', {
     alias: 'p',

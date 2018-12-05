@@ -61,7 +61,7 @@ function _handler() {
               name: name,
               loginOn: new Date()
             });
-            Log.SuccessLog("Welcome ".concat(name));
+            Log.SuccessLog("Login success! \nWelcome ".concat(name));
             _context.next = 22;
             break;
 

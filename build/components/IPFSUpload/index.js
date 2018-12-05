@@ -4,7 +4,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var IPFS_API = require('ipfs-api');
+var ipfsClient = require('ipfs-http-client');
 
 var path = require('path');
 
@@ -93,7 +93,7 @@ function _handler() {
 
           case 23:
             _kaizenConfig$ipfs = kaizenConfig.ipfs, host = _kaizenConfig$ipfs.host, port = _kaizenConfig$ipfs.port, protocol = _kaizenConfig$ipfs.protocol;
-            ipfs = IPFS_API(host, port, {
+            ipfs = ipfsClient(host, port, {
               protocol: protocol
             });
             filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
