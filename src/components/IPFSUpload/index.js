@@ -1,4 +1,4 @@
-const IPFS_API = require('ipfs-api');
+const ipfsClient = require('ipfs-http-client');
 const path = require('path');
 const fs = require('fs');
 const fsx = require('fs-extra');
@@ -55,7 +55,7 @@ async function handler(argv) {
       protocol
     } = kaizenConfig.ipfs;
 
-    const ipfs = IPFS_API(host, port, { protocol });
+    const ipfs = ipfsClient(host, port, { protocol });
 
     const filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
     const hashes = await ipfs.files.add(filesReadyToIPFS);
