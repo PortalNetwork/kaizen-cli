@@ -5,20 +5,20 @@ const Log = require('../../lib/Log');
 
 function builder(yargs) {
   return yargs
+    .option('template', {
+        alias: 't',
+        type: 'string',
+        describe: 'Build project with template', // TODO add template list
+        choices: ['vue', 'react'],
+        default: 'react',
+    })
     .option('name', {
       alias: 'n',
       type: 'string',
       describe: 'Name of the project',
     })
-    .option('template', {
-      alias: 't',
-      type: 'string',
-      describe: 'Build project with template', // TODO add template list
-      choices: ['vue', 'react'],
-      default: 'react',
-    })
-    .demandOption(['name'], 'Please enter your project name')
-    .example('kaizen create -t react -n myproject');
+    .example('kaizen create --template react --name myproject')
+    .demandOption(['name'], 'Please enter your project name');
 }
 
 async function handler(argv) {
