@@ -27,7 +27,7 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var config, response;
+    var config;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -49,7 +49,6 @@ function _handler() {
             return apiLogout(config.idToken);
 
           case 8:
-            response = _context.sent;
             fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), {
               accessToken: '',
               refreshToken: '',
@@ -59,22 +58,22 @@ function _handler() {
             });
             Spinner.stop();
             Log.SuccessLog('Log out successfully');
-            _context.next = 19;
+            _context.next = 18;
             break;
 
-          case 14:
-            _context.prev = 14;
+          case 13:
+            _context.prev = 13;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t0);
 
-          case 19:
+          case 18:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 14]]);
+    }, _callee, this, [[0, 13]]);
   }));
   return _handler.apply(this, arguments);
 }

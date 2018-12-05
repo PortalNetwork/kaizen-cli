@@ -10,12 +10,12 @@ function builder(yargs) {
         type: 'string',
         describe: 'Build project with template', // TODO add template list
         choices: ['vue', 'react'],
-        default: 'react',
+        default: 'react'
     })
     .option('name', {
       alias: 'n',
       type: 'string',
-      describe: 'Name of the project',
+      describe: 'Name of the project'
     })
     .example('kaizen create --template react --name myproject')
     .demandOption(['name'], 'Please enter your project name');
@@ -24,7 +24,7 @@ function builder(yargs) {
 async function handler(argv) {
   try {
     Spinner.start();
-    const { name: projectName, template, } = argv;
+    const { name: projectName, template } = argv;
     Log.NormalLog(`Downloading project, please wait a second`);
     switch (template) {
       case 'vue':

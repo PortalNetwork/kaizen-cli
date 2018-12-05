@@ -77,7 +77,7 @@ function confirmUploadDialog(targetPath) {
       confirm: {
         message: `Please ensure you will upload 「${targetPath}」 to the IPFS (yes/no)`,
         required: true
-      },
+      }
     }
   };
   return new Promise(function (resolve, reject) {
@@ -118,7 +118,7 @@ function getIPFSContentObject(filePath, targetPath) {
 
 function getFilesReadyToIPFS(targetPath) {
   if (fs.lstatSync(targetPath).isDirectory()) {
-    return recursiveFetchFilePath(targetPath).map(file => getIPFSContentObject(file, targetPath));
+    return recursiveFetchFilePath(targetPath).map(file => {getIPFSContentObject(file, targetPath)});
   } else {
     return fs.readFileSync(targetPath);
   }

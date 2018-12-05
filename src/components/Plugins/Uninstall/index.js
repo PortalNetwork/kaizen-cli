@@ -61,7 +61,7 @@ function readKaizenJson() {
 function updateKaizenJson(kaizenConfig, plugin) {
   const newKaizenConfig = {
     ...kaizenConfig,
-    plugins: kaizenConfig.plugins.filter(x => x !== plugin),
+    plugins: kaizenConfig.plugins.filter(x => {x !== plugin})
   };
 
   fsx.writeJson(path.resolve('./', 'kaizen.json'), newKaizenConfig);

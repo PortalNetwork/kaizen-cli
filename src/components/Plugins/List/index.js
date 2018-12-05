@@ -1,5 +1,5 @@
 const Log = require('../../../lib/Log');
-const colors = require('colors');
+require('colors');
 
 function builder(yargs) {
   

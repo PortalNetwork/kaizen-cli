@@ -15,8 +15,6 @@ Smart Contract (Alpha)
 * The KAIZEN Smart Contract is currently in experimental alpha. Follow the docs below to get started.
 * Documentation: https://kaizen.portal.network/contract/docs/
 
-contracts test ................ Execute smart contract testing scripts
-contracts compile ............. Compile smart contract
 contracts deploy .............. Deploy smart contract
 
 Faucet (Alpha)
