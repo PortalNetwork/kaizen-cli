@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir build",
-    "test": "eslint src/*"
+    "lint": "eslint src/*"
   },
   "repository": {
     "type": "git",

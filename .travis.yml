@@ -3,12 +3,16 @@ jobs:
   include:
     - stage: test
       node_js: 6
+      script: npm run lint
     - stage: test
       node_js: 7
+      script: npm run lint
     - stage: test
       node_js: 8
+      script: npm run lint
     - stage: test
       node_js: 9
+      script: npm run lint
     - stage: deploy
       node_js: 6
       script:  

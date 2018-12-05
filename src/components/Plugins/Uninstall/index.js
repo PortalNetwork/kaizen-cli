@@ -4,6 +4,7 @@ const Log = require('../../../lib/Log');
 const Spinner = require('../../../lib/Spinner');
 const bluzelleHandler = require('./bluzelle.js');
 const nknHandler = require('./nkn.js');
+const noiaHandler = require('./noia.js');
 
 function builder(yargs) {
   return yargs
