@@ -57,7 +57,7 @@ function _handler() {
 }
 
 module.exports = function (yargs) {
-  var command = 'contracts:deploy';
+  var command = 'deploy';
   var commandDescription = 'Deploy smart contracts';
   yargs.command(command, commandDescription, builder, handler);
 };

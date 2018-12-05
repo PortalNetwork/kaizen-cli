@@ -1,11 +1,12 @@
 function builder(yargs) {
-  return yargs.command({
-    command: '<command>',
-    desc: 'Please specified a plugin command',
-  })
-  .example('kaizen plugins:install')
-  .example('kaizen plugins:uninstall')
-  .example('kaizen plugins:list')
+  require('./Install')(yargs);
+  require('./Uninstall')(yargs);
+  require('./List')(yargs);
+
+  return yargs
+  .example('kaizen plugins install')
+  .example('kaizen plugins uninstall')
+  .example('kaizen plugins list')
   .demandCommand();
 }
 

@@ -20,7 +20,7 @@ async function handler(argv) {
 }
 
 module.exports = function (yargs) {
-  const command = 'contracts:deploy';
+  const command = 'deploy';
   const commandDescription = 'Deploy smart contracts';
   yargs.command(command, commandDescription, builder, handler);
 }

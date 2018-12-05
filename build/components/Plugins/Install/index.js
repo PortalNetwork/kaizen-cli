@@ -102,7 +102,7 @@ function _handler() {
 }
 
 module.exports = function (yargs) {
-  var command = 'plugins:install';
+  var command = 'install';
   var commandDescription = 'Install and add a plugin to your project';
   yargs.command(command, commandDescription, builder, handler);
 };
