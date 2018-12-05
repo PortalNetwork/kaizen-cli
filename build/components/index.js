@@ -2,6 +2,8 @@
 
 require("@babel/polyfill");
 
+var Log = require('../lib/Log');
+
 var yargs = require('yargs');
 
 require('./Config')(yargs);
@@ -15,18 +17,13 @@ require('./Install')(yargs);
 
 
 require('./Plugins')(yargs);
-
-require('./Plugins/Install')(yargs);
-
-require('./Plugins/Uninstall')(yargs);
-
-require('./Plugins/List')(yargs);
 /** Contract Management **/
 
 
-require('./Contracts/Deploy')(yargs);
-/** Platform Management **/
+require('./Contracts')(yargs);
 
+Log.NormalLog('Platform');
+/** Platform Management **/
 
 require('./Platform/Login')(yargs);
 

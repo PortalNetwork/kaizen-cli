@@ -49,7 +49,7 @@ async function handler(argv) {
 }
 
 module.exports = function (yargs) {
-  const command = 'plugins:install';
+  const command = 'install';
   const commandDescription = 'Install and add a plugin to your project';
   yargs.command(command, commandDescription, builder, handler);
 }

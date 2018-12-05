@@ -1,4 +1,5 @@
 require("@babel/polyfill");
+const Log = require('../lib/Log');
 
 const yargs = require('yargs');
 require('./Config')(yargs);
@@ -9,12 +10,9 @@ require('./Install')(yargs);
 
 /** Plugin Management **/
 require('./Plugins')(yargs);
-require('./Plugins/Install')(yargs);
-require('./Plugins/Uninstall')(yargs);
-require('./Plugins/List')(yargs);
 
 /** Contract Management **/
-require('./Contracts/Deploy')(yargs);
+require('./Contracts')(yargs);
 
 /** Platform Management **/
 require('./Platform/Login')(yargs);

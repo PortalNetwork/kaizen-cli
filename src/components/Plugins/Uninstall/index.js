@@ -68,7 +68,7 @@ function updateKaizenJson(kaizenConfig, plugin) {
 }
 
 module.exports = function (yargs) {
-  const command = 'plugins:uninstall';
+  const command = 'uninstall';
   const commandDescription = 'Uninstall and remove a plugin to your project';
   yargs.command(command, commandDescription, builder, handler);
 }
