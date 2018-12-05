@@ -6,7 +6,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var Log = require('../../../lib/Log');
 
-var colors = require('colors');
+require('colors');
 
 function builder(yargs) {}
 

@@ -1,5 +1,6 @@
 const chalk = require('chalk');
 const Log = console.log;
+
 module.exports = {
   NormalLog: (log) => {
     Log(log);

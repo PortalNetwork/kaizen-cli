@@ -2,8 +2,6 @@
 
 require("@babel/polyfill");
 
-var Log = require('../lib/Log');
-
 var yargs = require('yargs');
 
 require('./Config')(yargs);
@@ -21,9 +19,8 @@ require('./Plugins')(yargs);
 
 
 require('./Contracts')(yargs);
-
-Log.NormalLog('Platform');
 /** Platform Management **/
+
 
 require('./Platform/Login')(yargs);
 

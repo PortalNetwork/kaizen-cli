@@ -1,5 +1,4 @@
 const cmd = require('node-cmd');
-const fsx = require('fs-extra');
 const Spinner = require('../../lib/Spinner');
 const Log = require('../../lib/Log');
 
@@ -8,7 +7,7 @@ function builder(yargs) {
     .option('url', {
       alias: 'u',
       type: 'string',
-      describe: 'GitHub url of the project',
+      describe: 'GitHub url of the project'
     })
     .demandOption(['url'], 'Please enter your project GitHub path');
 }

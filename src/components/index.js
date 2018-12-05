@@ -1,5 +1,4 @@
 require("@babel/polyfill");
-const Log = require('../lib/Log');
 
 const yargs = require('yargs');
 require('./Config')(yargs);

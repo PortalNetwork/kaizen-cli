@@ -18,7 +18,7 @@ async function handler(argv) {
     }
 
     Spinner.start();
-    const response = await apiLogout(config.idToken);    
+    await apiLogout(config.idToken);    
 
     fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), {
       accessToken: '',
@@ -27,7 +27,6 @@ async function handler(argv) {
       expiresIn: 0,
       name: ''
     });
-
 
     Spinner.stop();
     Log.SuccessLog('Log out successfully');
