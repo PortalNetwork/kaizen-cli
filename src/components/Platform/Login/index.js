@@ -36,15 +36,18 @@ async function handler(argv) {
         name,
         loginOn: new Date()
       });
-      Log.SuccessLog(`Welcome ${name}`);
+      Log.SuccessLog(`Login success! \nWelcome ${name}`);
     } catch (loginError) {
+      Spinner.stop();
       console.error(loginError.response.data.message);
+      return;
     }
 
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');
     console.error(error);
+    return;
   }
 }
 
@@ -52,15 +55,21 @@ function inputEmailAndPassword() {
   const promptSchema = {
     properties: {
       email: {
-        pattern: /^[a-zA-Z0-9_]+@[a-zA-Z0-9_.]+$/
+        description: 'Enter your email',
+        pattern: /^[a-zA-Z0-9_]+@[a-zA-Z0-9_.]+$/,
+        message: 'Email format error'
       },
       password: {
-        hidden: true
+        description: 'Enter your password',
+        hidden: true,
+        replace: '*'
       }
     }
   };
 
   return new Promise(function (resolve, reject) {
+    prompt.message = '';
+    prompt.delimiter = ':';
     prompt.start();
     prompt.get(promptSchema, function (error, result) {
       if (error) {

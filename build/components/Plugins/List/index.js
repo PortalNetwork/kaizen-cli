@@ -4,14 +4,11 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var Log = require('../../lib/Log');
+var Log = require('../../../lib/Log');
 
-function builder(yargs) {
-  return yargs.command({
-    command: '<command>',
-    desc: 'Please specified a plugin command'
-  }).example('kaizen plugin install').example('kaizen plugin uninstall').example('kaizen plugin list').demandCommand();
-}
+var colors = require('colors');
+
+function builder(yargs) {}
 
 function handler(_x) {
   return _handler.apply(this, arguments);
@@ -25,6 +22,14 @@ function _handler() {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            Log.NormalLog('Available plugin list:');
+            Log.NormalLog('bluzelle'.underline.yellow + ' - Bluzelle information');
+            Log.NormalLog('nkn'.underline.yellow + ' - NKN information');
+            Log.NormalLog('noia'.underline.yellow + ' - NOIA information');
+            Log.NormalLog("\nTo install a plugin run 'kaizen plugins:install <plugin-name-here>'");
+            Log.NormalLog("\nIt will be automatically downloaded and added to your package.json and kaizen.json file\n");
+
+          case 6:
           case "end":
             return _context.stop();
         }
@@ -35,7 +40,7 @@ function _handler() {
 }
 
 module.exports = function (yargs) {
-  var command = 'plugin';
-  var commandDescription = 'Plugin management for kaizen';
+  var command = 'plugins:list';
+  var commandDescription = 'Lists all available plugins';
   yargs.command(command, commandDescription, builder, handler);
 };

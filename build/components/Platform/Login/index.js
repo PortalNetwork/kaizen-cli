@@ -62,31 +62,34 @@ function _handler() {
               loginOn: new Date()
             });
             Log.SuccessLog("Welcome ".concat(name));
-            _context.next = 20;
+            _context.next = 22;
             break;
 
           case 17:
             _context.prev = 17;
             _context.t0 = _context["catch"](7);
+            Spinner.stop();
             console.error(_context.t0.response.data.message);
-
-          case 20:
-            _context.next = 27;
-            break;
+            return _context.abrupt("return");
 
           case 22:
-            _context.prev = 22;
+            _context.next = 30;
+            break;
+
+          case 24:
+            _context.prev = 24;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
+            return _context.abrupt("return");
 
-          case 27:
+          case 30:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 22], [7, 17]]);
+    }, _callee, this, [[0, 24], [7, 17]]);
   }));
   return _handler.apply(this, arguments);
 }
@@ -95,14 +98,20 @@ function inputEmailAndPassword() {
   var promptSchema = {
     properties: {
       email: {
-        pattern: /^[a-zA-Z0-9_]+@[a-zA-Z0-9_.]+$/
+        description: 'Enter your email',
+        pattern: /^[a-zA-Z0-9_]+@[a-zA-Z0-9_.]+$/,
+        message: 'Email format error'
       },
       password: {
-        hidden: true
+        description: 'Enter your password',
+        hidden: true,
+        replace: '*'
       }
     }
   };
   return new Promise(function (resolve, reject) {
+    prompt.message = '';
+    prompt.delimiter = ':';
     prompt.start();
     prompt.get(promptSchema, function (error, result) {
       if (error) {

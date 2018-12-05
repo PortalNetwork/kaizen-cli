@@ -1,3 +1,5 @@
+const readline = require('readline');
+
 function Spinner() {
   this.interval = null;
 
@@ -10,6 +12,8 @@ function Spinner() {
   };
 
   this.stop = function() {
+    readline.clearLine(process.stdout, 0);
+    readline.cursorTo(process.stdout, 0);
     clearInterval(this.interval);
   };
 }

@@ -6,25 +6,25 @@ var yargs = require('yargs');
 
 require('./Config')(yargs);
 
-require('./Create')(yargs); //require('./Deploy');
-//require('./Info');
+require('./Create')(yargs); //require('./Deploy')(yargs);
+//require('./Info')(yargs);
 
 
 require('./Install')(yargs);
 /** Plugin Management **/
 
 
-require('./Plugin')(yargs);
+require('./Plugins')(yargs);
 
-require('./Plugin/Install')(yargs);
+require('./Plugins/Install')(yargs);
 
-require('./Plugin/Uninstall')(yargs);
+require('./Plugins/Uninstall')(yargs);
 
-require('./Plugin/List')(yargs);
+require('./Plugins/List')(yargs);
 /** Contract Management **/
 
 
-require('./Contract/Deploy')(yargs);
+require('./Contracts/Deploy')(yargs);
 /** Platform Management **/
 
 
