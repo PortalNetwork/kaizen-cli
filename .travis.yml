@@ -17,12 +17,19 @@ jobs:
       node_js: 10
       script: npm run lint
     - stage: deploy
-      node_js: 6
+      if: type = push AND branch = dev
+      node_js: 8
       script:  
         - |
-          if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-            chmod +x release.sh
-            ./release.sh
-          else
-            echo "Not PR merge trigger"
-          fi
+          chmod +x release.sh
+          ./release.sh
+    - stage: npm release
+      if: type = push AND branch = master
+      node_js: 8
+      deploy:
+        provider: npm
+        email: ${NPM_EMAIL}
+        api_key:
+          secure: ${NPM_API_KEY}
+        on:
+          branch: master
