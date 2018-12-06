@@ -28,7 +28,7 @@ function builder(yargs) {
     type: 'string',
     describe: 'plugin name',
     require: true
-  }).example('kaizen plugins:uninstall bluzelle').example('kaizen plugins:uninstall nkn');
+  }).example('kaizen plugins uninstall bluzelle').example('kaizen plugins uninstall nkn');
 }
 
 function handler(_x) {
@@ -118,7 +118,7 @@ function readKaizenJson() {
 function updateKaizenJson(kaizenConfig, plugin) {
   var newKaizenConfig = _objectSpread({}, kaizenConfig, {
     plugins: kaizenConfig.plugins.filter(function (x) {
-      return x !== plugin;
+      x !== plugin;
     })
   });
 

@@ -14,8 +14,8 @@ function builder(yargs) {
       describe: 'plugin name',
       require: true
     })
-    .example('kaizen plugins:install bluzelle')
-    .example('kaizen plugins:install nkn');
+    .example('kaizen plugins install bluzelle')
+    .example('kaizen plugins install nkn');
 }
 
 async function handler(argv) {

@@ -11,8 +11,6 @@ require('./Create')(yargs); //require('./Deploy')(yargs);
 
 
 require('./Install')(yargs);
-
-require('./Faucet')(yargs);
 /** Plugin Management **/
 
 
@@ -21,6 +19,10 @@ require('./Plugins')(yargs);
 
 
 require('./Contracts')(yargs);
+/** Blockchain Management **/
+
+
+require('./Blockchains')(yargs);
 /** Platform Management **/
 
 
