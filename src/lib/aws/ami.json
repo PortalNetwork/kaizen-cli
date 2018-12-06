@@ -1,0 +1,44 @@
+{
+    "ipfs-api-server": {
+        "ImageId": "",
+        "InstanceType": "t2.micro",
+        "MinCount": 1,
+        "MaxCount": 1
+    },
+    "ipfs-gateway": {
+        "ImageId": "",
+        "InstanceType": "t2.micro",
+        "MinCount": 1,
+        "MaxCount": 1
+    },
+    "icon": {
+        "ImageId": "",
+        "InstanceType": "t2.micro",
+        "MinCount": 1,
+        "MaxCount": 1
+    },
+    "ethereum-mainnet": {
+        "ImageId": "",
+        "InstanceType": "t2.micro",
+        "MinCount": 1,
+        "MaxCount": 1
+    },
+    "ethereum-ropsten": {
+        "ImageId": "",
+        "InstanceType": "t2.micro",
+        "MinCount": 1,
+        "MaxCount": 1
+    },
+    "wanchain-mainnet": {
+        "ImageId": "",
+        "InstanceType": "t2.micro",
+        "MinCount": 1,
+        "MaxCount": 1
+    },
+    "wanchain-testnet": {
+        "ImageId": "",
+        "InstanceType": "t2.micro",
+        "MinCount": 1,
+        "MaxCount": 1
+    }
+}
