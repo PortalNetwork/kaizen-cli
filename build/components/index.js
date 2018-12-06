@@ -19,6 +19,10 @@ require('./Plugins')(yargs);
 
 
 require('./Contracts')(yargs);
+/** Blockchain Management **/
+
+
+require('./Blockchains')(yargs);
 /** Platform Management **/
 
 

@@ -6,8 +6,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var cmd = require('node-cmd');
 
-var fsx = require('fs-extra');
-
 var Spinner = require('../../lib/Spinner');
 
 var Log = require('../../lib/Log');

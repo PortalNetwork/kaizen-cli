@@ -13,6 +13,9 @@ require('./Plugins')(yargs);
 /** Contract Management **/
 require('./Contracts')(yargs);
 
+/** Blockchain Management **/
+require('./Blockchains')(yargs);
+
 /** Platform Management **/
 require('./Platform/Login')(yargs);
 require('./Platform/Logout')(yargs);
