@@ -11,6 +11,8 @@ require('./Create')(yargs); //require('./Deploy')(yargs);
 
 
 require('./Install')(yargs);
+
+require('./Faucet')(yargs);
 /** Plugin Management **/
 
 
