@@ -7,6 +7,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 function builder(yargs) {
   require('./List')(yargs);
 
+  require('./Faucet')(yargs);
+
   require('./TxResult')(yargs);
 
   require('./Balance')(yargs);

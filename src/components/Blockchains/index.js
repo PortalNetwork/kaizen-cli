@@ -1,5 +1,6 @@
 function builder(yargs) {
 	require('./List')(yargs);
+	require('./Faucet')(yargs);
 	require('./TxResult')(yargs);
 	require('./Balance')(yargs);
 	return yargs
