@@ -8,7 +8,7 @@ function builder(yargs) {
     .option('template', {
         alias: 't',
         type: 'string',
-        describe: 'Build project with template', // TODO add template list
+        describe: 'Build project with template',
         choices: ['vue', 'react'],
         default: 'react'
     })
