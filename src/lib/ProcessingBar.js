@@ -1,18 +1,16 @@
 const ProgressBar = require('progress');
 
-
 const green = '\u001b[42m \u001b[0m';
 const red = '\u001b[41m \u001b[0m';
 const total = 40;
 const bar = new ProgressBar('  [:bar]', {
   complete: green,
   incomplete: red,
-  total,
+  total
 });
 
-
 const processingBar = {
-  interval: null,
+  interval: null
 };
 
 processingBar.start = function() {

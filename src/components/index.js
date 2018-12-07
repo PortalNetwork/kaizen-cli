@@ -1,13 +1,25 @@
 require("@babel/polyfill");
 
 const yargs = require('yargs');
-require('./AddPlugin')(yargs);
-require('./RemovePlugin')(yargs);
-require('./CreateProject')(yargs);
-require('./BuildProject')(yargs);
-require('./IPFSUpload')(yargs);
-require('./TestContracts')(yargs);
-require('./CompileContracts')(yargs);
-require('./DeployContracts')(yargs);
+require('./Config')(yargs);
+require('./Create')(yargs);
+require('./Upload')(yargs);
+//require('./Info')(yargs);
+require('./Install')(yargs);
+
+/** Plugin Management **/
+require('./Plugins')(yargs);
+
+/** Contract Management **/
+require('./Contracts')(yargs);
+
+/** Blockchain Management **/
+require('./Blockchains')(yargs);
+
+/** Platform Management **/
+require('./Platform/Login')(yargs);
+require('./Platform/Logout')(yargs);
+
+yargs.demandCommand(1, 'You need at least one command before moving on');
 
 module.exports = yargs;
