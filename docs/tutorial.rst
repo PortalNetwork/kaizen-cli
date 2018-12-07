@@ -2,80 +2,155 @@
 KAIZEN CLI
 ======
 
-----------------
-``kaizen new``
-----------------
+--------------------------
+``kaizen add <package>``
+--------------------------
 
-  To create the epic web3 integration project which is made by Portal Network**
+  To install KAIZEN package e.g. bluzelle, nkn or boilerplate
 
 **Parameters:**
+  
+  **name** - optional, specify the project name when execute *kaizen add boilerplate*
+  
+  **library** - optional, specify the library want to include react or vue, when execute *kaizen add boilerplate.
 
-  -n [project-name]: this parameter is required.
-__
-  -b [vue|react]: choose the front-end boilerplate you want, default is vue.
 
-**Output:**
 
-.. image:: https://user-images.githubusercontent.com/11625554/45541442-b42c7e80-b841-11e8-9c8a-218aff41ed45.png
+
+
+
 
 --------------------------
-``kaizen plugin:add noia``
+``kaizen remove <package>``
 --------------------------
 
-  To install NOIA Network SDK plugin via kaizen in project, this project should be used `kaizen new` to created
+  To uninstall KAIZEN package e.g. bluzelle, nkn or boilerplate
 
 **Parameters:**
+  
+  **package** - require, bluzelle or nkn
+  
 
-  no parameter required
 
-**Output:**
 
-.. image:: https://user-images.githubusercontent.com/11625554/45541315-5dbf4000-b841-11e8-9f0c-35b1674aed99.png
 
-------------------------------
-``kaizen plugin:add bluzelle``
-------------------------------
 
-  To install Bluzelle SDK via kaizen in project, this project should be used `kaizen new` to created
-
-**Parameters**
-
-  -b [vue|react]: choose the front-end boilerplate you want, default is Vue.
-
-**Usage**
-  - React
-
-    In React, Bluzelle's sdk will wrapped and pass down through component property.
-
-    .. image:: https://user-images.githubusercontent.com/11625554/45680786-6fb91f80-bb6e-11e8-82f9-6dd4de9352fc.png
-
-  - Vue
-
-    In Vue, Vluzelle's sdk were wrapped into an object. Once you initialize Bluzelle, it will be returned.
-    You can use object spread syntax to replace them into your components, or just use them like a normal object.
-
-    .. image:: https://user-images.githubusercontent.com/11625554/45738864-17445980-bc24-11e8-912b-eedf4a97b3c6.png
-
---------------------------
-``kaizen plugin:add nkn``
---------------------------
-
-  To install NKN SDK plugin via kaizen in project, this project should be used `kaizen new` to created
 
 ----------------
-``kaizen build``
+``kaizen set-ipfs --host <host> --port <port> --protocol <protocol>``
 ----------------
 
-  To build the KAIZEN's dapp, and the built code will be output into the build folder
+  Setting IPFS configuration for IPFS API usage
+  
+**Parameters:**
 
----------------
-``kaizen init``
----------------
+  **host** - required, e.g. ipfs.infura.io
+  
+  **port** -  required, e.g. 5001
+    
+  **protocol** - required, e.g. https
+  
+  
+  
+  
+  
+  
+  
+----------------
+``$ kaizen set-ethereum --network <network id> --port <port> --provider <provider>``
+----------------
 
-  To setup the configuration you need, like IPFS provider.
+  Setting Ethereum configuration
+  
+**Parameters:**
+
+  **network** - required, e.g. 3 which mean Ropsten testnet
+  
+  **port** - required, e.g. 8545
+    
+  **provider** - required, e.g. https://ropsten.infura.io/you-infura-key
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+----------------
+``$ kaizen set-nkn --identifier <identifier> --private-key <private key> --rpc-server <seed RPC server address>``
+----------------
+
+  Setting NKN configuration
+  
+**Parameters:**
+
+  **identifier** - required,
+  
+  **private-key** - required,
+    
+  **rpc-server** - required,
+  
+  
+  
+  
+  
+  
+
+    
+----------------
+``$ kaizen ipfs upload <file|directory path>``
+----------------
+
+  User can specify the path and upload to IPFS.
+  Should use 'kaizen set-ipfs' to setting IPFS configuration first
+  
+**Parameters:**
+
+  **file|directory path** - optional, default is current terminal position
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 ----------------
-``kaizen publish``
+``$ kaizen test contracts``
 ----------------
 
-  To upload your dapp to the IPFS. You shall execute `kaizen build` before publish
+  To execute truffle testing scripts
+  
+  
+  
+
+
+  
+  
+
+----------------
+``$ kaizen compile contracts``
+----------------
+
+  To execute truffle testing scripts
+  
+  
+  
+  
+  
+
+----------------
+``$ kaizen deploy contracts``
+----------------
+
+  To execute truffle testing scripts
