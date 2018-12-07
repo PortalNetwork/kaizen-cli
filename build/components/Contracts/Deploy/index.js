@@ -66,43 +66,43 @@ function _handler() {
             throw 'Please make sure privateKey, provider and networkId is configured through "kaizen config".';
 
           case 11:
-            ;
-            console.log("Installing modules...");
-            _context.next = 15;
-            return ExecuteCommand("cd ".concat(template, " && npm i"));
-
-          case 15:
             // Setup environment variable
             process.env.privateKey = privateKey;
             process.env.provider = provider;
-            process.env.networkId = networkId; // Build and deploy contracts
+            process.env.networkId = networkId; // Install necessary modules of contract deployment
 
+            console.log("Installing modules...");
+            _context.next = 17;
+            return ExecuteCommand("cd ".concat(template, " && npm i"));
+
+          case 17:
+            // Build and deploy contracts
             console.log("Deploying contracts...");
-            _context.next = 21;
+            _context.next = 20;
             return ExecuteCommand("cd ".concat(template, " && ./node_modules/.bin/truffle deploy --network deployment"));
 
-          case 21:
+          case 20:
             result = _context.sent;
             console.log(result);
             fsx.removeSync("./".concat(template));
             Spinner.stop();
             Log.SuccessLog("\n==== Deploy Contract ".concat(template, " Successfully ===="));
-            _context.next = 33;
+            _context.next = 32;
             break;
 
-          case 28:
-            _context.prev = 28;
+          case 27:
+            _context.prev = 27;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('\n==== Deploy Contract Failed ====');
             console.error(_context.t0);
 
-          case 33:
+          case 32:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 28]]);
+    }, _callee, this, [[0, 27]]);
   }));
   return _handler.apply(this, arguments);
 }
