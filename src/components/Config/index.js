@@ -8,7 +8,7 @@ function builder(yargs) {
     .option('key', {
       alias: 'k',
       type: 'string',
-      describe: 'Configuration key', // TODO add template list
+      describe: 'Configuration key',
     })
     .option('value', {
       alias: 'v',

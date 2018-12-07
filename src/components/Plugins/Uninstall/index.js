@@ -22,23 +22,37 @@ async function handler(argv) {
   try {
     const { plugin } = argv;
     const kaizenJson = await readKaizenJson();
-    Spinner.start();
+
+    if (!plugin) {
+      Log.NormalLog('Missing plugin statement.\nPlease using \'kaizen plugins uninstall [plugin]\'');
+      return;
+    }
+    
     switch(plugin) {
       case 'bluzelle':
+        Spinner.start();
         await bluzelleHandler();
         updateKaizenJson(kaizenJson, 'bluzelle');
+        Spinner.stop();
+        Log.SuccessLog(`==== Remove package ${plugin} Successfully ====`);
         break;
       case 'nkn':
+        Spinner.start();
         await nknHandler();
         updateKaizenJson(kaizenJson, 'nkn');
+        Spinner.stop();
+        Log.SuccessLog(`==== Remove package ${plugin} Successfully ====`);
         break;
       case 'noia':
+        Spinner.start();
         await noiaHandler();
         updateKaizenJson(kaizenJson, 'noia');
+        Spinner.stop();
+        Log.SuccessLog(`==== Remove package ${plugin} Successfully ====`);
         break;
+      default:
+        Log.NormalLog('Plugin not support yet');
     }
-    Spinner.stop();
-    Log.SuccessLog(`==== Remove package ${plugin} Successfully ====`);
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');
@@ -68,7 +82,7 @@ function updateKaizenJson(kaizenConfig, plugin) {
 }
 
 module.exports = function (yargs) {
-  const command = 'uninstall';
+  const command = 'uninstall [plugin]';
   const commandDescription = 'Uninstall and remove a plugin to your project';
   yargs.command(command, commandDescription, builder, handler);
 }
