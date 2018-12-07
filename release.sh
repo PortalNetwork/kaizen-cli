@@ -1,5 +1,5 @@
-git checkout release.sh
-echo "Version update"
+git checkout release.sh	
+echo "Version update" 
 npm version patch
 echo "Commit"
 git commit --amend -m  "[ci skip] version changed"

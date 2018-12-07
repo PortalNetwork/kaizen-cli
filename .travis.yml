@@ -3,16 +3,19 @@ jobs:
   include:
     - stage: test
       node_js: 6
-      script: npm test
+      script: npm run lint
     - stage: test
       node_js: 7
-      script: npm test
+      script: npm run lint
     - stage: test
       node_js: 8
-      script: npm test
+      script: npm run lint
     - stage: test
       node_js: 9
-      script: npm test
+      script: npm run lint
+    - stage: test
+      node_js: 10
+      script: npm run lint
     - stage: deploy
       if: type = push AND branch = dev
       node_js: 8
