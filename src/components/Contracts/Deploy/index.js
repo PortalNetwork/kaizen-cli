@@ -29,8 +29,8 @@ async function handler(argv) {
       ...kaizenrc
     }
     if(!privateKey || !provider || !networkId){
-      throw 'Please make sure privateKey, provider and networkId is configured through "kaizen config".'
-    };
+      throw 'Please make sure privateKey, provider and networkId is configured through "kaizen config".';
+    }
     // Setup environment variable
     process.env.privateKey = privateKey;
     process.env.provider = provider;
