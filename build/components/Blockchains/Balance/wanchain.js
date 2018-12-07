@@ -23,8 +23,6 @@ function () {
 
             if (network === '1') {
               provider = 'http://wanchain.portal.network';
-            } else if (network === '3') {
-              provider = '';
             }
 
             if (!(provider === '')) {
