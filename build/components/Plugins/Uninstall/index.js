@@ -51,54 +51,73 @@ function _handler() {
 
           case 4:
             kaizenJson = _context.sent;
-            Spinner.start();
-            _context.t0 = plugin;
-            _context.next = _context.t0 === 'bluzelle' ? 9 : _context.t0 === 'nkn' ? 13 : _context.t0 === 'noia' ? 17 : 21;
-            break;
 
-          case 9:
-            _context.next = 11;
-            return bluzelleHandler();
+            if (plugin) {
+              _context.next = 8;
+              break;
+            }
+
+            Log.NormalLog('Missing plugin statement.\nPlease using \'kaizen plugins uninstall [plugin]\'');
+            return _context.abrupt("return");
+
+          case 8:
+            _context.t0 = plugin;
+            _context.next = _context.t0 === 'bluzelle' ? 11 : _context.t0 === 'nkn' ? 18 : _context.t0 === 'noia' ? 25 : 32;
+            break;
 
           case 11:
+            Spinner.start();
+            _context.next = 14;
+            return bluzelleHandler();
+
+          case 14:
             updateKaizenJson(kaizenJson, 'bluzelle');
-            return _context.abrupt("break", 21);
-
-          case 13:
-            _context.next = 15;
-            return nknHandler();
-
-          case 15:
-            updateKaizenJson(kaizenJson, 'nkn');
-            return _context.abrupt("break", 21);
-
-          case 17:
-            _context.next = 19;
-            return noiaHandler();
-
-          case 19:
-            updateKaizenJson(kaizenJson, 'noia');
-            return _context.abrupt("break", 21);
-
-          case 21:
             Spinner.stop();
             Log.SuccessLog("==== Remove package ".concat(plugin, " Successfully ===="));
-            _context.next = 30;
-            break;
+            return _context.abrupt("break", 33);
+
+          case 18:
+            Spinner.start();
+            _context.next = 21;
+            return nknHandler();
+
+          case 21:
+            updateKaizenJson(kaizenJson, 'nkn');
+            Spinner.stop();
+            Log.SuccessLog("==== Remove package ".concat(plugin, " Successfully ===="));
+            return _context.abrupt("break", 33);
 
           case 25:
-            _context.prev = 25;
+            Spinner.start();
+            _context.next = 28;
+            return noiaHandler();
+
+          case 28:
+            updateKaizenJson(kaizenJson, 'noia');
+            Spinner.stop();
+            Log.SuccessLog("==== Remove package ".concat(plugin, " Successfully ===="));
+            return _context.abrupt("break", 33);
+
+          case 32:
+            Log.NormalLog('Plugin not support yet');
+
+          case 33:
+            _context.next = 40;
+            break;
+
+          case 35:
+            _context.prev = 35;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 30:
+          case 40:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 25]]);
+    }, _callee, this, [[0, 35]]);
   }));
   return _handler.apply(this, arguments);
 }
@@ -126,7 +145,7 @@ function updateKaizenJson(kaizenConfig, plugin) {
 }
 
 module.exports = function (yargs) {
-  var command = 'uninstall';
+  var command = 'uninstall [plugin]';
   var commandDescription = 'Uninstall and remove a plugin to your project';
   yargs.command(command, commandDescription, builder, handler);
 };

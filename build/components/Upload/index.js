@@ -5,13 +5,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function builder(yargs) {
-  require('./Install')(yargs);
+  require('./Ipfs')(yargs);
 
-  require('./Uninstall')(yargs);
-
-  require('./List')(yargs);
-
-  return yargs.example('kaizen plugins install').example('kaizen plugins uninstall').example('kaizen plugins list').demandCommand(1, '');
+  return yargs.example('kaizen upload ipfs').demandCommand(1, '');
 }
 
 function handler(_x) {
@@ -36,7 +32,7 @@ function _handler() {
 }
 
 module.exports = function (yargs) {
-  var command = 'plugins';
-  var commandDescription = 'Plugin management for kaizen';
+  var command = 'upload';
+  var commandDescription = 'Upload project to server or decentralized storage';
   yargs.command(command, commandDescription, builder, handler);
 };

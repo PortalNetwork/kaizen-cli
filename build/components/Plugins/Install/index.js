@@ -43,66 +43,84 @@ function _handler() {
             _context.prev = 0;
             plugin = argv.plugin;
 
-            if (!(fs.existsSync(path.resolve('./', 'package.json')) === false)) {
+            if (plugin) {
               _context.next = 5;
+              break;
+            }
+
+            Log.NormalLog('Missing plugin statement.\nPlease using \'kaizen plugins uninstall [plugin]\'');
+            return _context.abrupt("return");
+
+          case 5:
+            if (!(fs.existsSync(path.resolve('./', 'package.json')) === false)) {
+              _context.next = 8;
               break;
             }
 
             Log.ErrorLog('should run "npm init" first');
             return _context.abrupt("return");
 
-          case 5:
-            Spinner.start();
+          case 8:
             _context.t0 = plugin;
-            _context.next = _context.t0 === 'bluzelle' ? 9 : _context.t0 === 'nkn' ? 12 : _context.t0 === 'noia' ? 15 : 18;
+            _context.next = _context.t0 === 'bluzelle' ? 11 : _context.t0 === 'nkn' ? 17 : _context.t0 === 'noia' ? 23 : 29;
             break;
-
-          case 9:
-            _context.next = 11;
-            return bluzelleHandler();
 
           case 11:
-            return _context.abrupt("break", 18);
-
-          case 12:
+            Spinner.start();
             _context.next = 14;
-            return nknHandler();
+            return bluzelleHandler();
 
           case 14:
-            return _context.abrupt("break", 18);
-
-          case 15:
-            _context.next = 17;
-            return noiaHandler();
-
-          case 17:
-            return _context.abrupt("break", 18);
-
-          case 18:
             Spinner.stop();
             Log.SuccessLog("==== Install package ".concat(plugin, " Successfully ===="));
-            _context.next = 27;
+            return _context.abrupt("break", 30);
+
+          case 17:
+            Spinner.start();
+            _context.next = 20;
+            return nknHandler();
+
+          case 20:
+            Spinner.stop();
+            Log.SuccessLog("==== Install package ".concat(plugin, " Successfully ===="));
+            return _context.abrupt("break", 30);
+
+          case 23:
+            Spinner.start();
+            _context.next = 26;
+            return noiaHandler();
+
+          case 26:
+            Spinner.stop();
+            Log.SuccessLog("==== Install package ".concat(plugin, " Successfully ===="));
+            return _context.abrupt("break", 30);
+
+          case 29:
+            Log.NormalLog('Plugin not support yet');
+
+          case 30:
+            _context.next = 37;
             break;
 
-          case 22:
-            _context.prev = 22;
+          case 32:
+            _context.prev = 32;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 27:
+          case 37:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 22]]);
+    }, _callee, this, [[0, 32]]);
   }));
   return _handler.apply(this, arguments);
 }
 
 module.exports = function (yargs) {
-  var command = 'install';
+  var command = 'install [plugin]';
   var commandDescription = 'Install and add a plugin to your project';
   yargs.command(command, commandDescription, builder, handler);
 };

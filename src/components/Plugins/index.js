@@ -7,7 +7,7 @@ function builder(yargs) {
   .example('kaizen plugins install')
   .example('kaizen plugins uninstall')
   .example('kaizen plugins list')
-  .demandCommand();
+  .demandCommand(1, '');
 }
 
 async function handler(argv) {

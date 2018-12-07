@@ -1,3 +1,6 @@
 node_modules
 docs/_build
 .DS_Store
+test/
+ipfs.json
+kaizne.json
