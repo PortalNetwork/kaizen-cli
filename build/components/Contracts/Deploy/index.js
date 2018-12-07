@@ -27,7 +27,7 @@ function builder(yargs) {
     alias: 'u',
     type: 'string',
     describe: 'URL of the template contract'
-  }).example('kaizen contracts deploy -u https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20');
+  }).demandOption(['url'], 'Please enter the url of the template contract').example('kaizen contracts deploy -u https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20');
 }
 
 function handler(_x) {
@@ -56,36 +56,53 @@ function _handler() {
 
           case 7:
             kaizenrc = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
-            _kaizenrc = _objectSpread({}, kaizenrc), privateKey = _kaizenrc.privateKey, provider = _kaizenrc.provider, networkId = _kaizenrc.networkId; // Setup environment variable
+            _kaizenrc = _objectSpread({}, kaizenrc), privateKey = _kaizenrc.privateKey, provider = _kaizenrc.provider, networkId = _kaizenrc.networkId;
 
+            if (!(!privateKey || !provider || !networkId)) {
+              _context.next = 11;
+              break;
+            }
+
+            throw 'Please make sure privateKey, provider and networkId is configured through "kaizen config".';
+
+          case 11:
+            ;
+            console.log("Installing modules...");
+            _context.next = 15;
+            return ExecuteCommand("cd ".concat(template, " && npm i"));
+
+          case 15:
+            // Setup environment variable
             process.env.privateKey = privateKey;
             process.env.provider = provider;
-            process.env.networkId = networkId;
-            _context.next = 14;
-            return ExecuteCommand("cd ".concat(template, " ") + "&& npm i " + "&& ./node_modules/.bin/truffle deploy --network deployment " + "&& cd .. ");
+            process.env.networkId = networkId; // Build and deploy contracts
 
-          case 14:
+            console.log("Deploying contracts...");
+            _context.next = 21;
+            return ExecuteCommand("cd ".concat(template, " && ./node_modules/.bin/truffle deploy --network deployment"));
+
+          case 21:
             result = _context.sent;
             console.log(result);
             fsx.removeSync("./".concat(template));
             Spinner.stop();
             Log.SuccessLog("\n==== Deploy Contract ".concat(template, " Successfully ===="));
-            _context.next = 26;
+            _context.next = 33;
             break;
 
-          case 21:
-            _context.prev = 21;
+          case 28:
+            _context.prev = 28;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
-            Log.ErrorLog('something went wrong!');
+            Log.ErrorLog('\n==== Deploy Contract Failed ====');
             console.error(_context.t0);
 
-          case 26:
+          case 33:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 21]]);
+    }, _callee, this, [[0, 28]]);
   }));
   return _handler.apply(this, arguments);
 }
