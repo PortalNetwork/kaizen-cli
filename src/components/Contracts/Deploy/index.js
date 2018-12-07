@@ -13,6 +13,7 @@ function builder(yargs) {
     type: 'string',
     describe: 'URL of the template contract'
   })
+  .demandOption(['url'], 'Please enter the url of the template contract')
   .example('kaizen contracts deploy -u https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20');
 }
 
@@ -27,21 +28,27 @@ async function handler(argv) {
     const {privateKey, provider, networkId} = {
       ...kaizenrc
     }
+    if(!privateKey || !provider || !networkId){
+      throw 'Please make sure privateKey, provider and networkId is configured through "kaizen config".'
+    };
     // Setup environment variable
     process.env.privateKey = privateKey;
     process.env.provider = provider;
     process.env.networkId = networkId;
-    const result = await ExecuteCommand(`cd ${template} ` +
-                                        `&& npm i ` +
-                                        `&& ./node_modules/.bin/truffle deploy --network deployment ` +
-                                        `&& cd .. `);
+    // Install necessary modules of contract deployment
+    console.log("Installing modules...");
+    await ExecuteCommand(`cd ${template} && npm i`);
+    // Build and deploy contracts
+    console.log("Deploying contracts...");
+    const result = await ExecuteCommand(`cd ${template} && ./node_modules/.bin/truffle deploy --network deployment`);
     console.log(result);
     fsx.removeSync(`./${template}`);
+
     Spinner.stop();
     Log.SuccessLog(`\n==== Deploy Contract ${template} Successfully ====`);
   } catch (error) {
     Spinner.stop();
-    Log.ErrorLog('something went wrong!');
+    Log.ErrorLog('\n==== Deploy Contract Failed ====');
     console.error(error);
   }
 }
