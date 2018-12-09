@@ -2,14 +2,14 @@
 
 var axios = require('axios');
 
-exports.apiLogin = function apiLogin(email, password) {
+exports.apiUserLogin = function (email, password) {
   return axios.post('https://api.portal.network/user/v1/signIn', {
     email: email,
     password: password
   });
 };
 
-exports.apiLogout = function apiLogout(idToken) {
+exports.apiUserLogout = function (idToken) {
   return axios.post('https://api.portal.network/user/v1/signOut', null, {
     headers: {
       Authorization: idToken
@@ -17,9 +17,28 @@ exports.apiLogout = function apiLogout(idToken) {
   });
 };
 
-exports.apiRefreshToken = function (refreshToken, email) {
+exports.apiUserRefresh = function (refreshToken, email) {
   return axios.post('https://api.portal.network/user/v1/refresh', {
     refreshToken: refreshToken,
     email: email
+  });
+};
+
+exports.apiKaizenInstanceList = function (idToken) {
+  return axios.get('https://api.portal.network/kaizen/v1/instance/list', {
+    headers: {
+      Authorization: idToken
+    }
+  });
+};
+
+exports.apiKaizenCreateSharedInstance = function (idToken, protocol, network) {
+  return axios.post('https://api.portal.network/kaizen/v1/instance/shared', {
+    protocol: protocol,
+    network: network
+  }, {
+    headers: {
+      Authorization: idToken
+    }
   });
 };

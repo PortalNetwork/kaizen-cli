@@ -31,5 +31,7 @@ require('./Platform/Login')(yargs);
 
 require('./Platform/Logout')(yargs);
 
+require('./Platform/Instances')(yargs);
+
 yargs.demandCommand(1, 'You need at least one command before moving on');
 module.exports = yargs;

@@ -3,7 +3,7 @@ const fsx = require('fs-extra');
 const prompt = require('prompt');
 const Log = require('../../../lib/Log');
 const Spinner = require('../../../lib/Spinner');
-const { apiLogin } = require('../../../lib/apis');
+const { apiUserLogin } = require('../../../lib/apis');
 
 function builder(yargs) {
   return yargs
@@ -17,7 +17,7 @@ async function handler(argv) {
     Spinner.start();
 
     try {
-      const response = await apiLogin(email, password);
+      const response = await apiUserLogin(email, password);
       const {
         accessToken,
         refreshToken,
