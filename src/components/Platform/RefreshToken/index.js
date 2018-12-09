@@ -1,7 +1,7 @@
 const path = require('path');
 const fsx = require('fs-extra');
 const Log = require('../../../lib/Log');
-const { apiRefreshToken } = require('../../../lib/apis');
+const { apiUserRefresh } = require('../../../lib/apis');
 
 function builder(yargs) {
   return yargs.example('kaizen refresh token')
@@ -14,7 +14,7 @@ async function handler(argv) {
     return;
   }
 
-  const response = await apiRefreshToken(kaizenrc.refreshToken, kaizenrc.email);
+  const response = await apiUserRefresh(kaizenrc.refreshToken, kaizenrc.email);
   const {
     accessToken, 
     refreshToken,

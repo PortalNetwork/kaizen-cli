@@ -8,15 +8,19 @@ var path = require('path');
 
 var fsx = require('fs-extra');
 
-var Log = require('../../../lib/Log');
+var Table = require('cli-table');
 
-var Spinner = require('../../../lib/Spinner');
+var Log = require('../../../../lib/Log');
 
-var _require = require('../../../lib/apis'),
-    apiUserLogout = _require.apiUserLogout;
+var Spinner = require('../../../../lib/Spinner');
+
+var _require = require('../../../../lib/apis'),
+    apiKaizenInstanceList = _require.apiKaizenInstanceList;
+
+require('colors');
 
 function builder(yargs) {
-  return yargs.example('kaizen logout');
+  return yargs.example('kaizen instances list');
 }
 
 function handler(_x) {
@@ -27,37 +31,50 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var config;
+    var config, instances, instanceList, table;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            config = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
+            config = fsx.readJsonSync(path.resolve(__dirname, '../../../../../.kaizenrc'));
 
             if (config.idToken) {
               _context.next = 5;
               break;
             }
 
-            Log.ErrorLog('not yet login');
+            Log.ErrorLog('Please login first, use \'kaizen login\' to login into KAIZEN Platform');
             return _context.abrupt("return");
 
           case 5:
             Spinner.start();
             _context.next = 8;
-            return apiUserLogout(config.idToken);
+            return apiKaizenInstanceList(config.idToken);
 
           case 8:
-            fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), {
-              accessToken: '',
-              refreshToken: '',
-              idToken: '',
-              expiresIn: 0,
-              name: ''
-            });
+            instances = _context.sent;
             Spinner.stop();
-            Log.SuccessLog('Log out successfully');
+
+            if (instances.data.instanceList) {
+              instanceList = instances.data.instanceList;
+              Log.SuccessLog('Get instance list');
+
+              if (instanceList.length > 0) {
+                // TODO table display
+                Log.NormalLog("You have ".concat(instanceList.length, " instances:\n"));
+                table = new Table({
+                  head: ['InstanceId'.green, 'Name'.green, 'Type'.green, 'Protocol'.green, 'Network'.green, 'Running Node'.green]
+                });
+                instanceList.forEach(function (row) {
+                  table.push([row.instanceId, row.name, row.type, row.protocol, row.network, row.node]);
+                });
+                console.log(table.toString()); //Log.NormalLog(table.toString());
+              } else {
+                Log.NormalLog('You don\'t have any instance. \nUse \'kaizen instances deploy\' to create instance');
+              }
+            }
+
             _context.next = 18;
             break;
 
@@ -79,7 +96,7 @@ function _handler() {
 }
 
 module.exports = function (yargs) {
-  var command = 'logout';
-  var commandDescription = 'To log out KAIZEN manager';
+  var command = 'list';
+  var commandDescription = 'Lists all instances';
   yargs.command(command, commandDescription, builder, handler);
 };
