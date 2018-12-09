@@ -13,7 +13,7 @@ module.exports = async function(network, txhash) {
     return;
   }
   let web3 = new Web3(new Web3.providers.HttpProvider(provider));
-  const txresult = await web3.eth.getTransactionReceipt(txhash);
+  const txresult = await web3.eth.getTransaction(txhash);
   return txresult;
 }
   
