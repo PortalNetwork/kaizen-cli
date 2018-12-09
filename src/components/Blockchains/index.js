@@ -1,11 +1,11 @@
 function builder(yargs) {
 	require('./List')(yargs);
 	require('./Faucet')(yargs);
-	require('./TxResult')(yargs);
+	require('./Tx')(yargs);
 	require('./Balance')(yargs);
 	return yargs
 	.example('kaizen blockchains list')
-	.example('kaizen blockchains txresult')
+	.example('kaizen blockchains tx')
 	.example('kaizen blockchains balance')
 	.example('kaizen blockchains faucet')
 	.demandCommand();

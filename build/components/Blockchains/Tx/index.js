@@ -29,7 +29,7 @@ function builder(yargs) {
     alias: 't',
     type: 'string',
     describe: 'Address of the balance'
-  }).example('kaizen blockchains txresult --blockchain ethereum --network 1 --txhash 0x8457c253451ba31d1292d04083aa47d94b33017bd5ff75794d3381c708c23467').demandOption(['blockchain', 'network', 'txhash'], 'Please enter the information to get the tx result');
+  }).example('kaizen blockchains tx --blockchain ethereum --network 1 --txhash 0x8457c253451ba31d1292d04083aa47d94b33017bd5ff75794d3381c708c23467').demandOption(['blockchain', 'network', 'txhash'], 'Please enter the information to get the tx result');
 }
 
 function handler(_x) {
@@ -49,7 +49,7 @@ function _handler() {
             blockchain = argv.blockchain, network = argv.network, txhash = argv.txhash;
             txresult = '';
             _context.t0 = blockchain;
-            _context.next = _context.t0 === 'ethereum' ? 6 : _context.t0 === 'wanchain' ? 16 : 23;
+            _context.next = _context.t0 === 'ethereum' ? 6 : _context.t0 === 'wanchain' ? 16 : 26;
             break;
 
           case 6:
@@ -62,11 +62,11 @@ function _handler() {
             Spinner.stop();
             Log.SuccessLog("The txhash ".concat(txhash, " receipt:"));
             table = new Table({
-              head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Gas Used'.green, 'Tx Index'.green]
+              head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
             });
-            table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.gasUsed, txresult.transactionIndex]);
+            table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
             console.log(table.toString());
-            return _context.abrupt("break", 24);
+            return _context.abrupt("break", 27);
 
           case 16:
             Spinner.start();
@@ -76,35 +76,40 @@ function _handler() {
           case 19:
             txresult = _context.sent;
             Spinner.stop();
-            Log.NormalLog("The txhash ".concat(txhash, " receipt is: \n").concat(txresult));
-            return _context.abrupt("break", 24);
-
-          case 23:
-            Log.NormalLog('blockchain not support yet');
-
-          case 24:
-            _context.next = 31;
-            break;
+            Log.SuccessLog("The txhash ".concat(txhash, " receipt:"));
+            table = new Table({
+              head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
+            });
+            table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
+            console.log(table.toString());
+            return _context.abrupt("break", 27);
 
           case 26:
-            _context.prev = 26;
+            Log.NormalLog('blockchain not support yet');
+
+          case 27:
+            _context.next = 34;
+            break;
+
+          case 29:
+            _context.prev = 29;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 31:
+          case 34:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 26]]);
+    }, _callee, this, [[0, 29]]);
   }));
   return _handler.apply(this, arguments);
 }
 
 module.exports = function (yargs) {
-  var command = 'txresult';
-  var commandDescription = 'Get transaction result';
+  var command = 'tx';
+  var commandDescription = 'Get transaction hash information';
   yargs.command(command, commandDescription, builder, handler);
 };

@@ -38,7 +38,7 @@ function () {
           case 5:
             web3 = new Web3(new Web3.providers.HttpProvider(provider));
             _context.next = 8;
-            return web3.eth.getTransactionReceipt(txhash);
+            return web3.eth.getTransaction(txhash);
 
           case 8:
             txresult = _context.sent;
