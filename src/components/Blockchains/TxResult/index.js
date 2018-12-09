@@ -1,7 +1,9 @@
+const Table = require('cli-table');
 const Log = require('../../../lib/Log');
 const Spinner = require('../../../lib/Spinner');
 const ethereumHandler = require('./ethereum.js');
 const wanchainHandler = require('./wanchain.js');
+require('colors');
 
 function builder(yargs) {
   return yargs
@@ -34,13 +36,23 @@ async function handler(argv) {
         Spinner.start();
         txresult = await ethereumHandler(network, txhash);
         Spinner.stop();
-        Log.NormalLog(`The txhash ${txhash} receipt is: \n${txresult}`);
+        Log.SuccessLog(`The txhash ${txhash} receipt:`);
+        const table = new Table({
+          head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Gas Used'.green, 'Tx Index'.green]
+        });
+        table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.gasUsed, txresult.transactionIndex]);
+        console.log(table.toString());
         break;
       case 'wanchain':
         Spinner.start();
         txresult = await wanchainHandler(network, txhash);
         Spinner.stop();
-        Log.NormalLog(`The txhash ${txhash} receipt is: \n${txresult}`);
+        Log.SuccessLog(`The txhash ${txhash} receipt:`);
+        const table = new Table({
+          head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Gas Used'.green, 'Tx Index'.green]
+        });
+        table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.gasUsed, txresult.transactionIndex]);
+        console.log(table.toString());
         break;
       default:
         Log.NormalLog('blockchain not support yet');

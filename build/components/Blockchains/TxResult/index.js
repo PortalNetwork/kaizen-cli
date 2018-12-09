@@ -4,6 +4,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+var Table = require('cli-table');
+
 var Log = require('../../../lib/Log');
 
 var Spinner = require('../../../lib/Spinner');
@@ -11,6 +13,8 @@ var Spinner = require('../../../lib/Spinner');
 var ethereumHandler = require('./ethereum.js');
 
 var wanchainHandler = require('./wanchain.js');
+
+require('colors');
 
 function builder(yargs) {
   return yargs.option('blockchain', {
@@ -36,7 +40,7 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var blockchain, network, txhash, txresult;
+    var blockchain, network, txhash, txresult, table;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -45,7 +49,7 @@ function _handler() {
             blockchain = argv.blockchain, network = argv.network, txhash = argv.txhash;
             txresult = '';
             _context.t0 = blockchain;
-            _context.next = _context.t0 === 'ethereum' ? 6 : _context.t0 === 'wanchain' ? 13 : 20;
+            _context.next = _context.t0 === 'ethereum' ? 6 : _context.t0 === 'wanchain' ? 16 : 23;
             break;
 
           case 6:
@@ -56,40 +60,45 @@ function _handler() {
           case 9:
             txresult = _context.sent;
             Spinner.stop();
-            Log.NormalLog("The txhash ".concat(txhash, " receipt is: \n").concat(txresult));
-            return _context.abrupt("break", 21);
-
-          case 13:
-            Spinner.start();
-            _context.next = 16;
-            return wanchainHandler(network, txhash);
+            Log.SuccessLog("The txhash ".concat(txhash, " receipt:"));
+            table = new Table({
+              head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Gas Used'.green, 'Tx Index'.green]
+            });
+            table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.gasUsed, txresult.transactionIndex]);
+            console.log(table.toString());
+            return _context.abrupt("break", 24);
 
           case 16:
+            Spinner.start();
+            _context.next = 19;
+            return wanchainHandler(network, txhash);
+
+          case 19:
             txresult = _context.sent;
             Spinner.stop();
             Log.NormalLog("The txhash ".concat(txhash, " receipt is: \n").concat(txresult));
-            return _context.abrupt("break", 21);
-
-          case 20:
-            Log.NormalLog('blockchain not support yet');
-
-          case 21:
-            _context.next = 28;
-            break;
+            return _context.abrupt("break", 24);
 
           case 23:
-            _context.prev = 23;
+            Log.NormalLog('blockchain not support yet');
+
+          case 24:
+            _context.next = 31;
+            break;
+
+          case 26:
+            _context.prev = 26;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 28:
+          case 31:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 23]]);
+    }, _callee, this, [[0, 26]]);
   }));
   return _handler.apply(this, arguments);
 }

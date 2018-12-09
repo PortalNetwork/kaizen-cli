@@ -42,7 +42,7 @@ function () {
 
           case 8:
             txresult = _context.sent;
-            return _context.abrupt("return", JSON.stringify(txresult));
+            return _context.abrupt("return", txresult);
 
           case 10:
           case "end":
