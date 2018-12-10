@@ -30,6 +30,18 @@ exports.apiKaizenInstanceList = (idToken) => {
   });
 }
 
+exports.apiKaizenInstanceInfo = (idToken, instanceId, type) => {
+  return axios.get('https://api.portal.network/kaizen/v1/instance/info', {
+    headers: {
+      Authorization: idToken
+    },
+    params: {
+      id: instanceId,
+      type: type
+    }
+  })
+}
+
 exports.apiKaizenCreateSharedInstance = (idToken, protocol, network) => {
   return axios.post('https://api.portal.network/kaizen/v1/instance/shared', {
     protocol: protocol,
