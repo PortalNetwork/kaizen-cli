@@ -7,7 +7,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 function builder(yargs) {
   require('./Deploy')(yargs);
 
-  return yargs.example('kaizen contracts deploy').demandCommand();
+  return yargs.example('kaizen contracts deploy').demandCommand(1, '').epilogue('You can develop, test, deploy smart contract though KAIZEN CLI\n\n' + 'Support contract template:\n\n'.underline.yellow + 'ERC20'.underline.yellow + ' - ERC20 Token Standard, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20'.underline.yellow + '\n' + 'ERC721'.underline.yellow + ' - ERC721 Token Standard, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721'.underline.yellow + '\n');
 }
 
 function handler(_x) {

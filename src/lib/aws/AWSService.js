@@ -2,6 +2,9 @@ const AWS = require('aws-sdk');
 const fs = require('fs');
 const instance = require('ami.json');
 
+/**
+ * DOCS: https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/user-data.html
+ */
 class AWSService {
 
   constructor(accessKeyId, secretAccessKey, region) {

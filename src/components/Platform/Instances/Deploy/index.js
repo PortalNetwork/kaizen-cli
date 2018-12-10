@@ -23,8 +23,7 @@ function builder(yargs) {
       choices: ['mainnet', 'testnet']
     })
     .example('kaizen instances deploy --protocol ipfs-gateway --network mainnet')
-    .demandOption(['protocol'], 'Please enter instance protocol')
-    .demandOption(['network'], 'Please enter instance network');
+    .demandOption(['protocol', 'network'], '');
 }
 
 async function handler(argv) {

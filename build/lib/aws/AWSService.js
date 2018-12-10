@@ -15,6 +15,10 @@ var AWS = require('aws-sdk');
 var fs = require('fs');
 
 var instance = require('ami.json');
+/**
+ * DOCS: https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/user-data.html
+ */
+
 
 var AWSService =
 /*#__PURE__*/

@@ -25,7 +25,7 @@ function builder(yargs) {
     alias: 'a',
     type: 'string',
     describe: 'Your wallet address'
-  }).demandOption(['blockchain'], 'Please enter blockchain name').demandOption(['network'], 'Please enter network').demandOption(['address'], 'Please enter your wallet address').example('kaizen blockchains faucet --blockchain eth --network 3 --address 0x2d2B3CD3E585fF4065B55668dCac22EBd9E3590D');
+  }).demandOption(['blockchain', 'network', 'address'], '').example('kaizen blockchains faucet --blockchain eth --network 3 --address 0x2d2B3CD3E585fF4065B55668dCac22EBd9E3590D').epilogue('Support blockchain faucet:\n\n'.underline.yellow + 'ethereum'.underline.yellow + ' - Ethereum Ropsten testnet, network: ' + '3\n'.yellow + 'wanchain'.underline.yellow + ' - Wanchain testnet, network: ' + '3\n'.yellow + 'icon'.underline.yellow + ' - ICON Yeouido testnet, network: ' + '3\n'.yellow + 'quarkchain'.underline.yellow + ' - QuarkChain testnet, network: ' + '3'.yellow);
 }
 
 function handler(_x) {
@@ -162,6 +162,6 @@ function claimToken(name, address) {
 
 module.exports = function (yargs) {
   var command = 'faucet';
-  var commandDescription = 'Claim token';
+  var commandDescription = 'Get testnet token';
   yargs.command(command, commandDescription, builder, handler);
 };
