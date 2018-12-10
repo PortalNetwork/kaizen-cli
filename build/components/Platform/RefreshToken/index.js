@@ -15,7 +15,7 @@ var fsx = require('fs-extra');
 var Log = require('../../../lib/Log');
 
 var _require = require('../../../lib/apis'),
-    apiRefreshToken = _require.apiRefreshToken;
+    apiUserRefresh = _require.apiUserRefresh;
 
 function builder(yargs) {
   return yargs.example('kaizen refresh token');
@@ -47,7 +47,7 @@ function _handler() {
 
           case 4:
             _context.next = 6;
-            return apiRefreshToken(kaizenrc.refreshToken, kaizenrc.email);
+            return apiUserRefresh(kaizenrc.refreshToken, kaizenrc.email);
 
           case 6:
             response = _context.sent;

@@ -5,15 +5,11 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function builder(yargs) {
+  require('./Deploy')(yargs);
+
   require('./List')(yargs);
 
-  require('./Faucet')(yargs);
-
-  require('./Tx')(yargs);
-
-  require('./Balance')(yargs);
-
-  return yargs.example('kaizen blockchains list').example('kaizen blockchains tx').example('kaizen blockchains balance').example('kaizen blockchains faucet').demandCommand();
+  return yargs.example('kaizen instances deploy').example('kaizen instances list').demandCommand(1, '');
 }
 
 function handler(_x) {
@@ -38,7 +34,7 @@ function _handler() {
 }
 
 module.exports = function (yargs) {
-  var command = 'blockchains';
-  var commandDescription = 'Blockchain management for KAIZEN';
+  var command = 'instances';
+  var commandDescription = 'Instance management for KAIZEN';
   yargs.command(command, commandDescription, builder, handler);
 };

@@ -2,7 +2,7 @@ const path = require('path');
 const fsx = require('fs-extra');
 const Log = require('../../../lib/Log');
 const Spinner = require('../../../lib/Spinner');
-const { apiLogout } = require('../../../lib/apis');
+const { apiUserLogout } = require('../../../lib/apis');
 
 function builder(yargs) {
   return yargs.example('kaizen logout');
@@ -18,7 +18,7 @@ async function handler(argv) {
     }
 
     Spinner.start();
-    await apiLogout(config.idToken);    
+    await apiUserLogout(config.idToken);    
 
     fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), {
       accessToken: '',

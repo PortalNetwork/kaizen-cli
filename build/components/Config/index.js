@@ -20,7 +20,8 @@ function builder(yargs) {
   return yargs.option('key', {
     alias: 'k',
     type: 'string',
-    describe: 'Configuration key'
+    describe: 'Configuration key',
+    choices: ['privateKey', 'provider', 'networkId']
   }).option('value', {
     alias: 'v',
     type: 'string',

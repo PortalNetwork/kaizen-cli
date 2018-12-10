@@ -1,7 +1,9 @@
+const Table = require('cli-table');
 const Log = require('../../../lib/Log');
 const Spinner = require('../../../lib/Spinner');
 const ethereumHandler = require('./ethereum.js');
 const wanchainHandler = require('./wanchain.js');
+require('colors');
 
 function builder(yargs) {
   return yargs
@@ -20,7 +22,7 @@ function builder(yargs) {
       type: 'string',
       describe: 'Address of the balance'
     })
-    .example('kaizen blockchains txresult --blockchain ethereum --network 1 --txhash 0x8457c253451ba31d1292d04083aa47d94b33017bd5ff75794d3381c708c23467')
+    .example('kaizen blockchains tx --blockchain ethereum --network 1 --txhash 0x8457c253451ba31d1292d04083aa47d94b33017bd5ff75794d3381c708c23467')
     .demandOption(['blockchain', 'network', 'txhash'], 'Please enter the information to get the tx result');
 }
 
@@ -28,19 +30,30 @@ async function handler(argv) {
   try {
     const { blockchain, network, txhash } = argv;
     let txresult = '';
+    let table;
     
     switch (blockchain) {
       case 'ethereum':
         Spinner.start();
         txresult = await ethereumHandler(network, txhash);
         Spinner.stop();
-        Log.NormalLog(`The txhash ${txhash} receipt is: \n${txresult}`);
+        Log.SuccessLog(`The txhash ${txhash} receipt:`);
+        table = new Table({
+          head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
+        });
+        table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
+        console.log(table.toString());
         break;
       case 'wanchain':
         Spinner.start();
         txresult = await wanchainHandler(network, txhash);
         Spinner.stop();
-        Log.NormalLog(`The txhash ${txhash} receipt is: \n${txresult}`);
+        Log.SuccessLog(`The txhash ${txhash} receipt:`);
+        table = new Table({
+          head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
+        });
+        table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
+        console.log(table.toString());
         break;
       default:
         Log.NormalLog('blockchain not support yet');
@@ -54,7 +67,7 @@ async function handler(argv) {
 }
 
 module.exports = function (yargs) {
-  const command = 'txresult';
-  const commandDescription = 'Get transaction result';
+  const command = 'tx';
+  const commandDescription = 'Get transaction hash information';
   yargs.command(command, commandDescription, builder, handler);
 }

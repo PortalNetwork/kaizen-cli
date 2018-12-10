@@ -15,7 +15,7 @@ var Log = require('../../../lib/Log');
 var Spinner = require('../../../lib/Spinner');
 
 var _require = require('../../../lib/apis'),
-    apiLogin = _require.apiLogin;
+    apiUserLogin = _require.apiUserLogin;
 
 function builder(yargs) {
   return yargs.example('kaizen login');
@@ -46,7 +46,7 @@ function _handler() {
             Spinner.start();
             _context.prev = 7;
             _context.next = 10;
-            return apiLogin(email, password);
+            return apiUserLogin(email, password);
 
           case 10:
             response = _context.sent;
