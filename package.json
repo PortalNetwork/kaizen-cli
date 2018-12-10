@@ -1,11 +1,12 @@
 {
   "name": "kaizen-cli",
+  "version": "0.0.15",
   "bin": {
     "kaizen": "kaizen"
   },
-  "version": "0.0.14",
   "description": "kaizen-cli",
-  "main": "index.js",
+  "main": "kaizen",
+  "preferGlobal": true,
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
@@ -69,7 +70,8 @@
     "lib": "lib"
   },
   "keywords": [
-    "blockchain"
+    "blockchain",
+    "kaizen"
   ],
   "devDependencies": {
     "@babel/cli": "^7.1.0",
