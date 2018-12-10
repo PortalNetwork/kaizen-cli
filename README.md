@@ -68,7 +68,7 @@ kaizen upload ipfs ./build
 - `kaizen contracts` - Contract management for KAIZEN
 - `kaizen contracts deploy` - Deploy smart contract
 - `kaizen blockchains` - Blockchain management for KAIZEN
-- `kaizen blockchains txresult` - Get transaction result
+- `kaizen blockchains tx` - Get transaction result
 - `kaizen blockchains balance` - Get account balance
 - `kaizen blockchains faucet` - Get testnet token
 
@@ -76,6 +76,10 @@ kaizen upload ipfs ./build
 The KAIZEN Platform is currently in experimental alpha.
 - `kaizen login` - Login or sign up for the KAIZEN Platform
 - `kaizen logout` - Logout from the KAIZEN Platform
+- `kaizen instances` - Instance management of KAIZEN Platform
+- `kaizen instances list` - Lists all instances
+- `kaizen instances info` - Show instance information
+- `kaizen instances deploy` - Deploy an instance
 
 ## <a name="plugins"></a>🏗 Plugins
 - Bluzelle
