@@ -26,7 +26,7 @@ function builder(yargs) {
     alias: 'v',
     type: 'string',
     describe: 'Configuration value'
-  }).example('kaizen config --key <KEY> --value <VALUE>').demandOption(['key'], 'Please enter your key').demandOption(['value'], 'Please enter your value');
+  }).example('kaizen config --key <KEY> --value <VALUE>').demandOption(['key', 'value'], '');
 }
 
 function handler(_x) {

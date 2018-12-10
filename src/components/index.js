@@ -22,7 +22,9 @@ require('./Platform/Login')(yargs);
 require('./Platform/Logout')(yargs);
 require('./Platform/Instances')(yargs);
 
-yargs.demandCommand(1, 
+yargs
+.demandCommand(1, '')
+.epilogue(
   'Welcome to KAIZEN\n\n'.yellow + 
   'KAIZEN Framework\n'.underline.yellow +
   'Not sure how to use?\n'.gray + 

@@ -17,8 +17,7 @@ function builder(yargs) {
       describe: 'Configuration value'
     })
     .example('kaizen config --key <KEY> --value <VALUE>')
-    .demandOption(['key'], 'Please enter your key')
-    .demandOption(['value'], 'Please enter your value');
+    .demandOption(['key', 'value'], '');
 }
 
 async function handler(argv) {
