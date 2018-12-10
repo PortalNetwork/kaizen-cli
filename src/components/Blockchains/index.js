@@ -9,8 +9,8 @@ function builder(yargs) {
 	.demandCommand(1, '')
 	.epilogue(
 		'Support blockchains:\n\n'.underline.yellow + 
-  	'ethereum'.underline.yellow + ' - Etheruem blockchain\n' +
-  	'wanchain'.underline.yellow + ' - Wanchain blockchain\n' + 
+    'ethereum'.underline.yellow + ' - Etheruem blockchain\n' +
+    'wanchain'.underline.yellow + ' - Wanchain blockchain\n' + 
 		'\nRun ' + '\'kaizen blockchains <command>\''.yellow + 
 		' to interact with blockchain.\n'
 	);
