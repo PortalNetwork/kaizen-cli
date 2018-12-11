@@ -39,6 +39,8 @@ async function handler(argv) {
     const { host, port, protocol } = argv;
     if (argv.file === undefined) {
       Log.NormalLog('Please specify a file path or a folder path');
+      Log.NormalLog('Use ' + '\'kaizen upload ipfs [file]\''.yellow + ' to upload single file');
+      Log.NormalLog('Use ' + '\'kaizen upload ipfs [folder]\''.yellow + ' to upload with folder');
       return;
     }
     const targetPath = path.resolve('./', argv.file);
@@ -58,6 +60,8 @@ async function handler(argv) {
     Spinner.stop();
     Log.SuccessLog(`Upload files to IPFS Successfully`);
     console.log(`\nFile/Folder hash: ${hashObj.hash}`);
+    Log.NormalLog('You can access the file through:');
+    Log.NormalLog(`${protocol}://${host}/ipfs/${hashObj.hash}`.underline.yellow);
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');
@@ -69,7 +73,7 @@ function confirmUploadDialog(targetPath) {
   const promptSchema = {
     properties: {
       confirm: {
-        message: 'Please ensure you will upload ' + '\'targetPath\''.yellow + ' to the IPFS (yes/no)',
+        message: 'Please ensure you will upload ' + targetPath.yellow + ' to the IPFS (yes/no)',
         required: true
       }
     }
@@ -80,6 +84,7 @@ function confirmUploadDialog(targetPath) {
       if (error) {
         reject(error);
       } else {
+        Log.NormalLog('Start uploading...');
         resolve(result);
       }
     })
