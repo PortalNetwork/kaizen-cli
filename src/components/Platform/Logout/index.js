@@ -13,7 +13,7 @@ async function handler(argv) {
   try {
     const config = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
     if (!config.idToken) {
-      Log.ErrorLog('not yet login');
+      Log.NormalLog('You are not login');
       return;
     }
 
@@ -29,7 +29,7 @@ async function handler(argv) {
     });
 
     Spinner.stop();
-    Log.SuccessLog('Log out successfully');
+    Log.SuccessLog('Logout success');
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');

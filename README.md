@@ -58,6 +58,9 @@ kaizen upload ipfs ./build
 ## <a name="command-topics"></a>🔨 Command Topics
 
 - `kaizen config` - Configure KAIZEN
+- `kaizen config set` - Set config variable
+- `kaizen config get` - Get config variable
+- `kaizen config unset` - Unset config variable
 - `kaizen create` - Create new KAIZEN project
 - `kaizen install` - Install a KAIZEN project from GitHub
 - `kaizen upload` - Upload a KAIZEN project
