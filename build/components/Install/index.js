@@ -39,23 +39,26 @@ function _handler() {
 
           case 5:
             Spinner.stop();
-            Log.SuccessLog("==== Install from ".concat(url, " Successfully ===="));
-            _context.next = 14;
+            Log.SuccessLog("Install from ".concat(url, " Successfully"));
+            Log.NormalLog('Now you can go to the project folder.');
+            Log.NormalLog('After you get into the folder, you can install the node packages by using ' + '\'npm install\''.yellow);
+            Log.NormalLog('Let\'s start BUIDL!'.green);
+            _context.next = 17;
             break;
 
-          case 9:
-            _context.prev = 9;
+          case 12:
+            _context.prev = 12;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t0);
 
-          case 14:
+          case 17:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 9]]);
+    }, _callee, this, [[0, 12]]);
   }));
   return _handler.apply(this, arguments);
 }
