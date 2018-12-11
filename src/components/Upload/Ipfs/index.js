@@ -37,6 +37,10 @@ function builder(yargs) {
 async function handler(argv) {
   try {
     const { host, port, protocol } = argv;
+    if (argv.file === undefined) {
+      Log.NormalLog('Please specify a file path or a folder path');
+      return;
+    }
     const targetPath = path.resolve('./', argv.file);
     const result = await confirmUploadDialog(targetPath);
     if (/^yes|y$/i.test(result.confirm) === false) {
