@@ -22,6 +22,8 @@ var URL = require('url');
 
 var download = require('download');
 
+require('colors');
+
 function builder(yargs) {
   return yargs.option('url', {
     alias: 'u',
@@ -38,71 +40,79 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var repoUrl, _getFilePath, owner, repo, branch, template, zipFilePath, kaizenrc, _kaizenrc, privateKey, provider, networkId, result;
+    var repoUrl, kaizenrc, _kaizenrc, privateKey, provider, networkId, _getFilePath, owner, repo, branch, template, zipFilePath, processing, result;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            Spinner.start();
             repoUrl = argv.url;
-            _getFilePath = getFilePath(repoUrl), owner = _getFilePath.owner, repo = _getFilePath.repo, branch = _getFilePath.branch, template = _getFilePath.template;
-            zipFilePath = "https://github.com/".concat(owner, "/").concat(repo, "/raw/").concat(branch, "/").concat(template, ".zip");
-            _context.next = 7;
-            return download(zipFilePath, '.', {
-              extract: true
-            });
-
-          case 7:
             kaizenrc = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
             _kaizenrc = _objectSpread({}, kaizenrc), privateKey = _kaizenrc.privateKey, provider = _kaizenrc.provider, networkId = _kaizenrc.networkId;
 
             if (!(!privateKey || !provider || !networkId)) {
-              _context.next = 11;
+              _context.next = 6;
               break;
             }
 
-            throw 'Please make sure privateKey, provider and networkId is configured through "kaizen config".';
+            throw 'Please make sure ' + '\'privateKey\''.yellow + ', ' + '\'provider\''.yellow + ' and ' + '\'networkId\''.yellow + ' is configured through ' + '\'kaizen config\''.yellow;
 
-          case 11:
-            // Setup environment variable
+          case 6:
+            console.log("Contract deploying, this may take a while...".yellow);
+            Spinner.start();
+            _getFilePath = getFilePath(repoUrl), owner = _getFilePath.owner, repo = _getFilePath.repo, branch = _getFilePath.branch, template = _getFilePath.template;
+            zipFilePath = "https://github.com/".concat(owner, "/").concat(repo, "/raw/").concat(branch, "/").concat(template, ".zip");
+            _context.next = 12;
+            return download(zipFilePath, '.', {
+              extract: true
+            });
+
+          case 12:
+            Spinner.stop();
+            Spinner.start();
+            console.log("Setup environment variable...".yellow); // Setup environment variable
+
             process.env.privateKey = privateKey;
             process.env.provider = provider;
             process.env.networkId = networkId; // Install necessary modules of contract deployment
 
-            console.log("Installing modules...");
-            _context.next = 17;
+            Spinner.stop();
+            Spinner.start();
+            console.log("Installing modules...".yellow);
+            _context.next = 23;
             return ExecuteCommand("cd ".concat(template, " && npm i"));
 
-          case 17:
-            // Build and deploy contracts
-            console.log("Deploying contracts...");
-            _context.next = 20;
+          case 23:
+            processing = _context.sent;
+            Spinner.stop();
+            console.log(processing); // Build and deploy contracts
+
+            console.log("Deploying contracts...".yellow);
+            _context.next = 29;
             return ExecuteCommand("cd ".concat(template, " && ./node_modules/.bin/truffle deploy --network deployment"));
 
-          case 20:
+          case 29:
             result = _context.sent;
             console.log(result);
             fsx.removeSync("./".concat(template));
-            Spinner.stop();
-            Log.SuccessLog("\n==== Deploy Contract ".concat(template, " Successfully ===="));
-            _context.next = 32;
+            Log.SuccessLog("\nDeploy Contract ".concat(template, " Successfully"));
+            _context.next = 40;
             break;
 
-          case 27:
-            _context.prev = 27;
+          case 35:
+            _context.prev = 35;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
-            Log.ErrorLog('\n==== Deploy Contract Failed ====');
+            Log.ErrorLog('\nUnable to deploy sontract');
             console.error(_context.t0);
 
-          case 32:
+          case 40:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 27]]);
+    }, _callee, this, [[0, 35]]);
   }));
   return _handler.apply(this, arguments);
 }
