@@ -16,6 +16,8 @@ var Spinner = require('../../../lib/Spinner');
 
 var Log = require('../../../lib/Log');
 
+require('colors');
+
 function builder(yargs) {
   return yargs.option('key', {
     alias: 'k',
@@ -50,7 +52,7 @@ function _handler() {
               configuration = _objectSpread({}, kaizenrc, _defineProperty({}, key, value));
               fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), configuration); //Log.SuccessLog('Config setting successfully');
 
-              Log.NormalLog('Configuration:\n'.underline.yellow + key + ': ' + kaizenrc[key].yellow + ' set success');
+              console.log('Configuration:\n'.underline.yellow + key + ': ' + kaizenrc[key] + ' set success');
             } catch (error) {
               Spinner.stop();
               Log.ErrorLog('something went wrong!');

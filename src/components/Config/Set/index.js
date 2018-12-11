@@ -2,6 +2,7 @@ const path = require('path');
 const fsx = require('fs-extra');
 const Spinner = require('../../../lib/Spinner');
 const Log = require('../../../lib/Log');
+require('colors');
 
 function builder(yargs) {
   return yargs
@@ -32,7 +33,7 @@ async function handler(argv) {
     }
     fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), configuration);
     //Log.SuccessLog('Config setting successfully');
-    Log.NormalLog('Configuration:\n'.underline.yellow + key + ': ' + kaizenrc[key].yellow + ' set success');
+    console.log('Configuration:\n'.underline.yellow + key + ': ' + kaizenrc[key] + ' set success');
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');

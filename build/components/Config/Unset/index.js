@@ -16,6 +16,8 @@ var Spinner = require('../../../lib/Spinner');
 
 var Log = require('../../../lib/Log');
 
+require('colors');
+
 function builder(yargs) {
   return yargs.option('key', {
     alias: 'k',
