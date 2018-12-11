@@ -28,7 +28,7 @@ yargs
   'Welcome to KAIZEN\n\n'.yellow + 
   'KAIZEN Framework\n'.underline.yellow +
   'Not sure how to use?\n'.gray + 
-  'Use ' + '\'kaizen create -t react --n myproject\'' .yellow + ' to start a new project.\n' + 
+  'Use ' + '\'kaizen create -t react -n myproject\'' .yellow + ' to start a new project.\n' + 
   'Try ' + '\'kaizen install -u <GITHUB_URL>\''.yellow + ' to download example project.\n\n' + 
   'KAIZEN Platform (Alpha)\n'.underline.yellow +
   'Interact with KAIZEN Platform, please login first.\n'.grey +
