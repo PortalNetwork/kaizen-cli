@@ -10,6 +10,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var path = require('path');
 
+var fs = require('fs');
+
 var fsx = require('fs-extra');
 
 var Log = require('../../../lib/Log');

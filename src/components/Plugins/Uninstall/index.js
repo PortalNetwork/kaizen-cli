@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const fsx = require('fs-extra');
 const Log = require('../../../lib/Log');
 const Spinner = require('../../../lib/Spinner');
