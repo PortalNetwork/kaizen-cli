@@ -40,7 +40,7 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var blockchain, network, txhash, txresult, table;
+    var blockchain, network, txhash, txresult, table, toAddress;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -48,62 +48,63 @@ function _handler() {
             _context.prev = 0;
             blockchain = argv.blockchain, network = argv.network, txhash = argv.txhash;
             txresult = '';
+            toAddress = '';
             _context.t0 = blockchain;
-            _context.next = _context.t0 === 'ethereum' ? 6 : _context.t0 === 'wanchain' ? 16 : 26;
+            _context.next = _context.t0 === 'ethereum' ? 7 : _context.t0 === 'wanchain' ? 17 : 27;
             break;
 
-          case 6:
+          case 7:
             Spinner.start();
-            _context.next = 9;
+            _context.next = 10;
             return ethereumHandler(network, txhash);
 
-          case 9:
+          case 10:
             txresult = _context.sent;
             Spinner.stop();
-            Log.SuccessLog("The txhash ".concat(txhash, " receipt:"));
+            Log.SuccessLog("The txhash ".concat(txhash, " information:"));
             table = new Table({
-              head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
+              head: ['Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
             });
-            table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
+            table.push([txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
             console.log(table.toString());
-            return _context.abrupt("break", 27);
+            return _context.abrupt("break", 28);
 
-          case 16:
+          case 17:
             Spinner.start();
-            _context.next = 19;
+            _context.next = 20;
             return wanchainHandler(network, txhash);
 
-          case 19:
+          case 20:
             txresult = _context.sent;
             Spinner.stop();
-            Log.SuccessLog("The txhash ".concat(txhash, " receipt:"));
+            Log.SuccessLog("The txhash ".concat(txhash, " information:"));
             table = new Table({
-              head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
+              head: ['Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
             });
-            table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
+            table.push([txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
             console.log(table.toString());
-            return _context.abrupt("break", 27);
-
-          case 26:
-            Log.NormalLog('blockchain not support yet');
+            return _context.abrupt("break", 28);
 
           case 27:
-            _context.next = 34;
+            Log.NormalLog('blockchain not support yet');
+
+          case 28:
+            _context.next = 35;
             break;
 
-          case 29:
-            _context.prev = 29;
+          case 30:
+            _context.prev = 30;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 34:
+          case 35:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 29]]);
+    }, _callee, this, [[0, 30]]);
   }));
   return _handler.apply(this, arguments);
 }

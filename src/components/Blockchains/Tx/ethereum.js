@@ -14,5 +14,9 @@ module.exports = async function(network, txhash) {
   }
   let web3 = new Web3(new Web3.providers.HttpProvider(provider));
   const txresult = await web3.eth.getTransaction(txhash);
+  const txreceipt = await web3.eth.getTransactionReceipt(txhash);
+  if (txreceipt.to === null) {
+    txresult.to = txreceipt.contractAddress;
+  }
   return txresult;
 }
