@@ -28,28 +28,32 @@ async function handler(argv) {
     }
 
     if (fs.existsSync(path.resolve('./', 'package.json')) === false) {
-      Log.ErrorLog('should run "npm init" first');
+      Log.NormalLog("Missing " + "'package.json'".yellow + ", please make sure you are in the project folder.");
       return;
     }
 
+    // TODO code tutorial
     switch (plugin) {
       case 'bluzelle':
+        Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await bluzelleHandler();
         Spinner.stop();
-        Log.SuccessLog(`==== Install package ${plugin} Successfully ====`);
+        Log.SuccessLog(`Install package ${plugin} Successfully`);
         break;
       case 'nkn':
+        Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await nknHandler();
         Spinner.stop();
-        Log.SuccessLog(`==== Install package ${plugin} Successfully ====`);
+        Log.SuccessLog(`Install package ${plugin} Successfully`);
         break;
       case 'noia':
+        Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await noiaHandler();
         Spinner.stop();
-        Log.SuccessLog(`==== Install package ${plugin} Successfully ====`);
+        Log.SuccessLog(`Install package ${plugin} Successfully`);
         break;
       default:
         Log.NormalLog('Plugin not support yet');

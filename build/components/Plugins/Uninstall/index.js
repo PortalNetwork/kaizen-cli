@@ -61,63 +61,75 @@ function _handler() {
             return _context.abrupt("return");
 
           case 8:
-            _context.t0 = plugin;
-            _context.next = _context.t0 === 'bluzelle' ? 11 : _context.t0 === 'nkn' ? 18 : _context.t0 === 'noia' ? 25 : 32;
-            break;
+            if (!(fs.existsSync(path.resolve('./', 'package.json')) === false)) {
+              _context.next = 11;
+              break;
+            }
+
+            Log.NormalLog("Missing " + "'package.json'".yellow + ", please make sure you are in the project folder.");
+            return _context.abrupt("return");
 
           case 11:
-            Spinner.start();
-            _context.next = 14;
-            return bluzelleHandler();
+            _context.t0 = plugin;
+            _context.next = _context.t0 === 'bluzelle' ? 14 : _context.t0 === 'nkn' ? 22 : _context.t0 === 'noia' ? 30 : 38;
+            break;
 
           case 14:
+            Log.NormalLog('Uninstalling plugin, please wait a second...');
+            Spinner.start();
+            _context.next = 18;
+            return bluzelleHandler();
+
+          case 18:
             updateKaizenJson(kaizenJson, 'bluzelle');
             Spinner.stop();
             Log.SuccessLog("==== Remove package ".concat(plugin, " Successfully ===="));
-            return _context.abrupt("break", 33);
+            return _context.abrupt("break", 39);
 
-          case 18:
+          case 22:
+            Log.NormalLog('Uninstalling plugin, please wait a second...');
             Spinner.start();
-            _context.next = 21;
+            _context.next = 26;
             return nknHandler();
 
-          case 21:
+          case 26:
             updateKaizenJson(kaizenJson, 'nkn');
             Spinner.stop();
             Log.SuccessLog("==== Remove package ".concat(plugin, " Successfully ===="));
-            return _context.abrupt("break", 33);
+            return _context.abrupt("break", 39);
 
-          case 25:
+          case 30:
+            Log.NormalLog('Uninstalling plugin, please wait a second...');
             Spinner.start();
-            _context.next = 28;
+            _context.next = 34;
             return noiaHandler();
 
-          case 28:
+          case 34:
             updateKaizenJson(kaizenJson, 'noia');
             Spinner.stop();
             Log.SuccessLog("==== Remove package ".concat(plugin, " Successfully ===="));
-            return _context.abrupt("break", 33);
+            return _context.abrupt("break", 39);
 
-          case 32:
+          case 38:
             Log.NormalLog('Plugin not support yet');
 
-          case 33:
-            _context.next = 40;
+          case 39:
+            _context.next = 46;
             break;
 
-          case 35:
-            _context.prev = 35;
+          case 41:
+            _context.prev = 41;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 40:
+          case 46:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 35]]);
+    }, _callee, this, [[0, 41]]);
   }));
   return _handler.apply(this, arguments);
 }

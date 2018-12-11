@@ -27,9 +27,15 @@ async function handler(argv) {
       Log.NormalLog('Missing plugin statement.\nPlease using \'kaizen plugins uninstall [plugin]\'');
       return;
     }
+
+    if (fs.existsSync(path.resolve('./', 'package.json')) === false) {
+      Log.NormalLog("Missing " + "'package.json'".yellow + ", please make sure you are in the project folder.");
+      return;
+    }
     
     switch(plugin) {
       case 'bluzelle':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
         Spinner.start();
         await bluzelleHandler();
         updateKaizenJson(kaizenJson, 'bluzelle');
@@ -37,6 +43,7 @@ async function handler(argv) {
         Log.SuccessLog(`==== Remove package ${plugin} Successfully ====`);
         break;
       case 'nkn':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
         Spinner.start();
         await nknHandler();
         updateKaizenJson(kaizenJson, 'nkn');
@@ -44,6 +51,7 @@ async function handler(argv) {
         Log.SuccessLog(`==== Remove package ${plugin} Successfully ====`);
         break;
       case 'noia':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
         Spinner.start();
         await noiaHandler();
         updateKaizenJson(kaizenJson, 'noia');
