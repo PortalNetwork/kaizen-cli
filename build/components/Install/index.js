@@ -15,7 +15,7 @@ function builder(yargs) {
     alias: 'u',
     type: 'string',
     describe: 'GitHub url of the project'
-  }).demandOption(['url'], 'Please enter your project GitHub path');
+  }).example('kaizen install --url https://github.com/PortalNetwork/kaizen-boilerplate').demandOption(['url'], 'Please enter your project GitHub path');
 }
 
 function handler(_x) {
@@ -33,8 +33,7 @@ function _handler() {
           case 0:
             _context.prev = 0;
             Spinner.start();
-            url = argv.url; // TODO check url format
-
+            url = argv.url;
             _context.next = 5;
             return cloneProjectFromGithub(url);
 
