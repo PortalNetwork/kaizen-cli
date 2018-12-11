@@ -36,7 +36,15 @@ async function handler(argv) {
         name,
         loginOn: new Date()
       });
-      Log.SuccessLog(`Login success! \nWelcome ${name}`);
+      Log.SuccessLog('Login success');
+      Log.NormalLog(`Welcome ${name}!\n`);
+      Log.NormalLog('KAIZEN Platform (Alpha)'.underline.yellow);
+      Log.NormalLog('You can interact with KAIZEN Platform thorugh the following commands.'.gray);
+      Log.NormalLog('Use ' + '\'kaizen instances list\''.yellow + ' to get the instance list.');
+      Log.NormalLog('Use ' + '\'kaizen instances info\''.yellow + ' to get the instance information.');
+      Log.NormalLog('Use ' + '\'kaizen instances deploy\''.yellow + ' to deploy a new instance.\n');
+      Log.NormalLog('More information and documentation, please visit:');
+      Log.NormalLog('https://github.com/PortalNetwork/kaizen-cli'.yellow.underline + '\n');
     } catch (loginError) {
       Spinner.stop();
       console.error(loginError.response.data.message);

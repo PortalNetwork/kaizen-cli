@@ -61,35 +61,43 @@ function _handler() {
               name: name,
               loginOn: new Date()
             });
-            Log.SuccessLog("Login success! \nWelcome ".concat(name));
-            _context.next = 22;
+            Log.SuccessLog('Login success');
+            Log.NormalLog("Welcome ".concat(name, "!\n"));
+            Log.NormalLog('KAIZEN Platform (Alpha)'.underline.yellow);
+            Log.NormalLog('You can interact with KAIZEN Platform thorugh the following commands.'.gray);
+            Log.NormalLog('Use ' + '\'kaizen instances list\''.yellow + ' to get the instance list.');
+            Log.NormalLog('Use ' + '\'kaizen instances info\''.yellow + ' to get the instance information.');
+            Log.NormalLog('Use ' + '\'kaizen instances deploy\''.yellow + ' to deploy a new instance.\n');
+            Log.NormalLog('More information and documentation, please visit:');
+            Log.NormalLog('https://github.com/PortalNetwork/kaizen-cli'.yellow.underline + '\n');
+            _context.next = 30;
             break;
 
-          case 17:
-            _context.prev = 17;
+          case 25:
+            _context.prev = 25;
             _context.t0 = _context["catch"](7);
             Spinner.stop();
             console.error(_context.t0.response.data.message);
             return _context.abrupt("return");
 
-          case 22:
-            _context.next = 30;
+          case 30:
+            _context.next = 38;
             break;
 
-          case 24:
-            _context.prev = 24;
+          case 32:
+            _context.prev = 32;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
             return _context.abrupt("return");
 
-          case 30:
+          case 38:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 24], [7, 17]]);
+    }, _callee, this, [[0, 32], [7, 25]]);
   }));
   return _handler.apply(this, arguments);
 }

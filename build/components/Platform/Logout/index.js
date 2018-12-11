@@ -40,7 +40,7 @@ function _handler() {
               break;
             }
 
-            Log.ErrorLog('not yet login');
+            Log.NormalLog('You are not login');
             return _context.abrupt("return");
 
           case 5:
@@ -57,7 +57,7 @@ function _handler() {
               name: ''
             });
             Spinner.stop();
-            Log.SuccessLog('Log out successfully');
+            Log.SuccessLog('Logout success');
             _context.next = 18;
             break;
 
