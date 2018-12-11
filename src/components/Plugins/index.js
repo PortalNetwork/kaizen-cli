@@ -7,7 +7,15 @@ function builder(yargs) {
   .example('kaizen plugins install')
   .example('kaizen plugins uninstall')
   .example('kaizen plugins list')
-  .demandCommand(1, '');
+  .demandCommand(1, '')
+  .epilogue(
+		'Available plugins:\n\n'.underline.yellow + 
+    'bluzelle'.underline.yellow + ' - Decentralized database\n' +
+    'nkn'.underline.yellow + ' - Data transmisstion\n' + 
+    'noia'.underline.yellow + ' - Decentralized CDN\n' + 
+		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
+		' to install plugins.\n'
+	);
 }
 
 async function handler(argv) {

@@ -76,7 +76,7 @@ function _handler() {
               break;
             }
 
-            Log.ErrorLog('Please login first, use \'kaizen login\' to login into KAIZEN Platform');
+            Log.NormalLog('Please login first, you can use ' + '\'kaizen login\'' + ' to login into KAIZEN Platform');
             return _context.abrupt("return");
 
           case 12:
