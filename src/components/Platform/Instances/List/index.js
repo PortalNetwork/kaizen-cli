@@ -36,7 +36,7 @@ async function handler(argv) {
         })
         console.log(table.toString());
         Log.NormalLog('\nInstance management: '.underline.yellow);
-        Log.NormalLog('Use ' + '\'kaizen instances info ----instance <INSTANCE_ID>\''.yellow + ' to get more information of the instance');
+        Log.NormalLog('Use ' + '\'kaizen instances info --instance <INSTANCE_ID>\''.yellow + ' to get more information of the instance');
       } else {
         Log.NormalLog('You don\'t have any instance. \nUse \'kaizen instances deploy\' to create instance');
       }
