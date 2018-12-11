@@ -36,12 +36,11 @@ function builder(yargs) {
 
 async function handler(argv) {
   try {
-    const { file, host, port, protocol } = argv;
-      console.log('data', file, host, port, protocol);
+    const { host, port, protocol } = argv;
     const targetPath = path.resolve('./', argv.file);
     const result = await confirmUploadDialog(targetPath);
     if (/^yes|y$/i.test(result.confirm) === false) {
-      Log.SuccessLog(`==== Cancel Upload ====`);
+      Log.NormalLog(`Cancel Upload`);
       return;
     }
 
@@ -53,8 +52,8 @@ async function handler(argv) {
     fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
     const hashObj = hashes.length === 0 ?  hashes[0] : hashes[hashes.length - 1];
     Spinner.stop();
+    Log.SuccessLog(`Upload files to IPFS Successfully`);
     console.log(`\nFile/Folder hash: ${hashObj.hash}`);
-    Log.SuccessLog(`==== Upload your files to IPFS Successfully ====`);
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');
@@ -66,7 +65,7 @@ function confirmUploadDialog(targetPath) {
   const promptSchema = {
     properties: {
       confirm: {
-        message: `Please ensure you will upload 「${targetPath}」 to the IPFS (yes/no)`,
+        message: 'Please ensure you will upload ' + '\'targetPath\''.yellow + ' to the IPFS (yes/no)',
         required: true
       }
     }

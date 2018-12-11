@@ -35,7 +35,8 @@ async function handler(argv) {
           table.push([row.instanceId, row.name, row.type, row.protocol, row.network, row.node]);
         })
         console.log(table.toString());
-        //Log.NormalLog(table.toString());
+        Log.NormalLog('\nInstance management: '.underline.yellow);
+        Log.NormalLog('Use ' + '\'kaizen instances info ----instance <INSTANCE_ID>\''.yellow + ' to get more information of the instance');
       } else {
         Log.NormalLog('You don\'t have any instance. \nUse \'kaizen instances deploy\' to create instance');
       }
