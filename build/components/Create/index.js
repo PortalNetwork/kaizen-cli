@@ -66,7 +66,7 @@ function _handler() {
             Spinner.stop();
             Log.SuccessLog("\nCreate ".concat(projectName, " Successfully"));
             Log.NormalLog('Now you can use ' + "'cd ".concat(projectName, "'").yellow + ' to the project folder.');
-            Log.NormalLog('After you get into the folder, you can install the node packages by using ' + '\'npm install\'');
+            Log.NormalLog('After you get into the folder, you can install the node packages by using ' + '\'npm install\''.yellow);
             Log.NormalLog('Let\'s start BUIDL!'.green);
             _context.next = 26;
             break;

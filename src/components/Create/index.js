@@ -39,7 +39,7 @@ async function handler(argv) {
     Spinner.stop();
     Log.SuccessLog(`\nCreate ${projectName} Successfully`);
     Log.NormalLog('Now you can use ' + `'cd ${projectName}'`.yellow + ' to the project folder.');
-    Log.NormalLog('After you get into the folder, you can install the node packages by using ' + '\'npm install\'');
+    Log.NormalLog('After you get into the folder, you can install the node packages by using ' + '\'npm install\''.yellow);
     Log.NormalLog('Let\'s start BUIDL!'.green);
   } catch (error) {
     Spinner.stop();

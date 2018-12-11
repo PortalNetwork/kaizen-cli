@@ -54,53 +54,63 @@ function _handler() {
           case 0:
             _context.prev = 0;
             host = argv.host, port = argv.port, protocol = argv.protocol;
-            targetPath = path.resolve('./', argv.file);
-            _context.next = 5;
-            return confirmUploadDialog(targetPath);
+
+            if (!(argv.file === undefined)) {
+              _context.next = 5;
+              break;
+            }
+
+            Log.NormalLog('Please specify a file path or a folder path');
+            return _context.abrupt("return");
 
           case 5:
+            targetPath = path.resolve('./', argv.file);
+            _context.next = 8;
+            return confirmUploadDialog(targetPath);
+
+          case 8:
             result = _context.sent;
 
             if (!(/^yes|y$/i.test(result.confirm) === false)) {
-              _context.next = 9;
+              _context.next = 12;
               break;
             }
 
             Log.NormalLog("Cancel Upload");
             return _context.abrupt("return");
 
-          case 9:
+          case 12:
             Spinner.start();
             ipfs = ipfsClient(host, port, {
               protocol: protocol
             });
             filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
-            _context.next = 14;
+            _context.next = 17;
             return ipfs.add(filesReadyToIPFS);
 
-          case 14:
+          case 17:
             hashes = _context.sent;
             fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
             hashObj = hashes.length === 0 ? hashes[0] : hashes[hashes.length - 1];
             Spinner.stop();
             Log.SuccessLog("Upload files to IPFS Successfully");
             console.log("\nFile/Folder hash: ".concat(hashObj.hash));
-            _context.next = 27;
+            _context.next = 30;
             break;
 
-          case 22:
-            _context.prev = 22;
+          case 25:
+            _context.prev = 25;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t0);
 
-          case 27:
+          case 30:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 22]]);
+    }, _callee, this, [[0, 25]]);
   }));
   return _handler.apply(this, arguments);
 }
