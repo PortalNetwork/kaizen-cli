@@ -39,7 +39,7 @@ async function handler(argv) {
     }
     const config = fsx.readJsonSync(path.resolve(__dirname, '../../../../../.kaizenrc'));
     if (!config.idToken) {
-      Log.ErrorLog('Please login first, use \'kaizen login\' to login into KAIZEN Platform');
+      Log.NormalLog('Please login first, you can use ' + '\'kaizen login\'' + ' to login into KAIZEN Platform');
       return;
     }
 

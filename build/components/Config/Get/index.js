@@ -4,14 +4,23 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+var path = require('path');
+
+var fsx = require('fs-extra');
+
+var Spinner = require('../../../lib/Spinner');
+
+var Log = require('../../../lib/Log');
+
+require('colors');
+
 function builder(yargs) {
-  require('./Set')(yargs);
-
-  require('./Get')(yargs);
-
-  require('./Unset')(yargs);
-
-  return yargs.example('kaizen config set').example('kaizen config get').example('kaizen config unset').demandCommand(1, '');
+  return yargs.option('key', {
+    alias: 'k',
+    type: 'string',
+    describe: 'Configuration key',
+    choices: ['privateKey', 'provider', 'networkId']
+  }).example('kaizen config get --key provider').demandOption(['key'], '');
 }
 
 function handler(_x) {
@@ -22,10 +31,29 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
+    var key, kaizenrc;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            try {
+              key = argv.key;
+              Spinner.start();
+              kaizenrc = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
+              Spinner.stop();
+
+              if (kaizenrc[key]) {
+                Log.NormalLog('Configuration:\n'.underline.yellow + key + ': ' + kaizenrc[key].yellow);
+              } else {
+                Log.NormalLog("Can not find ".concat(key));
+              }
+            } catch (error) {
+              Spinner.stop();
+              Log.ErrorLog('something went wrong!');
+              console.error(error);
+            }
+
+          case 1:
           case "end":
             return _context.stop();
         }
@@ -36,7 +64,7 @@ function _handler() {
 }
 
 module.exports = function (yargs) {
-  var command = 'config';
-  var commandDescription = 'Config management for KAIZEN';
+  var command = 'get';
+  var commandDescription = 'Get config variable';
   yargs.command(command, commandDescription, builder, handler);
 };

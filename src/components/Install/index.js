@@ -9,6 +9,7 @@ function builder(yargs) {
       type: 'string',
       describe: 'GitHub url of the project'
     })
+    .example('kaizen install --url https://github.com/PortalNetwork/kaizen-boilerplate')
     .demandOption(['url'], 'Please enter your project GitHub path');
 }
 
@@ -16,7 +17,6 @@ async function handler(argv) {
   try {
     Spinner.start();
     const { url } = argv;
-    // TODO check url format
     await cloneProjectFromGithub(url);
     Spinner.stop();
     Log.SuccessLog(`==== Install from ${url} Successfully ====`);
