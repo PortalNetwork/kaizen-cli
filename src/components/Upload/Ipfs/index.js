@@ -53,7 +53,7 @@ async function handler(argv) {
     Spinner.start();
     const ipfs = ipfsClient(host, port, { protocol });
 
-    const filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
+    const filesReadyToIPFS = await getFilesReadyToIPFS(targetPath);
     const hashes = await ipfs.add(filesReadyToIPFS);
     fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
     const hashObj = hashes.length === 0 ?  hashes[0] : hashes[hashes.length - 1];
@@ -61,7 +61,7 @@ async function handler(argv) {
     Log.SuccessLog(`Upload files to IPFS Successfully`);
     console.log(`\nFile/Folder hash: ${hashObj.hash}`);
     Log.NormalLog('You can access the file through:');
-    Log.NormalLog(`${protocol}://${host}/ipfs/${hashObj.hash}`.underline.yellow);
+    Log.NormalLog(`${protocol}://${host}/ipfs/${hashObj.hash}`.underline.yellow + '\n');
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');
@@ -92,9 +92,9 @@ function confirmUploadDialog(targetPath) {
 
 }
 
-function recursiveFetchFilePath(path, files = []) {
+async function recursiveFetchFilePath(path, files = []) {
   const readdirSyncs = fs.readdirSync(path);
-  readdirSyncs.forEach(item => {
+  await readdirSyncs.forEach(item => {
     if (item.includes('.DS_Store')) return;
     switch (fs.statSync(`${path}/${item}`).isDirectory()) {
       case true:
@@ -102,22 +102,24 @@ function recursiveFetchFilePath(path, files = []) {
         break;
       case false:
         files.push(`${path}/${item}`);
-        break
+        break;
     }
   });
   return files;
 }
 
 function getIPFSContentObject(filePath, targetPath) {
+  console.log('Upload File: ' + filePath);
   return ({
     path: `public${filePath.replace(targetPath, '')}`,
     content: fs.readFileSync(filePath)
   });
 }
 
-function getFilesReadyToIPFS(targetPath) {
+async function getFilesReadyToIPFS(targetPath) {
   if (fs.lstatSync(targetPath).isDirectory()) {
-    return recursiveFetchFilePath(targetPath).map(file => {getIPFSContentObject(file, targetPath)});
+    const result = await recursiveFetchFilePath(targetPath);
+    return result.map(file => getIPFSContentObject(file, targetPath));
   } else {
     return fs.readFileSync(targetPath);
   }

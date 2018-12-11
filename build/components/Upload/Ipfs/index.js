@@ -86,11 +86,15 @@ function _handler() {
             ipfs = ipfsClient(host, port, {
               protocol: protocol
             });
-            filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
-            _context.next = 19;
+            _context.next = 18;
+            return getFilesReadyToIPFS(targetPath);
+
+          case 18:
+            filesReadyToIPFS = _context.sent;
+            _context.next = 21;
             return ipfs.add(filesReadyToIPFS);
 
-          case 19:
+          case 21:
             hashes = _context.sent;
             fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
             hashObj = hashes.length === 0 ? hashes[0] : hashes[hashes.length - 1];
@@ -98,23 +102,23 @@ function _handler() {
             Log.SuccessLog("Upload files to IPFS Successfully");
             console.log("\nFile/Folder hash: ".concat(hashObj.hash));
             Log.NormalLog('You can access the file through:');
-            Log.NormalLog("".concat(protocol, "://").concat(host, "/ipfs/").concat(hashObj.hash).underline.yellow);
-            _context.next = 34;
+            Log.NormalLog("".concat(protocol, "://").concat(host, "/ipfs/").concat(hashObj.hash).underline.yellow + '\n');
+            _context.next = 36;
             break;
 
-          case 29:
-            _context.prev = 29;
+          case 31:
+            _context.prev = 31;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t0);
 
-          case 34:
+          case 36:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 29]]);
+    }, _callee, this, [[0, 31]]);
   }));
   return _handler.apply(this, arguments);
 }
@@ -141,40 +145,97 @@ function confirmUploadDialog(targetPath) {
   });
 }
 
-function recursiveFetchFilePath(path) {
-  var files = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-  var readdirSyncs = fs.readdirSync(path);
-  readdirSyncs.forEach(function (item) {
-    if (item.includes('.DS_Store')) return;
+function recursiveFetchFilePath(_x2) {
+  return _recursiveFetchFilePath.apply(this, arguments);
+}
 
-    switch (fs.statSync("".concat(path, "/").concat(item)).isDirectory()) {
-      case true:
-        files = recursiveFetchFilePath("".concat(path, "/").concat(item), files);
-        break;
+function _recursiveFetchFilePath() {
+  _recursiveFetchFilePath = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee2(path) {
+    var files,
+        readdirSyncs,
+        _args2 = arguments;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            files = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : [];
+            readdirSyncs = fs.readdirSync(path);
+            _context2.next = 4;
+            return readdirSyncs.forEach(function (item) {
+              if (item.includes('.DS_Store')) return;
 
-      case false:
-        files.push("".concat(path, "/").concat(item));
-        break;
-    }
-  });
-  return files;
+              switch (fs.statSync("".concat(path, "/").concat(item)).isDirectory()) {
+                case true:
+                  files = recursiveFetchFilePath("".concat(path, "/").concat(item), files);
+                  break;
+
+                case false:
+                  files.push("".concat(path, "/").concat(item));
+                  break;
+              }
+            });
+
+          case 4:
+            return _context2.abrupt("return", files);
+
+          case 5:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, this);
+  }));
+  return _recursiveFetchFilePath.apply(this, arguments);
 }
 
 function getIPFSContentObject(filePath, targetPath) {
+  console.log('Upload File: ' + filePath);
   return {
     path: "public".concat(filePath.replace(targetPath, '')),
     content: fs.readFileSync(filePath)
   };
 }
 
-function getFilesReadyToIPFS(targetPath) {
-  if (fs.lstatSync(targetPath).isDirectory()) {
-    return recursiveFetchFilePath(targetPath).map(function (file) {
-      getIPFSContentObject(file, targetPath);
-    });
-  } else {
-    return fs.readFileSync(targetPath);
-  }
+function getFilesReadyToIPFS(_x3) {
+  return _getFilesReadyToIPFS.apply(this, arguments);
+}
+
+function _getFilesReadyToIPFS() {
+  _getFilesReadyToIPFS = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee3(targetPath) {
+    var result;
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            if (!fs.lstatSync(targetPath).isDirectory()) {
+              _context3.next = 7;
+              break;
+            }
+
+            _context3.next = 3;
+            return recursiveFetchFilePath(targetPath);
+
+          case 3:
+            result = _context3.sent;
+            return _context3.abrupt("return", result.map(function (file) {
+              return getIPFSContentObject(file, targetPath);
+            }));
+
+          case 7:
+            return _context3.abrupt("return", fs.readFileSync(targetPath));
+
+          case 8:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, this);
+  }));
+  return _getFilesReadyToIPFS.apply(this, arguments);
 }
 
 module.exports = function (yargs) {
