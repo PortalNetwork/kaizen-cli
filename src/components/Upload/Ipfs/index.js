@@ -53,7 +53,7 @@ async function handler(argv) {
     Spinner.start();
     const ipfs = ipfsClient(host, port, { protocol });
 
-    const filesReadyToIPFS = await getFilesReadyToIPFS(targetPath);
+    const filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
     const hashes = await ipfs.add(filesReadyToIPFS);
     fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
     const hashObj = hashes.length === 0 ?  hashes[0] : hashes[hashes.length - 1];
@@ -92,9 +92,9 @@ function confirmUploadDialog(targetPath) {
 
 }
 
-async function recursiveFetchFilePath(path, files = []) {
+function recursiveFetchFilePath(path, files = []) {
   const readdirSyncs = fs.readdirSync(path);
-  await readdirSyncs.forEach(item => {
+  readdirSyncs.forEach(item => {
     if (item.includes('.DS_Store')) return;
     switch (fs.statSync(`${path}/${item}`).isDirectory()) {
       case true:
@@ -116,9 +116,9 @@ function getIPFSContentObject(filePath, targetPath) {
   });
 }
 
-async function getFilesReadyToIPFS(targetPath) {
+function getFilesReadyToIPFS(targetPath) {
   if (fs.lstatSync(targetPath).isDirectory()) {
-    const result = await recursiveFetchFilePath(targetPath);
+    const result = recursiveFetchFilePath(targetPath);
     return result.map(file => getIPFSContentObject(file, targetPath));
   } else {
     return fs.readFileSync(targetPath);
