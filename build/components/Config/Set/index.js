@@ -52,7 +52,7 @@ function _handler() {
               configuration = _objectSpread({}, kaizenrc, _defineProperty({}, key, value));
               fsx.writeJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'), configuration); //Log.SuccessLog('Config setting successfully');
 
-              console.log('Configuration:\n'.underline.yellow + key + ': ' + kaizenrc[key] + ' set success');
+              console.log('Configuration:\n'.underline.yellow + key + ': ' + value + ' set success');
             } catch (error) {
               Spinner.stop();
               Log.ErrorLog('something went wrong!');
