@@ -31,28 +31,29 @@ async function handler(argv) {
     const { blockchain, network, txhash } = argv;
     let txresult = '';
     let table;
+    let toAddress = '';
     
     switch (blockchain) {
       case 'ethereum':
         Spinner.start();
         txresult = await ethereumHandler(network, txhash);
         Spinner.stop();
-        Log.SuccessLog(`The txhash ${txhash} receipt:`);
+        Log.SuccessLog(`The txhash ${txhash} information:`);
         table = new Table({
-          head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
+          head: ['Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
         });
-        table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
+        table.push([txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
         console.log(table.toString());
         break;
       case 'wanchain':
         Spinner.start();
         txresult = await wanchainHandler(network, txhash);
         Spinner.stop();
-        Log.SuccessLog(`The txhash ${txhash} receipt:`);
+        Log.SuccessLog(`The txhash ${txhash} information:`);
         table = new Table({
-          head: ['Block Hash'.green, 'Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
+          head: ['Block Number'.green, 'From'.green, 'To'.green, 'Value'.green]
         });
-        table.push([txresult.blockHash, txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
+        table.push([txresult.blockNumber, txresult.from, txresult.to, txresult.value]);
         console.log(table.toString());
         break;
       default:

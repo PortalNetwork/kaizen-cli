@@ -14,7 +14,7 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(network, txhash) {
-    var provider, web3, txresult;
+    var provider, web3, txresult, txreceipt;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -42,9 +42,19 @@ function () {
 
           case 8:
             txresult = _context.sent;
+            _context.next = 11;
+            return web3.eth.getTransactionReceipt(txhash);
+
+          case 11:
+            txreceipt = _context.sent;
+
+            if (txreceipt.to === null) {
+              txresult.to = txreceipt.contractAddress;
+            }
+
             return _context.abrupt("return", txresult);
 
-          case 10:
+          case 14:
           case "end":
             return _context.stop();
         }
