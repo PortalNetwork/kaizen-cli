@@ -37,7 +37,10 @@ async function handler(argv) {
     }
     fsx.removeSync(`./${projectName}/.git`);
     Spinner.stop();
-    Log.SuccessLog(`\n==== Create ${projectName} Successfully ====`);
+    Log.SuccessLog(`\nCreate ${projectName} Successfully`);
+    Log.NormalLog('Now you can use ' + `'cd ${projectName}'`.yellow + ' to the project folder.');
+    Log.NormalLog('After you get into the folder, you can install the node packages by using ' + '\'npm install\'');
+    Log.NormalLog('Let\'s start BUIDL!'.green);
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');

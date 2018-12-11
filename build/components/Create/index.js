@@ -64,23 +64,26 @@ function _handler() {
           case 13:
             fsx.removeSync("./".concat(projectName, "/.git"));
             Spinner.stop();
-            Log.SuccessLog("\n==== Create ".concat(projectName, " Successfully ===="));
-            _context.next = 23;
+            Log.SuccessLog("\nCreate ".concat(projectName, " Successfully"));
+            Log.NormalLog('Now you can use ' + "'cd ".concat(projectName, "'").yellow + ' to the project folder.');
+            Log.NormalLog('After you get into the folder, you can install the node packages by using ' + '\'npm install\'');
+            Log.NormalLog('Let\'s start BUIDL!'.green);
+            _context.next = 26;
             break;
 
-          case 18:
-            _context.prev = 18;
+          case 21:
+            _context.prev = 21;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 23:
+          case 26:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 18]]);
+    }, _callee, this, [[0, 21]]);
   }));
   return _handler.apply(this, arguments);
 }

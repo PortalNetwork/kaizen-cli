@@ -26,8 +26,8 @@ function _handler() {
             Log.NormalLog('bluzelle'.underline.yellow + ' - Bluzelle information');
             Log.NormalLog('nkn'.underline.yellow + ' - NKN information');
             Log.NormalLog('noia'.underline.yellow + ' - NOIA information');
-            Log.NormalLog("\nTo install a plugin run 'kaizen plugins install <plugin-name-here>'");
-            Log.NormalLog("\nIt will be automatically downloaded and added to your package.json and kaizen.json file\n");
+            Log.NormalLog("\nTo install a plugin run " + "'kaizen plugins install <plugin-name-here>'".yellow);
+            Log.NormalLog("\nIt will be automatically downloaded and added to your " + "'package.json'".yellow + " and " + "'kaizen.json'".yellow + " file\n");
 
           case 6:
           case "end":

@@ -57,64 +57,67 @@ function _handler() {
               break;
             }
 
-            Log.ErrorLog('should run "npm init" first');
+            Log.NormalLog("Missing " + "'package.json'".yellow + ", please make sure you are in the project folder.");
             return _context.abrupt("return");
 
           case 8:
             _context.t0 = plugin;
-            _context.next = _context.t0 === 'bluzelle' ? 11 : _context.t0 === 'nkn' ? 17 : _context.t0 === 'noia' ? 23 : 29;
+            _context.next = _context.t0 === 'bluzelle' ? 11 : _context.t0 === 'nkn' ? 18 : _context.t0 === 'noia' ? 25 : 32;
             break;
 
           case 11:
+            Log.NormalLog('Installing plugin, please wait a second...');
             Spinner.start();
-            _context.next = 14;
+            _context.next = 15;
             return bluzelleHandler();
 
-          case 14:
+          case 15:
             Spinner.stop();
-            Log.SuccessLog("==== Install package ".concat(plugin, " Successfully ===="));
-            return _context.abrupt("break", 30);
+            Log.SuccessLog("Install package ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 33);
 
-          case 17:
+          case 18:
+            Log.NormalLog('Installing plugin, please wait a second...');
             Spinner.start();
-            _context.next = 20;
+            _context.next = 22;
             return nknHandler();
 
-          case 20:
+          case 22:
             Spinner.stop();
-            Log.SuccessLog("==== Install package ".concat(plugin, " Successfully ===="));
-            return _context.abrupt("break", 30);
+            Log.SuccessLog("Install package ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 33);
 
-          case 23:
+          case 25:
+            Log.NormalLog('Installing plugin, please wait a second...');
             Spinner.start();
-            _context.next = 26;
+            _context.next = 29;
             return noiaHandler();
 
-          case 26:
-            Spinner.stop();
-            Log.SuccessLog("==== Install package ".concat(plugin, " Successfully ===="));
-            return _context.abrupt("break", 30);
-
           case 29:
-            Log.NormalLog('Plugin not support yet');
-
-          case 30:
-            _context.next = 37;
-            break;
+            Spinner.stop();
+            Log.SuccessLog("Install package ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 33);
 
           case 32:
-            _context.prev = 32;
+            Log.NormalLog('Plugin not support yet');
+
+          case 33:
+            _context.next = 40;
+            break;
+
+          case 35:
+            _context.prev = 35;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 37:
+          case 40:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 32]]);
+    }, _callee, this, [[0, 35]]);
   }));
   return _handler.apply(this, arguments);
 }
