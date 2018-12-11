@@ -56,61 +56,65 @@ function _handler() {
             host = argv.host, port = argv.port, protocol = argv.protocol;
 
             if (!(argv.file === undefined)) {
-              _context.next = 5;
+              _context.next = 7;
               break;
             }
 
             Log.NormalLog('Please specify a file path or a folder path');
+            Log.NormalLog('Use ' + '\'kaizen upload ipfs [file]\''.yellow + ' to upload single file');
+            Log.NormalLog('Use ' + '\'kaizen upload ipfs [folder]\''.yellow + ' to upload with folder');
             return _context.abrupt("return");
 
-          case 5:
+          case 7:
             targetPath = path.resolve('./', argv.file);
-            _context.next = 8;
+            _context.next = 10;
             return confirmUploadDialog(targetPath);
 
-          case 8:
+          case 10:
             result = _context.sent;
 
             if (!(/^yes|y$/i.test(result.confirm) === false)) {
-              _context.next = 12;
+              _context.next = 14;
               break;
             }
 
             Log.NormalLog("Cancel Upload");
             return _context.abrupt("return");
 
-          case 12:
+          case 14:
             Spinner.start();
             ipfs = ipfsClient(host, port, {
               protocol: protocol
             });
             filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
-            _context.next = 17;
+            _context.next = 19;
             return ipfs.add(filesReadyToIPFS);
 
-          case 17:
+          case 19:
             hashes = _context.sent;
             fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
             hashObj = hashes.length === 0 ? hashes[0] : hashes[hashes.length - 1];
             Spinner.stop();
             Log.SuccessLog("Upload files to IPFS Successfully");
             console.log("\nFile/Folder hash: ".concat(hashObj.hash));
-            _context.next = 30;
+            Log.NormalLog('You can access the file through:');
+            Log.NormalLog("".concat(protocol, "://").concat(host, "/ipfs/").concat(hashObj.hash).underline.yellow);
+            _context.next = 34;
             break;
 
-          case 25:
-            _context.prev = 25;
+          case 29:
+            _context.prev = 29;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t0);
 
-          case 30:
+          case 34:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 25]]);
+    }, _callee, this, [[0, 29]]);
   }));
   return _handler.apply(this, arguments);
 }
@@ -119,7 +123,7 @@ function confirmUploadDialog(targetPath) {
   var promptSchema = {
     properties: {
       confirm: {
-        message: 'Please ensure you will upload ' + '\'targetPath\''.yellow + ' to the IPFS (yes/no)',
+        message: 'Please ensure you will upload ' + targetPath.yellow + ' to the IPFS (yes/no)',
         required: true
       }
     }
@@ -130,6 +134,7 @@ function confirmUploadDialog(targetPath) {
       if (error) {
         reject(error);
       } else {
+        Log.NormalLog('Start uploading...');
         resolve(result);
       }
     });
