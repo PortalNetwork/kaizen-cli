@@ -1,3 +1,5 @@
+require('colors');
+
 function builder(yargs) {
   require('./Set')(yargs);
   require('./Get')(yargs);
@@ -6,7 +8,12 @@ function builder(yargs) {
   .example('kaizen config set')
   .example('kaizen config get')
   .example('kaizen config unset')
-	.demandCommand(1, '');
+  .demandCommand(1, '')
+  .epilogue(
+		'Configuration management:\n\n'.underline.yellow + 
+    'Use ' + '\'kaizen config <command>\''.yellow + ' allow you to ' + 
+    '\'get\''.yellow + ', ' + '\'set\''.yellow + ', ' + '\'unset\''.yellow + ' the configuration into KAIZEN environment.'
+	);
 }
 
 async function handler(argv) {

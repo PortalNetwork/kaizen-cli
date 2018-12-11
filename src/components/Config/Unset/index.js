@@ -2,6 +2,7 @@ const path = require('path');
 const fsx = require('fs-extra');
 const Spinner = require('../../../lib/Spinner');
 const Log = require('../../../lib/Log');
+require('colors');
 
 function builder(yargs) {
   return yargs
