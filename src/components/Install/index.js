@@ -19,7 +19,10 @@ async function handler(argv) {
     const { url } = argv;
     await cloneProjectFromGithub(url);
     Spinner.stop();
-    Log.SuccessLog(`==== Install from ${url} Successfully ====`);
+    Log.SuccessLog(`Install from ${url} Successfully`);
+    Log.NormalLog('Now you can go to the project folder.');
+    Log.NormalLog('After you get into the folder, you can install the node packages by using ' + '\'npm install\''.yellow);
+    Log.NormalLog('Let\'s start BUIDL!'.green);
   } catch (error) {
     Spinner.stop();
     Log.ErrorLog('something went wrong!');
