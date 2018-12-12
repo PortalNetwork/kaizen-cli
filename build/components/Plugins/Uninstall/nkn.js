@@ -11,6 +11,7 @@ module.exports =
 _asyncToGenerator(
 /*#__PURE__*/
 regeneratorRuntime.mark(function _callee() {
+  var configPath, userConfig;
   return regeneratorRuntime.wrap(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -19,6 +20,23 @@ regeneratorRuntime.mark(function _callee() {
           return ExecuteCommand('npm uninstall nkn-client');
 
         case 2:
+          // update user's kaizen config
+          configPath = path.resolve('./', 'kaizen.json');
+          userConfig = fsx.existsSync(configPath) ? fsx.readJsonSync(configPath) : {};
+
+          if (!userConfig.plugins) {
+            userConfig.plugins = [];
+          }
+
+          if (userConfig.plugins.includes('nkn') === false) {
+            userConfig.plugins = userConfig.plugins.filter(function (element) {
+              return element != 'nkn';
+            });
+          }
+
+          fsx.outputJsonSync(path.resolve('./', 'kaizen.json'), userConfig);
+
+        case 7:
         case "end":
           return _context.stop();
       }
