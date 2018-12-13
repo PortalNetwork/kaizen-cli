@@ -133,6 +133,6 @@ function inputEmailAndPassword() {
 
 module.exports = function (yargs) {
   var command = 'login';
-  var commandDescription = 'To log in KAIZEN manager';
+  var commandDescription = 'Login KAIZEN Platform';
   yargs.command(command, commandDescription, builder, handler);
 };

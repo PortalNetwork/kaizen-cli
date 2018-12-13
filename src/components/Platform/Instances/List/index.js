@@ -50,6 +50,6 @@ async function handler(argv) {
 
 module.exports = function (yargs) {
   const command = 'list';
-  const commandDescription = 'Lists all instances';
+  const commandDescription = 'List all instances';
   yargs.command(command, commandDescription, builder, handler);
 }

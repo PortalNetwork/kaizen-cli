@@ -39,6 +39,6 @@ async function handler(argv) {
 
 module.exports = function (yargs) {
   const command = 'logout';
-  const commandDescription = 'To log out KAIZEN manager';
+  const commandDescription = 'Logout KAIZEN Platform';
   yargs.command(command, commandDescription, builder, handler);
 }
