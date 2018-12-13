@@ -3,9 +3,9 @@
 
 Upload project to server or decentralized storage
 
-* [`kaizen upload`](#kaizen-install)
+* [`kaizen upload`](#kaizen-upload)
 
-## `kaizen install`
+## `kaizen upload`
 
 Upload project to server or decentralized storage
 
