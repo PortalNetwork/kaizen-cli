@@ -92,6 +92,6 @@ function inputEmailAndPassword() {
 
 module.exports = function (yargs) {
   const command = 'login';
-  const commandDescription = 'To log in KAIZEN manager';
+  const commandDescription = 'Login KAIZEN Platform';
   yargs.command(command, commandDescription, builder, handler);
 }

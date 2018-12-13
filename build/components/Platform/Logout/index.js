@@ -80,6 +80,6 @@ function _handler() {
 
 module.exports = function (yargs) {
   var command = 'logout';
-  var commandDescription = 'To log out KAIZEN manager';
+  var commandDescription = 'Logout KAIZEN Platform';
   yargs.command(command, commandDescription, builder, handler);
 };

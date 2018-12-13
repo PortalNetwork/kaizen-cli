@@ -31,7 +31,8 @@ function builder(yargs) {
       require: true
     })
     .example('kaizen upload ipfs . => to upload the current folder')
-    .example('kaizen upload ipfs ./build => to upload the build folder in the current folder');
+    .example('kaizen upload ipfs ./build => to upload the build folder in the current folder')
+    .demandOption(['file'], '');
 }
 
 async function handler(argv) {
