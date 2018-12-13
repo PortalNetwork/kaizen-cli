@@ -4,6 +4,9 @@
 Config management for KAIZEN
 
 * [`kaizen config`](#kaizen-config)
+* [`kaizen config set`](#kaizen-config-set)
+* [`kaizen config get`](#kaizen-config-get)
+* [`kaizen config unset`](#kaizen-config-unset)
 
 ## `kaizen config`
 
