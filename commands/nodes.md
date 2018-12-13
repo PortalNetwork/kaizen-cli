@@ -1,54 +1,54 @@
-`kaizen instances`
+`kaizen nodes`
 ===============
 
-Instances management for KAIZEN
+node management for KAIZEN
 
-* [`kaizen instances`](#kaizen-instances)
-* [`kaizen instances deploy`](#kaizen-instances-deploy)
-* [`kaizen instances list`](#kaizen-instances-list)
-* [`kaizen instances info`](#kaizen-instances-list)
+* [`kaizen nodes`](#kaizen-nodes)
+* [`kaizen nodes deploy`](#kaizen-nodes-deploy)
+* [`kaizen nodes list`](#kaizen-nodes-list)
+* [`kaizen nodes info`](#kaizen-nodes-list)
 
-## `kaizen instances`
+## `kaizen nodes`
 
-Instance management of KAIZEN Platform
+Node management of KAIZEN Platform
 
 ```
 Commands:
-  kaizen instances deploy  Deploy an instance
-  kaizen instances list    Lists all instances
-  kaizen instances info    Show instance information
+  kaizen nodes deploy  Deploy an node
+  kaizen nodes list    List all nodes
+  kaizen nodes info    Show node information
 
 Options:
   --help     Show help                                                 [boolean]
   --version  Show version number                                       [boolean]
 
 Examples:
-  kaizen instances deploy
-  kaizen instances info
-  kaizen instances list
+  kaizen nodes deploy
+  kaizen nodes info
+  kaizen nodes list
 ```
 
-## `kaizen instances deploy`
+## `kaizen nodes deploy`
 
-Deploy an instance
+Deploy an node
 
 ```
 Options:
   --help          Show help                                            [boolean]
   --version       Show version number                                  [boolean]
-  --protocol, -p  Protocol of the instance
+  --protocol, -p  Protocol of the node
     [string] [required] [choices: "ipfs-gateway", "ipfs-api-server", "ethereum",
                                                              "wanchain", "icon"]
-  --network, -n   Network of the instance; mainnet: 1, testnet: 3
+  --network, -n   Network of the node; mainnet: 1, testnet: 3
                                                              [string] [required]
 
 Examples:
-  kaizen instances deploy --protocol ipfs-gateway --network 1
+  kaizen nodes deploy --protocol ipfs-gateway --network 1
 ```
 
-## `kaizen instances list`
+## `kaizen nodes list`
 
-List all instances
+List all nodes
 
 ```
 Options:
@@ -56,22 +56,22 @@ Options:
   --version  Show version number                                       [boolean]
 
 Examples:
-  kaizen instances list
+  kaizen nodes list
 ```
 
-## `kaizen instances info`
+## `kaizen nodes info`
 
-Show instance information
+Show node information
 
 ```
 Options:
   --help          Show help                                            [boolean]
   --version       Show version number                                  [boolean]
-  --instance, -i  Instance id                                [string] [required]
-  --type, -t      Type of the instance
+  --node, -i      Node id                                [string] [required]
+  --type, -t      Type of the node
           [string] [required] [choices: "SHARED", "PUBLIC", "PRIVATE"] [default:
                                                                        "SHARED"]
 
 Examples:
-  kaizen instances info --instance 7 --type SHARED
+  kaizen nodes info --node 7 --type SHARED
 ```
