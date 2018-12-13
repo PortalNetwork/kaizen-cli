@@ -11,17 +11,17 @@ function builder(yargs) {
     .option('protocol', {
       alias: 'p',
       type: 'string',
-      describe: 'Protocol of the instance',
+      describe: 'Protocol of the node',
       require: true,
       choices: ['ipfs-gateway', 'ipfs-api-server', 'ethereum', 'wanchain', 'icon']
     })
     .option('network', {
       alias: 'n',
       type: 'string',
-      describe: 'Network of the instance; mainnet: 1, testnet: 3',
+      describe: 'Network of the node; mainnet: 1, testnet: 3',
       require: true
     })
-    .example('kaizen instances deploy --protocol ipfs-gateway --network 1')
+    .example('kaizen nodes deploy --protocol ipfs-gateway --network 1')
     .demandOption(['protocol', 'network'], '');
 }
 
@@ -54,9 +54,9 @@ async function handler(argv) {
     const instances = await apiKaizenCreateSharedInstance(config.idToken, protocol, net);
     Spinner.stop();
     if (instances.data.isSuccess) {
-      Log.SuccessLog('Create shared instance success');
+      Log.SuccessLog('Create shared node success');
       const table = new Table({
-        head: ['InstanceId'.green, 'Protocol'.green, 'Type'.green, 'Provider'.green, 'Public DNS'.green, 'Network'.green, 'Region'.green]
+        head: ['Node Id'.green, 'Protocol'.green, 'Type'.green, 'Provider'.green, 'Public DNS'.green, 'Network'.green, 'Region'.green]
       });
       table.push([instances.data.instanceId, instances.data.name, 'SHARED', instances.data.provider, instances.data.publicDNS, net, instances.data.region]);
       console.log(table.toString());
@@ -76,6 +76,6 @@ async function handler(argv) {
 
 module.exports = function (yargs) {
   const command = 'deploy';
-  const commandDescription = 'Deploy an instance';
+  const commandDescription = 'Deploy a node';
   yargs.command(command, commandDescription, builder, handler);
 }

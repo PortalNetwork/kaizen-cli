@@ -8,7 +8,7 @@ require('colors');
 
 function builder(yargs) {
   return yargs
-    .example('kaizen instances list');
+    .example('kaizen nodes list');
 }
 
 async function handler(argv) {
@@ -20,25 +20,25 @@ async function handler(argv) {
     }
 
     Spinner.start();
-    const instances = await apiKaizenInstanceList(config.idToken);
+    const nodes = await apiKaizenInstanceList(config.idToken);
     Spinner.stop();
-    if (instances.data.instanceList) {
-      const instanceList = instances.data.instanceList;
+    if (nodes.data.instanceList) {
+      const instanceList = nodes.data.instanceList;
       Log.SuccessLog('Get instance list');
       if (instanceList.length > 0) {
         // TODO table display
-        Log.NormalLog(`You have ${instanceList.length} instances:\n`);
+        Log.NormalLog(`You have ${instanceList.length} nodes:\n`);
         const table = new Table({
-          head: ['InstanceId'.green, 'Name'.green, 'Type'.green, 'Protocol'.green, 'Network'.green, 'Running Node'.green]
+          head: ['Node Id'.green, 'Name'.green, 'Type'.green, 'Protocol'.green, 'Network'.green, 'Running Node'.green]
         });
         instanceList.forEach((row) => {
           table.push([row.instanceId, row.name, row.type, row.protocol, row.network, row.node]);
         })
         console.log(table.toString());
-        Log.NormalLog('\nInstance management: '.underline.yellow);
-        Log.NormalLog('Use ' + '\'kaizen instances info --instance <INSTANCE_ID>\''.yellow + ' to get more information of the instance');
+        Log.NormalLog('\nNode management: '.underline.yellow);
+        Log.NormalLog('Use ' + '\'kaizen nodes info --node <NODE_ID>\''.yellow + ' to get more information of the node');
       } else {
-        Log.NormalLog('You don\'t have any instance. \nUse \'kaizen instances deploy\' to create instance');
+        Log.NormalLog('You don\'t have any node. \nUse \'kaizen nodes deploy\' to create node');
       }
     }
   } catch (error) {
@@ -50,6 +50,6 @@ async function handler(argv) {
 
 module.exports = function (yargs) {
   const command = 'list';
-  const commandDescription = 'List all instances';
+  const commandDescription = 'List all nodes';
   yargs.command(command, commandDescription, builder, handler);
 }

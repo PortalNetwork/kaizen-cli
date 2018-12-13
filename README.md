@@ -68,7 +68,7 @@ kaizen upload ipfs ./build
 The KAIZEN Platform is currently in experimental alpha.
 - [`kaizen login`](commands/login.md) - Login or sign up for the KAIZEN Platform
 - [`kaizen logout`](commands/logout.md) - Logout from the KAIZEN Platform
-- [`kaizen instances`](commands/instances.md) - Instance management of KAIZEN Platform
+- [`kaizen nodes`](commands/nodes.md) - Node management of KAIZEN Platform
 
 ## <a name="plugins"></a>🏗 Plugins
 - [Bluzelle](https://www.npmjs.com/package/bluzelle)
