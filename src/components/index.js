@@ -20,7 +20,7 @@ require('./Blockchains')(yargs);
 /** Platform Management **/
 require('./Platform/Login')(yargs);
 require('./Platform/Logout')(yargs);
-require('./Platform/Instances')(yargs);
+require('./Platform/Nodes')(yargs);
 
 yargs
 .demandCommand(1, '')

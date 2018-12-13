@@ -8,26 +8,26 @@ require('colors');
 
 function builder(yargs) {
   return yargs
-    .option('instance', {
+    .option('node', {
       alias: 'i',
       type: 'string',
-      describe: 'Instance id',
+      describe: 'node id',
       require: true
     })
     .option('type', {
       alias: 't',
       type: 'string',
-      describe: 'Type of the instance',
+      describe: 'Type of the node',
       require: true,
       default: 'SHARED',
       choices: ['SHARED', 'PUBLIC', 'PRIVATE']
     })
-    .example('kaizen instances info --instance 7 --type SHARED');
+    .example('kaizen nodes info --node 7 --type SHARED');
 }
 
 async function handler(argv) {
   try {
-    let {instance, type} = argv;
+    let {node, type} = argv;
     const config = fsx.readJsonSync(path.resolve(__dirname, '../../../../../.kaizenrc'));
     if (!config.idToken) {
       Log.ErrorLog('Please login first, use \'kaizen login\' to login into KAIZEN Platform');
@@ -35,20 +35,20 @@ async function handler(argv) {
     }
 
     Spinner.start();
-    const instanceInfo = await apiKaizenInstanceInfo(config.idToken, instance, type);
+    const instanceInfo = await apiKaizenInstanceInfo(config.idToken, node, type);
     Spinner.stop();
     if (instanceInfo.data) {
-      Log.SuccessLog('Get instance information');
+      Log.SuccessLog('Get node information');
       // TODO table display
       let data = instanceInfo.data;
       const table = new Table({
-        head: ['Instance Id'.green, 'Name'.green, 'Protocol'.green, 'Network'.green, 'Provider'.green, 'Region'.green, 'Public DNS'.green]
+        head: ['Node Id'.green, 'Name'.green, 'Protocol'.green, 'Network'.green, 'Provider'.green, 'Region'.green, 'Public DNS'.green]
       });
       table.push([data.instanceid, data.name, data.protocol, data.network, data.provider, data.region, data.publicdns]);
       console.log(table.toString());
       //Log.NormalLog(table.toString());
     } else {
-      Log.NormalLog('Can not find instance');
+      Log.NormalLog('Can not find node');
     }
   } catch (error) {
     Spinner.stop();
@@ -59,6 +59,6 @@ async function handler(argv) {
 
 module.exports = function (yargs) {
   const command = 'info';
-  const commandDescription = 'Show instance information';
+  const commandDescription = 'Show node information';
   yargs.command(command, commandDescription, builder, handler);
 }

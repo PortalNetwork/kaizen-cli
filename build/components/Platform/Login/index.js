@@ -65,9 +65,9 @@ function _handler() {
             Log.NormalLog("Welcome ".concat(name, "!\n"));
             Log.NormalLog('KAIZEN Platform (Alpha)'.underline.yellow);
             Log.NormalLog('You can interact with KAIZEN Platform thorugh the following commands.'.gray);
-            Log.NormalLog('Use ' + '\'kaizen instances list\''.yellow + ' to get the instance list.');
-            Log.NormalLog('Use ' + '\'kaizen instances info\''.yellow + ' to get the instance information.');
-            Log.NormalLog('Use ' + '\'kaizen instances deploy\''.yellow + ' to deploy a new instance.\n');
+            Log.NormalLog('Use ' + '\'kaizen nodes list\''.yellow + ' to get the node list.');
+            Log.NormalLog('Use ' + '\'kaizen nodes info\''.yellow + ' to get the node information.');
+            Log.NormalLog('Use ' + '\'kaizen nodes deploy\''.yellow + ' to deploy a new node.\n');
             Log.NormalLog('More information and documentation, please visit:');
             Log.NormalLog('https://github.com/PortalNetwork/kaizen-cli'.yellow.underline + '\n');
             _context.next = 30;
