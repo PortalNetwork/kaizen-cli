@@ -99,6 +99,6 @@ function _handler() {
 
 module.exports = function (yargs) {
   var command = 'list';
-  var commandDescription = 'Lists all instances';
+  var commandDescription = 'List all instances';
   yargs.command(command, commandDescription, builder, handler);
 };

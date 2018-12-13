@@ -32,7 +32,7 @@ function builder(yargs) {
     type: 'string',
     describe: 'plugin name',
     require: true
-  }).example('kaizen plugins uninstall bluzelle').example('kaizen plugins uninstall nkn');
+  }).example('kaizen plugins uninstall bluzelle').example('kaizen plugins uninstall nkn').demandOption(['plugin'], '');
 }
 
 function handler(_x) {

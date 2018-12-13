@@ -17,7 +17,8 @@ function builder(yargs) {
       require: true
     })
     .example('kaizen plugins uninstall bluzelle')
-    .example('kaizen plugins uninstall nkn');
+    .example('kaizen plugins uninstall nkn')
+    .demandOption(['plugin'], '');
 }
 
 async function handler(argv) {
