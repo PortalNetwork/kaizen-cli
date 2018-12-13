@@ -40,9 +40,9 @@ async function handler(argv) {
       Log.NormalLog(`Welcome ${name}!\n`);
       Log.NormalLog('KAIZEN Platform (Alpha)'.underline.yellow);
       Log.NormalLog('You can interact with KAIZEN Platform thorugh the following commands.'.gray);
-      Log.NormalLog('Use ' + '\'kaizen instances list\''.yellow + ' to get the instance list.');
-      Log.NormalLog('Use ' + '\'kaizen instances info\''.yellow + ' to get the instance information.');
-      Log.NormalLog('Use ' + '\'kaizen instances deploy\''.yellow + ' to deploy a new instance.\n');
+      Log.NormalLog('Use ' + '\'kaizen nodes list\''.yellow + ' to get the node list.');
+      Log.NormalLog('Use ' + '\'kaizen nodes info\''.yellow + ' to get the node information.');
+      Log.NormalLog('Use ' + '\'kaizen nodes deploy\''.yellow + ' to deploy a new node.\n');
       Log.NormalLog('More information and documentation, please visit:');
       Log.NormalLog('https://github.com/PortalNetwork/kaizen-cli'.yellow.underline + '\n');
     } catch (loginError) {
@@ -92,6 +92,6 @@ function inputEmailAndPassword() {
 
 module.exports = function (yargs) {
   const command = 'login';
-  const commandDescription = 'To log in KAIZEN manager';
+  const commandDescription = 'Login KAIZEN Platform';
   yargs.command(command, commandDescription, builder, handler);
 }

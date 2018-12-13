@@ -10,15 +10,18 @@ module.exports = async function () {
   await ExecuteCommand("npm uninstall rusha");
 
   // update user's kaizen config
-  const userConfig = fsx.readJsonSync(path.resolve("./", "kaizen.json"));
+  const configPath = path.resolve('./', 'kaizen.json');
+  const userConfig = fsx.existsSync(configPath) ? fsx.readJsonSync(configPath) : {}; 
 
-  if (!userConfig.plugins) {
+  if(!userConfig.plugins) {
     userConfig.plugins = [];
   }
 
-  if (userConfig.plugins.includes("noia") === false) {
-    userConfig.plugins.push("noia");
+  if(userConfig.plugins.includes('noia') === false) {
+    userConfig.plugins = userConfig.plugins.filter(function(element) {
+      return element != 'noia';
+    });
   }
 
-  fsx.outputJsonSync(path.resolve("./", "kaizen.json"), userConfig);
+  fsx.outputJsonSync(path.resolve('./', 'kaizen.json'), userConfig);
 };

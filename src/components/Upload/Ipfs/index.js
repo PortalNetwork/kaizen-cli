@@ -31,7 +31,8 @@ function builder(yargs) {
       require: true
     })
     .example('kaizen upload ipfs . => to upload the current folder')
-    .example('kaizen upload ipfs ./build => to upload the build folder in the current folder');
+    .example('kaizen upload ipfs ./build => to upload the build folder in the current folder')
+    .demandOption(['file'], '');
 }
 
 async function handler(argv) {
@@ -127,6 +128,6 @@ function getFilesReadyToIPFS(targetPath) {
 
 module.exports = function (yargs) {
   const command = 'ipfs [file]';
-  const commandDescription = 'To upload file or folder to IPFS';
+  const commandDescription = 'Upload file or folder to IPFS';
   yargs.command(command, commandDescription, builder, handler);
 }

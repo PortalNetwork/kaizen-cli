@@ -15,24 +15,12 @@ var Log = require('../../../../lib/Log');
 var Spinner = require('../../../../lib/Spinner');
 
 var _require = require('../../../../lib/apis'),
-    apiKaizenInstanceInfo = _require.apiKaizenInstanceInfo;
+    apiKaizenInstanceList = _require.apiKaizenInstanceList;
 
 require('colors');
 
 function builder(yargs) {
-  return yargs.option('instance', {
-    alias: 'i',
-    type: 'string',
-    describe: 'Instance id',
-    require: true
-  }).option('type', {
-    alias: 't',
-    type: 'string',
-    describe: 'Type of the instance',
-    require: true,
-    default: 'SHARED',
-    choices: ['SHARED', 'PUBLIC', 'PRIVATE']
-  }).example('kaizen instances info --instance 7 --type SHARED');
+  return yargs.example('kaizen nodes list');
 }
 
 function handler(_x) {
@@ -43,67 +31,74 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var instance, type, config, instanceInfo, data, table;
+    var config, nodes, instanceList, table;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            instance = argv.instance, type = argv.type;
             config = fsx.readJsonSync(path.resolve(__dirname, '../../../../../.kaizenrc'));
 
             if (config.idToken) {
-              _context.next = 6;
+              _context.next = 5;
               break;
             }
 
             Log.ErrorLog('Please login first, use \'kaizen login\' to login into KAIZEN Platform');
             return _context.abrupt("return");
 
-          case 6:
+          case 5:
             Spinner.start();
-            _context.next = 9;
-            return apiKaizenInstanceInfo(config.idToken, instance, type);
+            _context.next = 8;
+            return apiKaizenInstanceList(config.idToken);
 
-          case 9:
-            instanceInfo = _context.sent;
+          case 8:
+            nodes = _context.sent;
             Spinner.stop();
 
-            if (instanceInfo.data) {
-              Log.SuccessLog('Get instance information'); // TODO table display
+            if (nodes.data.instanceList) {
+              instanceList = nodes.data.instanceList;
+              Log.SuccessLog('Get instance list');
 
-              data = instanceInfo.data;
-              table = new Table({
-                head: ['Instance Id'.green, 'Name'.green, 'Protocol'.green, 'Network'.green, 'Provider'.green, 'Region'.green, 'Public DNS'.green]
-              });
-              table.push([data.instanceid, data.name, data.protocol, data.network, data.provider, data.region, data.publicdns]);
-              console.log(table.toString()); //Log.NormalLog(table.toString());
-            } else {
-              Log.NormalLog('Can not find instance');
+              if (instanceList.length > 0) {
+                // TODO table display
+                Log.NormalLog("You have ".concat(instanceList.length, " nodes:\n"));
+                table = new Table({
+                  head: ['Node Id'.green, 'Name'.green, 'Type'.green, 'Protocol'.green, 'Network'.green, 'Running Node'.green]
+                });
+                instanceList.forEach(function (row) {
+                  table.push([row.instanceId, row.name, row.type, row.protocol, row.network, row.node]);
+                });
+                console.log(table.toString());
+                Log.NormalLog('\nNode management: '.underline.yellow);
+                Log.NormalLog('Use ' + '\'kaizen nodes info --node <NODE_ID>\''.yellow + ' to get more information of the node');
+              } else {
+                Log.NormalLog('You don\'t have any node. \nUse \'kaizen nodes deploy\' to create node');
+              }
             }
 
-            _context.next = 19;
+            _context.next = 18;
             break;
 
-          case 14:
-            _context.prev = 14;
+          case 13:
+            _context.prev = 13;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t0);
 
-          case 19:
+          case 18:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 14]]);
+    }, _callee, this, [[0, 13]]);
   }));
   return _handler.apply(this, arguments);
 }
 
 module.exports = function (yargs) {
-  var command = 'info';
-  var commandDescription = 'Show instance information';
+  var command = 'list';
+  var commandDescription = 'List all nodes';
   yargs.command(command, commandDescription, builder, handler);
 };

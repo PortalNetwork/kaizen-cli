@@ -24,13 +24,15 @@ var nknHandler = require('./nkn.js');
 
 var noiaHandler = require('./noia.js');
 
+var iconHandler = require('./icon.js');
+
 function builder(yargs) {
   return yargs.positional('plugin', {
     alias: 'p',
     type: 'string',
     describe: 'plugin name',
     require: true
-  }).example('kaizen plugins uninstall bluzelle').example('kaizen plugins uninstall nkn');
+  }).example('kaizen plugins uninstall bluzelle').example('kaizen plugins uninstall nkn').demandOption(['plugin'], '');
 }
 
 function handler(_x) {
@@ -73,7 +75,7 @@ function _handler() {
 
           case 11:
             _context.t0 = plugin;
-            _context.next = _context.t0 === 'bluzelle' ? 14 : _context.t0 === 'nkn' ? 22 : _context.t0 === 'noia' ? 30 : 38;
+            _context.next = _context.t0 === 'bluzelle' ? 14 : _context.t0 === 'nkn' ? 22 : _context.t0 === 'noia' ? 30 : _context.t0 === 'icon' ? 38 : 46;
             break;
 
           case 14:
@@ -85,8 +87,8 @@ function _handler() {
           case 18:
             updateKaizenJson(kaizenJson, 'bluzelle');
             Spinner.stop();
-            Log.SuccessLog("==== Remove package ".concat(plugin, " Successfully ===="));
-            return _context.abrupt("break", 39);
+            Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 47);
 
           case 22:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -97,8 +99,8 @@ function _handler() {
           case 26:
             updateKaizenJson(kaizenJson, 'nkn');
             Spinner.stop();
-            Log.SuccessLog("==== Remove package ".concat(plugin, " Successfully ===="));
-            return _context.abrupt("break", 39);
+            Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 47);
 
           case 30:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -109,29 +111,41 @@ function _handler() {
           case 34:
             updateKaizenJson(kaizenJson, 'noia');
             Spinner.stop();
-            Log.SuccessLog("==== Remove package ".concat(plugin, " Successfully ===="));
-            return _context.abrupt("break", 39);
+            Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 47);
 
           case 38:
+            Log.NormalLog('Uninstalling plugin, please wait a second...');
+            Spinner.start();
+            _context.next = 42;
+            return iconHandler();
+
+          case 42:
+            updateKaizenJson(kaizenJson, 'icon');
+            Spinner.stop();
+            Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 47);
+
+          case 46:
             Log.NormalLog('Plugin not support yet');
 
-          case 39:
-            _context.next = 46;
+          case 47:
+            _context.next = 54;
             break;
 
-          case 41:
-            _context.prev = 41;
+          case 49:
+            _context.prev = 49;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 46:
+          case 54:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 41]]);
+    }, _callee, this, [[0, 49]]);
   }));
   return _handler.apply(this, arguments);
 }

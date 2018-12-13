@@ -36,7 +36,7 @@ function builder(yargs) {
     describe: 'protocol of IPFS endpoint',
     default: 'https',
     require: true
-  }).example('kaizen upload ipfs . => to upload the current folder').example('kaizen upload ipfs ./build => to upload the build folder in the current folder');
+  }).example('kaizen upload ipfs . => to upload the current folder').example('kaizen upload ipfs ./build => to upload the build folder in the current folder').demandOption(['file'], '');
 }
 
 function handler(_x) {
@@ -181,6 +181,6 @@ function getFilesReadyToIPFS(targetPath) {
 
 module.exports = function (yargs) {
   var command = 'ipfs [file]';
-  var commandDescription = 'To upload file or folder to IPFS';
+  var commandDescription = 'Upload file or folder to IPFS';
   yargs.command(command, commandDescription, builder, handler);
 };

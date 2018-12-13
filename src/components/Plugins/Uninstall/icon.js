@@ -3,7 +3,7 @@ const fsx = require("fs-extra");
 const ExecuteCommand = require('../../../lib/ExecuteCommand');
 
 module.exports = async function() {
-  await ExecuteCommand('npm uninstall bluzelle');
+  await ExecuteCommand('npm uninstall icon-sdk-js');
 
   // update user's kaizen config
   const configPath = path.resolve('./', 'kaizen.json');
@@ -13,9 +13,9 @@ module.exports = async function() {
     userConfig.plugins = [];
   }
 
-  if(userConfig.plugins.includes('bluzelle') === false) {
+  if(userConfig.plugins.includes('icon') === false) {
     userConfig.plugins = userConfig.plugins.filter(function(element) {
-      return element != 'bluzelle';
+      return element != 'icon';
     });
   }
 

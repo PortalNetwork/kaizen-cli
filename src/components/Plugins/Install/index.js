@@ -5,6 +5,7 @@ const Spinner = require('../../../lib/Spinner');
 const bluzelleHandler = require('./bluzelle.js');
 const noiaHandler = require('./noia.js');
 const nknHandler = require('./nkn.js');
+const iconHandler = require('./icon.js');
 
 function builder(yargs) {
   return yargs
@@ -15,7 +16,8 @@ function builder(yargs) {
       require: true
     })
     .example('kaizen plugins install bluzelle')
-    .example('kaizen plugins install nkn');
+    .example('kaizen plugins install nkn')
+    .demandOption(['plugin'], '');
 }
 
 async function handler(argv) {
@@ -39,21 +41,28 @@ async function handler(argv) {
         Spinner.start();
         await bluzelleHandler();
         Spinner.stop();
-        Log.SuccessLog(`Install package ${plugin} Successfully`);
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;
       case 'nkn':
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await nknHandler();
         Spinner.stop();
-        Log.SuccessLog(`Install package ${plugin} Successfully`);
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;
       case 'noia':
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await noiaHandler();
         Spinner.stop();
-        Log.SuccessLog(`Install package ${plugin} Successfully`);
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'icon':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await iconHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;
       default:
         Log.NormalLog('Plugin not support yet');

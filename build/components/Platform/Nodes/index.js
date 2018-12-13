@@ -11,7 +11,7 @@ function builder(yargs) {
 
   require('./Info')(yargs);
 
-  return yargs.example('kaizen instances deploy').example('kaizen instances info').example('kaizen instances list').demandCommand(1, '');
+  return yargs.example('kaizen nodes deploy').example('kaizen nodes info').example('kaizen nodes list').demandCommand(1, '');
 }
 
 function handler(_x) {
@@ -36,7 +36,7 @@ function _handler() {
 }
 
 module.exports = function (yargs) {
-  var command = 'instances';
-  var commandDescription = 'Instance management of KAIZEN Platform';
+  var command = 'nodes';
+  var commandDescription = 'Node management of KAIZEN Platform';
   yargs.command(command, commandDescription, builder, handler);
 };

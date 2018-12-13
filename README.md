@@ -56,36 +56,24 @@ kaizen upload ipfs ./build
 
 ## <a name="command-topics"></a>🔨 Command Topics
 
-- `kaizen config` - Configure KAIZEN
-- `kaizen config set` - Set config variable
-- `kaizen config get` - Get config variable
-- `kaizen config unset` - Unset config variable
-- `kaizen create` - Create new KAIZEN project
-- `kaizen install` - Install a KAIZEN project from GitHub
-- `kaizen upload` - Upload a KAIZEN project
-- `kaizen plugins` - Plugin management for KAIZEN 
-- `kaizen plugins install` - Install and add a plugin to your project
-- `kaizen plugins uninstall` - Uninstall and remove a plugin from your project 
-- `kaizen plugins list` - Lists all available plugins
-- `kaizen contracts` - Contract management for KAIZEN
-- `kaizen contracts deploy` - Deploy smart contract
-- `kaizen blockchains` - Blockchain management for KAIZEN
-- `kaizen blockchains tx` - Get transaction result
-- `kaizen blockchains balance` - Get account balance
-- `kaizen blockchains faucet` - Get testnet token
+- [`kaizen config`](commands/config.md) - Configure KAIZEN
+- [`kaizen create`](commands/create.md) - Create new KAIZEN project
+- [`kaizen install`](commands/install.md) - Install a KAIZEN project from GitHub
+- [`kaizen upload`](commands/upload.md) - Upload a KAIZEN project
+- [`kaizen plugins`](commands/plugins.md) - Plugin management for KAIZEN 
+- [`kaizen contracts`](commands/contracts.md) - Contract management for KAIZEN
+- [`kaizen blockchains`](commands/blockchains.md) - Blockchain management for KAIZEN
 
 #### Platform (Alpha)
 The KAIZEN Platform is currently in experimental alpha.
-- `kaizen login` - Login or sign up for the KAIZEN Platform
-- `kaizen logout` - Logout from the KAIZEN Platform
-- `kaizen instances` - Instance management of KAIZEN Platform
-- `kaizen instances list` - Lists all instances
-- `kaizen instances info` - Show instance information
-- `kaizen instances deploy` - Deploy an instance
+- [`kaizen login`](commands/login.md) - Login or sign up for the KAIZEN Platform
+- [`kaizen logout`](commands/logout.md) - Logout from the KAIZEN Platform
+- [`kaizen nodes`](commands/nodes.md) - Node management of KAIZEN Platform
 
 ## <a name="plugins"></a>🏗 Plugins
-- Bluzelle
-- NKN
+- [Bluzelle](https://www.npmjs.com/package/bluzelle)
+- [NKN](https://www.npmjs.com/package/nkn-client)
+- [ICON](https://www.npmjs.com/package/icon-sdk-js)
 - NOIA
 
 ## <a name="community"></a>💡 Community
