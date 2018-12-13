@@ -13,6 +13,7 @@ function builder(yargs) {
     'bluzelle'.underline.yellow + ' - Decentralized database\n' +
     'nkn'.underline.yellow + ' - Data transmisstion\n' + 
     'noia'.underline.yellow + ' - Decentralized CDN\n' + 
+    'icon'.underline.yellow + ' - Blockchain\n' +
 		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
 		' to interact with plugins.\n'
 	);

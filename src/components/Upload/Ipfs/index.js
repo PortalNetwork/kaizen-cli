@@ -127,6 +127,6 @@ function getFilesReadyToIPFS(targetPath) {
 
 module.exports = function (yargs) {
   const command = 'ipfs [file]';
-  const commandDescription = 'To upload file or folder to IPFS';
+  const commandDescription = 'Upload file or folder to IPFS';
   yargs.command(command, commandDescription, builder, handler);
 }

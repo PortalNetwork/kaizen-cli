@@ -6,6 +6,7 @@ const Spinner = require('../../../lib/Spinner');
 const bluzelleHandler = require('./bluzelle.js');
 const nknHandler = require('./nkn.js');
 const noiaHandler = require('./noia.js');
+const iconHandler = require('./icon.js');
 
 function builder(yargs) {
   return yargs
@@ -41,7 +42,7 @@ async function handler(argv) {
         await bluzelleHandler();
         updateKaizenJson(kaizenJson, 'bluzelle');
         Spinner.stop();
-        Log.SuccessLog(`==== Remove package ${plugin} Successfully ====`);
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;
       case 'nkn':
         Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -49,7 +50,7 @@ async function handler(argv) {
         await nknHandler();
         updateKaizenJson(kaizenJson, 'nkn');
         Spinner.stop();
-        Log.SuccessLog(`==== Remove package ${plugin} Successfully ====`);
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;
       case 'noia':
         Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -57,8 +58,17 @@ async function handler(argv) {
         await noiaHandler();
         updateKaizenJson(kaizenJson, 'noia');
         Spinner.stop();
-        Log.SuccessLog(`==== Remove package ${plugin} Successfully ====`);
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;
+      case 'icon':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await iconHandler();
+        updateKaizenJson(kaizenJson, 'icon');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
+        
       default:
         Log.NormalLog('Plugin not support yet');
     }

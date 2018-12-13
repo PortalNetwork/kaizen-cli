@@ -18,11 +18,10 @@ function builder(yargs) {
     .option('network', {
       alias: 'n',
       type: 'string',
-      describe: 'Network of the instance',
-      require: true,
-      choices: ['mainnet', 'testnet']
+      describe: 'Network of the instance; mainnet: 1, testnet: 3',
+      require: true
     })
-    .example('kaizen instances deploy --protocol ipfs-gateway --network mainnet')
+    .example('kaizen instances deploy --protocol ipfs-gateway --network 1')
     .demandOption(['protocol', 'network'], '');
 }
 
@@ -37,6 +36,14 @@ async function handler(argv) {
       Log.NormalLog('Missing network.');
       return;
     }
+    let net = '';
+    if (network === '1') {
+      net = 'mainnet';
+    } else if (network === '3') {
+      net = 'testnet';
+    } else {
+      Log.NormalLog('Unsupport network.');
+    }
     const config = fsx.readJsonSync(path.resolve(__dirname, '../../../../../.kaizenrc'));
     if (!config.idToken) {
       Log.NormalLog('Please login first, you can use ' + '\'kaizen login\'' + ' to login into KAIZEN Platform');
@@ -44,14 +51,14 @@ async function handler(argv) {
     }
 
     Spinner.start();
-    const instances = await apiKaizenCreateSharedInstance(config.idToken, protocol, network);
+    const instances = await apiKaizenCreateSharedInstance(config.idToken, protocol, net);
     Spinner.stop();
     if (instances.data.isSuccess) {
       Log.SuccessLog('Create shared instance success');
       const table = new Table({
         head: ['InstanceId'.green, 'Protocol'.green, 'Type'.green, 'Provider'.green, 'Public DNS'.green, 'Network'.green, 'Region'.green]
       });
-      table.push([instances.data.instanceId, instances.data.name, 'SHARED', instances.data.provider, instances.data.publicDNS, network, instances.data.region]);
+      table.push([instances.data.instanceId, instances.data.name, 'SHARED', instances.data.provider, instances.data.publicDNS, net, instances.data.region]);
       console.log(table.toString());
     }
   } catch (error) {

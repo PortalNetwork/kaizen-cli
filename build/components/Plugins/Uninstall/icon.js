@@ -8,7 +8,7 @@ var path = require("path");
 
 var fsx = require("fs-extra");
 
-var ExecuteCommand = require("../../../lib/ExecuteCommand");
+var ExecuteCommand = require('../../../lib/ExecuteCommand');
 
 module.exports =
 /*#__PURE__*/
@@ -21,25 +21,9 @@ regeneratorRuntime.mark(function _callee() {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return ExecuteCommand("npm uninstall @noia-network/sdk@rc");
+          return ExecuteCommand('npm uninstall icon-sdk-js');
 
         case 2:
-          _context.next = 4;
-          return ExecuteCommand("npm uninstall @noia-network/sdk-react@rc");
-
-        case 4:
-          _context.next = 6;
-          return ExecuteCommand("npm uninstall @noia-network/webrtc-direct-client");
-
-        case 6:
-          _context.next = 8;
-          return ExecuteCommand("npm uninstall worker-loader");
-
-        case 8:
-          _context.next = 10;
-          return ExecuteCommand("npm uninstall rusha");
-
-        case 10:
           // update user's kaizen config
           configPath = path.resolve('./', 'kaizen.json');
           userConfig = fsx.existsSync(configPath) ? fsx.readJsonSync(configPath) : {};
@@ -48,15 +32,15 @@ regeneratorRuntime.mark(function _callee() {
             userConfig.plugins = [];
           }
 
-          if (userConfig.plugins.includes('noia') === false) {
+          if (userConfig.plugins.includes('icon') === false) {
             userConfig.plugins = userConfig.plugins.filter(function (element) {
-              return element != 'noia';
+              return element != 'icon';
             });
           }
 
           fsx.outputJsonSync(path.resolve('./', 'kaizen.json'), userConfig);
 
-        case 15:
+        case 7:
         case "end":
           return _context.stop();
       }
