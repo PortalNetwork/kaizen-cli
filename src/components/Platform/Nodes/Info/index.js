@@ -39,7 +39,6 @@ async function handler(argv) {
     Spinner.stop();
     if (instanceInfo.data) {
       Log.SuccessLog('Get node information');
-      // TODO table display
       let data = instanceInfo.data;
       const table = new Table({
         head: ['Node Id'.green, 'Name'.green, 'Protocol'.green, 'Network'.green, 'Provider'.green, 'Region'.green, 'Public DNS'.green]
