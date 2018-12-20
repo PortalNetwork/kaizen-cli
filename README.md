@@ -19,11 +19,11 @@
 ## 🚀 Overview
 KAIZEN is an one stop solution for dapp and dweb developer. With KAIZEN, you get:
 
-- Built-in smart contract deployment.
-- Automated code testing with Mocha and Chai.
-- Configurable with support technologies for custom build processes.
+- Develop and manage multiple decentralized tech in one platform.
+- Easily build your blockchain on popular cloud providers.
+- Customize an existing blockchain to fulfill your requirements.
 
-## 📚 Contents
+## 📚 Table of Contents
 - [Quick Start](#quick-start)
 - [Examples](https://github.com/PortalNetwork/kaizen-examples)
 - [Contracts](https://github.com/PortalNetwork/kaizen-contracts)
@@ -89,7 +89,7 @@ We love our contributors!
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to help out.
 
-*Quick Start*: Check out [help wanted](https://github.com/PortalNetwork/kaizen-cli/labels/help%20wanted) or [good first issue](https://github.com/PortalNetwork/kaizencli/labels/good%20first%20issue) labels to find issues we want to move forward on with your help.
+*Quick Start*: Check out [help wanted](https://github.com/PortalNetwork/kaizen-cli/labels/help%20wanted) or [good first issue](https://github.com/PortalNetwork/kaizen-cli/labels/good%20first%20issue) labels to find issues we want to move forward on with your help.
 
 ## <a name="licence"></a>🗒 Licence
 See [LICENSE](./LICENSE) for details.

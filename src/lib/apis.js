@@ -52,3 +52,30 @@ exports.apiKaizenCreateSharedInstance = (idToken, protocol, network) => {
     }
   })
 }
+
+exports.apiKaizenCreatePublicInstance = (idToken, name, protocol, network, region, provider) => {
+  return axios.post('https://api.portal.network/kaizen/v1/instance/public', {
+    name: name,
+    protocol: protocol,
+    network: network,
+    region: region,
+    provider: provider
+  }, {
+    headers: {
+      Authorization: idToken
+    }
+  })
+}
+
+exports.apiKaizenCreatePrivateInstance = (idToken, name, protocol, region, provider) => {
+  return axios.post('https://api.portal.network/kaizen/v1/instance/private', {
+    name: name,
+    protocol: protocol,
+    region: region,
+    provider: provider
+  }, {
+    headers: {
+      Authorization: idToken
+    }
+  })
+}

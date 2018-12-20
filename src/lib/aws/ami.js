@@ -1,17 +1,17 @@
-{
-    "ipfs-api-server": {
+export const ami = {
+    "ipfs-api-server-mainnet": {
         "ImageId": "",
         "InstanceType": "t2.micro",
         "MinCount": 1,
         "MaxCount": 1
     },
-    "ipfs-gateway": {
+    "ipfs-gateway-mainnet": {
         "ImageId": "",
         "InstanceType": "t2.micro",
         "MinCount": 1,
         "MaxCount": 1
     },
-    "icon": {
+    "icon-mainnet": {
         "ImageId": "",
         "InstanceType": "t2.micro",
         "MinCount": 1,
@@ -23,7 +23,7 @@
         "MinCount": 1,
         "MaxCount": 1
     },
-    "ethereum-ropsten": {
+    "ethereum-testnet": {
         "ImageId": "",
         "InstanceType": "t2.micro",
         "MinCount": 1,
@@ -41,4 +41,4 @@
         "MinCount": 1,
         "MaxCount": 1
     }
-}
+  }
