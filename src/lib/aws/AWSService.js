@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 const fs = require('fs');
-const instance = require('ami.json');
+const ami = require('./ami.js');
 
 /**
  * DOCS: https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/user-data.html
@@ -30,6 +30,20 @@ class AWSService {
     }
   }
 
+  async deleteKeyPair(keyName) {
+    try {
+      const ec2 = new AWS.EC2({apiVersion: '2016-11-15'});
+      const params = {
+        KeyName: keyName
+      };
+      const result = await ec2.deleteKeyPair(params).promise();
+      console.log(result);
+      return true;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   async isKeyPairsExists(keyName) {
     try {
       const ec2 = new AWS.EC2({apiVersion: '2016-11-15'});
@@ -47,13 +61,12 @@ class AWSService {
   async runInstance(node) {
     try {
       // TODO choose AMI_ID, generate Key
-      let instanceParams = instance[node];
+      let instanceParams = ami.ami[node];
       instanceParams.KeyName = this.keyPem;
       instanceParams.instanceType = this.instanceType;
 
       const ec2 = new AWS.EC2({apiVersion: '2016-11-15'});
       const instance = await ec2.runInstances(instanceParams).promise();
-      //console.log('instance', instance);
       const instanceId = instance.Instances[0].InstanceId;
       const instanceType = instance.Instances[0].InstanceType;
       const tagParams = {Resources: [instanceId], Tags: [
@@ -64,7 +77,7 @@ class AWSService {
       ]};
       const tag = await ec2.createTags(tagParams).promise();
 
-      return {instanceId, instanceType, name: node};
+      return {instanceId, instanceType, publicDNS: instance.PublicDnsName, name: node};
     } catch (err) {
       console.log(err);
     }
