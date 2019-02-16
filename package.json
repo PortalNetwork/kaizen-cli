@@ -8,7 +8,7 @@
   "main": "kaizen",
   "preferGlobal": true,
   "dependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.3.3",
     "@babel/polyfill": "^7.0.0",
     "aws-sdk": "^2.371.0",
     "axios": "^0.18.0",
