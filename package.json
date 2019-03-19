@@ -9,7 +9,7 @@
   "preferGlobal": true,
   "dependencies": {
     "@babel/core": "^7.4.0",
-    "@babel/polyfill": "^7.0.0",
+    "@babel/polyfill": "^7.4.0",
     "aws-sdk": "^2.371.0",
     "axios": "^0.18.0",
     "chalk": "^2.4.1",
