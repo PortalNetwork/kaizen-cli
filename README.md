@@ -49,9 +49,12 @@ kaizen create --template react --name myproject
 kaizen contracts deploy --url https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ```
 
-4. Upload project to IPFS:
+4. Upload project to IPFS or BTFS:
 ```
+# Upload to IPFS
 kaizen upload ipfs ./build
+# or upload to BTFS
+kaizen upload btfs ./build
 ```
 
 ## <a name="command-topics"></a>🔨 Command Topics
