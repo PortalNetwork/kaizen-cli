@@ -59,8 +59,8 @@ Options:
   --help      Show help                                                [boolean]
   --version   Show version number                                      [boolean]
   --host      host of BTFS endpoint
-                           [string] [required] [default: "api.btfs.trongrid.io"]
-  --port      port of BTFS endpoint         [string] [required] [default: "443"]
+                                      [string] [required] [default: "localhost"]
+  --port      port of BTFS endpoint        [string] [required] [default: "5001"]
   --protocol  protocol of BTFS endpoint   [string] [required] [default: "https"]
 
 Examples:
