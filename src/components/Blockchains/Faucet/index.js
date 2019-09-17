@@ -19,7 +19,7 @@ function builder(yargs) {
     .option('address', {
       alias: 'a',
       type: 'string',
-      describe: 'Your wallet address',
+      describe: 'Your wallet address'
     })
     .demandOption(['blockchain', 'network', 'address'], '')
     .example('kaizen blockchains faucet --blockchain eth --network 3 --address 0x2d2B3CD3E585fF4065B55668dCac22EBd9E3590D')

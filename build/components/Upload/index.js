@@ -7,7 +7,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 function builder(yargs) {
   require('./Ipfs')(yargs);
 
-  return yargs.example('kaizen upload ipfs').demandCommand(1, '');
+  require('./Btfs')(yargs);
+
+  return yargs.example('kaizen upload ipfs').example('kaizen upload btfs').demandCommand(1, '');
 }
 
 function handler(_x) {

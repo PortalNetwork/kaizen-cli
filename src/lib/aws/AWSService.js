@@ -75,7 +75,7 @@ class AWSService {
            Value: node
         }
       ]};
-      const tag = await ec2.createTags(tagParams).promise();
+      await ec2.createTags(tagParams).promise();
 
       return {instanceId, instanceType, publicDNS: instance.PublicDnsName, name: node};
     } catch (err) {

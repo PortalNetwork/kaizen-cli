@@ -4,7 +4,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var ipfsClient = require('ipfs-http-client');
+var btfsClient = require('ipfs-http-client');
 
 var path = require('path');
 
@@ -19,24 +19,24 @@ var Spinner = require('../../../lib/Spinner');
 function builder(yargs) {
   return yargs.positional('file', {
     type: 'string',
-    describe: 'the file or the folder which you want to upload to IPFS',
+    describe: 'the file or the folder which you want to upload to BTFS',
     require: true
   }).option('host', {
     type: 'string',
-    describe: 'host of IPFS endpoint',
-    default: 'ipfs.infura.io',
+    describe: 'host of BTFS endpoint',
+    default: 'api.btfs.trongrid.io',
     require: true
   }).option('port', {
     type: 'string',
-    describe: 'port of IPFS endpoint',
-    default: '5001',
+    describe: 'port of BTFS endpoint',
+    default: '443',
     require: true
   }).option('protocol', {
     type: 'string',
-    describe: 'protocol of IPFS endpoint',
+    describe: 'protocol of BTFS endpoint',
     default: 'https',
     require: true
-  }).example('kaizen upload ipfs . => to upload the current folder').example('kaizen upload ipfs ./build => to upload the build folder in the current folder').demandOption(['file'], '');
+  }).example('kaizen upload btfs . => to upload the current folder').example('kaizen upload btfs ./build => to upload the build folder in the current folder').demandOption(['file'], '');
 }
 
 function handler(_x) {
@@ -47,7 +47,7 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var host, port, protocol, targetPath, result, ipfs, filesReadyToIPFS, hashes, hashObj;
+    var host, port, protocol, targetPath, result, btfs, filesReadyToBTFS, hashes, hashObj;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -61,8 +61,8 @@ function _handler() {
             }
 
             Log.NormalLog('Please specify a file path or a folder path');
-            Log.NormalLog('Use ' + '\'kaizen upload ipfs [file]\''.yellow + ' to upload single file');
-            Log.NormalLog('Use ' + '\'kaizen upload ipfs [folder]\''.yellow + ' to upload with folder');
+            Log.NormalLog('Use ' + '\'kaizen upload btfs [file]\''.yellow + ' to upload single file');
+            Log.NormalLog('Use ' + '\'kaizen upload btfs [folder]\''.yellow + ' to upload with folder');
             return _context.abrupt("return");
 
           case 7:
@@ -83,22 +83,23 @@ function _handler() {
 
           case 14:
             Spinner.start();
-            ipfs = ipfsClient(host, port, {
+            btfs = btfsClient(host, port, {
               protocol: protocol
             });
-            filesReadyToIPFS = getFilesReadyToIPFS(targetPath);
+            filesReadyToBTFS = getFilesReadyToBTFS(targetPath);
             _context.next = 19;
-            return ipfs.add(filesReadyToIPFS);
+            return btfs.add(filesReadyToBTFS);
 
           case 19:
             hashes = _context.sent;
-            fs.writeFileSync(path.resolve('./', 'ipfs.json'), JSON.stringify(hashes));
+            fs.writeFileSync(path.resolve('./', 'btfs.json'), JSON.stringify(hashes));
             hashObj = hashes.length === 0 ? hashes[0] : hashes[hashes.length - 1];
             Spinner.stop();
-            Log.SuccessLog("Upload files to IPFS Successfully");
+            Log.SuccessLog("Upload files to BTFS Successfully");
             console.log("\nFile/Folder hash: ".concat(hashObj.hash));
             Log.NormalLog('You can access the file through:');
-            Log.NormalLog("".concat(protocol, "://").concat(host, "/ipfs/").concat(hashObj.hash).underline.yellow + '\n');
+            Log.NormalLog("https://gateway.btfssoter.io/btfs/".concat(hashObj.hash).underline.yellow + '\n'); //Log.NormalLog(`${protocol}://${host}/btfs/${hashObj.hash}`.underline.yellow + '\n');
+
             _context.next = 34;
             break;
 
@@ -123,7 +124,7 @@ function confirmUploadDialog(targetPath) {
   var promptSchema = {
     properties: {
       confirm: {
-        message: 'Please ensure you will upload ' + targetPath.yellow + ' to the IPFS (yes/no)',
+        message: 'Please ensure you will upload ' + targetPath.yellow + ' to the BTFS (yes/no)',
         required: true
       }
     }
@@ -160,7 +161,7 @@ function recursiveFetchFilePath(path) {
   return files;
 }
 
-function getIPFSContentObject(filePath, targetPath) {
+function getBTFSContentObject(filePath, targetPath) {
   console.log('Upload File: ' + filePath);
   return {
     path: "public".concat(filePath.replace(targetPath, '')),
@@ -168,11 +169,11 @@ function getIPFSContentObject(filePath, targetPath) {
   };
 }
 
-function getFilesReadyToIPFS(targetPath) {
+function getFilesReadyToBTFS(targetPath) {
   if (fs.lstatSync(targetPath).isDirectory()) {
     var result = recursiveFetchFilePath(targetPath);
     return result.map(function (file) {
-      getIPFSContentObject(file, targetPath);
+      getBTFSContentObject(file, targetPath);
     });
   } else {
     return fs.readFileSync(targetPath);
@@ -180,7 +181,7 @@ function getFilesReadyToIPFS(targetPath) {
 }
 
 module.exports = function (yargs) {
-  var command = 'ipfs [file]';
-  var commandDescription = 'Upload file or folder to IPFS';
+  var command = 'btfs [file]';
+  var commandDescription = 'Upload file or folder to BTFS';
   yargs.command(command, commandDescription, builder, handler);
 };

@@ -31,7 +31,6 @@ async function handler(argv) {
     const { blockchain, network, txhash } = argv;
     let txresult = '';
     let table;
-    let toAddress = '';
     
     switch (blockchain) {
       case 'ethereum':

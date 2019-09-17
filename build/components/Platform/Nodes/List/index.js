@@ -64,10 +64,10 @@ function _handler() {
                 // TODO table display
                 Log.NormalLog("You have ".concat(instanceList.length, " nodes:\n"));
                 table = new Table({
-                  head: ['Node Id'.green, 'Name'.green, 'Type'.green, 'Protocol'.green, 'Network'.green, 'Running Node'.green]
+                  head: ['Node Id'.green, 'Name'.green, 'Type'.green, 'Protocol'.green, 'Network'.green, 'Running Node'.green, 'Provider'.green]
                 });
                 instanceList.forEach(function (row) {
-                  table.push([row.instanceId, row.name, row.type, row.protocol, row.network, row.node]);
+                  table.push([row.instanceId, row.name, row.type, row.protocol, row.network, row.node, row.provider]);
                 });
                 console.log(table.toString());
                 Log.NormalLog('\nNode management: '.underline.yellow);

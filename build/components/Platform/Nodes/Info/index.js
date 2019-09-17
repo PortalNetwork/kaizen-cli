@@ -70,8 +70,7 @@ function _handler() {
             Spinner.stop();
 
             if (instanceInfo.data) {
-              Log.SuccessLog('Get node information'); // TODO table display
-
+              Log.SuccessLog('Get node information');
               data = instanceInfo.data;
               table = new Table({
                 head: ['Node Id'.green, 'Name'.green, 'Protocol'.green, 'Network'.green, 'Provider'.green, 'Region'.green, 'Public DNS'.green]
