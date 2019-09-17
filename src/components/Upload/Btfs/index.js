@@ -15,13 +15,13 @@ function builder(yargs) {
     .option('host', {
       type: 'string',
       describe: 'host of BTFS endpoint',
-      default: 'api.btfs.trongrid.io',
+      default: 'localhost',
       require: true
     })
     .option('port', {
       type: 'string',
       describe: 'port of BTFS endpoint',
-      default: '443',
+      default: '5001',
       require: true
     })
     .option('protocol', {
