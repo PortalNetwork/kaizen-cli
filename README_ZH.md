@@ -25,7 +25,7 @@ KAIZEN 包括:
 
 ## 📚 目錄
 
-<img align="right" width="400" src="https://kaizen.portal.network/images/demo.png"/>
+<img align="right" width="250" src="https://kaizen.portal.network/images/demo.png"/>
 
 - [快速開始](#quick-start)
 - [專案範例](https://github.com/PortalNetwork/kaizen-examples)

@@ -25,7 +25,7 @@
 
 ## 📚 Table of Contents
 
-<img align="right" width="400" src="https://kaizen.portal.network/images/demo.png"/>
+<img align="right" width="250" src="https://kaizen.portal.network/images/demo.png"/>
 
 - [Quick Start](#quick-start)
 - [Examples](https://github.com/PortalNetwork/kaizen-examples)
