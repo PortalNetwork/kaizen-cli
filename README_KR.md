@@ -24,6 +24,9 @@
 - Customize an existing blockchain to fulfill your requirements.
 
 ## 📚 Table of Contents
+
+<img align="right" width="400" src="https://kaizen.portal.network/images/demo.png"/>
+
 - [Quick Start](#quick-start)
 - [Examples](https://github.com/PortalNetwork/kaizen-examples)
 - [Contracts](https://github.com/PortalNetwork/kaizen-contracts)
@@ -49,9 +52,12 @@ kaizen create --template react --name myproject
 kaizen contracts deploy --url https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ```
 
-4. Upload project to IPFS:
+4. Upload project to IPFS or BTFS:
 ```
+# Upload to IPFS
 kaizen upload ipfs ./build
+# or upload to BTFS
+kaizen upload btfs ./build
 ```
 
 ## <a name="command-topics"></a>🔨 Command Topics
@@ -75,6 +81,13 @@ The KAIZEN Platform is currently in experimental alpha.
 - [NKN](https://www.npmjs.com/package/nkn-client)
 - [ICON](https://www.npmjs.com/package/icon-sdk-js)
 - NOIA
+
+## <a name="faucet"></a>🚰 水龍頭
+KAIZEN Faucet
+- ETH
+- ETC
+- WAN
+- ICON
 
 ## <a name="community"></a>💡 커뮤니티
 - [Gitter](https://gitter.im/PortalNetwork/kaizen-cli)
