@@ -24,6 +24,9 @@ KAIZEN 包括:
 - 自定義現有區塊鏈技術以滿足您的開發要求
 
 ## 📚 目錄
+
+<img align="right" width="250" src="https://kaizen.portal.network/images/demo.png"/>
+
 - [快速開始](#quick-start)
 - [專案範例](https://github.com/PortalNetwork/kaizen-examples)
 - [智能合約](https://github.com/PortalNetwork/kaizen-contracts)
@@ -49,9 +52,12 @@ kaizen create --template react --name myproject
 kaizen contracts deploy --url https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ```
 
-4. 上傳專案到 IPFS:
+4. 上傳專案到 IPFS 或者 BTFS:
 ```
+# Upload to IPFS
 kaizen upload ipfs ./build
+# or upload to BTFS
+kaizen upload btfs ./build
 ```
 
 ## <a name="command-topics"></a>🔨 指令集
@@ -75,6 +81,13 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [NKN](https://www.npmjs.com/package/nkn-client)
 - [ICON](https://www.npmjs.com/package/icon-sdk-js)
 - NOIA
+
+## <a name="faucet"></a>🚰 水龍頭
+KAIZEN Faucet 支援下列區塊鏈測試網路的代幣
+- ETH
+- ETC
+- WAN
+- ICON
 
 ## <a name="community"></a>💡 社群連結
 - [Gitter](https://gitter.im/PortalNetwork/kaizen-cli)

@@ -24,6 +24,9 @@ KAIZEN is an one stop solution for dapp and dweb developer. With KAIZEN, you get
 - Customize an existing blockchain to fulfill your requirements.
 
 ## 📚 Table of Contents
+
+<img align="right" width="250" src="https://kaizen.portal.network/images/demo.png"/>
+
 - [Quick Start](#quick-start)
 - [Examples](https://github.com/PortalNetwork/kaizen-examples)
 - [Contracts](https://github.com/PortalNetwork/kaizen-contracts)
@@ -78,6 +81,13 @@ The KAIZEN Platform is currently in experimental alpha.
 - [NKN](https://www.npmjs.com/package/nkn-client)
 - [ICON](https://www.npmjs.com/package/icon-sdk-js)
 - NOIA
+
+## <a name="faucet"></a>🚰 Faucet
+Claim test net tokens
+- ETH
+- ETC
+- WAN
+- ICON
 
 ## <a name="community"></a>💡 Community
 - [Gitter](https://gitter.im/PortalNetwork/kaizen-cli)
