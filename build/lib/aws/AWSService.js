@@ -14,7 +14,7 @@ var AWS = require('aws-sdk');
 
 var fs = require('fs');
 
-var instance = require('ami.json');
+var ami = require('./ami.js');
 /**
  * DOCS: https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/user-data.html
  */
@@ -81,12 +81,12 @@ function () {
       };
     }()
   }, {
-    key: "isKeyPairsExists",
+    key: "deleteKeyPair",
     value: function () {
-      var _isKeyPairsExists = _asyncToGenerator(
+      var _deleteKeyPair = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee2(keyName) {
-        var ec2, keyPairs, exists;
+        var ec2, params, result;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -95,16 +95,16 @@ function () {
                 ec2 = new AWS.EC2({
                   apiVersion: '2016-11-15'
                 });
-                _context2.next = 4;
-                return ec2.describeKeyPairs().promise();
+                params = {
+                  KeyName: keyName
+                };
+                _context2.next = 5;
+                return ec2.deleteKeyPair(params).promise();
 
-              case 4:
-                keyPairs = _context2.sent;
-                exists = false;
-                keyPairs.KeyPairs.forEach(function (element) {
-                  if (element.KeyName === keyName) exists = true;
-                });
-                return _context2.abrupt("return", exists);
+              case 5:
+                result = _context2.sent;
+                console.log(result);
+                return _context2.abrupt("return", true);
 
               case 10:
                 _context2.prev = 10;
@@ -119,7 +119,50 @@ function () {
         }, _callee2, this, [[0, 10]]);
       }));
 
-      return function isKeyPairsExists(_x) {
+      return function deleteKeyPair(_x) {
+        return _deleteKeyPair.apply(this, arguments);
+      };
+    }()
+  }, {
+    key: "isKeyPairsExists",
+    value: function () {
+      var _isKeyPairsExists = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee3(keyName) {
+        var ec2, keyPairs, exists;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                ec2 = new AWS.EC2({
+                  apiVersion: '2016-11-15'
+                });
+                _context3.next = 4;
+                return ec2.describeKeyPairs().promise();
+
+              case 4:
+                keyPairs = _context3.sent;
+                exists = false;
+                keyPairs.KeyPairs.forEach(function (element) {
+                  if (element.KeyName === keyName) exists = true;
+                });
+                return _context3.abrupt("return", exists);
+
+              case 10:
+                _context3.prev = 10;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+
+              case 13:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 10]]);
+      }));
+
+      return function isKeyPairsExists(_x2) {
         return _isKeyPairsExists.apply(this, arguments);
       };
     }()
@@ -128,29 +171,27 @@ function () {
     value: function () {
       var _runInstance = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee3(node) {
-        var instanceParams, ec2, _instance, instanceId, instanceType, tagParams, tag;
-
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      regeneratorRuntime.mark(function _callee4(node) {
+        var instanceParams, ec2, instance, instanceId, instanceType, tagParams;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                _context3.prev = 0;
+                _context4.prev = 0;
                 // TODO choose AMI_ID, generate Key
-                instanceParams = _instance[node];
+                instanceParams = ami.ami[node];
                 instanceParams.KeyName = this.keyPem;
                 instanceParams.instanceType = this.instanceType;
                 ec2 = new AWS.EC2({
                   apiVersion: '2016-11-15'
                 });
-                _context3.next = 7;
+                _context4.next = 7;
                 return ec2.runInstances(instanceParams).promise();
 
               case 7:
-                _instance = _context3.sent;
-                //console.log('instance', instance);
-                instanceId = _instance.Instances[0].InstanceId;
-                instanceType = _instance.Instances[0].InstanceType;
+                instance = _context4.sent;
+                instanceId = instance.Instances[0].InstanceId;
+                instanceType = instance.Instances[0].InstanceType;
                 tagParams = {
                   Resources: [instanceId],
                   Tags: [{
@@ -158,31 +199,31 @@ function () {
                     Value: node
                   }]
                 };
-                _context3.next = 13;
+                _context4.next = 13;
                 return ec2.createTags(tagParams).promise();
 
               case 13:
-                tag = _context3.sent;
-                return _context3.abrupt("return", {
+                return _context4.abrupt("return", {
                   instanceId: instanceId,
                   instanceType: instanceType,
+                  publicDNS: instance.PublicDnsName,
                   name: node
                 });
 
-              case 17:
-                _context3.prev = 17;
-                _context3.t0 = _context3["catch"](0);
-                console.log(_context3.t0);
+              case 16:
+                _context4.prev = 16;
+                _context4.t0 = _context4["catch"](0);
+                console.log(_context4.t0);
 
-              case 20:
+              case 19:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this, [[0, 17]]);
+        }, _callee4, this, [[0, 16]]);
       }));
 
-      return function runInstance(_x2) {
+      return function runInstance(_x3) {
         return _runInstance.apply(this, arguments);
       };
     }()
@@ -191,14 +232,13 @@ function () {
     value: function () {
       var _getInstance = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee4(instanceId) {
-        var ec2, params, _instance2;
-
-        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      regeneratorRuntime.mark(function _callee5(instanceId) {
+        var ec2, params, instance;
+        return regeneratorRuntime.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
-                _context4.prev = 0;
+                _context5.prev = 0;
                 ec2 = new AWS.EC2({
                   apiVersion: '2016-11-15'
                 });
@@ -206,27 +246,27 @@ function () {
                   InstanceIds: [instanceId //"i-086408aa27c5e5042"
                   ]
                 };
-                _context4.next = 5;
+                _context5.next = 5;
                 return ec2.describeInstances(params).promise();
 
               case 5:
-                _instance2 = _context4.sent;
-                return _context4.abrupt("return", _instance2.Reservations[0].Instances);
+                instance = _context5.sent;
+                return _context5.abrupt("return", instance.Reservations[0].Instances);
 
               case 9:
-                _context4.prev = 9;
-                _context4.t0 = _context4["catch"](0);
-                console.log(_context4.t0);
+                _context5.prev = 9;
+                _context5.t0 = _context5["catch"](0);
+                console.log(_context5.t0);
 
               case 12:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, this, [[0, 9]]);
+        }, _callee5, this, [[0, 9]]);
       }));
 
-      return function getInstance(_x3) {
+      return function getInstance(_x4) {
         return _getInstance.apply(this, arguments);
       };
     }()

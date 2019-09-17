@@ -172,7 +172,7 @@ function getFilesReadyToIPFS(targetPath) {
   if (fs.lstatSync(targetPath).isDirectory()) {
     var result = recursiveFetchFilePath(targetPath);
     return result.map(function (file) {
-      return getIPFSContentObject(file, targetPath);
+      getIPFSContentObject(file, targetPath);
     });
   } else {
     return fs.readFileSync(targetPath);

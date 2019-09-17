@@ -120,7 +120,7 @@ function getIPFSContentObject(filePath, targetPath) {
 function getFilesReadyToIPFS(targetPath) {
   if (fs.lstatSync(targetPath).isDirectory()) {
     const result = recursiveFetchFilePath(targetPath);
-    return result.map(file => getIPFSContentObject(file, targetPath));
+    return result.map(file => {getIPFSContentObject(file, targetPath)});
   } else {
     return fs.readFileSync(targetPath);
   }
