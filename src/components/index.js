@@ -22,6 +22,9 @@ require('./Platform/Login')(yargs);
 require('./Platform/Logout')(yargs);
 require('./Platform/Nodes')(yargs);
 
+/** Oracle Service **/
+require('./Oracle')(yargs);
+
 yargs
 .demandCommand(1, '')
 .epilogue(

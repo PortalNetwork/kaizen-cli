@@ -9,6 +9,8 @@ function builder(yargs) {
 		'KAIZEN support smart contracts:'.underline.yellow + 
 		'You can develop, test, deploy smart contract though KAIZEN CLI\n\n' +
 		'Support contract template:\n\n'.underline.yellow + 
+		'Chainlink'.underline.yellow + ' - Chainlink Oracle Service, ' +
+    'https://github.com/PortalNetwork/kaizen-contracts/tree/master/Chainlink'.underline.yellow + '\n' +
 		'ERC20'.underline.yellow + ' - ERC20 Token Standard, ' + 
 		'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20'.underline.yellow + '\n' +
 		'ERC721'.underline.yellow + ' - ERC721 Token Standard, ' + 
