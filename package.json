@@ -1,6 +1,6 @@
 {
   "name": "kaizen-cli",
-  "version": "0.0.46",
+  "version": "0.0.47",
   "bin": {
     "kaizen": "kaizen"
   },
