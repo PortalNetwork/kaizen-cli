@@ -52,7 +52,7 @@ kaizen create --template react --name myproject
 kaizen contracts deploy --url https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ```
 
-4. 上傳專案到 IPFS 或者 BTFS:
+4. 上傳專案到 [IPFS](https://ipfs.io) 或者 [BTFS](https://www.bittorrent.com/btfs/):
 ```
 # Upload to IPFS
 kaizen upload ipfs ./build
