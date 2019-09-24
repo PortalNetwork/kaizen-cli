@@ -26,6 +26,8 @@ though KAIZEN CLI
 
 Support contract template:
 
+Chainlink - Chainlink Oracle Service,
+https://github.com/PortalNetwork/kaizen-contracts/tree/master/Chainlink,
 ERC20 - ERC20 Token Standard,
 https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ERC721 - ERC721 Token Standard,
@@ -53,6 +55,8 @@ Please enter the url of the template contract
 
 Support contract template:
 
+Chainlink - Chainlink Oracle Service,
+https://github.com/PortalNetwork/kaizen-contracts/tree/master/Chainlink
 ERC20 - ERC20 Token Standard,
 https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ERC721 - ERC721 Token Standard,
