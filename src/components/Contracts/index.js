@@ -2,8 +2,11 @@ require('colors');
 
 function builder(yargs) {
 	require('./Deploy')(yargs);
+	require('./List')(yargs);
+
 	return yargs
 	.example('kaizen contracts deploy')
+	.example('kaizen contracts list')
 	.demandCommand(1, '')
 	.epilogue(
 		'KAIZEN support smart contracts:'.underline.yellow + 
