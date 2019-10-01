@@ -25,7 +25,7 @@ function builder(yargs) {
 		'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20'.underline.yellow + '\n' +
 		'ERC721'.underline.yellow + ' - ERC721 Token Standard, ' + 
     'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721'.underline.yellow + '\n' +
-    'NuCypher'.underline.yellow + ' - NuCypher Contracts' + 
+    'NuCypher'.underline.yellow + ' - NuCypher Contracts, ' + 
     'https://github.com/PortalNetwork/kaizen-contracts/tree/master/NuCypher'.underline.yellow + '\n'
   );
 }
