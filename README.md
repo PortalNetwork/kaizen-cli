@@ -80,6 +80,7 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Bluzelle](https://www.npmjs.com/package/bluzelle)
 - [NKN](https://www.npmjs.com/package/nkn-client)
 - [ICON](https://www.npmjs.com/package/icon-sdk-js)
+- [Orbit](https://www.npmjs.com/package/orbit-db)
 - NOIA
 
 ## <a name="faucet"></a>🚰 Faucet
@@ -103,6 +104,9 @@ We love our contributors!
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to help out.
 
 *Quick Start*: Check out [help wanted](https://github.com/PortalNetwork/kaizen-cli/labels/help%20wanted) or [good first issue](https://github.com/PortalNetwork/kaizen-cli/labels/good%20first%20issue) labels to find issues we want to move forward on with your help.
+
+## <a name="contact"></a>📧 Contact
+For any questions, please contact chris@portal.network or join telegram: [http://bit.ly/2XjhQV2](http://bit.ly/2XjhQV2)
 
 ## <a name="licence"></a>🗒 Licence
 See [LICENSE](./LICENSE) for details.

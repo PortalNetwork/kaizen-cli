@@ -11,7 +11,7 @@ function builder(yargs) {
 
   require('./List')(yargs);
 
-  return yargs.example('kaizen plugins install').example('kaizen plugins uninstall').example('kaizen plugins list').demandCommand(1, '').epilogue('Available plugins:\n\n'.underline.yellow + 'bluzelle'.underline.yellow + ' - Decentralized database\n' + 'nkn'.underline.yellow + ' - Data transmisstion\n' + 'noia'.underline.yellow + ' - Decentralized CDN\n' + 'icon'.underline.yellow + ' - Blockchain\n' + '\nRun ' + '\'kaizen plugins <command>\''.yellow + ' to interact with plugins.\n');
+  return yargs.example('kaizen plugins install').example('kaizen plugins uninstall').example('kaizen plugins list').demandCommand(1, '').epilogue('Available plugins:\n\n'.underline.yellow + 'bluzelle'.underline.yellow + ' - Decentralized database\n' + 'nkn'.underline.yellow + ' - Data transmisstion\n' + 'noia'.underline.yellow + ' - Decentralized CDN\n' + 'icon'.underline.yellow + ' - Blockchain\n' + 'orbit'.underline.yellow + ' - Decentralized database\n' + '\nRun ' + '\'kaizen plugins <command>\''.yellow + ' to interact with plugins.\n');
 }
 
 function handler(_x) {

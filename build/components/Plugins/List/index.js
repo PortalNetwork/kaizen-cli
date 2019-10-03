@@ -27,10 +27,11 @@ function _handler() {
             Log.NormalLog('nkn'.underline.yellow + ' - NKN information');
             Log.NormalLog('noia'.underline.yellow + ' - NOIA information');
             Log.NormalLog('icon'.underline.yellow + ' - ICON information');
+            Log.NormalLog('orbit'.underline.yellow + ' - Orbit information');
             Log.NormalLog("\nTo install a plugin run " + "'kaizen plugins install <plugin-name-here>'".yellow);
             Log.NormalLog("\nIt will be automatically downloaded and added to your " + "'package.json'".yellow + " and " + "'kaizen.json'".yellow + " file\n");
 
-          case 7:
+          case 8:
           case "end":
             return _context.stop();
         }

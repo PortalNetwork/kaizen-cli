@@ -80,6 +80,7 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Bluzelle](https://www.npmjs.com/package/bluzelle)
 - [NKN](https://www.npmjs.com/package/nkn-client)
 - [ICON](https://www.npmjs.com/package/icon-sdk-js)
+- [Orbit](https://www.npmjs.com/package/orbit-db)
 - NOIA
 
 ## <a name="faucet"></a>🚰 水龍頭
@@ -103,6 +104,9 @@ KAIZEN Faucet 支援下列區塊鏈測試網路的代幣
 若您想參與一起讓 KAIZEN 更好使用，請參考 [CONTRIBUTING.md](./CONTRIBUTING.md) 來看看如何貢獻。
 
 *快速開始：您可以透過 [help wanted](https://github.com/PortalNetwork/kaizen-cli/labels/help%20wanted) 或者 [good first issue](https://github.com/PortalNetwork/kaizen-cli/labels/good%20first%20issue) 標籤找到可以參與貢獻的任務。
+
+## <a name="contact"></a>📧 聯絡
+如果您有任何問題請聯繫 chris@portal.network 或者加入我們的 Telegram: [http://bit.ly/2XjhQV2](http://bit.ly/2XjhQV2)
 
 ## <a name="licence"></a>🗒 許可證
 詳細內容請參考 [LICENSE](./LICENSE)

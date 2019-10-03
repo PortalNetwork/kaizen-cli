@@ -75,7 +75,7 @@ function _handler() {
 
           case 11:
             _context.t0 = plugin;
-            _context.next = _context.t0 === 'bluzelle' ? 14 : _context.t0 === 'nkn' ? 22 : _context.t0 === 'noia' ? 30 : _context.t0 === 'icon' ? 38 : 46;
+            _context.next = _context.t0 === 'bluzelle' ? 14 : _context.t0 === 'nkn' ? 22 : _context.t0 === 'noia' ? 30 : _context.t0 === 'icon' ? 38 : _context.t0 === 'orbit' ? 46 : 54;
             break;
 
           case 14:
@@ -88,7 +88,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'bluzelle');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 47);
+            return _context.abrupt("break", 55);
 
           case 22:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -100,7 +100,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'nkn');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 47);
+            return _context.abrupt("break", 55);
 
           case 30:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -112,7 +112,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'noia');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 47);
+            return _context.abrupt("break", 55);
 
           case 38:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -124,28 +124,40 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'icon');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 47);
+            return _context.abrupt("break", 55);
 
           case 46:
+            Log.NormalLog('Uninstalling plugin, please wait a second...');
+            Spinner.start();
+            _context.next = 50;
+            return iconHandler();
+
+          case 50:
+            updateKaizenJson(kaizenJson, 'orbit');
+            Spinner.stop();
+            Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 55);
+
+          case 54:
             Log.NormalLog('Plugin not support yet');
 
-          case 47:
-            _context.next = 54;
+          case 55:
+            _context.next = 62;
             break;
 
-          case 49:
-            _context.prev = 49;
+          case 57:
+            _context.prev = 57;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 54:
+          case 62:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 49]]);
+    }, _callee, this, [[0, 57]]);
   }));
   return _handler.apply(this, arguments);
 }

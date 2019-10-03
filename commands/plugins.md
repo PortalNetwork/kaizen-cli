@@ -34,6 +34,7 @@ bluzelle - Decentralized database
 nkn - Data transmisstion
 noia - Decentralized CDN
 icon - Blockchain
+orbit - Decentralized database
 
 Run 'kaizen plugins <command>' to interact with plugins.
 ```
@@ -48,6 +49,7 @@ bluzelle - Bluzelle information
 nkn - NKN information
 noia - NOIA information
 icon - ICON information
+orbit - Orbit information
 
 To install a plugin run 'kaizen plugins install <plugin-name-here>'
 

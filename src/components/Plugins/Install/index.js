@@ -6,6 +6,7 @@ const bluzelleHandler = require('./bluzelle.js');
 const noiaHandler = require('./noia.js');
 const nknHandler = require('./nkn.js');
 const iconHandler = require('./icon.js');
+const orbitHandler = require('./orbit.js');
 
 function builder(yargs) {
   return yargs
@@ -58,6 +59,13 @@ async function handler(argv) {
         Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;
       case 'icon':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await iconHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'orbit':
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await iconHandler();

@@ -69,7 +69,14 @@ async function handler(argv) {
         Spinner.stop();
         Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;
-        
+      case 'orbit':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await iconHandler();
+        updateKaizenJson(kaizenJson, 'orbit');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
       default:
         Log.NormalLog('Plugin not support yet');
     }

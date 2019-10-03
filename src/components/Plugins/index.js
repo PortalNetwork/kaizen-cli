@@ -14,6 +14,7 @@ function builder(yargs) {
     'nkn'.underline.yellow + ' - Data transmisstion\n' + 
     'noia'.underline.yellow + ' - Decentralized CDN\n' + 
     'icon'.underline.yellow + ' - Blockchain\n' +
+    'orbit'.underline.yellow + ' - Decentralized database\n' + 
 		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
 		' to interact with plugins.\n'
 	);
