@@ -80,6 +80,7 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Bluzelle](https://www.npmjs.com/package/bluzelle)
 - [NKN](https://www.npmjs.com/package/nkn-client)
 - [ICON](https://www.npmjs.com/package/icon-sdk-js)
+- [Orbit](https://www.npmjs.com/package/orbit-db)
 - NOIA
 
 ## <a name="faucet"></a>🚰 Faucet
