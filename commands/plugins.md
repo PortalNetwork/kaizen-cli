@@ -35,6 +35,7 @@ nkn - Data transmisstion
 noia - Decentralized CDN
 icon - Blockchain
 orbit - Decentralized database
+arweave - Decentralized file storage
 
 Run 'kaizen plugins <command>' to interact with plugins.
 ```
@@ -50,6 +51,7 @@ nkn - NKN information
 noia - NOIA information
 icon - ICON information
 orbit - Orbit information
+arweave - Decentralized file storage
 
 To install a plugin run 'kaizen plugins install <plugin-name-here>'
 
@@ -88,4 +90,5 @@ Options:
 Examples:
   kaizen plugins uninstall bluzelle
   kaizen plugins uninstall nkn
+  kaizen plugins uninstall arweave
 ```
