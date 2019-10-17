@@ -81,6 +81,7 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [NKN](https://www.npmjs.com/package/nkn-client)
 - [ICON](https://www.npmjs.com/package/icon-sdk-js)
 - [Orbit](https://www.npmjs.com/package/orbit-db)
+- [Arweave](https://www.npmjs.com/package/arweave)
 - NOIA
 
 ## <a name="faucet"></a>🚰 水龍頭
