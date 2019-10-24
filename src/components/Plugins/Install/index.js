@@ -7,6 +7,7 @@ const noiaHandler = require('./noia.js');
 const nknHandler = require('./nkn.js');
 const iconHandler = require('./icon.js');
 const orbitHandler = require('./orbit.js');
+const arweaveHandler = require('./arweave.js');
 
 function builder(yargs) {
   return yargs
@@ -68,7 +69,14 @@ async function handler(argv) {
       case 'orbit':
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
-        await iconHandler();
+        await orbitHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'arweave':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await arweaveHandler();
         Spinner.stop();
         Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;
