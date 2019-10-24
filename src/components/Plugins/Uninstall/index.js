@@ -7,6 +7,8 @@ const bluzelleHandler = require('./bluzelle.js');
 const nknHandler = require('./nkn.js');
 const noiaHandler = require('./noia.js');
 const iconHandler = require('./icon.js');
+const orbitHandler = require('./orbit.js');
+const arweaveHandler = require('./arweave.js');
 
 function builder(yargs) {
   return yargs
@@ -72,8 +74,16 @@ async function handler(argv) {
       case 'orbit':
         Log.NormalLog('Uninstalling plugin, please wait a second...');
         Spinner.start();
-        await iconHandler();
+        await orbitHandler();
         updateKaizenJson(kaizenJson, 'orbit');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
+      case 'arweave':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await arweaveHandler();
+        updateKaizenJson(kaizenJson, 'arweave');
         Spinner.stop();
         Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;
