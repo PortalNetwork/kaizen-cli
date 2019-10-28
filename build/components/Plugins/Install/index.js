@@ -24,6 +24,8 @@ var orbitHandler = require('./orbit.js');
 
 var arweaveHandler = require('./arweave.js');
 
+var bandHandler = require('./band.js');
+
 function builder(yargs) {
   return yargs.positional('plugin', {
     alias: 'p',
@@ -68,7 +70,7 @@ function _handler() {
 
           case 8:
             _context.t0 = plugin;
-            _context.next = _context.t0 === 'bluzelle' ? 11 : _context.t0 === 'nkn' ? 18 : _context.t0 === 'noia' ? 25 : _context.t0 === 'icon' ? 32 : _context.t0 === 'orbit' ? 39 : _context.t0 === 'arweave' ? 46 : 53;
+            _context.next = _context.t0 === 'bluzelle' ? 11 : _context.t0 === 'nkn' ? 18 : _context.t0 === 'noia' ? 25 : _context.t0 === 'icon' ? 32 : _context.t0 === 'orbit' ? 39 : _context.t0 === 'arweave' ? 46 : _context.t0 === 'band' ? 53 : 60;
             break;
 
           case 11:
@@ -80,7 +82,7 @@ function _handler() {
           case 15:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 54);
+            return _context.abrupt("break", 61);
 
           case 18:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -91,7 +93,7 @@ function _handler() {
           case 22:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 54);
+            return _context.abrupt("break", 61);
 
           case 25:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -102,7 +104,7 @@ function _handler() {
           case 29:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 54);
+            return _context.abrupt("break", 61);
 
           case 32:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -113,7 +115,7 @@ function _handler() {
           case 36:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 54);
+            return _context.abrupt("break", 61);
 
           case 39:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -124,7 +126,7 @@ function _handler() {
           case 43:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 54);
+            return _context.abrupt("break", 61);
 
           case 46:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -135,28 +137,39 @@ function _handler() {
           case 50:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 54);
+            return _context.abrupt("break", 61);
 
           case 53:
+            Log.NormalLog('Installing plugin, please wait a second...');
+            Spinner.start();
+            _context.next = 57;
+            return bandHandler();
+
+          case 57:
+            Spinner.stop();
+            Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 61);
+
+          case 60:
             Log.NormalLog('Plugin not support yet');
 
-          case 54:
-            _context.next = 61;
+          case 61:
+            _context.next = 68;
             break;
 
-          case 56:
-            _context.prev = 56;
+          case 63:
+            _context.prev = 63;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 61:
+          case 68:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 56]]);
+    }, _callee, this, [[0, 63]]);
   }));
   return _handler.apply(this, arguments);
 }

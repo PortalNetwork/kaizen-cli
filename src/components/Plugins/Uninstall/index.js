@@ -9,6 +9,7 @@ const noiaHandler = require('./noia.js');
 const iconHandler = require('./icon.js');
 const orbitHandler = require('./orbit.js');
 const arweaveHandler = require('./arweave.js');
+const bandHandler = require('./band.js');
 
 function builder(yargs) {
   return yargs
@@ -83,6 +84,14 @@ async function handler(argv) {
         Log.NormalLog('Uninstalling plugin, please wait a second...');
         Spinner.start();
         await arweaveHandler();
+        updateKaizenJson(kaizenJson, 'arweave');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
+      case 'band':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await bandHandler();
         updateKaizenJson(kaizenJson, 'arweave');
         Spinner.stop();
         Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
