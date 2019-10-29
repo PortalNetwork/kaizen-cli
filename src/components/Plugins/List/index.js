@@ -13,6 +13,7 @@ async function handler(argv) {
   Log.NormalLog('icon'.underline.yellow + ' - ICON information');
   Log.NormalLog('orbit'.underline.yellow + ' - Orbit information');
   Log.NormalLog('arweave'.underline.yellow + ' - Arweave information');
+  Log.NormalLog('band'.underline.yellow + ' - Band Protocol information');
 
   Log.NormalLog("\nTo install a plugin run " + "'kaizen plugins install <plugin-name-here>'".yellow)
 

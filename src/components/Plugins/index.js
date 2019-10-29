@@ -15,7 +15,8 @@ function builder(yargs) {
     'noia'.underline.yellow + ' - Decentralized CDN\n' + 
     'icon'.underline.yellow + ' - Blockchain\n' +
     'orbit'.underline.yellow + ' - Decentralized database\n' + 
-    'arweave'.underline.yellow + ' -Decentralized file storage\n' +
+    'arweave'.underline.yellow + ' - Decentralized file storage\n' +
+    'band'.underline.yellow + ' - Data Oracle' +
 		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
 		' to interact with plugins.\n'
 	);

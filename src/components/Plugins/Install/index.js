@@ -8,6 +8,7 @@ const nknHandler = require('./nkn.js');
 const iconHandler = require('./icon.js');
 const orbitHandler = require('./orbit.js');
 const arweaveHandler = require('./arweave.js');
+const bandHandler = require('./band.js');
 
 function builder(yargs) {
   return yargs
@@ -77,6 +78,13 @@ async function handler(argv) {
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await arweaveHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'band':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await bandHandler();
         Spinner.stop();
         Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;
