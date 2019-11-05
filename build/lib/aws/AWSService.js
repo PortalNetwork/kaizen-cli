@@ -27,7 +27,6 @@ function () {
     _classCallCheck(this, AWSService);
 
     this.keyPem = 'kaizen-cli';
-    this.instanceType = 't2.micro';
     AWS.config.update({
       region: region
     });
@@ -58,10 +57,9 @@ function () {
 
               case 5:
                 keyPair = _context.sent;
-                console.log(JSON.stringify(keyPair));
+                //console.log(JSON.stringify(keyPair));
                 fs.writeFileSync(keyPair.KeyName + '.pem', keyPair.KeyMaterial, 'utf8');
-                _context.next = 13;
-                break;
+                return _context.abrupt("return", keyPair);
 
               case 10:
                 _context.prev = 10;
@@ -181,14 +179,13 @@ function () {
                 // TODO choose AMI_ID, generate Key
                 instanceParams = ami.ami[node];
                 instanceParams.KeyName = this.keyPem;
-                instanceParams.instanceType = this.instanceType;
                 ec2 = new AWS.EC2({
                   apiVersion: '2016-11-15'
                 });
-                _context4.next = 7;
+                _context4.next = 6;
                 return ec2.runInstances(instanceParams).promise();
 
-              case 7:
+              case 6:
                 instance = _context4.sent;
                 instanceId = instance.Instances[0].InstanceId;
                 instanceType = instance.Instances[0].InstanceType;
@@ -199,28 +196,29 @@ function () {
                     Value: node
                   }]
                 };
-                _context4.next = 13;
+                _context4.next = 12;
                 return ec2.createTags(tagParams).promise();
 
-              case 13:
+              case 12:
                 return _context4.abrupt("return", {
                   instanceId: instanceId,
                   instanceType: instanceType,
                   publicDNS: instance.PublicDnsName,
-                  name: node
+                  name: node,
+                  template: node
                 });
 
-              case 16:
-                _context4.prev = 16;
+              case 15:
+                _context4.prev = 15;
                 _context4.t0 = _context4["catch"](0);
                 console.log(_context4.t0);
 
-              case 19:
+              case 18:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, this, [[0, 16]]);
+        }, _callee4, this, [[0, 15]]);
       }));
 
       return function runInstance(_x3) {
