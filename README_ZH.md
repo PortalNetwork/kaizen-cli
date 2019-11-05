@@ -67,6 +67,7 @@ kaizen upload btfs ./build
 - [`kaizen install`](commands/install.md) - 從 GitHub 安裝已經存在的 KAIZEN 
 - [`kaizen upload`](commands/upload.md) - 上傳 KAIZEN 專案
 - [`kaizen plugins`](commands/plugins.md) - KAIZEN 插件管理功能
+- [`kaizen instances`](commands/instances.md) - KAIZEN 運行實例管理功能
 - [`kaizen contracts`](commands/contracts.md) - KAIZEN 智能合約管理功能
 - [`kaizen blockchains`](commands/blockchains.md) - KAIZEN 區塊鏈管理功能
 

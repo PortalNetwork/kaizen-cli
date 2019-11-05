@@ -67,6 +67,7 @@ kaizen upload btfs ./build
 - [`kaizen install`](commands/install.md) - Install a KAIZEN project from GitHub
 - [`kaizen upload`](commands/upload.md) - Upload a KAIZEN project
 - [`kaizen plugins`](commands/plugins.md) - Plugin management for KAIZEN 
+- [`kaizen instances`](commands/instances.md) - Instances management for KAIZEN
 - [`kaizen contracts`](commands/contracts.md) - Contract management for KAIZEN
 - [`kaizen blockchains`](commands/blockchains.md) - Blockchain management for KAIZEN
 
