@@ -32,6 +32,7 @@ KAIZEN is an one stop solution for dapp and dweb developer. With KAIZEN, you get
 - [Contracts](https://github.com/PortalNetwork/kaizen-contracts)
 - [Command Topics](#command-topics)
 - [Plugins](#plugins)
+- [Instances](#instances)
 - [Community](#community)
 - [Contributing](#contributing)
 - [Licence](#licence)
@@ -84,6 +85,9 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Orbit](https://www.npmjs.com/package/orbit-db)
 - [Arweave](https://www.npmjs.com/package/arweave)
 - NOIA
+
+## <a name="instances"></a>⚙️ Instances
+- [NYM](http://nymtech.net/)
 
 ## <a name="faucet"></a>🚰 Faucet
 Claim test net tokens
