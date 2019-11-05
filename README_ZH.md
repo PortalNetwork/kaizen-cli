@@ -37,27 +37,32 @@ KAIZEN 包括:
 - [許可證](#licence)
 
 ## <a name="quick-start"></a>🚀 快速開始
-1. 透過 npm 安裝 KAIZEN:
+STEP 1. 透過 npm 安裝 KAIZEN:
 ```
 npm install -g kaizen-cli 
 ```
 
-2. 創建專案:
+STEP 2. 創建專案:
 ```
 kaizen create --template react --name myproject
 ```
 
-3. 部署智能合約:
+STEP 3. 部署智能合約:
 ```
 kaizen contracts deploy --url https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ```
 
-4. 上傳專案到 [IPFS](https://ipfs.io) 或者 [BTFS](https://www.bittorrent.com/btfs/):
+STEP 4. 上傳專案到 [IPFS](https://ipfs.io) 或者 [BTFS](https://www.bittorrent.com/btfs/):
 ```
 # Upload to IPFS
 kaizen upload ipfs ./build
 # or upload to BTFS
 kaizen upload btfs ./build
+```
+
+STEP 5. 部署實例於 AWS 上
+```
+kaizen instances run nym-loopix-mixnode
 ```
 
 ## <a name="command-topics"></a>🔨 指令集

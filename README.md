@@ -38,27 +38,32 @@ KAIZEN is an one stop solution for dapp and dweb developer. With KAIZEN, you get
 - [Licence](#licence)
 
 ## <a name="quick-start"></a>🚀 Quick Start
-1. Install via npm:
+STEP 1. Install via npm:
 ```
 npm install -g kaizen-cli 
 ```
 
-2. Create a project:
+STEP 2. Create a project:
 ```
 kaizen create --template react --name myproject
 ```
 
-3. Deploy smart contracts:
+STEP 3. Deploy smart contracts:
 ```
 kaizen contracts deploy --url https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ```
 
-4. Upload project to [IPFS](https://ipfs.io) or [BTFS](https://www.bittorrent.com/btfs/):
+STEP 4. Upload project to [IPFS](https://ipfs.io) or [BTFS](https://www.bittorrent.com/btfs/):
 ```
 # Upload to IPFS
 kaizen upload ipfs ./build
 # or upload to BTFS
 kaizen upload btfs ./build
+```
+
+STEP 5. Hosting instance on AWS
+```
+kaizen instances run nym-loopix-mixnode
 ```
 
 ## <a name="command-topics"></a>🔨 Command Topics
