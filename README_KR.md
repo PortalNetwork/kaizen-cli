@@ -85,7 +85,10 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Arweave](https://www.npmjs.com/package/arweave)
 - NOIA
 
-## <a name="faucet"></a>🚰 水龍頭
+## <a name="instances"></a>⚙️ 인스턴스
+- [NYM](http://nymtech.net/)
+
+## <a name="faucet"></a>🚰 수도꼭지
 KAIZEN Faucet
 - ETH
 - ETC

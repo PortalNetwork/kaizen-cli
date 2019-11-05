@@ -85,6 +85,9 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Arweave](https://www.npmjs.com/package/arweave)
 - NOIA
 
+## <a name="instances"></a>⚙️ 實例
+- [NYM](http://nymtech.net/)
+
 ## <a name="faucet"></a>🚰 水龍頭
 KAIZEN Faucet 支援下列區塊鏈測試網路的代幣
 - ETH
