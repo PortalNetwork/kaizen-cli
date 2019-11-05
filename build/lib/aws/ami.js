@@ -1,10 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ami = void 0;
-var ami = {
+exports.ami = {
   "ipfs-api-server-mainnet": {
     "ImageId": "",
     "InstanceType": "t2.micro",
@@ -46,6 +42,11 @@ var ami = {
     "InstanceType": "t2.micro",
     "MinCount": 1,
     "MaxCount": 1
+  },
+  "nym-loopix-mixnode": {
+    "ImageId": "ami-0edc01100d4a88aa8",
+    "InstanceType": "t2.micro",
+    "MinCount": 1,
+    "MaxCount": 1
   }
 };
-exports.ami = ami;

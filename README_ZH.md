@@ -67,6 +67,7 @@ kaizen upload btfs ./build
 - [`kaizen install`](commands/install.md) - 從 GitHub 安裝已經存在的 KAIZEN 
 - [`kaizen upload`](commands/upload.md) - 上傳 KAIZEN 專案
 - [`kaizen plugins`](commands/plugins.md) - KAIZEN 插件管理功能
+- [`kaizen instances`](commands/instances.md) - KAIZEN 運行實例管理功能
 - [`kaizen contracts`](commands/contracts.md) - KAIZEN 智能合約管理功能
 - [`kaizen blockchains`](commands/blockchains.md) - KAIZEN 區塊鏈管理功能
 
@@ -107,7 +108,7 @@ KAIZEN Faucet 支援下列區塊鏈測試網路的代幣
 *快速開始：您可以透過 [help wanted](https://github.com/PortalNetwork/kaizen-cli/labels/help%20wanted) 或者 [good first issue](https://github.com/PortalNetwork/kaizen-cli/labels/good%20first%20issue) 標籤找到可以參與貢獻的任務。
 
 ## <a name="contact"></a>📧 聯絡
-如果您有任何問題請聯繫 chris@portal.network 或者加入我們的 Telegram: [http://bit.ly/2XjhQV2](http://bit.ly/2XjhQV2)
+如果您有任何問題請聯繫 **chris@portal.network** 或者加入我們的 Telegram: [http://bit.ly/2XjhQV2](http://bit.ly/2XjhQV2)
 
 ## <a name="licence"></a>🗒 許可證
 詳細內容請參考 [LICENSE](./LICENSE)

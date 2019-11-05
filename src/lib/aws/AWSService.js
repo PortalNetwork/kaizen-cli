@@ -9,7 +9,6 @@ class AWSService {
 
   constructor(accessKeyId, secretAccessKey, region) {
     this.keyPem = 'kaizen-cli';
-    this.instanceType = 't2.micro';
     AWS.config.update({region: region});
     const credentials = new AWS.Credentials(accessKeyId, secretAccessKey, null);
     AWS.config.credentials = credentials;
@@ -23,8 +22,9 @@ class AWSService {
       };
 
       const keyPair = await ec2.createKeyPair(params).promise();
-      console.log(JSON.stringify(keyPair));
+      //console.log(JSON.stringify(keyPair));
       fs.writeFileSync(keyPair.KeyName + '.pem', keyPair.KeyMaterial, 'utf8');
+      return keyPair;
     } catch (err) {
       console.log(err);
     }
@@ -63,7 +63,6 @@ class AWSService {
       // TODO choose AMI_ID, generate Key
       let instanceParams = ami.ami[node];
       instanceParams.KeyName = this.keyPem;
-      instanceParams.instanceType = this.instanceType;
 
       const ec2 = new AWS.EC2({apiVersion: '2016-11-15'});
       const instance = await ec2.runInstances(instanceParams).promise();
@@ -77,7 +76,7 @@ class AWSService {
       ]};
       await ec2.createTags(tagParams).promise();
 
-      return {instanceId, instanceType, publicDNS: instance.PublicDnsName, name: node};
+      return {instanceId, instanceType, publicDNS: instance.PublicDnsName, name: node, template: node};
     } catch (err) {
       console.log(err);
     }

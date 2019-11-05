@@ -1,7 +1,7 @@
 `kaizen plugins`
 ===============
 
-Contract management for KAIZEN
+Plugin management for KAIZEN
 
 * [`kaizen plugins`](#kaizen-plugins)
 * [`kaizen plugins list`](#kaizen-plugins-list)
@@ -10,7 +10,7 @@ Contract management for KAIZEN
 
 ## `kaizen plugins`
 
-Contract management for KAIZEN
+Plugin management for KAIZEN
 
 ```
 Commands:

@@ -67,6 +67,7 @@ kaizen upload btfs ./build
 - [`kaizen install`](commands/install.md) - Install a KAIZEN project from GitHub
 - [`kaizen upload`](commands/upload.md) - Upload a KAIZEN project
 - [`kaizen plugins`](commands/plugins.md) - Plugin management for KAIZEN 
+- [`kaizen instances`](commands/instances.md) - Instances management for KAIZEN
 - [`kaizen contracts`](commands/contracts.md) - Contract management for KAIZEN
 - [`kaizen blockchains`](commands/blockchains.md) - Blockchain management for KAIZEN
 
@@ -107,7 +108,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to help out.
 *Quick Start*: Check out [help wanted](https://github.com/PortalNetwork/kaizen-cli/labels/help%20wanted) or [good first issue](https://github.com/PortalNetwork/kaizen-cli/labels/good%20first%20issue) labels to find issues we want to move forward on with your help.
 
 ## <a name="contact"></a>📧 Contact
-For any questions, please contact chris@portal.network or join telegram: [http://bit.ly/2XjhQV2](http://bit.ly/2XjhQV2)
+For any questions, please contact **chris@portal.network** or join telegram: [http://bit.ly/2XjhQV2](http://bit.ly/2XjhQV2)
 
 ## <a name="licence"></a>🗒 라이센스
 [LICENSE](./LICENSE) 참조하기
