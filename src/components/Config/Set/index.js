@@ -10,7 +10,7 @@ function builder(yargs) {
       alias: 'k',
       type: 'string',
       describe: 'Configuration key',
-      choices: ['privateKey', 'provider', 'networkId']
+      choices: ['privateKey', 'provider', 'networkId', 'accessKey', 'secretKey', 'region']
     })
     .option('value', {
       alias: 'v',

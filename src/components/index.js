@@ -25,6 +25,9 @@ require('./Platform/Nodes')(yargs);
 /** Oracle Service **/
 require('./Oracle')(yargs);
 
+/** Instance Service **/
+require('./Instances')(yargs);
+
 yargs
 .demandCommand(1, '')
 .epilogue(

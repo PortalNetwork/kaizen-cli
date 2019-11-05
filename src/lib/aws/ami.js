@@ -1,4 +1,4 @@
-export const ami = {
+exports.ami = {
     "ipfs-api-server-mainnet": {
         "ImageId": "",
         "InstanceType": "t2.micro",
@@ -37,6 +37,12 @@ export const ami = {
     },
     "wanchain-testnet": {
         "ImageId": "",
+        "InstanceType": "t2.micro",
+        "MinCount": 1,
+        "MaxCount": 1
+    },
+    "nym-loopix-mixnode": {
+        "ImageId": "ami-0edc01100d4a88aa8",
         "InstanceType": "t2.micro",
         "MinCount": 1,
         "MaxCount": 1
