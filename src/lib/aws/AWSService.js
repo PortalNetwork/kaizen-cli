@@ -58,7 +58,7 @@ class AWSService {
     }
   }
   
-  async runInstance(node) {
+  async runInstance(node, type) {
     try {
       // TODO choose AMI_ID, generate Key
       let instanceParams = ami.ami[node];
@@ -67,7 +67,7 @@ class AWSService {
       const ec2 = new AWS.EC2({apiVersion: '2016-11-15'});
       const instance = await ec2.runInstances(instanceParams).promise();
       const instanceId = instance.Instances[0].InstanceId;
-      const instanceType = instance.Instances[0].InstanceType;
+      const instanceType = (type) ? type : instance.Instances[0].InstanceType;
       const tagParams = {Resources: [instanceId], Tags: [
         {
            Key: 'Name',
