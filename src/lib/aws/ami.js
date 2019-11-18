@@ -46,5 +46,11 @@ exports.ami = {
         "InstanceType": "t2.micro",
         "MinCount": 1,
         "MaxCount": 1
+    },
+    "golem": {
+        "ImageId": "ami-09d77dc5c373f8fd6",
+        "InstanceType": "t2.micro",
+        "MinCount": 1,
+        "MaxCount": 1
     }
   }

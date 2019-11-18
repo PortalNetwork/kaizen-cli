@@ -24,10 +24,11 @@ function _handler() {
           case 0:
             Log.NormalLog('Available instance template:'.underline.yellow);
             Log.NormalLog('nym-loopix-mixnode'.underline.yellow + ' - Nym is a blockchain-based privacy platform.');
+            Log.NormalLog('golem'.underline.yellow + ' - Golem is computing power share platform.');
             Log.NormalLog("\nTo start a instance run " + "'kaizen instances run <instance-name-here>'".yellow);
             Log.NormalLog("\nIt will be automatically start instance on AWS\n");
 
-          case 4:
+          case 5:
           case "end":
             return _context.stop();
         }

@@ -11,7 +11,7 @@ function builder(yargs) {
 
   require('./Template')(yargs);
 
-  return yargs.example('kaizen instances run').example('kaizen instances template').example('kaizen instances list').demandCommand(1, '').epilogue('Available instance templates:\n\n'.underline.yellow + 'nym-loopix-mixnode'.underline.yellow + ' - Nym is a blockchain-based privacy platform.\n' + '\nRun ' + '\'kaizen instances <command>\''.yellow + ' to deploy instances to AWS.\n');
+  return yargs.example('kaizen instances run').example('kaizen instances template').example('kaizen instances list').demandCommand(1, '').epilogue('Available instance templates:\n\n'.underline.yellow + 'nym-loopix-mixnode'.underline.yellow + ' - Nym is a blockchain-based privacy platform.\n' + 'golem'.underline.yellow + ' - Golem is computing power share platform.\n' + '\nRun ' + '\'kaizen instances <command>\''.yellow + ' to deploy instances to AWS.\n');
 }
 
 function handler(_x) {

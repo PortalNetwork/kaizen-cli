@@ -11,6 +11,7 @@ function builder(yargs) {
   .epilogue(
 		'Available instance templates:\n\n'.underline.yellow + 
     'nym-loopix-mixnode'.underline.yellow + ' - Nym is a blockchain-based privacy platform.\n' +
+    'golem'.underline.yellow + ' - Golem is computing power share platform.\n' +
 		'\nRun ' + '\'kaizen instances <command>\''.yellow + 
 		' to deploy instances to AWS.\n'
 	);

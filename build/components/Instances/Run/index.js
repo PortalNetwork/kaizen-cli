@@ -10,13 +10,19 @@ var Spinner = require('../../../lib/Spinner');
 
 var nymLoopixMixnodeHandler = require('./nym-loopix-mixnode.js');
 
+var golemHandler = require('./golem.js');
+
 function builder(yargs) {
   return yargs.positional('instance', {
     alias: 'i',
     type: 'string',
     describe: 'instance name',
     require: true
-  }).example('kaizen instances run nym-loopix-mixnode').demandOption(['instance'], '');
+  }).option('type', {
+    alias: 't',
+    type: 'string',
+    describe: 'instance type'
+  }).example('kaizen instances run nym-loopix-mixnode').example('kaizen instances run golem --type t2.xlarge').demandOption(['instance'], '');
 }
 
 function handler(_x) {
@@ -27,13 +33,13 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var instance;
+    var instance, type;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            instance = argv.instance;
+            instance = argv.instance, type = argv.type;
 
             if (instance) {
               _context.next = 5;
@@ -45,40 +51,51 @@ function _handler() {
 
           case 5:
             _context.t0 = instance;
-            _context.next = _context.t0 === 'nym-loopix-mixnode' ? 8 : 15;
+            _context.next = _context.t0 === 'nym-loopix-mixnode' ? 8 : _context.t0 === 'golem' ? 15 : 22;
             break;
 
           case 8:
             Log.NormalLog("Starting ".concat(instance, " instance, please wait a second..."));
             Spinner.start();
             _context.next = 12;
-            return nymLoopixMixnodeHandler();
+            return nymLoopixMixnodeHandler(instance, type);
 
           case 12:
             Spinner.stop();
             Log.SuccessLog("Start instance ".concat(instance, " Successfully"));
-            return _context.abrupt("break", 16);
+            return _context.abrupt("break", 23);
 
           case 15:
+            Log.NormalLog("Starting ".concat(instance, " instance, please wait a second..."));
+            Spinner.start();
+            _context.next = 19;
+            return golemHandler(instance, type);
+
+          case 19:
+            Spinner.stop();
+            Log.SuccessLog("Start instance ".concat(instance, " Successfully"));
+            return _context.abrupt("break", 23);
+
+          case 22:
             Log.NormalLog('Instance not support yet');
 
-          case 16:
-            _context.next = 23;
+          case 23:
+            _context.next = 30;
             break;
 
-          case 18:
-            _context.prev = 18;
+          case 25:
+            _context.prev = 25;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 23:
+          case 30:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 18]]);
+    }, _callee, this, [[0, 25]]);
   }));
   return _handler.apply(this, arguments);
 }

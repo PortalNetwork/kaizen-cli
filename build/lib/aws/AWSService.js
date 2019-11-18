@@ -169,7 +169,7 @@ function () {
     value: function () {
       var _runInstance = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee4(node) {
+      regeneratorRuntime.mark(function _callee4(node, type) {
         var instanceParams, ec2, instance, instanceId, instanceType, tagParams;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
@@ -188,7 +188,7 @@ function () {
               case 6:
                 instance = _context4.sent;
                 instanceId = instance.Instances[0].InstanceId;
-                instanceType = instance.Instances[0].InstanceType;
+                instanceType = type ? type : instance.Instances[0].InstanceType;
                 tagParams = {
                   Resources: [instanceId],
                   Tags: [{
@@ -221,7 +221,7 @@ function () {
         }, _callee4, this, [[0, 15]]);
       }));
 
-      return function runInstance(_x3) {
+      return function runInstance(_x3, _x4) {
         return _runInstance.apply(this, arguments);
       };
     }()
@@ -264,7 +264,7 @@ function () {
         }, _callee5, this, [[0, 9]]);
       }));
 
-      return function getInstance(_x4) {
+      return function getInstance(_x5) {
         return _getInstance.apply(this, arguments);
       };
     }()
