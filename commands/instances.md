@@ -30,6 +30,7 @@ Examples:
 Available instance templates:
 
 nym-loopix-mixnode - Nym is a blockchain-based privacy platform.
+golem - Golem is computing power share platform.
 
 Run 'kaizen instances <command>' to deploy instances to AWS.
 ```
@@ -57,11 +58,13 @@ Positionals:
   instance, i  instance name                                 [string] [required]
 
 Options:
-  --help     Show help                                                 [boolean]
-  --version  Show version number                                       [boolean]
+  --help      Show help                                                [boolean]
+  --version   Show version number                                      [boolean]
+  --type, -t  instance type                                             [string]
 
 Examples:
   kaizen instances run nym-loopix-mixnode
+  kaizen instances run golem --type t2.xlarge
 ```
 
 ## `kaizen instances template`
@@ -71,6 +74,7 @@ Show all instance template support by KAIZEN
 ```
 Available instance template:
 nym-loopix-mixnode - Nym is a blockchain-based privacy platform.
+golem - Golem is computing power share platform.
 
 To start a instance run 'kaizen instances run <instance-name-here>'
 
