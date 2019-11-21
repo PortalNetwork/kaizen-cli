@@ -92,6 +92,7 @@ KAIZEN Platform 目前正在 Alpha 階段
 
 ## <a name="instances"></a>⚙️ 實例
 - [NYM](http://nymtech.net/)
+- [Golem](https://golem.network/)
 
 ## <a name="faucet"></a>🚰 水龍頭
 KAIZEN Faucet 支援下列區塊鏈測試網路的代幣

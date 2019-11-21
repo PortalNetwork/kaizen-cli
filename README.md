@@ -93,6 +93,7 @@ The KAIZEN Platform is currently in experimental alpha.
 
 ## <a name="instances"></a>⚙️ Instances
 - [NYM](http://nymtech.net/)
+- [Golem](https://golem.network/)
 
 ## <a name="faucet"></a>🚰 Faucet
 Claim test net tokens
