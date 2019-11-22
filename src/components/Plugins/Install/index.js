@@ -9,6 +9,7 @@ const iconHandler = require('./icon.js');
 const orbitHandler = require('./orbit.js');
 const arweaveHandler = require('./arweave.js');
 const bandHandler = require('./band.js');
+const fluenceHandler = require('./fluence.js');
 
 function builder(yargs) {
   return yargs
@@ -85,6 +86,13 @@ async function handler(argv) {
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await bandHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'fluence':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await fluenceHandler();
         Spinner.stop();
         Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;

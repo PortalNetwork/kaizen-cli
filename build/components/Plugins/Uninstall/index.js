@@ -32,6 +32,8 @@ var arweaveHandler = require('./arweave.js');
 
 var bandHandler = require('./band.js');
 
+var fluenceHandler = require('./fluence.js');
+
 function builder(yargs) {
   return yargs.positional('plugin', {
     alias: 'p',
@@ -81,7 +83,7 @@ function _handler() {
 
           case 11:
             _context.t0 = plugin;
-            _context.next = _context.t0 === 'bluzelle' ? 14 : _context.t0 === 'nkn' ? 22 : _context.t0 === 'noia' ? 30 : _context.t0 === 'icon' ? 38 : _context.t0 === 'orbit' ? 46 : _context.t0 === 'arweave' ? 54 : _context.t0 === 'band' ? 62 : 70;
+            _context.next = _context.t0 === 'bluzelle' ? 14 : _context.t0 === 'nkn' ? 22 : _context.t0 === 'noia' ? 30 : _context.t0 === 'icon' ? 38 : _context.t0 === 'orbit' ? 46 : _context.t0 === 'arweave' ? 54 : _context.t0 === 'band' ? 62 : _context.t0 === 'band' ? 70 : 78;
             break;
 
           case 14:
@@ -94,7 +96,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'bluzelle');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 71);
+            return _context.abrupt("break", 79);
 
           case 22:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -106,7 +108,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'nkn');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 71);
+            return _context.abrupt("break", 79);
 
           case 30:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -118,7 +120,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'noia');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 71);
+            return _context.abrupt("break", 79);
 
           case 38:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -130,7 +132,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'icon');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 71);
+            return _context.abrupt("break", 79);
 
           case 46:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -142,7 +144,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'orbit');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 71);
+            return _context.abrupt("break", 79);
 
           case 54:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -154,7 +156,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'arweave');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 71);
+            return _context.abrupt("break", 79);
 
           case 62:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -163,31 +165,43 @@ function _handler() {
             return bandHandler();
 
           case 66:
-            updateKaizenJson(kaizenJson, 'arweave');
+            updateKaizenJson(kaizenJson, 'band');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 71);
+            return _context.abrupt("break", 79);
 
           case 70:
+            Log.NormalLog('Uninstalling plugin, please wait a second...');
+            Spinner.start();
+            _context.next = 74;
+            return fluenceHandler();
+
+          case 74:
+            updateKaizenJson(kaizenJson, 'fluence');
+            Spinner.stop();
+            Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 79);
+
+          case 78:
             Log.NormalLog('Plugin not support yet');
 
-          case 71:
-            _context.next = 78;
+          case 79:
+            _context.next = 86;
             break;
 
-          case 73:
-            _context.prev = 73;
+          case 81:
+            _context.prev = 81;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 78:
+          case 86:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 73]]);
+    }, _callee, this, [[0, 81]]);
   }));
   return _handler.apply(this, arguments);
 }

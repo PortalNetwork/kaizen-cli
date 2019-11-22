@@ -16,7 +16,8 @@ function builder(yargs) {
     'icon'.underline.yellow + ' - Blockchain\n' +
     'orbit'.underline.yellow + ' - Decentralized database\n' + 
     'arweave'.underline.yellow + ' - Decentralized file storage\n' +
-    'band'.underline.yellow + ' - Data Oracle' +
+    'band'.underline.yellow + ' - Data Oracle\n' +
+    'fluence'.underline.yellow + ' - Decentralized database\n' +
 		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
 		' to interact with plugins.\n'
 	);
