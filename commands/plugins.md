@@ -36,6 +36,8 @@ noia - Decentralized CDN
 icon - Blockchain
 orbit - Decentralized database
 arweave - Decentralized file storage
+fluence - Decentralized database
+sia - Decentralized file storage
 
 Run 'kaizen plugins <command>' to interact with plugins.
 ```
@@ -52,6 +54,8 @@ noia - NOIA information
 icon - ICON information
 orbit - Orbit information
 arweave - Decentralized file storage
+fluence - Decentralized database
+sia - Decentralized file storage
 
 To install a plugin run 'kaizen plugins install <plugin-name-here>'
 

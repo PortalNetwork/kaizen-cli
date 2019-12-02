@@ -18,6 +18,7 @@ function builder(yargs) {
     'arweave'.underline.yellow + ' - Decentralized file storage\n' +
     'band'.underline.yellow + ' - Data Oracle\n' +
     'fluence'.underline.yellow + ' - Decentralized database\n' +
+    'sia'.underline.yellow + ' - Decentralized file storage\n' +
 		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
 		' to interact with plugins.\n'
 	);
