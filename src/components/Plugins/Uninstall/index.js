@@ -10,6 +10,8 @@ const iconHandler = require('./icon.js');
 const orbitHandler = require('./orbit.js');
 const arweaveHandler = require('./arweave.js');
 const bandHandler = require('./band.js');
+const fluenceHandler = require('./fluence.js');
+const siaHandler = require('./sia.js');
 
 function builder(yargs) {
   return yargs
@@ -92,7 +94,23 @@ async function handler(argv) {
         Log.NormalLog('Uninstalling plugin, please wait a second...');
         Spinner.start();
         await bandHandler();
-        updateKaizenJson(kaizenJson, 'arweave');
+        updateKaizenJson(kaizenJson, 'band');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
+      case 'band':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await fluenceHandler();
+        updateKaizenJson(kaizenJson, 'fluence');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
+      case 'sia':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await siaHandler();
+        updateKaizenJson(kaizenJson, 'sia');
         Spinner.stop();
         Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;

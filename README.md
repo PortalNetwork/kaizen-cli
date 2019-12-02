@@ -89,6 +89,8 @@ The KAIZEN Platform is currently in experimental alpha.
 - [ICON](https://www.npmjs.com/package/icon-sdk-js)
 - [Orbit](https://www.npmjs.com/package/orbit-db)
 - [Arweave](https://www.npmjs.com/package/arweave)
+- [Fluence](https://www.npmjs.com/package/fluence)
+- [Sia](https://sia.tech/)
 - NOIA
 
 ## <a name="instances"></a>⚙️ Instances
