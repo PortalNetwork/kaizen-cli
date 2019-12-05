@@ -93,8 +93,8 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [NOIA](http://noia.network/) - Decentralized CDN
 
 ## <a name="instances"></a>⚙️ 實例
-- [NYM](http://nymtech.net/)
-- [Golem](https://golem.network/)
+- [NYM](http://nymtech.net/) - Decentralized privacy
+- [Golem](https://golem.network/) - Decentralized cloud computing
 
 ## <a name="faucet"></a>🚰 水龍頭
 KAIZEN Faucet 支援下列區塊鏈測試網路的代幣

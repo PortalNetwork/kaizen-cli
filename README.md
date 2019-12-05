@@ -94,8 +94,8 @@ The KAIZEN Platform is currently in experimental alpha.
 - [NOIA](http://noia.network/) - Decentralized CDN
 
 ## <a name="instances"></a>⚙️ Instances
-- [NYM](http://nymtech.net/)
-- [Golem](https://golem.network/)
+- [NYM](http://nymtech.net/) - Decentralized privacy
+- [Golem](https://golem.network/) - Decentralized cloud computing
 
 ## <a name="faucet"></a>🚰 Faucet
 Claim test net tokens
