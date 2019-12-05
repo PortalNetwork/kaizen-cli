@@ -84,18 +84,18 @@ The KAIZEN Platform is currently in experimental alpha.
 - [`kaizen nodes`](commands/nodes.md) - Node management of KAIZEN Platform
 
 ## <a name="plugins"></a>🏗 Plugins
-- [Bluzelle](https://www.npmjs.com/package/bluzelle)
-- [NKN](https://www.npmjs.com/package/nkn-client)
-- [ICON](https://www.npmjs.com/package/icon-sdk-js)
-- [Orbit](https://www.npmjs.com/package/orbit-db)
-- [Arweave](https://www.npmjs.com/package/arweave)
-- [Fluence](https://www.npmjs.com/package/fluence)
-- [Sia](https://sia.tech/)
-- NOIA
+- [Bluzelle](https://www.npmjs.com/package/bluzelle) - Decentralized database
+- [NKN](https://www.npmjs.com/package/nkn-client) - Data transmisstion
+- [ICON](https://www.npmjs.com/package/icon-sdk-js) - Blockchain
+- [Orbit](https://www.npmjs.com/package/orbit-db) - Decentralized database
+- [Arweave](https://www.npmjs.com/package/arweave) - Decentralized file storage
+- [Fluence](https://www.npmjs.com/package/fluence) - Decentralized database
+- [Sia](https://sia.tech/) - Decentralized file storage
+- [NOIA](http://noia.network/) - Decentralized CDN
 
 ## <a name="instances"></a>⚙️ Instances
-- [NYM](http://nymtech.net/)
-- [Golem](https://golem.network/)
+- [NYM](http://nymtech.net/) - Decentralized privacy
+- [Golem](https://golem.network/) - Decentralized cloud computing
 
 ## <a name="faucet"></a>🚰 Faucet
 Claim test net tokens

@@ -83,18 +83,18 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [`kaizen nodes`](commands/nodes.md) - KAIZEN Platform 節點管理
 
 ## <a name="plugins"></a>🏗 插件
-- [Bluzelle](https://www.npmjs.com/package/bluzelle)
-- [NKN](https://www.npmjs.com/package/nkn-client)
-- [ICON](https://www.npmjs.com/package/icon-sdk-js)
-- [Orbit](https://www.npmjs.com/package/orbit-db)
-- [Arweave](https://www.npmjs.com/package/arweave)
-- [Fluence](https://www.npmjs.com/package/fluence)
-- [Sia](https://sia.tech/)
-- NOIA
+- [Bluzelle](https://www.npmjs.com/package/bluzelle) - Decentralized database
+- [NKN](https://www.npmjs.com/package/nkn-client) - Data transmisstion
+- [ICON](https://www.npmjs.com/package/icon-sdk-js) - Blockchain
+- [Orbit](https://www.npmjs.com/package/orbit-db) - Decentralized database
+- [Arweave](https://www.npmjs.com/package/arweave) - Decentralized file storage
+- [Fluence](https://www.npmjs.com/package/fluence) - Decentralized database
+- [Sia](https://sia.tech/) - Decentralized file storage
+- [NOIA](http://noia.network/) - Decentralized CDN
 
 ## <a name="instances"></a>⚙️ 實例
-- [NYM](http://nymtech.net/)
-- [Golem](https://golem.network/)
+- [NYM](http://nymtech.net/) - Decentralized privacy
+- [Golem](https://golem.network/) - Decentralized cloud computing
 
 ## <a name="faucet"></a>🚰 水龍頭
 KAIZEN Faucet 支援下列區塊鏈測試網路的代幣
