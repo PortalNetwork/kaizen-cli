@@ -17,7 +17,7 @@ function builder(yargs) {
     alias: 't',
     type: 'string',
     describe: 'Build project with template',
-    choices: ['vue', 'react'],
+    choices: ['vue', 'react', 'react-near', 'plain-near'],
     default: 'react'
   }).option('name', {
     alias: 'n',
@@ -44,7 +44,7 @@ function _handler() {
             projectName = argv.name, template = argv.template;
             Log.NormalLog("Downloading project, please wait a second");
             _context.t0 = template;
-            _context.next = _context.t0 === 'vue' ? 7 : _context.t0 === 'react' ? 10 : 10;
+            _context.next = _context.t0 === 'vue' ? 7 : _context.t0 === 'react-near' ? 10 : _context.t0 === 'plain-near' ? 13 : _context.t0 === 'react' ? 16 : 16;
             break;
 
           case 7:
@@ -52,38 +52,52 @@ function _handler() {
             return cloneProjectFromGithub('https://github.com/PortalNetwork/vue-truffle.git', projectName);
 
           case 9:
-            return _context.abrupt("break", 13);
+            return _context.abrupt("break", 19);
 
           case 10:
             _context.next = 12;
-            return cloneProjectFromGithub('https://github.com/PortalNetwork/react-truffle.git', projectName);
+            return cloneProjectFromGithub('https://github.com/PortalNetwork/react-near.git', projectName);
 
           case 12:
-            return _context.abrupt("break", 13);
+            return _context.abrupt("break", 19);
 
           case 13:
+            _context.next = 15;
+            return cloneProjectFromGithub('https://github.com/PortalNetwork/plain-near.git', projectName);
+
+          case 15:
+            return _context.abrupt("break", 19);
+
+          case 16:
+            _context.next = 18;
+            return cloneProjectFromGithub('https://github.com/PortalNetwork/react-truffle.git', projectName);
+
+          case 18:
+            return _context.abrupt("break", 19);
+
+          case 19:
             fsx.removeSync("./".concat(projectName, "/.git"));
             Spinner.stop();
             Log.SuccessLog("\nCreate ".concat(projectName, " Successfully"));
             Log.NormalLog('Now you can use ' + "'cd ".concat(projectName, "'").yellow + ' to the project folder.');
             Log.NormalLog('After you get into the folder, you can install the node packages by using ' + '\'npm install\''.yellow);
             Log.NormalLog('Let\'s start BUIDL!'.green);
-            _context.next = 26;
+            _context.next = 32;
             break;
 
-          case 21:
-            _context.prev = 21;
+          case 27:
+            _context.prev = 27;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 26:
+          case 32:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 21]]);
+    }, _callee, this, [[0, 27]]);
   }));
   return _handler.apply(this, arguments);
 }
