@@ -19,6 +19,7 @@ function builder(yargs) {
     'band'.underline.yellow + ' - Data Oracle\n' +
     'fluence'.underline.yellow + ' - Decentralized database\n' +
     'sia'.underline.yellow + ' - Decentralized file storage\n' +
+    'near'.underline.yellow + ' - Scalable decentralized application\n' +
 		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
 		' to interact with plugins.\n'
 	);
