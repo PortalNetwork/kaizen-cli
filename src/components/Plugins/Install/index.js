@@ -11,6 +11,7 @@ const arweaveHandler = require('./arweave.js');
 const bandHandler = require('./band.js');
 const fluenceHandler = require('./fluence.js');
 const siaHandler = require('./sia.js');
+const nearHandler = require('./near.js');
 
 function builder(yargs) {
   return yargs
@@ -101,6 +102,13 @@ async function handler(argv) {
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await siaHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'near':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await nearHandler();
         Spinner.stop();
         Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;

@@ -98,6 +98,7 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Fluence](https://www.npmjs.com/package/fluence) - Decentralized database
 - [Sia](https://sia.tech/) - Decentralized file storage
 - [NOIA](http://noia.network/) - Decentralized CDN
+- [Near](https://nearprotocol.com/) - Scalable decentralized application
 
 ## <a name="instances"></a>⚙️ 實例
 - [NYM](http://nymtech.net/) - Decentralized privacy

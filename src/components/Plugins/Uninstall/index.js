@@ -12,6 +12,7 @@ const arweaveHandler = require('./arweave.js');
 const bandHandler = require('./band.js');
 const fluenceHandler = require('./fluence.js');
 const siaHandler = require('./sia.js');
+const nearHandler = require('./near.js');
 
 function builder(yargs) {
   return yargs
@@ -111,6 +112,14 @@ async function handler(argv) {
         Spinner.start();
         await siaHandler();
         updateKaizenJson(kaizenJson, 'sia');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
+      case 'near':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await nearHandler();
+        updateKaizenJson(kaizenJson, 'near');
         Spinner.stop();
         Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;
