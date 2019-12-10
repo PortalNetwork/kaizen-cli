@@ -31,6 +31,7 @@ KAIZEN is an one stop solution for dapp and dweb developer. With KAIZEN, you get
 - [Examples](https://github.com/PortalNetwork/kaizen-examples)
 - [Contracts](https://github.com/PortalNetwork/kaizen-contracts)
 - [Command Topics](#command-topics)
+- [Dapp Templates](#dapp-templates)
 - [Plugins](#plugins)
 - [Instances](#instances)
 - [Community](#community)
@@ -82,6 +83,12 @@ The KAIZEN Platform is currently in experimental alpha.
 - [`kaizen login`](commands/login.md) - Login or sign up for the KAIZEN Platform
 - [`kaizen logout`](commands/logout.md) - Logout from the KAIZEN Platform
 - [`kaizen nodes`](commands/nodes.md) - Node management of KAIZEN Platform
+
+## <a name="dapp-templates"></a>📦 Dapp Templates
+- [React] - Dapp template make by react framework
+- [Vue] - Dapp template make by vue framework
+- [Plain-near] - Near protocol dapp template simple version
+- [React-near] - Near protocol dapp template make by react
 
 ## <a name="plugins"></a>🏗 Plugins
 - [Bluzelle](https://www.npmjs.com/package/bluzelle) - Decentralized database

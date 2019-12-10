@@ -9,7 +9,7 @@ function builder(yargs) {
         alias: 't',
         type: 'string',
         describe: 'Build project with template',
-        choices: ['vue', 'react'],
+        choices: ['vue', 'react', 'react-near', 'plain-near'],
         default: 'react'
     })
     .option('name', {
@@ -29,6 +29,12 @@ async function handler(argv) {
     switch (template) {
       case 'vue':
         await cloneProjectFromGithub('https://github.com/PortalNetwork/vue-truffle.git', projectName);
+        break;
+      case 'react-near':
+        await cloneProjectFromGithub('https://github.com/PortalNetwork/react-near.git', projectName);
+        break;
+      case 'plain-near':
+        await cloneProjectFromGithub('https://github.com/PortalNetwork/plain-near.git', projectName);
         break;
       case 'react':
       default:
