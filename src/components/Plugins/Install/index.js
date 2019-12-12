@@ -12,6 +12,7 @@ const bandHandler = require('./band.js');
 const fluenceHandler = require('./fluence.js');
 const siaHandler = require('./sia.js');
 const nearHandler = require('./near.js');
+const tellorHandler = require('./tellor.js');
 
 function builder(yargs) {
   return yargs
@@ -109,6 +110,13 @@ async function handler(argv) {
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await nearHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'tellor':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await tellorHandler();
         Spinner.stop();
         Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;
