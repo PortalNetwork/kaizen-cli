@@ -33,10 +33,11 @@ function _handler() {
             Log.NormalLog('fluence'.underline.yellow + ' - Fluence information');
             Log.NormalLog('sia'.underline.yellow + ' - Sia information');
             Log.NormalLog('near'.underline.yellow + ' - Near information');
+            Log.NormalLog('tellor'.underline.yellow + ' - Tellor information');
             Log.NormalLog("\nTo install a plugin run " + "'kaizen plugins install <plugin-name-here>'".yellow);
             Log.NormalLog("\nIt will be automatically downloaded and added to your " + "'package.json'".yellow + " and " + "'kaizen.json'".yellow + " file\n");
 
-          case 13:
+          case 14:
           case "end":
             return _context.stop();
         }

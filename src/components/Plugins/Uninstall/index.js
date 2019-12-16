@@ -13,6 +13,7 @@ const bandHandler = require('./band.js');
 const fluenceHandler = require('./fluence.js');
 const siaHandler = require('./sia.js');
 const nearHandler = require('./near.js');
+const tellorHandler = require('./tellor.js');
 
 function builder(yargs) {
   return yargs
@@ -120,6 +121,14 @@ async function handler(argv) {
         Spinner.start();
         await nearHandler();
         updateKaizenJson(kaizenJson, 'near');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
+      case 'tellor':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await tellorHandler();
+        updateKaizenJson(kaizenJson, 'tellor');
         Spinner.stop();
         Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;

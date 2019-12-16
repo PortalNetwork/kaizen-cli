@@ -20,6 +20,7 @@ function builder(yargs) {
     'fluence'.underline.yellow + ' - Decentralized database\n' +
     'sia'.underline.yellow + ' - Decentralized file storage\n' +
     'near'.underline.yellow + ' - Scalable decentralized application\n' +
+    'tellor'.underline.yellow + ' - Decentralized oracle service\n' +
 		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
 		' to interact with plugins.\n'
 	);

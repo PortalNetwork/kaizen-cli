@@ -38,6 +38,8 @@ orbit - Decentralized database
 arweave - Decentralized file storage
 fluence - Decentralized database
 sia - Decentralized file storage
+near - Scalable decentralized application
+tellor - Decentralized oracle service
 
 Run 'kaizen plugins <command>' to interact with plugins.
 ```
@@ -56,6 +58,8 @@ orbit - Orbit information
 arweave - Decentralized file storage
 fluence - Decentralized database
 sia - Decentralized file storage
+near - Scalable decentralized application
+tellor - Decentralized oracle service
 
 To install a plugin run 'kaizen plugins install <plugin-name-here>'
 

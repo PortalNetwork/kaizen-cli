@@ -29,6 +29,12 @@ function builder(yargs) {
     alias: 'u',
     type: 'string',
     describe: 'URL of the template contract'
+  }).option('network', {
+    alias: 'n',
+    type: 'string',
+    describe: 'Network of the template contract',
+    choices: ['development', 'deploy'],
+    default: 'development'
   }).example('kaizen contracts deploy -u https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20').demandOption(['url'], '').epilogue('Please enter the url of the template contract\n\n' + 'Support contract template:\n\n'.underline.yellow + 'Chainlink'.underline.yellow + ' - Chainlink Oracle Service, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/Chainlink'.underline.yellow + '\n' + 'ERC20'.underline.yellow + ' - ERC20 Token Standard, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20'.underline.yellow + '\n' + 'ERC721'.underline.yellow + ' - ERC721 Token Standard, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721'.underline.yellow + '\n' + 'NuCypher'.underline.yellow + ' - NuCypher Contracts, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/NuCypher'.underline.yellow + '\n');
 }
 
@@ -40,14 +46,14 @@ function _handler() {
   _handler = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(argv) {
-    var repoUrl, kaizenrc, _kaizenrc, privateKey, provider, networkId, _getFilePath, owner, repo, branch, template, zipFilePath, processing, result;
+    var repoUrl, network, kaizenrc, _kaizenrc, privateKey, provider, networkId, _getFilePath, owner, repo, branch, template, deployNetwork, zipFilePath, processing, result;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            repoUrl = argv.url;
+            repoUrl = argv.url, network = argv.network;
             kaizenrc = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
             _kaizenrc = _objectSpread({}, kaizenrc), privateKey = _kaizenrc.privateKey, provider = _kaizenrc.provider, networkId = _kaizenrc.networkId;
 
@@ -62,13 +68,14 @@ function _handler() {
             console.log("Contract deploying, this may take a while...".yellow);
             Spinner.start();
             _getFilePath = getFilePath(repoUrl), owner = _getFilePath.owner, repo = _getFilePath.repo, branch = _getFilePath.branch, template = _getFilePath.template;
+            deployNetwork = template === 'Chainlink' ? 'cldev' : deployNetwork;
             zipFilePath = "https://github.com/".concat(owner, "/").concat(repo, "/raw/").concat(branch, "/").concat(template, ".zip");
-            _context.next = 12;
+            _context.next = 13;
             return download(zipFilePath, '.', {
               extract: true
             });
 
-          case 12:
+          case 13:
             Spinner.stop();
             Spinner.start();
             console.log("Setup environment variable...".yellow); // Setup environment variable
@@ -80,39 +87,39 @@ function _handler() {
             Spinner.stop();
             Spinner.start();
             console.log("Installing modules...".yellow);
-            _context.next = 23;
+            _context.next = 24;
             return ExecuteCommand("cd ".concat(template, " && npm i"));
 
-          case 23:
+          case 24:
             processing = _context.sent;
             Spinner.stop();
             console.log(processing); // Build and deploy contracts
 
             console.log("Deploying contracts...".yellow);
-            _context.next = 29;
-            return ExecuteCommand("cd ".concat(template, " && ./node_modules/.bin/truffle deploy --network deployment"));
+            _context.next = 30;
+            return ExecuteCommand("cd ".concat(template, " && ./node_modules/.bin/truffle migrate --network ").concat(deployNetwork));
 
-          case 29:
+          case 30:
             result = _context.sent;
             console.log(result);
             fsx.removeSync("./".concat(template));
             Log.SuccessLog("\nDeploy Contract ".concat(template, " Successfully"));
-            _context.next = 40;
+            _context.next = 41;
             break;
 
-          case 35:
-            _context.prev = 35;
+          case 36:
+            _context.prev = 36;
             _context.t0 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('\nUnable to deploy sontract');
             console.error(_context.t0);
 
-          case 40:
+          case 41:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 35]]);
+    }, _callee, this, [[0, 36]]);
   }));
   return _handler.apply(this, arguments);
 }
