@@ -27,9 +27,10 @@ function _handler() {
             Log.NormalLog('ERC20'.underline.yellow + ' - ERC20 Token Standard, link: ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20'.underline.yellow);
             Log.NormalLog('ERC721'.underline.yellow + ' - ERC721 Token Standard, link: ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721'.underline.yellow);
             Log.NormalLog('NuCypher'.underline.yellow + ' - NuCypher Contracts, link: ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/NuCypher'.underline.yellow);
+            Log.NormalLog('Hopr'.underline.yellow + ' - Hopr Contracts, link: ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/Hopr'.underline.yellow);
             Log.NormalLog("\nTo install a plugin run " + "'kaizen contracts deploy <contract-link-here>'".yellow);
 
-          case 6:
+          case 7:
           case "end":
             return _context.stop();
         }

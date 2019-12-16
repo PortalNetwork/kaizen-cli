@@ -35,7 +35,7 @@ function builder(yargs) {
     describe: 'Network of the template contract',
     choices: ['development', 'deploy'],
     default: 'development'
-  }).example('kaizen contracts deploy -u https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20').demandOption(['url'], '').epilogue('Please enter the url of the template contract\n\n' + 'Support contract template:\n\n'.underline.yellow + 'Chainlink'.underline.yellow + ' - Chainlink Oracle Service, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/Chainlink'.underline.yellow + '\n' + 'ERC20'.underline.yellow + ' - ERC20 Token Standard, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20'.underline.yellow + '\n' + 'ERC721'.underline.yellow + ' - ERC721 Token Standard, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721'.underline.yellow + '\n' + 'NuCypher'.underline.yellow + ' - NuCypher Contracts, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/NuCypher'.underline.yellow + '\n');
+  }).example('kaizen contracts deploy -u https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20').demandOption(['url'], '').epilogue('Please enter the url of the template contract\n\n' + 'Support contract template:\n\n'.underline.yellow + 'Chainlink'.underline.yellow + ' - Chainlink Oracle Service, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/Chainlink'.underline.yellow + '\n' + 'ERC20'.underline.yellow + ' - ERC20 Token Standard, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20'.underline.yellow + '\n' + 'ERC721'.underline.yellow + ' - ERC721 Token Standard, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721'.underline.yellow + '\n' + 'NuCypher'.underline.yellow + ' - NuCypher Contracts, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/NuCypher'.underline.yellow + '\n' + 'Hopr'.underline.yellow + ' - Hopr Contracts, ' + 'https://github.com/PortalNetwork/kaizen-contracts/tree/master/Hopr'.underline.yellow + '\n');
 }
 
 function handler(_x) {
@@ -68,7 +68,7 @@ function _handler() {
             console.log("Contract deploying, this may take a while...".yellow);
             Spinner.start();
             _getFilePath = getFilePath(repoUrl), owner = _getFilePath.owner, repo = _getFilePath.repo, branch = _getFilePath.branch, template = _getFilePath.template;
-            deployNetwork = template === 'Chainlink' ? 'cldev' : deployNetwork;
+            deployNetwork = template === 'Chainlink' ? 'cldev' : network;
             zipFilePath = "https://github.com/".concat(owner, "/").concat(repo, "/raw/").concat(branch, "/").concat(template, ".zip");
             _context.next = 13;
             return download(zipFilePath, '.', {

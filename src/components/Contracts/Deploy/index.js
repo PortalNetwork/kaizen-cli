@@ -33,7 +33,9 @@ function builder(yargs) {
 		'ERC721'.underline.yellow + ' - ERC721 Token Standard, ' + 
     'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721'.underline.yellow + '\n' +
     'NuCypher'.underline.yellow + ' - NuCypher Contracts, ' + 
-    'https://github.com/PortalNetwork/kaizen-contracts/tree/master/NuCypher'.underline.yellow + '\n'
+    'https://github.com/PortalNetwork/kaizen-contracts/tree/master/NuCypher'.underline.yellow + '\n' + 
+    'Hopr'.underline.yellow + ' - Hopr Contracts, ' + 
+    'https://github.com/PortalNetwork/kaizen-contracts/tree/master/Hopr'.underline.yellow + '\n'
   );
 }
 
@@ -53,7 +55,7 @@ async function handler(argv) {
     console.log("Contract deploying, this may take a while...".yellow);
     Spinner.start();
     const {owner, repo, branch, template} = getFilePath(repoUrl);
-    const deployNetwork = (template === 'Chainlink') ? 'cldev' : deployNetwork;
+    const deployNetwork = (template === 'Chainlink') ? 'cldev' : network;
     const zipFilePath = `https://github.com/${owner}/${repo}/raw/${branch}/${template}.zip`
     await download(zipFilePath, '.', {extract: true});
     Spinner.stop();
