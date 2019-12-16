@@ -14,6 +14,13 @@ function builder(yargs) {
     type: 'string',
     describe: 'URL of the template contract'
   })
+  .option('network', {
+    alias: 'n',
+    type: 'string',
+    describe: 'Network of the template contract',
+    choices: ['development', 'deploy'],
+    default: 'development'
+  })
   .example('kaizen contracts deploy -u https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20')
   .demandOption(['url'], '')
   .epilogue(
@@ -33,8 +40,7 @@ function builder(yargs) {
 async function handler(argv) {
   try {
     
-    const { url: repoUrl} = argv;
-
+    const { url: repoUrl, network } = argv;
     const kaizenrc = fsx.readJsonSync(path.resolve(__dirname, '../../../../.kaizenrc'));
     const {privateKey, provider, networkId} = {
       ...kaizenrc
@@ -47,6 +53,7 @@ async function handler(argv) {
     console.log("Contract deploying, this may take a while...".yellow);
     Spinner.start();
     const {owner, repo, branch, template} = getFilePath(repoUrl);
+    const deployNetwork = (template === 'Chainlink') ? 'cldev' : deployNetwork;
     const zipFilePath = `https://github.com/${owner}/${repo}/raw/${branch}/${template}.zip`
     await download(zipFilePath, '.', {extract: true});
     Spinner.stop();
@@ -65,7 +72,7 @@ async function handler(argv) {
     console.log(processing);
     // Build and deploy contracts
     console.log("Deploying contracts...".yellow);
-    const result = await ExecuteCommand(`cd ${template} && ./node_modules/.bin/truffle deploy --network deployment`);
+    const result = await ExecuteCommand(`cd ${template} && ./node_modules/.bin/truffle migrate --network ${deployNetwork}`);
     console.log(result);
     fsx.removeSync(`./${template}`);
     Log.SuccessLog(`\nDeploy Contract ${template} Successfully`);
