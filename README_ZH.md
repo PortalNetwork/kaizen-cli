@@ -100,6 +100,7 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [NOIA](http://noia.network/) - Decentralized CDN
 - [Near](https://nearprotocol.com/) - Scalable decentralized application
 - [Tellor](https://tellor.io/) - Decentralized oracle service
+- [Hopr](https://hopr.network/) - Decentralized metadata-private point-to-point messaging protocol
 
 ## <a name="instances"></a>⚙️ 實例
 - [NYM](http://nymtech.net/) - Decentralized privacy
