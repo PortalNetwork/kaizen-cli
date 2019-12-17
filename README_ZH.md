@@ -29,10 +29,11 @@ KAIZEN 包括:
 
 - [快速開始](#quick-start)
 - [專案範例](https://github.com/PortalNetwork/kaizen-examples)
-- [智能合約](https://github.com/PortalNetwork/kaizen-contracts)
 - [指令集](#command-topics)
 - [Dapp模板](#dapp-templates)
 - [插件](#plugins)
+- [智能合約](#smart-contracts)
+- [實例](#instances)
 - [社群連結](#community)
 - [參與貢獻](#contributing)
 - [許可證](#licence)
@@ -100,6 +101,13 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [NOIA](http://noia.network/) - Decentralized CDN
 - [Near](https://nearprotocol.com/) - Scalable decentralized application
 - [Tellor](https://tellor.io/) - Decentralized oracle service
+
+## <a name="smart-contracts"></a>📑 智能合約
+- [ERC20](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20) 
+- [ERC721](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721)
+- [Chainlink](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Chainlink)
+- [Hopr](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Hopr)
+- [Nucypher](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Nucypher)
 
 ## <a name="instances"></a>⚙️ 實例
 - [NYM](http://nymtech.net/) - Decentralized privacy

@@ -19,7 +19,9 @@ function builder(yargs) {
 		'ERC721'.underline.yellow + ' - ERC721 Token Standard, ' + 
 		'https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721'.underline.yellow + '\n' + 
 		'NuCypher'.underline.yellow + ' - NuCypher Contracts' + 
-    'https://github.com/PortalNetwork/kaizen-contracts/tree/master/NuCypher'.underline.yellow + '\n\n' +
+		'https://github.com/PortalNetwork/kaizen-contracts/tree/master/NuCypher'.underline.yellow + '\n' +
+		'Hopr'.underline.yellow + ' - Hopr Contracts' + 
+    'https://github.com/PortalNetwork/kaizen-contracts/tree/master/Hopr'.underline.yellow + '\n\n' +
 		'NOTE: ' + 'Please make sure use '.gray + '\'kaizen config set --key <KEY> --value <VALUE>\''.yellow + 
 		' to setup the configuration before you deploy smart contracts.'.gray
 	);

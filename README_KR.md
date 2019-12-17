@@ -29,10 +29,11 @@
 
 - [Quick Start](#quick-start)
 - [Examples](https://github.com/PortalNetwork/kaizen-examples)
-- [Contracts](https://github.com/PortalNetwork/kaizen-contracts)
 - [Command Topics](#command-topics)
 - [Dapp Templates](#dapp-templates)
 - [플러그인](#plugins)
+- [Smart Contracts](#smart-contracts)
+- [Instances](#instances)
 - [커뮤니티](#community)
 - [기여하기](#contributing)
 - [라이센스](#licence)
@@ -100,6 +101,13 @@ The KAIZEN Platform is currently in experimental alpha.
 - [NOIA](http://noia.network/) - Decentralized CDN
 - [Near](https://nearprotocol.com/) - Scalable decentralized application
 - [Tellor](https://tellor.io/) - Decentralized oracle service
+
+## <a name="smart-contracts"></a>📑 Smart Contracts
+- [ERC20](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20) 
+- [ERC721](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721)
+- [Chainlink](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Chainlink)
+- [Hopr](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Hopr)
+- [Nucypher](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Nucypher)
 
 ## <a name="instances"></a>⚙️ 인스턴스
 - [NYM](http://nymtech.net/) - Decentralized privacy

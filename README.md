@@ -29,10 +29,10 @@ KAIZEN is an one stop solution for dapp and dweb developer. With KAIZEN, you get
 
 - [Quick Start](#quick-start)
 - [Examples](https://github.com/PortalNetwork/kaizen-examples)
-- [Contracts](https://github.com/PortalNetwork/kaizen-contracts)
 - [Command Topics](#command-topics)
 - [Dapp Templates](#dapp-templates)
 - [Plugins](#plugins)
+- [Smart Contracts](#smart-contracts)
 - [Instances](#instances)
 - [Community](#community)
 - [Contributing](#contributing)
@@ -105,6 +105,13 @@ The KAIZEN Platform is currently in experimental alpha.
 ## <a name="instances"></a>⚙️ Instances
 - [NYM](http://nymtech.net/) - Decentralized privacy
 - [Golem](https://golem.network/) - Decentralized cloud computing
+
+## <a name="smart-contracts"></a>📑 Smart Contracts
+- [ERC20](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20) 
+- [ERC721](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC721)
+- [Chainlink](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Chainlink)
+- [Hopr](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Hopr)
+- [Nucypher](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Nucypher)
 
 ## <a name="faucet"></a>🚰 Faucet
 Claim test net tokens
