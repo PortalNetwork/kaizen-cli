@@ -101,6 +101,7 @@ The KAIZEN Platform is currently in experimental alpha.
 - [NOIA](http://noia.network/) - Decentralized CDN
 - [Near](https://nearprotocol.com/) - Scalable decentralized application
 - [Tellor](https://tellor.io/) - Decentralized oracle service
+- [Skale](https://skale.network/) - Elastic blockchain network
 
 ## <a name="instances"></a>⚙️ Instances
 - [NYM](http://nymtech.net/) - Decentralized privacy

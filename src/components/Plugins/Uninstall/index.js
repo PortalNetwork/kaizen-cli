@@ -14,6 +14,7 @@ const fluenceHandler = require('./fluence.js');
 const siaHandler = require('./sia.js');
 const nearHandler = require('./near.js');
 const tellorHandler = require('./tellor.js');
+const skaleHandler = require('./skale.js');
 
 function builder(yargs) {
   return yargs
@@ -129,6 +130,14 @@ async function handler(argv) {
         Spinner.start();
         await tellorHandler();
         updateKaizenJson(kaizenJson, 'tellor');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
+      case 'skale':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await skaleHandler();
+        updateKaizenJson(kaizenJson, 'skale');
         Spinner.stop();
         Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;

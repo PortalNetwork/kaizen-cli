@@ -34,10 +34,11 @@ function _handler() {
             Log.NormalLog('sia'.underline.yellow + ' - Sia information');
             Log.NormalLog('near'.underline.yellow + ' - Near information');
             Log.NormalLog('tellor'.underline.yellow + ' - Tellor information');
+            Log.NormalLog('skale'.underline.yellow + ' - Skale information');
             Log.NormalLog("\nTo install a plugin run " + "'kaizen plugins install <plugin-name-here>'".yellow);
             Log.NormalLog("\nIt will be automatically downloaded and added to your " + "'package.json'".yellow + " and " + "'kaizen.json'".yellow + " file\n");
 
-          case 14:
+          case 15:
           case "end":
             return _context.stop();
         }

@@ -101,6 +101,7 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [NOIA](http://noia.network/) - Decentralized CDN
 - [Near](https://nearprotocol.com/) - Scalable decentralized application
 - [Tellor](https://tellor.io/) - Decentralized oracle service
+- [Skale](https://skale.network/) - Elastic blockchain network
 
 ## <a name="smart-contracts"></a>📑 智能合約
 - [ERC20](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20) 

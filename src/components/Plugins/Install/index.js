@@ -13,6 +13,7 @@ const fluenceHandler = require('./fluence.js');
 const siaHandler = require('./sia.js');
 const nearHandler = require('./near.js');
 const tellorHandler = require('./tellor.js');
+const skaleHandler = require('./skale.js');
 
 function builder(yargs) {
   return yargs
@@ -117,6 +118,13 @@ async function handler(argv) {
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await tellorHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'skale':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await skaleHandler();
         Spinner.stop();
         Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;
