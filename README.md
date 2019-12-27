@@ -102,6 +102,7 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Near](https://nearprotocol.com/) - Scalable decentralized application
 - [Tellor](https://tellor.io/) - Decentralized oracle service
 - [Skale](https://skale.network/) - Elastic blockchain network
+- [Ren](https://renproject.io/) - Inter-blockchain liquidity for all decentralized applications
 
 ## <a name="instances"></a>⚙️ Instances
 - [NYM](http://nymtech.net/) - Decentralized privacy
