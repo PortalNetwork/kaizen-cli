@@ -101,6 +101,8 @@ The KAIZEN Platform is currently in experimental alpha.
 - [NOIA](http://noia.network/) - Decentralized CDN
 - [Near](https://nearprotocol.com/) - Scalable decentralized application
 - [Tellor](https://tellor.io/) - Decentralized oracle service
+- [Skale](https://skale.network/) - Elastic blockchain network
+- [Ren](https://renproject.io/) - Inter-blockchain liquidity for all decentralized applications
 
 ## <a name="smart-contracts"></a>📑 Smart Contracts
 - [ERC20](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20) 

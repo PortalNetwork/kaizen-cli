@@ -21,6 +21,8 @@ function builder(yargs) {
     'sia'.underline.yellow + ' - Decentralized file storage\n' +
     'near'.underline.yellow + ' - Scalable decentralized application\n' +
     'tellor'.underline.yellow + ' - Decentralized oracle service\n' +
+    'skale'.underline.yellow + ' - Elastic blockchain network\n' +
+    'ren'.underline.yellow + ' - Inter-blockchain liquidity for all decentralized applications\n' +
 		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
 		' to interact with plugins.\n'
 	);
