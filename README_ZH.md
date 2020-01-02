@@ -34,6 +34,7 @@ KAIZEN 包括:
 - [插件](#plugins)
 - [智能合約](#smart-contracts)
 - [實例](#instances)
+- [範例](#demo)
 - [社群連結](#community)
 - [參與貢獻](#contributing)
 - [許可證](#licence)
@@ -103,6 +104,7 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Tellor](https://tellor.io/) - Decentralized oracle service
 - [Skale](https://skale.network/) - Elastic blockchain network
 - [Ren](https://renproject.io/) - Inter-blockchain liquidity for all decentralized applications
+- [Nervos](https://www.nervos.org/) - Multi-asset, store of value blockchain
 
 ## <a name="smart-contracts"></a>📑 智能合約
 - [ERC20](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20) 
@@ -121,6 +123,11 @@ KAIZEN Faucet 支援下列區塊鏈測試網路的代幣
 - ETC
 - WAN
 - ICON
+
+## <a name="demo"></a>🔌 範例
+#### Nifty Game
+- [Nifty Game](https://github.com/PortalNetwork/nifty-game/) - Nifty is a non-fungible token game build by KAIZEN.
+![Nifty Game](https://github.com/PortalNetwork/nifty-game/blob/develop/cardbattle.gif?raw=true)
 
 ## <a name="community"></a>💡 社群連結
 - [Gitter](https://gitter.im/PortalNetwork/kaizen-cli)

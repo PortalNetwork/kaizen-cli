@@ -34,6 +34,7 @@ KAIZEN is an one stop solution for dapp and dweb developer. With KAIZEN, you get
 - [Plugins](#plugins)
 - [Smart Contracts](#smart-contracts)
 - [Instances](#instances)
+- [Demo](#demo)
 - [Community](#community)
 - [Contributing](#contributing)
 - [Licence](#licence)
@@ -103,6 +104,7 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Tellor](https://tellor.io/) - Decentralized oracle service
 - [Skale](https://skale.network/) - Elastic blockchain network
 - [Ren](https://renproject.io/) - Inter-blockchain liquidity for all decentralized applications
+- [Nervos](https://www.nervos.org/) - Multi-asset, store of value blockchain
 
 ## <a name="instances"></a>⚙️ Instances
 - [NYM](http://nymtech.net/) - Decentralized privacy
@@ -121,6 +123,11 @@ Claim test net tokens
 - ETC
 - WAN
 - ICON
+
+## <a name="demo"></a>🔌 Demo
+#### Nifty Game
+- [Nifty Game](https://github.com/PortalNetwork/nifty-game/) - Nifty is a non-fungible token game build by KAIZEN.
+![Nifty Game](https://github.com/PortalNetwork/nifty-game/blob/develop/cardbattle.gif?raw=true)
 
 ## <a name="community"></a>💡 Community
 - [Gitter](https://gitter.im/PortalNetwork/kaizen-cli)
