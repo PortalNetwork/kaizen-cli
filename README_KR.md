@@ -34,6 +34,7 @@
 - [플러그인](#plugins)
 - [Smart Contracts](#smart-contracts)
 - [Instances](#instances)
+- [Demo](#demo)
 - [커뮤니티](#community)
 - [기여하기](#contributing)
 - [라이센스](#licence)
@@ -103,6 +104,7 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Tellor](https://tellor.io/) - Decentralized oracle service
 - [Skale](https://skale.network/) - Elastic blockchain network
 - [Ren](https://renproject.io/) - Inter-blockchain liquidity for all decentralized applications
+- [Nervos](https://www.nervos.org/) - Multi-asset, store of value blockchain
 
 ## <a name="smart-contracts"></a>📑 Smart Contracts
 - [ERC20](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20) 
@@ -121,6 +123,11 @@ KAIZEN Faucet
 - ETC
 - WAN
 - ICON
+
+## <a name="demo"></a>🔌 Demo
+#### Nifty Game
+- [Nifty Game](https://github.com/PortalNetwork/nifty-game/) - Nifty is a non-fungible token game build by KAIZEN.
+![Nifty Game](https://github.com/PortalNetwork/nifty-game/blob/develop/cardbattle.gif?raw=true)
 
 ## <a name="community"></a>💡 커뮤니티
 - [Gitter](https://gitter.im/PortalNetwork/kaizen-cli)
