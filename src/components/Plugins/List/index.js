@@ -20,6 +20,7 @@ async function handler(argv) {
   Log.NormalLog('tellor'.underline.yellow + ' - Tellor information');
   Log.NormalLog('skale'.underline.yellow + ' - Skale information');
   Log.NormalLog('ren'.underline.yellow + ' - Ren information');
+  Log.NormalLog('nervos'.underline.yellow + ' - Nervos information');
 
   Log.NormalLog("\nTo install a plugin run " + "'kaizen plugins install <plugin-name-here>'".yellow)
 

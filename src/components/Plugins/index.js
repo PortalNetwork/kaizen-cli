@@ -23,6 +23,7 @@ function builder(yargs) {
     'tellor'.underline.yellow + ' - Decentralized oracle service\n' +
     'skale'.underline.yellow + ' - Elastic blockchain network\n' +
     'ren'.underline.yellow + ' - Inter-blockchain liquidity for all decentralized applications\n' +
+    'nervos'.underline.yellow + ' - Multi-asset, store of value blockchain\n' +
 		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
 		' to interact with plugins.\n'
 	);

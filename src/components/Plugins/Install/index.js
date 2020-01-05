@@ -15,6 +15,7 @@ const nearHandler = require('./near.js');
 const tellorHandler = require('./tellor.js');
 const skaleHandler = require('./skale.js');
 const renHandler = require('./ren.js');
+const nervosHandler = require('./nervos.js');
 
 function builder(yargs) {
   return yargs
@@ -133,6 +134,13 @@ async function handler(argv) {
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await renHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'nervos':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await nervosHandler();
         Spinner.stop();
         Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;
