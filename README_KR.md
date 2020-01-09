@@ -119,16 +119,20 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Golem](https://golem.network/) - Decentralized cloud computing
 
 ## <a name="faucet"></a>🚰 수도꼭지
-KAIZEN Faucet
+[Join Faucet](https://faucer.portal.network)
 - ETH
 - ETC
 - WAN
 - ICON
+- [TOMO](https://faucet.testnet.tomochain.com/)
 
 ## <a name="demo"></a>🔌 Demo
 #### Nifty Game
 - [Nifty Game](https://github.com/PortalNetwork/nifty-game/) - Nifty is a non-fungible token game build by KAIZEN.
 ![Nifty Game](https://github.com/PortalNetwork/nifty-game/blob/develop/cardbattle.gif?raw=true)
+
+#### Dchat
+- [Dchat](http://dchat.web3infra.io/)
 
 ## <a name="community"></a>💡 커뮤니티
 - [Gitter](https://gitter.im/PortalNetwork/kaizen-cli)

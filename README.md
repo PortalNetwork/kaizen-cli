@@ -119,11 +119,13 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Nucypher](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Nucypher)
 
 ## <a name="faucet"></a>🚰 Faucet
+[Join Faucet](https://faucer.portal.network)
 Claim test net tokens
 - ETH
 - ETC
 - WAN
 - ICON
+- [TOMO](https://faucet.testnet.tomochain.com/)
 
 ## <a name="demo"></a>🔌 Demo
 #### Nifty Game
