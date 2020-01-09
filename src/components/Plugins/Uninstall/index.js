@@ -17,6 +17,7 @@ const tellorHandler = require('./tellor.js');
 const skaleHandler = require('./skale.js');
 const renHandler = require('./ren.js');
 const nervosHandler = require('./nervos.js');
+const kavaHandler = require('./kava.js');
 
 function builder(yargs) {
   return yargs
@@ -156,6 +157,14 @@ async function handler(argv) {
         Spinner.start();
         await nervosHandler();
         updateKaizenJson(kaizenJson, 'nervos');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
+      case 'kava':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await kavaHandler();
+        updateKaizenJson(kaizenJson, 'kava');
         Spinner.stop();
         Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;

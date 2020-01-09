@@ -105,6 +105,7 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Skale](https://skale.network/) - Elastic blockchain network
 - [Ren](https://renproject.io/) - Inter-blockchain liquidity for all decentralized applications
 - [Nervos](https://www.nervos.org/) - Multi-asset, store of value blockchain
+- [Kava](https://www.kava.io/) - Cross-chain CDP platform for leverage assets
 
 ## <a name="smart-contracts"></a>📑 智能合約
 - [ERC20](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20) 

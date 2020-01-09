@@ -16,6 +16,7 @@ const tellorHandler = require('./tellor.js');
 const skaleHandler = require('./skale.js');
 const renHandler = require('./ren.js');
 const nervosHandler = require('./nervos.js');
+const kavaHandler = require('./kava.js');
 
 function builder(yargs) {
   return yargs
@@ -141,6 +142,13 @@ async function handler(argv) {
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await nervosHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'kava':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await kavaHandler();
         Spinner.stop();
         Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;
