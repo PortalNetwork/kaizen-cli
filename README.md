@@ -132,6 +132,9 @@ Claim test net tokens
 - [Nifty Game](https://github.com/PortalNetwork/nifty-game/) - Nifty is a non-fungible token game build by KAIZEN.
 ![Nifty Game](https://github.com/PortalNetwork/nifty-game/blob/develop/cardbattle.gif?raw=true)
 
+#### Dchat
+- [Dchat](http://dchat.web3infra.io/)
+
 ## <a name="community"></a>💡 Community
 - [Gitter](https://gitter.im/PortalNetwork/kaizen-cli)
 - [Twitter](https://twitter.com/itisportal)
