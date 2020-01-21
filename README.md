@@ -106,6 +106,7 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Ren](https://renproject.io/) - Inter-blockchain liquidity for all decentralized applications
 - [Nervos](https://www.nervos.org/) - Multi-asset, store of value blockchain
 - [Kava](https://www.kava.io/) - Cross-chain CDP platform for leverage assets
+- [Zabo](https://zabo.com/) - Multiple crypto wallet provider
 
 ## <a name="instances"></a>⚙️ Instances
 - [NYM](http://nymtech.net/) - Decentralized privacy
