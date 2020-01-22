@@ -106,6 +106,7 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Ren](https://renproject.io/) - Inter-blockchain liquidity for all decentralized applications
 - [Nervos](https://www.nervos.org/) - Multi-asset, store of value blockchain
 - [Kava](https://www.kava.io/) - Cross-chain CDP platform for leverage assets
+- [Zabo](https://zabo.com/) - Multiple crypto wallet provider
 
 ## <a name="smart-contracts"></a>📑 智能合約
 - [ERC20](https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20) 
@@ -119,16 +120,20 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Golem](https://golem.network/) - Decentralized cloud computing
 
 ## <a name="faucet"></a>🚰 水龍頭
-KAIZEN Faucet 支援下列區塊鏈測試網路的代幣
+[Join Faucet](https://faucer.portal.network)
 - ETH
 - ETC
 - WAN
 - ICON
+- [TOMO](https://faucet.testnet.tomochain.com/)
 
 ## <a name="demo"></a>🔌 範例
 #### Nifty Game
 - [Nifty Game](https://github.com/PortalNetwork/nifty-game/) - Nifty is a non-fungible token game build by KAIZEN.
 ![Nifty Game](https://github.com/PortalNetwork/nifty-game/blob/develop/cardbattle.gif?raw=true)
+
+#### Dchat
+- [Dchat](http://dchat.web3infra.io/)
 
 ## <a name="community"></a>💡 社群連結
 - [Gitter](https://gitter.im/PortalNetwork/kaizen-cli)
