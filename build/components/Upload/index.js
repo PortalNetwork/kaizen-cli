@@ -9,7 +9,9 @@ function builder(yargs) {
 
   require('./Btfs')(yargs);
 
-  return yargs.example('kaizen upload ipfs').example('kaizen upload btfs').demandCommand(1, '');
+  require('./Swarm')(yargs);
+
+  return yargs.example('kaizen upload ipfs').example('kaizen upload btfs').example('kaizen upload swarm').demandCommand(1, '');
 }
 
 function handler(_x) {
