@@ -1,10 +1,12 @@
 function builder(yargs) {
   require('./Ipfs')(yargs);
   require('./Btfs')(yargs);
+  require('./Swarm')(yargs);
 
   return yargs
   .example('kaizen upload ipfs')
   .example('kaizen upload btfs')
+  .example('kaizen upload swarm')
   .demandCommand(1, '');
 }
 
