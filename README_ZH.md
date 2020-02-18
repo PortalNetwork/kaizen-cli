@@ -120,7 +120,7 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Golem](https://golem.network/) - Decentralized cloud computing
 
 ## <a name="faucet"></a>🚰 水龍頭
-[Join Faucet](https://faucer.portal.network)
+[Join Faucet](https://faucet.portal.network)
 - ETH
 - ETC
 - WAN
