@@ -123,7 +123,7 @@ The KAIZEN Platform is currently in experimental alpha.
 
 ## <a name="faucet"></a>🚰 수도꼭지
 [Join Faucet](https://forms.gle/SSHBeAMBweSWVN5Q7?fbclid=IwAR3k5NWNo8cIavD7t33w4yk0OVSL6iqg18_DVLxbwR_xu4_ZyDARF6ZFK0Q)  
-Claim test net tokens:
+Claim test net tokens, [https://faucet.portal.network/](https://faucet.portal.network/):
 - [ETH](https://faucet.metamask.io/)
 - [ETC](http://kottifaucet.me/)
 - [WAN](https://faucet1.wanchain.org/)
