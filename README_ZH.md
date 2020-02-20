@@ -55,12 +55,14 @@ STEP 3. 部署智能合約:
 kaizen contracts deploy --url https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ```
 
-STEP 4. 上傳專案到 [IPFS](https://ipfs.io) 或者 [BTFS](https://www.bittorrent.com/btfs/):
+STEP 4. 上傳專案到 [IPFS](https://ipfs.io), [BTFS](https://www.bittorrent.com/btfs/) 或者 [Swarm](https://ethersphere.github.io/swarm-home/):
 ```
 # Upload to IPFS
 kaizen upload ipfs ./build
 # or upload to BTFS
 kaizen upload btfs ./build
+# or upload to Swarm
+kaizen upload swarm [file]
 ```
 
 STEP 5. 部署實例於 AWS 上
