@@ -130,6 +130,7 @@ Claim test net tokens:
 - [ICON](https://icon-faucet.ibriz.ai/)
 - [TRON](https://www.trongrid.io/faucet)
 - [TOMO](https://faucet.testnet.tomochain.com/)
+- [QTUM](http://testnet-faucet.qtum.info/#!/)
 
 ## <a name="demo"></a>🔌 Demo
 #### Nifty Game
