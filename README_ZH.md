@@ -122,11 +122,13 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Golem](https://golem.network/) - Decentralized cloud computing
 
 ## <a name="faucet"></a>🚰 水龍頭
-[Join Faucet](https://faucet.portal.network)
-- ETH
-- ETC
-- WAN
-- ICON
+[Join Faucet](https://forms.gle/SSHBeAMBweSWVN5Q7?fbclid=IwAR3k5NWNo8cIavD7t33w4yk0OVSL6iqg18_DVLxbwR_xu4_ZyDARF6ZFK0Q)  
+獲取測試網路代幣:
+- [ETH](https://faucet.metamask.io/)
+- [ETC](http://kottifaucet.me/)
+- [WAN](https://faucet1.wanchain.org/)
+- [ICON](https://icon-faucet.ibriz.ai/)
+- [TRON](https://www.trongrid.io/faucet)
 - [TOMO](https://faucet.testnet.tomochain.com/)
 
 ## <a name="demo"></a>🔌 範例

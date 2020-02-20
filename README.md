@@ -122,12 +122,13 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Nucypher](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Nucypher)
 
 ## <a name="faucet"></a>🚰 Faucet
-[Join Faucet](https://faucet.portal.network)
-Claim test net tokens
-- ETH
-- ETC
-- WAN
-- ICON
+[Join Faucet](https://forms.gle/SSHBeAMBweSWVN5Q7?fbclid=IwAR3k5NWNo8cIavD7t33w4yk0OVSL6iqg18_DVLxbwR_xu4_ZyDARF6ZFK0Q)  
+Claim test net tokens:
+- [ETH](https://faucet.metamask.io/)
+- [ETC](http://kottifaucet.me/)
+- [WAN](https://faucet1.wanchain.org/)
+- [ICON](https://icon-faucet.ibriz.ai/)
+- [TRON](https://www.trongrid.io/faucet)
 - [TOMO](https://faucet.testnet.tomochain.com/)
 
 ## <a name="demo"></a>🔌 Demo
