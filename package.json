@@ -20,7 +20,7 @@
     "download": "^7.1.0",
     "figlet": "^1.2.0",
     "fs-extra": "^8.0.0",
-    "inquirer": "^7.0.0",
+    "inquirer": "^7.0.5",
     "ipfs-http-client": "^31.0.0",
     "node-cmd": "^3.0.0",
     "progress": "^2.0.0",
