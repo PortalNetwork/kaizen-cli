@@ -31,6 +31,7 @@
 - [Examples](https://github.com/PortalNetwork/kaizen-examples)
 - [Command Topics](#command-topics)
 - [Dapp Templates](#dapp-templates)
+- [Subgraph Templates](#subgraph-templates)
 - [플러그인](#plugins)
 - [Smart Contracts](#smart-contracts)
 - [Instances](#instances)
@@ -92,6 +93,9 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Vue] - Dapp template make by vue framework
 - [Plain-near] - Near protocol dapp template simple version
 - [React-near] - Near protocol dapp template make by react
+
+## <a name="subgraph-templates"></a>📦 Subgraph template
+- [Subgraph] - Subgraph template, more information please visit [here](https://thegraph.com/docs/)
 
 ## <a name="plugins"></a>🏗 플러그인
 - [Bluzelle](https://www.npmjs.com/package/bluzelle) - Decentralized database

@@ -14,8 +14,8 @@ Options:
   --help          Show help                                            [boolean]
   --version       Show version number                                  [boolean]
   --template, -t  Build project with template
-        [string] [choices: "vue", "react", "react-near", "plain-near"] [default:
-                                                                        "react"]
+      [string] [choices: "vue", "react", "react-near", "plain-near", "subgraph"]
+                                                              [default: "react"]
   --name, -n      Name of the project                        [string] [required]
 
 Examples:

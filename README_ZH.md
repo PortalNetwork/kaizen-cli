@@ -31,6 +31,7 @@ KAIZEN 包括:
 - [專案範例](https://github.com/PortalNetwork/kaizen-examples)
 - [指令集](#command-topics)
 - [Dapp模板](#dapp-templates)
+- [Subgraph模板](#subgraph-templates)
 - [插件](#plugins)
 - [智能合約](#smart-contracts)
 - [實例](#instances)
@@ -92,6 +93,9 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Vue] - Dapp template make by vue framework
 - [Plain-near] - Near protocol dapp template simple version
 - [React-near] - Near protocol dapp template make by react
+
+## <a name="subgraph-templates"></a>📦 Subgraph模板
+- [Subgraph] - Subgraph template, more information please visit [here](https://thegraph.com/docs/)
 
 ## <a name="plugins"></a>🏗 插件
 - [Bluzelle](https://www.npmjs.com/package/bluzelle) - Decentralized database
