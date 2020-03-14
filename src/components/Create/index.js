@@ -9,7 +9,7 @@ function builder(yargs) {
         alias: 't',
         type: 'string',
         describe: 'Build project with template',
-        choices: ['vue', 'react', 'react-near', 'plain-near'],
+        choices: ['vue', 'react', 'react-near', 'plain-near', 'subgraph'],
         default: 'react'
     })
     .option('name', {
@@ -35,6 +35,9 @@ async function handler(argv) {
         break;
       case 'plain-near':
         await cloneProjectFromGithub('https://github.com/PortalNetwork/plain-near.git', projectName);
+        break;
+      case 'subgraph':
+        await cloneProjectFromGithub('https://github.com/graphprotocol/example-subgraph.git', projectName);
         break;
       case 'react':
       default:

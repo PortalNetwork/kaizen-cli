@@ -31,6 +31,7 @@ KAIZEN 包括:
 - [專案範例](https://github.com/PortalNetwork/kaizen-examples)
 - [指令集](#command-topics)
 - [Dapp模板](#dapp-templates)
+- [Subgraph模板](#subgraph-templates)
 - [插件](#plugins)
 - [智能合約](#smart-contracts)
 - [實例](#instances)
@@ -55,12 +56,14 @@ STEP 3. 部署智能合約:
 kaizen contracts deploy --url https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ```
 
-STEP 4. 上傳專案到 [IPFS](https://ipfs.io) 或者 [BTFS](https://www.bittorrent.com/btfs/):
+STEP 4. 上傳專案到 [IPFS](https://ipfs.io), [BTFS](https://www.bittorrent.com/btfs/) 或者 [Swarm](https://ethersphere.github.io/swarm-home/):
 ```
 # Upload to IPFS
 kaizen upload ipfs ./build
 # or upload to BTFS
 kaizen upload btfs ./build
+# or upload to Swarm
+kaizen upload swarm [file]
 ```
 
 STEP 5. 部署實例於 AWS 上
@@ -91,6 +94,9 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Plain-near] - Near protocol dapp template simple version
 - [React-near] - Near protocol dapp template make by react
 
+## <a name="subgraph-templates"></a>📦 Subgraph模板
+- [Subgraph] - Subgraph template, more information please visit [here](https://thegraph.com/docs/)
+
 ## <a name="plugins"></a>🏗 插件
 - [Bluzelle](https://www.npmjs.com/package/bluzelle) - Decentralized database
 - [NKN](https://www.npmjs.com/package/nkn-client) - Data transmisstion
@@ -120,12 +126,15 @@ KAIZEN Platform 目前正在 Alpha 階段
 - [Golem](https://golem.network/) - Decentralized cloud computing
 
 ## <a name="faucet"></a>🚰 水龍頭
-[Join Faucet](https://faucer.portal.network)
-- ETH
-- ETC
-- WAN
-- ICON
+[Join Faucet](https://forms.gle/SSHBeAMBweSWVN5Q7?fbclid=IwAR3k5NWNo8cIavD7t33w4yk0OVSL6iqg18_DVLxbwR_xu4_ZyDARF6ZFK0Q)  
+獲取測試網路代幣, [https://faucet.portal.network/](https://faucet.portal.network/):
+- [ETH](https://faucet.metamask.io/)
+- [ETC](http://kottifaucet.me/)
+- [WAN](https://faucet1.wanchain.org/)
+- [ICON](https://icon-faucet.ibriz.ai/)
+- [TRON](https://www.trongrid.io/faucet)
 - [TOMO](https://faucet.testnet.tomochain.com/)
+- [QTUM](http://testnet-faucet.qtum.info/#!/)
 
 ## <a name="demo"></a>🔌 範例
 #### Nifty Game

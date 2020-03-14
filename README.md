@@ -31,6 +31,7 @@ KAIZEN is an one stop solution for dapp and dweb developer. With KAIZEN, you get
 - [Examples](https://github.com/PortalNetwork/kaizen-examples)
 - [Command Topics](#command-topics)
 - [Dapp Templates](#dapp-templates)
+- [Subgraph Templates](#subgraph-templates)
 - [Plugins](#plugins)
 - [Smart Contracts](#smart-contracts)
 - [Instances](#instances)
@@ -55,12 +56,14 @@ STEP 3. Deploy smart contracts:
 kaizen contracts deploy --url https://github.com/PortalNetwork/kaizen-contracts/tree/master/ERC20
 ```
 
-STEP 4. Upload project to [IPFS](https://ipfs.io) or [BTFS](https://www.bittorrent.com/btfs/):
+STEP 4. Upload project to [IPFS](https://ipfs.io), [BTFS](https://www.bittorrent.com/btfs/) or [Swarm](https://ethersphere.github.io/swarm-home/):
 ```
 # Upload to IPFS
 kaizen upload ipfs ./build
 # or upload to BTFS
 kaizen upload btfs ./build
+# or upload to Swarm
+kaizen upload swarm [file]
 ```
 
 STEP 5. Hosting instance on AWS
@@ -91,6 +94,9 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Plain-near] - Near protocol dapp template simple version
 - [React-near] - Near protocol dapp template make by react
 
+## <a name="subgraph-templates"></a>📦 Subgraph Templates
+- [Subgraph] - Subgraph template, more information please visit [here](https://thegraph.com/docs/)
+
 ## <a name="plugins"></a>🏗 Plugins
 - [Bluzelle](https://www.npmjs.com/package/bluzelle) - Decentralized database
 - [NKN](https://www.npmjs.com/package/nkn-client) - Data transmisstion
@@ -120,13 +126,15 @@ The KAIZEN Platform is currently in experimental alpha.
 - [Nucypher](https://github.com/PortalNetwork/kaizen-contracts/tree/master/Nucypher)
 
 ## <a name="faucet"></a>🚰 Faucet
-[Join Faucet](https://faucer.portal.network)
-Claim test net tokens
-- ETH
-- ETC
-- WAN
-- ICON
+[Join Faucet](https://forms.gle/SSHBeAMBweSWVN5Q7?fbclid=IwAR3k5NWNo8cIavD7t33w4yk0OVSL6iqg18_DVLxbwR_xu4_ZyDARF6ZFK0Q)  
+Claim test net tokens, [https://faucet.portal.network/](https://faucet.portal.network/):
+- [ETH](https://faucet.metamask.io/)
+- [ETC](http://kottifaucet.me/)
+- [WAN](https://faucet1.wanchain.org/)
+- [ICON](https://icon-faucet.ibriz.ai/)
+- [TRON](https://www.trongrid.io/faucet)
 - [TOMO](https://faucet.testnet.tomochain.com/)
+- [QTUM](http://testnet-faucet.qtum.info/#!/)
 
 ## <a name="demo"></a>🔌 Demo
 #### Nifty Game
