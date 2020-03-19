@@ -19,7 +19,7 @@
     "configstore": "^5.0.0",
     "download": "^7.1.0",
     "figlet": "^1.2.0",
-    "fs-extra": "^8.0.0",
+    "fs-extra": "^9.0.0",
     "inquirer": "^7.0.0",
     "ipfs-http-client": "^33.0.2",
     "node-cmd": "^3.0.0",
