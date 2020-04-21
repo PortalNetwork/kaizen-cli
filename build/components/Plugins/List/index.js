@@ -39,10 +39,11 @@ function _handler() {
             Log.NormalLog('nervos'.underline.yellow + ' - Nervos information');
             Log.NormalLog('kava'.underline.yellow + ' - Kava information');
             Log.NormalLog('zabo'.underline.yellow + ' - Zabo information');
+            Log.NormalLog('loom'.underline.yellow + ' - Loom information');
             Log.NormalLog("\nTo install a plugin run " + "'kaizen plugins install <plugin-name-here>'".yellow);
             Log.NormalLog("\nIt will be automatically downloaded and added to your " + "'package.json'".yellow + " and " + "'kaizen.json'".yellow + " file\n");
 
-          case 19:
+          case 20:
           case "end":
             return _context.stop();
         }
