@@ -20,6 +20,7 @@ const nervosHandler = require('./nervos.js');
 const kavaHandler = require('./kava.js');
 const zaboHandler = require('./zabo.js');
 const loomHandler = require('./loom.js');
+const witnetHandler = require('./witnet.js');
 
 function builder(yargs) {
   return yargs
@@ -183,6 +184,14 @@ async function handler(argv) {
         Spinner.start();
         await loomHandler();
         updateKaizenJson(kaizenJson, 'loom');
+        Spinner.stop();
+        Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
+        break;
+      case 'witnet':
+        Log.NormalLog('Uninstalling plugin, please wait a second...');
+        Spinner.start();
+        await witnetHandler();
+        updateKaizenJson(kaizenJson, 'witnet');
         Spinner.stop();
         Log.SuccessLog(`Remove plugin ${plugin} Successfully`);
         break;

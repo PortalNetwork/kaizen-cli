@@ -52,6 +52,8 @@ var zaboHandler = require('./zabo.js');
 
 var loomHandler = require('./loom.js');
 
+var witnetHandler = require('./witnet.js');
+
 function builder(yargs) {
   return yargs.positional('plugin', {
     alias: 'p',
@@ -101,7 +103,7 @@ function _handler() {
 
           case 11:
             _context.t0 = plugin;
-            _context.next = _context.t0 === 'bluzelle' ? 14 : _context.t0 === 'nkn' ? 22 : _context.t0 === 'noia' ? 30 : _context.t0 === 'icon' ? 38 : _context.t0 === 'orbit' ? 46 : _context.t0 === 'arweave' ? 54 : _context.t0 === 'band' ? 62 : _context.t0 === 'fluence' ? 70 : _context.t0 === 'sia' ? 78 : _context.t0 === 'near' ? 86 : _context.t0 === 'tellor' ? 94 : _context.t0 === 'skale' ? 102 : _context.t0 === 'ren' ? 110 : _context.t0 === 'nervos' ? 118 : _context.t0 === 'kava' ? 126 : _context.t0 === 'zabo' ? 134 : _context.t0 === 'loom' ? 142 : 150;
+            _context.next = _context.t0 === 'bluzelle' ? 14 : _context.t0 === 'nkn' ? 22 : _context.t0 === 'noia' ? 30 : _context.t0 === 'icon' ? 38 : _context.t0 === 'orbit' ? 46 : _context.t0 === 'arweave' ? 54 : _context.t0 === 'band' ? 62 : _context.t0 === 'fluence' ? 70 : _context.t0 === 'sia' ? 78 : _context.t0 === 'near' ? 86 : _context.t0 === 'tellor' ? 94 : _context.t0 === 'skale' ? 102 : _context.t0 === 'ren' ? 110 : _context.t0 === 'nervos' ? 118 : _context.t0 === 'kava' ? 126 : _context.t0 === 'zabo' ? 134 : _context.t0 === 'loom' ? 142 : _context.t0 === 'witnet' ? 150 : 158;
             break;
 
           case 14:
@@ -114,7 +116,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'bluzelle');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 22:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -126,7 +128,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'nkn');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 30:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -138,7 +140,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'noia');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 38:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -150,7 +152,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'icon');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 46:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -162,7 +164,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'orbit');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 54:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -174,7 +176,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'arweave');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 62:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -186,7 +188,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'band');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 70:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -198,7 +200,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'fluence');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 78:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -210,7 +212,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'sia');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 86:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -222,7 +224,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'near');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 94:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -234,7 +236,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'tellor');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 102:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -246,7 +248,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'skale');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 110:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -258,7 +260,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'ren');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 118:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -270,7 +272,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'nervos');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 126:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -282,7 +284,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'kava');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 134:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -294,7 +296,7 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'zabo');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 142:
             Log.NormalLog('Uninstalling plugin, please wait a second...');
@@ -306,28 +308,40 @@ function _handler() {
             updateKaizenJson(kaizenJson, 'loom');
             Spinner.stop();
             Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 151);
+            return _context.abrupt("break", 159);
 
           case 150:
+            Log.NormalLog('Uninstalling plugin, please wait a second...');
+            Spinner.start();
+            _context.next = 154;
+            return witnetHandler();
+
+          case 154:
+            updateKaizenJson(kaizenJson, 'witnet');
+            Spinner.stop();
+            Log.SuccessLog("Remove plugin ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 159);
+
+          case 158:
             Log.NormalLog('Plugin not support yet');
 
-          case 151:
-            _context.next = 158;
+          case 159:
+            _context.next = 166;
             break;
 
-          case 153:
-            _context.prev = 153;
+          case 161:
+            _context.prev = 161;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 158:
+          case 166:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 153]]);
+    }, _callee, this, [[0, 161]]);
   }));
   return _handler.apply(this, arguments);
 }
