@@ -18,6 +18,8 @@ const renHandler = require('./ren.js');
 const nervosHandler = require('./nervos.js');
 const kavaHandler = require('./kava.js');
 const zaboHandler = require('./zabo.js');
+const loomHandler = require('./loom.js');
+const witnetHandler = require('./witnet.js');
 
 function builder(yargs) {
   return yargs
@@ -157,6 +159,20 @@ async function handler(argv) {
         Log.NormalLog('Installing plugin, please wait a second...');
         Spinner.start();
         await zaboHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'loom':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await loomHandler();
+        Spinner.stop();
+        Log.SuccessLog(`Install plugin ${plugin} Successfully`);
+        break;
+      case 'witnet':
+        Log.NormalLog('Installing plugin, please wait a second...');
+        Spinner.start();
+        await witnetHandler();
         Spinner.stop();
         Log.SuccessLog(`Install plugin ${plugin} Successfully`);
         break;

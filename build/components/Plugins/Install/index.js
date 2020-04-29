@@ -44,6 +44,10 @@ var kavaHandler = require('./kava.js');
 
 var zaboHandler = require('./zabo.js');
 
+var loomHandler = require('./loom.js');
+
+var witnetHandler = require('./witnet.js');
+
 function builder(yargs) {
   return yargs.positional('plugin', {
     alias: 'p',
@@ -88,7 +92,7 @@ function _handler() {
 
           case 8:
             _context.t0 = plugin;
-            _context.next = _context.t0 === 'bluzelle' ? 11 : _context.t0 === 'nkn' ? 18 : _context.t0 === 'noia' ? 25 : _context.t0 === 'icon' ? 32 : _context.t0 === 'orbit' ? 39 : _context.t0 === 'arweave' ? 46 : _context.t0 === 'band' ? 53 : _context.t0 === 'fluence' ? 60 : _context.t0 === 'sia' ? 67 : _context.t0 === 'near' ? 74 : _context.t0 === 'tellor' ? 81 : _context.t0 === 'skale' ? 88 : _context.t0 === 'ren' ? 95 : _context.t0 === 'nervos' ? 102 : _context.t0 === 'kava' ? 109 : _context.t0 === 'zabo' ? 116 : 123;
+            _context.next = _context.t0 === 'bluzelle' ? 11 : _context.t0 === 'nkn' ? 18 : _context.t0 === 'noia' ? 25 : _context.t0 === 'icon' ? 32 : _context.t0 === 'orbit' ? 39 : _context.t0 === 'arweave' ? 46 : _context.t0 === 'band' ? 53 : _context.t0 === 'fluence' ? 60 : _context.t0 === 'sia' ? 67 : _context.t0 === 'near' ? 74 : _context.t0 === 'tellor' ? 81 : _context.t0 === 'skale' ? 88 : _context.t0 === 'ren' ? 95 : _context.t0 === 'nervos' ? 102 : _context.t0 === 'kava' ? 109 : _context.t0 === 'zabo' ? 116 : _context.t0 === 'loom' ? 123 : _context.t0 === 'witnet' ? 130 : 137;
             break;
 
           case 11:
@@ -100,7 +104,7 @@ function _handler() {
           case 15:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 18:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -111,7 +115,7 @@ function _handler() {
           case 22:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 25:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -122,7 +126,7 @@ function _handler() {
           case 29:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 32:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -133,7 +137,7 @@ function _handler() {
           case 36:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 39:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -144,7 +148,7 @@ function _handler() {
           case 43:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 46:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -155,7 +159,7 @@ function _handler() {
           case 50:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 53:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -166,7 +170,7 @@ function _handler() {
           case 57:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 60:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -177,7 +181,7 @@ function _handler() {
           case 64:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 67:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -188,7 +192,7 @@ function _handler() {
           case 71:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 74:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -199,7 +203,7 @@ function _handler() {
           case 78:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 81:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -210,7 +214,7 @@ function _handler() {
           case 85:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 88:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -221,7 +225,7 @@ function _handler() {
           case 92:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 95:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -232,7 +236,7 @@ function _handler() {
           case 99:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 102:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -243,7 +247,7 @@ function _handler() {
           case 106:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 109:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -254,7 +258,7 @@ function _handler() {
           case 113:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 116:
             Log.NormalLog('Installing plugin, please wait a second...');
@@ -265,28 +269,50 @@ function _handler() {
           case 120:
             Spinner.stop();
             Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
-            return _context.abrupt("break", 124);
+            return _context.abrupt("break", 138);
 
           case 123:
+            Log.NormalLog('Installing plugin, please wait a second...');
+            Spinner.start();
+            _context.next = 127;
+            return loomHandler();
+
+          case 127:
+            Spinner.stop();
+            Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 138);
+
+          case 130:
+            Log.NormalLog('Installing plugin, please wait a second...');
+            Spinner.start();
+            _context.next = 134;
+            return witnetHandler();
+
+          case 134:
+            Spinner.stop();
+            Log.SuccessLog("Install plugin ".concat(plugin, " Successfully"));
+            return _context.abrupt("break", 138);
+
+          case 137:
             Log.NormalLog('Plugin not support yet');
 
-          case 124:
-            _context.next = 131;
+          case 138:
+            _context.next = 145;
             break;
 
-          case 126:
-            _context.prev = 126;
+          case 140:
+            _context.prev = 140;
             _context.t1 = _context["catch"](0);
             Spinner.stop();
             Log.ErrorLog('something went wrong!');
             console.error(_context.t1);
 
-          case 131:
+          case 145:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 126]]);
+    }, _callee, this, [[0, 140]]);
   }));
   return _handler.apply(this, arguments);
 }

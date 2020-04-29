@@ -26,6 +26,8 @@ function builder(yargs) {
     'nervos'.underline.yellow + ' - Multi-asset, store of value blockchain\n' +
     'kava'.underline.yellow + ' - Cross-chain CDP platform for leverage assets\n' +
     'zabo'.underline.yellow + ' - Zabo SDK provides convenient access to the Zabo API\n' +
+    'loom'.underline.yellow + ' - Loom network provides multichain interop platform for serious dapp developers\n' +
+    'witnet'.underline.yellow + ' - Witnet provides decentralized oracle network\n' + 
 		'\nRun ' + '\'kaizen plugins <command>\''.yellow + 
 		' to interact with plugins.\n'
 	);
