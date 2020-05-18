@@ -21,7 +21,7 @@
     "figlet": "^1.2.0",
     "fs-extra": "^8.0.0",
     "inquirer": "^7.0.0",
-    "ipfs-http-client": "^33.0.2",
+    "ipfs-http-client": "^44.1.0",
     "node-cmd": "^3.0.0",
     "progress": "^2.0.0",
     "prompt": "^1.0.0",
